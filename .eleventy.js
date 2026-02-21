@@ -2,6 +2,7 @@ module.exports = function (eleventyConfig) {
   // Copy static assets as-is
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
+  eleventyConfig.addPassthroughCopy("src/favicon.svg");
 
   return {
     dir: {
