@@ -163,10 +163,14 @@ async function handleFormSubmit(form) {
   if (btnLoading) btnLoading.hidden  = false;
 
   try {
-    const data     = new FormData(form);
+    const data     = Object.fromEntries(new FormData(form));
     const response = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      body: data
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(data)
     });
     const result = await response.json();
 
