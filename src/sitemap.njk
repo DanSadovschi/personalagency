@@ -1,0 +1,23 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for item in collections.all %}
+{%- if item.url and ("/web-design-" not in item.url) %}
+  <url>
+    <loc>https://web-orb.uk{{ item.url }}</loc>
+    <changefreq>{% if item.url == "/" %}weekly{% else %}monthly{% endif %}</changefreq>
+    <priority>{% if item.url == "/" %}1.0{% else %}0.8{% endif %}</priority>
+  </url>
+{%- endif %}
+{%- endfor %}
+{%- for city in cities %}
+  <url>
+    <loc>https://web-orb.uk/web-design-{{ city.slug }}/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+{%- endfor %}
+</urlset>
