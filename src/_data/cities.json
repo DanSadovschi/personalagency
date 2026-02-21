@@ -46,7 +46,141 @@
     "population": "25,000",
     "description": "Daventry is a market town in west Northamptonshire, surrounded by villages and rural businesses that often struggle to get noticed online.",
     "localDetails": "From Daventry town centre to the villages of Long Buckby, Weedon, and Kilsby — WebOrb builds websites that work for local trades and rural businesses."
+  },
+  {
+    "slug": "london",
+    "name": "London",
+    "county": "Greater London",
+    "population": "9,000,000",
+    "description": "London is the most competitive market in the UK. With millions of residents and thousands of trade businesses all fighting for the same customers, having a fast, professional website is no longer optional — it's essential.",
+    "localDetails": "Whether you operate in East London, South London, the suburbs, or the City — WebOrb builds websites that cut through the noise and get you found by local customers who are ready to hire."
+  },
+  {
+    "slug": "manchester",
+    "name": "Manchester",
+    "county": "Greater Manchester",
+    "population": "2,800,000",
+    "description": "Manchester is one of the UK's fastest-growing cities, with a booming construction, renovation, and trades sector fuelled by continuous development and a large residential population.",
+    "localDetails": "Covering Manchester city centre, Salford, Stockport, Trafford, and surrounding areas — WebOrb builds websites that help local tradespeople dominate Google search in their area."
+  },
+  {
+    "slug": "birmingham",
+    "name": "Birmingham",
+    "county": "West Midlands",
+    "population": "2,600,000",
+    "description": "Birmingham is the UK's second-largest city and one of the most active markets for trades businesses. With strong demand for home improvements, construction, and essential services, a professional website gives you the edge.",
+    "localDetails": "From Edgbaston and Moseley to Solihull and the Black Country — we build websites that rank on Google and bring in real enquiries from Birmingham customers."
+  },
+  {
+    "slug": "leeds",
+    "name": "Leeds",
+    "county": "West Yorkshire",
+    "population": "800,000",
+    "description": "Leeds is a thriving northern city with a large and growing housing market, making it a hotspot for trades businesses of all kinds — from plumbers and electricians to roofers and landscapers.",
+    "localDetails": "Serving Leeds city centre, Headingley, Roundhay, Morley, and the wider West Yorkshire area — WebOrb creates websites that put your business at the top of local search."
+  },
+  {
+    "slug": "bristol",
+    "name": "Bristol",
+    "county": "Avon",
+    "population": "470,000",
+    "description": "Bristol is one of the UK's most dynamic cities, with a strong culture of supporting independent businesses. Trades businesses here face plenty of competition, and a well-optimised website makes all the difference.",
+    "localDetails": "Whether you work in Clifton, Bedminster, Fishponds, or across the greater Bristol area — WebOrb builds websites that get you noticed and generate steady enquiries."
+  },
+  {
+    "slug": "sheffield",
+    "name": "Sheffield",
+    "county": "South Yorkshire",
+    "population": "570,000",
+    "description": "Sheffield has a proud trades heritage and a busy residential market. From home renovations to emergency call-outs, Sheffield customers are searching online for reliable local tradespeople.",
+    "localDetails": "Covering Sheffield city centre, Hillsborough, Ecclesall, Chapeltown, and the surrounding South Yorkshire towns — we build websites that make you the obvious choice."
+  },
+  {
+    "slug": "liverpool",
+    "name": "Liverpool",
+    "county": "Merseyside",
+    "population": "500,000",
+    "description": "Liverpool has a large and loyal local customer base with strong demand for trades services across home improvements, maintenance, and construction. A great website helps you stand out in a busy market.",
+    "localDetails": "From Liverpool city centre and Toxteth to Crosby, Aigburth, and the Wirral — WebOrb builds websites that rank locally and turn searches into real enquiries."
+  },
+  {
+    "slug": "newcastle",
+    "name": "Newcastle",
+    "county": "Tyne and Wear",
+    "population": "300,000",
+    "description": "Newcastle upon Tyne is a vibrant northern city with a strong sense of community and a growing demand for quality trades services. Local customers trust local businesses — and they find them online.",
+    "localDetails": "Covering Newcastle city centre, Gateshead, Jesmond, Gosforth, and the wider Tyne and Wear area — WebOrb builds websites that help your trade business get found and get hired."
+  },
+  {
+    "slug": "edinburgh",
+    "name": "Edinburgh",
+    "county": "City of Edinburgh",
+    "population": "530,000",
+    "description": "Edinburgh is Scotland's capital and one of the UK's most affluent cities. Homeowners and businesses in Edinburgh demand quality — and a professional website signals that you can deliver it.",
+    "localDetails": "Serving Morningside, Leith, Stockbridge, Portobello, and the wider Edinburgh area — we build websites that establish trust and generate consistent enquiries from local customers."
+  },
+  {
+    "slug": "glasgow",
+    "name": "Glasgow",
+    "county": "City of Glasgow",
+    "population": "630,000",
+    "description": "Glasgow is Scotland's largest city with a booming trades and construction sector. The city's ongoing regeneration and high population density create constant demand for tradespeople.",
+    "localDetails": "From the West End and Southside to the East End and suburbs like Rutherglen and Bearsden — WebOrb builds websites that help Glasgow tradespeople dominate local search."
+  },
+  {
+    "slug": "cardiff",
+    "name": "Cardiff",
+    "county": "South Glamorgan",
+    "population": "360,000",
+    "description": "Cardiff is Wales' capital city and its fastest-growing economy. With a large residential population and strong housing market, trades businesses in Cardiff need a strong online presence to keep up with demand.",
+    "localDetails": "Covering Cardiff city centre, Pontprennau, Roath, Canton, Penarth, and surrounding areas — WebOrb builds websites that get local tradespeople found on Google and win more jobs."
+  },
+  {
+    "slug": "leicester",
+    "name": "Leicester",
+    "county": "Leicestershire",
+    "population": "370,000",
+    "description": "Leicester is a diverse and growing city with a busy housing market and strong demand for home improvement and maintenance services across all trades.",
+    "localDetails": "Whether you work in the city centre, Oadby, Wigston, Hinckley, or the surrounding Leicestershire villages — WebOrb creates websites that bring in more local enquiries."
+  },
+  {
+    "slug": "nottingham",
+    "name": "Nottingham",
+    "county": "Nottinghamshire",
+    "population": "330,000",
+    "description": "Nottingham has a large student and residential population with strong demand for trades services — especially property maintenance, plumbing, and electrical work.",
+    "localDetails": "Serving Nottingham city centre, West Bridgford, Arnold, Beeston, and the wider Nottinghamshire area — WebOrb builds websites that rank on Google and drive real enquiries."
+  },
+  {
+    "slug": "coventry",
+    "name": "Coventry",
+    "county": "West Midlands",
+    "population": "370,000",
+    "description": "Coventry is a growing Midlands city with a diverse housing stock and steady demand for all trades services. With the right online presence, local tradespeople can capture customers across the entire city.",
+    "localDetails": "Covering Coventry city centre, Earlsdon, Binley, Coundon, and the wider West Midlands area — WebOrb builds websites designed to win you more local jobs."
+  },
+  {
+    "slug": "oxford",
+    "name": "Oxford",
+    "county": "Oxfordshire",
+    "population": "160,000",
+    "description": "Oxford's mix of historic properties, student lets, and affluent homeowners creates consistent demand for quality tradespeople. A professional website positions you as the trusted local expert.",
+    "localDetails": "Whether you work across Oxford city, Cowley, Headington, Witney, or the surrounding Oxfordshire villages — WebOrb builds websites that attract the customers you want."
+  },
+  {
+    "slug": "cambridge",
+    "name": "Cambridge",
+    "county": "Cambridgeshire",
+    "population": "130,000",
+    "description": "Cambridge is one of the UK's most affluent and fast-growing cities. With a high density of homeowners, landlords, and property investors, demand for quality tradespeople is consistently strong.",
+    "localDetails": "Serving Cambridge city centre, Chesterton, Cherry Hinton, Ely, and the wider Cambridgeshire area — WebOrb builds websites that help local trades attract better customers and win more jobs."
+  },
+  {
+    "slug": "southampton",
+    "name": "Southampton",
+    "county": "Hampshire",
+    "population": "260,000",
+    "description": "Southampton is a major port city with a large and diverse residential market. Homeowners and landlords here rely on local tradespeople — and they search for them online first.",
+    "localDetails": "Covering Southampton city centre, Shirley, Bitterne, Hedge End, and the wider Hampshire area — WebOrb builds websites that rank on Google and turn searches into real paying customers."
   }
-  
 ]
-
