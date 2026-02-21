@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "northampton",
+    "name": "Northampton",
+    "county": "Northamptonshire",
+    "population": "220,000",
+    "description": "Northampton is the county town of Northamptonshire and one of the fastest-growing cities in the UK. With a thriving mix of independent shops, trade businesses, and service providers, standing out online is more important than ever.",
+    "localDetails": "Whether you're based in Abington, Kingsthorpe, Delapre, or the town centre — WebOrb builds websites that get you found when local customers search."
+  },
+  {
+    "slug": "kettering",
+    "name": "Kettering",
+    "county": "Northamptonshire",
+    "population": "100,000",
+    "description": "Kettering is one of Northamptonshire's largest towns, with a strong base of trades businesses — from electricians and plumbers to builders and decorators.",
+    "localDetails": "Serving businesses across Kettering, Burton Latimer, Desborough, and Rothwell — WebOrb helps local trades get found online and win more jobs."
+  },
+  {
+    "slug": "corby",
+    "name": "Corby",
+    "county": "Northamptonshire",
+    "population": "70,000",
+    "description": "Corby is a fast-growing town in north Northamptonshire with a booming construction and trades sector. Local businesses need a strong online presence to keep up.",
+    "localDetails": "From Corby town centre to the surrounding villages — we build fast, professional websites that help your business rank on Google and win more local customers."
+  },
+  {
+    "slug": "wellingborough",
+    "name": "Wellingborough",
+    "county": "Northamptonshire",
+    "population": "50,000",
+    "description": "Wellingborough is a market town at the heart of Northamptonshire, home to many independent trades and service businesses looking to grow their local reach.",
+    "localDetails": "Covering Wellingborough, Earls Barton, Wollaston, and the surrounding villages — WebOrb builds websites that bring in more enquiries from local customers."
+  },
+  {
+    "slug": "rushden",
+    "name": "Rushden",
+    "county": "Northamptonshire",
+    "population": "30,000",
+    "description": "Rushden is a growing town on the Northamptonshire–Bedfordshire border, with a mix of established trades businesses and new local services.",
+    "localDetails": "Serving Rushden, Higham Ferrers, Irthlingborough, and nearby villages — we create websites that help local businesses get found on Google."
+  },
+  {
+    "slug": "daventry",
+    "name": "Daventry",
+    "county": "Northamptonshire",
+    "population": "25,000",
+    "description": "Daventry is a market town in west Northamptonshire, surrounded by villages and rural businesses that often struggle to get noticed online.",
+    "localDetails": "From Daventry town centre to the villages of Long Buckby, Weedon, and Kilsby — WebOrb builds websites that work for local trades and rural businesses."
+  }
+]
