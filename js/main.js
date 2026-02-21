@@ -177,12 +177,15 @@ async function handleFormSubmit(form) {
     } else {
       throw new Error(result.message || 'Submission failed');
     }
-  } catch {
+  } catch (err) {
     // Re-enable button so user can try again
     if (submitBtn)  { submitBtn.disabled = false; }
     if (btnText)    { btnText.hidden     = false; }
     if (btnLoading) { btnLoading.hidden  = true; }
-    alert('Something went wrong. Please email us directly at hello@web-orb.uk');
+    const apiMsg = err && err.message && !['Failed to fetch', 'Submission failed'].includes(err.message)
+      ? err.message
+      : null;
+    alert(apiMsg || 'Something went wrong. Please email us directly at hello@web-orb.uk');
   }
 }
 
