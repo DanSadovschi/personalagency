@@ -1730,6 +1730,7 @@ footer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  margin-top: 80px;
   margin-bottom: 40px;
 }
 
