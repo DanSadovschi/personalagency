@@ -185,3 +185,122 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     successMsg.hidden = false;
   });
 })();
+
+/* ── Testimonials Carousel ───────────────────────────────── */
+(function () {
+  const track   = document.getElementById('testimonials-track');
+  const dotsEl  = document.getElementById('t-dots');
+  const prevBtn = document.getElementById('t-prev');
+  const nextBtn = document.getElementById('t-next');
+  if (!track || !dotsEl || !prevBtn || !nextBtn) return;
+
+  const cards  = [...track.querySelectorAll('.testimonial-card')];
+  const total  = cards.length;
+  let current  = 0;
+  let perView  = calcPerView();
+  let autoTimer = null;
+
+  function calcPerView() {
+    if (window.innerWidth >= 900) return 3;
+    if (window.innerWidth >= 580) return 2;
+    return 1;
+  }
+
+  function maxIdx() { return Math.max(0, total - perView); }
+
+  function cardStride() {
+    if (!cards[0]) return 0;
+    return cards[0].offsetWidth + 24; // width + gap
+  }
+
+  function buildDots() {
+    dotsEl.innerHTML = '';
+    const pages = maxIdx() + 1;
+    for (let i = 0; i < pages; i++) {
+      const btn = document.createElement('button');
+      btn.setAttribute('aria-label', 'Slide ' + (i + 1));
+      btn.addEventListener('click', () => { stopAuto(); goTo(i); startAuto(); });
+      dotsEl.appendChild(btn);
+    }
+    updateDots();
+  }
+
+  function updateDots() {
+    [...dotsEl.querySelectorAll('button')].forEach((b, i) => {
+      b.classList.toggle('active', i === current);
+    });
+  }
+
+  function goTo(idx) {
+    current = Math.max(0, Math.min(idx, maxIdx()));
+    track.style.transform = `translateX(-${current * cardStride()}px)`;
+    updateDots();
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current >= maxIdx();
+  }
+
+  function next() { goTo(current >= maxIdx() ? 0 : current + 1); }
+  function prev() { goTo(current <= 0 ? maxIdx() : current - 1); }
+
+  function startAuto() { autoTimer = setInterval(next, 5000); }
+  function stopAuto()  { clearInterval(autoTimer); }
+
+  prevBtn.addEventListener('click', () => { stopAuto(); prev(); startAuto(); });
+  nextBtn.addEventListener('click', () => { stopAuto(); next(); startAuto(); });
+
+  // Pause on hover
+  const viewport = track.closest('.carousel-viewport');
+  viewport.addEventListener('mouseenter', stopAuto);
+  viewport.addEventListener('mouseleave', startAuto);
+
+  // Touch / swipe
+  let tx = 0;
+  track.addEventListener('touchstart', e => { tx = e.changedTouches[0].screenX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const diff = tx - e.changedTouches[0].screenX;
+    if (Math.abs(diff) > 48) { stopAuto(); diff > 0 ? next() : prev(); startAuto(); }
+  }, { passive: true });
+
+  // Resize
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      const pv = calcPerView();
+      if (pv !== perView) {
+        perView = pv;
+        current = 0;
+        buildDots();
+      }
+      goTo(current);
+    }, 120);
+  }, { passive: true });
+
+  // Init
+  buildDots();
+  goTo(0);
+  startAuto();
+})();
+
+/* ── Portfolio Filter ────────────────────────────────────── */
+(function () {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards      = document.querySelectorAll('#projects-grid .project-card');
+  if (!filterBtns.length || !cards.length) return;
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+
+      // Update active button
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Show / hide cards
+      cards.forEach(card => {
+        const match = filter === 'all' || card.dataset.trade === filter;
+        card.classList.toggle('hidden', !match);
+      });
+    });
+  });
+})();
