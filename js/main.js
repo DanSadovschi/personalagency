@@ -103,96 +103,80 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   counters.forEach(c => observer.observe(c));
 })();
 
-/* ── Form helpers ─────────────────────────────────────────── */
-function showFieldError(input, message) {
+/* ── Form ─────────────────────────────────────────────────── */
+function showFieldError(input, msg) {
   input.classList.add('error');
-  const errEl = input.closest('.form-group').querySelector('.field-error');
-  if (errEl) errEl.textContent = message;
+  const err = input.closest('.form-group').querySelector('.field-error');
+  if (err) err.textContent = msg;
 }
 
 function clearFieldError(input) {
   input.classList.remove('error');
-  const errEl = input.closest('.form-group').querySelector('.field-error');
-  if (errEl) errEl.textContent = '';
-}
-
-function isValidEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const err = input.closest('.form-group').querySelector('.field-error');
+  if (err) err.textContent = '';
 }
 
 function validateForm(form) {
-  let valid = true;
+  let ok = true;
+  const name  = form.querySelector('[name="name"]');
+  const trade = form.querySelector('[name="trade"]');
+  const email = form.querySelector('[name="email"]');
 
-  const nameEl  = form.querySelector('[name="name"]');
-  const tradeEl = form.querySelector('[name="trade"]');
-  const emailEl = form.querySelector('[name="email"]');
+  [name, trade, email].forEach(el => el && clearFieldError(el));
 
-  [nameEl, tradeEl, emailEl].forEach(el => { if (el) clearFieldError(el); });
-
-  if (nameEl && !nameEl.value.trim()) {
-    showFieldError(nameEl, 'Please enter your name.');
-    valid = false;
+  if (name && !name.value.trim()) {
+    showFieldError(name, 'Please enter your name.');
+    ok = false;
   }
-  if (tradeEl && !tradeEl.value) {
-    showFieldError(tradeEl, 'Please select your trade.');
-    valid = false;
+  if (trade && !trade.value) {
+    showFieldError(trade, 'Please select your trade.');
+    ok = false;
   }
-  if (emailEl) {
-    if (!emailEl.value.trim()) {
-      showFieldError(emailEl, 'Please enter your email address.');
-      valid = false;
-    } else if (!isValidEmail(emailEl.value.trim())) {
-      showFieldError(emailEl, 'Please enter a valid email address.');
-      valid = false;
+  if (email) {
+    if (!email.value.trim()) {
+      showFieldError(email, 'Please enter your email.');
+      ok = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+      showFieldError(email, 'Please enter a valid email.');
+      ok = false;
     }
   }
-
-  return valid;
+  return ok;
 }
 
-/* ── Web3Forms submission handler ────────────────────────── */
-async function handleFormSubmit(form) {
-  const submitBtn  = form.querySelector('.form-submit');
-  const btnText    = form.querySelector('.btn-text');
-  const btnLoading = form.querySelector('.btn-loading');
-  const successMsg = form.querySelector('.form-success');
+async function submitToWeb3Forms(form) {
+  const btn     = form.querySelector('.form-submit');
+  const txtSpan = form.querySelector('.btn-text');
+  const ldSpan  = form.querySelector('.btn-loading');
+  const success = form.querySelector('.form-success');
 
-  // Show loading
-  if (submitBtn)  submitBtn.disabled = true;
-  if (btnText)    btnText.hidden     = true;
-  if (btnLoading) btnLoading.hidden  = false;
+  btn.disabled   = true;
+  txtSpan.hidden = true;
+  ldSpan.hidden  = false;
 
   try {
-    const data     = Object.fromEntries(new FormData(form));
-    const response = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(data)
-    });
-    let result;
-    try {
-      result = await response.json();
-    } catch {
-      throw new Error('HTTP ' + response.status + ' — could not parse response');
-    }
-    console.log('Web3Forms response:', result);
+    const payload = Object.fromEntries(new FormData(form));
 
-    if (result.success) {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method : 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body   : JSON.stringify(payload)
+    });
+
+    const json = await res.json();
+
+    if (json.success) {
       form.reset();
-      if (submitBtn)  submitBtn.hidden  = true;
-      if (successMsg) successMsg.hidden = false;
+      btn.hidden     = true;
+      success.hidden = false;
     } else {
-      throw new Error(result.message || 'HTTP ' + response.status);
+      throw new Error(json.message || 'Submission failed');
     }
   } catch (err) {
-    // Re-enable button so user can try again
-    if (submitBtn)  { submitBtn.disabled = false; }
-    if (btnText)    { btnText.hidden     = false; }
-    if (btnLoading) { btnLoading.hidden  = true; }
-    alert(err.message || 'Something went wrong. Please email us directly at hello@web-orb.uk');
+    btn.disabled   = false;
+    txtSpan.hidden = false;
+    ldSpan.hidden  = true;
+    alert(err.message || 'Something went wrong — please email hello@web-orb.uk');
   }
 }
 
@@ -201,7 +185,6 @@ async function handleFormSubmit(form) {
   const form = document.getElementById(id);
   if (!form) return;
 
-  // Live clear errors
   form.querySelectorAll('input, select, textarea').forEach(el => {
     el.addEventListener('input',  () => clearFieldError(el));
     el.addEventListener('change', () => clearFieldError(el));
@@ -209,7 +192,7 @@ async function handleFormSubmit(form) {
 
   form.addEventListener('submit', e => {
     e.preventDefault();
-    if (validateForm(form)) handleFormSubmit(form);
+    if (validateForm(form)) submitToWeb3Forms(form);
   });
 });
 
