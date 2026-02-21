@@ -299,6 +299,34 @@ async function handleFormSubmit(form) {
   startAuto();
 })();
 
+/* ── FAQ Accordion ───────────────────────────────────────── */
+(function () {
+  const items = document.querySelectorAll('.faq-item');
+  if (!items.length) return;
+
+  items.forEach(item => {
+    const btn    = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    if (!btn || !answer) return;
+
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      // Close all
+      items.forEach(i => {
+        i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        i.querySelector('.faq-answer').classList.remove('open');
+      });
+
+      // Open clicked if it was closed
+      if (!isOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        answer.classList.add('open');
+      }
+    });
+  });
+})();
+
 /* ── Portfolio Filter ────────────────────────────────────── */
 (function () {
   const filterBtns = document.querySelectorAll('.filter-btn');
