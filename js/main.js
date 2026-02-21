@@ -103,88 +103,105 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   counters.forEach(c => observer.observe(c));
 })();
 
-/* ── Contact Form Validation ─────────────────────────────── */
-(function () {
-  const form = document.getElementById('contact-form');
-  if (!form) return;
+/* ── Form helpers ─────────────────────────────────────────── */
+function showFieldError(input, message) {
+  input.classList.add('error');
+  const errEl = input.closest('.form-group').querySelector('.field-error');
+  if (errEl) errEl.textContent = message;
+}
 
+function clearFieldError(input) {
+  input.classList.remove('error');
+  const errEl = input.closest('.form-group').querySelector('.field-error');
+  if (errEl) errEl.textContent = '';
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function validateForm(form) {
+  let valid = true;
+
+  const nameEl  = form.querySelector('[name="name"]');
+  const tradeEl = form.querySelector('[name="trade"]');
+  const emailEl = form.querySelector('[name="email"]');
+
+  [nameEl, tradeEl, emailEl].forEach(el => { if (el) clearFieldError(el); });
+
+  if (nameEl && !nameEl.value.trim()) {
+    showFieldError(nameEl, 'Please enter your name.');
+    valid = false;
+  }
+  if (tradeEl && !tradeEl.value) {
+    showFieldError(tradeEl, 'Please select your trade.');
+    valid = false;
+  }
+  if (emailEl) {
+    if (!emailEl.value.trim()) {
+      showFieldError(emailEl, 'Please enter your email address.');
+      valid = false;
+    } else if (!isValidEmail(emailEl.value.trim())) {
+      showFieldError(emailEl, 'Please enter a valid email address.');
+      valid = false;
+    }
+  }
+
+  return valid;
+}
+
+/* ── Web3Forms submission handler ────────────────────────── */
+async function handleFormSubmit(form) {
   const submitBtn  = form.querySelector('.form-submit');
   const btnText    = form.querySelector('.btn-text');
   const btnLoading = form.querySelector('.btn-loading');
   const successMsg = form.querySelector('.form-success');
 
-  function showError(input, message) {
-    input.classList.add('error');
-    const errEl = input.closest('.form-group').querySelector('.field-error');
-    if (errEl) errEl.textContent = message;
-  }
+  // Show loading
+  if (submitBtn)  submitBtn.disabled = true;
+  if (btnText)    btnText.hidden     = true;
+  if (btnLoading) btnLoading.hidden  = false;
 
-  function clearError(input) {
-    input.classList.remove('error');
-    const errEl = input.closest('.form-group').querySelector('.field-error');
-    if (errEl) errEl.textContent = '';
-  }
+  try {
+    const data     = new FormData(form);
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: data
+    });
+    const result = await response.json();
 
-  function validateEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  }
-
-  function validate() {
-    let valid = true;
-
-    const name  = form.querySelector('#name');
-    const trade = form.querySelector('#trade');
-    const email = form.querySelector('#email');
-
-    clearError(name);
-    clearError(trade);
-    clearError(email);
-
-    if (!name.value.trim()) {
-      showError(name, 'Please enter your name.');
-      valid = false;
+    if (result.success) {
+      form.reset();
+      if (submitBtn)  submitBtn.hidden  = true;
+      if (successMsg) successMsg.hidden = false;
+    } else {
+      throw new Error(result.message || 'Submission failed');
     }
-
-    if (!trade.value) {
-      showError(trade, 'Please select your trade.');
-      valid = false;
-    }
-
-    if (!email.value.trim()) {
-      showError(email, 'Please enter your email address.');
-      valid = false;
-    } else if (!validateEmail(email.value.trim())) {
-      showError(email, 'Please enter a valid email address.');
-      valid = false;
-    }
-
-    return valid;
+  } catch {
+    // Re-enable button so user can try again
+    if (submitBtn)  { submitBtn.disabled = false; }
+    if (btnText)    { btnText.hidden     = false; }
+    if (btnLoading) { btnLoading.hidden  = true; }
+    alert('Something went wrong. Please email us directly at hello@web-orb.uk');
   }
+}
 
-  // Clear errors on input
+/* ── Wire up all forms on the page ───────────────────────── */
+['contact-form', 'founding-form'].forEach(id => {
+  const form = document.getElementById(id);
+  if (!form) return;
+
+  // Live clear errors
   form.querySelectorAll('input, select, textarea').forEach(el => {
-    el.addEventListener('input', () => clearError(el));
-    el.addEventListener('change', () => clearError(el));
+    el.addEventListener('input',  () => clearFieldError(el));
+    el.addEventListener('change', () => clearFieldError(el));
   });
 
-  form.addEventListener('submit', async e => {
+  form.addEventListener('submit', e => {
     e.preventDefault();
-    if (!validate()) return;
-
-    // Show loading state
-    submitBtn.disabled = true;
-    btnText.hidden     = true;
-    btnLoading.hidden  = false;
-
-    // Simulate submission (replace with real endpoint)
-    await new Promise(resolve => setTimeout(resolve, 1200));
-
-    // Show success
-    form.reset();
-    submitBtn.hidden  = true;
-    successMsg.hidden = false;
+    if (validateForm(form)) handleFormSubmit(form);
   });
-})();
+});
 
 /* ── Testimonials Carousel ───────────────────────────────── */
 (function () {
