@@ -172,24 +172,27 @@ async function handleFormSubmit(form) {
       },
       body: JSON.stringify(data)
     });
-    const result = await response.json();
+    let result;
+    try {
+      result = await response.json();
+    } catch {
+      throw new Error('HTTP ' + response.status + ' — could not parse response');
+    }
+    console.log('Web3Forms response:', result);
 
     if (result.success) {
       form.reset();
       if (submitBtn)  submitBtn.hidden  = true;
       if (successMsg) successMsg.hidden = false;
     } else {
-      throw new Error(result.message || 'Submission failed');
+      throw new Error(result.message || 'HTTP ' + response.status);
     }
   } catch (err) {
     // Re-enable button so user can try again
     if (submitBtn)  { submitBtn.disabled = false; }
     if (btnText)    { btnText.hidden     = false; }
     if (btnLoading) { btnLoading.hidden  = true; }
-    const apiMsg = err && err.message && !['Failed to fetch', 'Submission failed'].includes(err.message)
-      ? err.message
-      : null;
-    alert(apiMsg || 'Something went wrong. Please email us directly at hello@web-orb.uk');
+    alert(err.message || 'Something went wrong. Please email us directly at hello@web-orb.uk');
   }
 }
 
