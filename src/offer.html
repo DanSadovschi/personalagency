@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Get a professional landing page for your trade or local business — built and live online in 5 days. Only £199. Limited spots available." />
+  <title>£199 Landing Page — WebOrb</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <style>
+    /* ── Offer page overrides & additions ── */
+
+    .offer-header-wrap {
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .offer-header {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Hero */
+    .offer-hero { padding: 80px 0 96px; text-align: center; }
+
+    .offer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(52, 201, 122, 0.1);
+      border: 1px solid rgba(52, 201, 122, 0.3);
+      color: var(--green);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 36px;
+    }
+    .offer-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: blink 2s infinite;
+      flex-shrink: 0;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.35} }
+
+    .offer-hero h1 { max-width: 860px; margin: 0 auto 24px; }
+
+    .offer-hero .hero-sub {
+      font-size: 1.15rem;
+      max-width: 560px;
+      margin: 0 auto 40px;
+      line-height: 1.75;
+    }
+
+    .price-block {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius-lg);
+      padding: 20px 32px;
+      margin-bottom: 44px;
+    }
+    .price-was {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text-dim);
+      text-decoration: line-through;
+    }
+    .price-divider {
+      width: 1px; height: 40px;
+      background: var(--border-mid);
+    }
+    .price-now {
+      font-size: 3.25rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: var(--text);
+      line-height: 1;
+    }
+    .price-detail {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-wa {
+      background: #22c55e;
+      color: #fff;
+    }
+    .btn-wa:hover {
+      background: #16a34a;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 28px rgba(34,197,94,0.3);
+    }
+    .btn-wa svg { flex-shrink: 0; }
+
+    /* Includes */
+    .includes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .include-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 22px 20px;
+      background: var(--bg-raised);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: border-color var(--transition);
+    }
+    .include-item:hover { border-color: var(--border-mid); }
+    .include-check {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: rgba(52,201,122,0.12);
+      border: 1px solid rgba(52,201,122,0.25);
+      color: var(--green);
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .include-item h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 5px;
+    }
+    .include-item p { font-size: 0.85rem; line-height: 1.55; margin: 0; }
+
+    .not-included-note {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      background: var(--bg-surface);
+    }
+    .not-included-note p { font-size: 0.875rem; margin: 0; }
+    .not-included-note strong { color: var(--text-dim); }
+
+    /* Steps */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .step-card {
+      text-align: center;
+      padding: 44px 28px 36px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+    }
+    .step-num {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: rgba(79,142,247,0.1);
+      border: 1px solid rgba(79,142,247,0.25);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 22px;
+    }
+    .step-card h3 { font-size: 1.1rem; color: var(--text); margin-bottom: 12px; }
+    .step-card p { font-size: 0.875rem; line-height: 1.65; }
+
+    /* Claim form */
+    .claim-wrap {
+      max-width: 540px;
+      margin: 0 auto;
+    }
+    .claim-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .claim-form label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 7px;
+    }
+    .claim-form input {
+      width: 100%;
+      padding: 14px 16px;
+      background: var(--bg-raised);
+      border: 1px solid var(--border-mid);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .claim-form input:focus { border-color: var(--accent); }
+    .claim-form input::placeholder { color: var(--text-dim); }
+
+    .claim-submit {
+      width: 100%;
+      justify-content: center;
+      padding: 18px;
+      font-size: 1rem;
+      margin-top: 4px;
+    }
+
+    .or-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: var(--text-dim);
+      font-size: 0.82rem;
+      margin: 4px 0;
+    }
+    .or-divider::before, .or-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .btn-wa-full {
+      width: 100%;
+      justify-content: center;
+      padding: 16px;
+    }
+    .claim-note {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      margin-top: 8px;
+    }
+
+    .form-msg-success {
+      font-size: 0.9rem;
+      color: var(--green);
+      padding: 14px 18px;
+      background: rgba(52,201,122,0.08);
+      border: 1px solid rgba(52,201,122,0.2);
+      border-radius: 8px;
+      text-align: center;
+    }
+    .form-msg-error {
+      font-size: 0.875rem;
+      color: #e05252;
+      text-align: center;
+    }
+
+    /* FAQ wrapper for this page */
+    .offer-faq {
+      max-width: 680px;
+      margin: 0 auto;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .offer-faq .faq-item { border-bottom: 1px solid var(--border); }
+    .offer-faq .faq-item:last-child { border-bottom: none; }
+
+    /* Slim footer */
+    .offer-footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 0;
+      text-align: center;
+    }
+    .offer-footer p {
+      font-size: 0.875rem;
+      margin-top: 14px;
+      line-height: 1.7;
+    }
+    .offer-footer a { color: var(--accent); }
+    .offer-footer .legal { font-size: 0.78rem; color: var(--text-dim); margin-top: 6px; }
+    .offer-footer .legal a { color: inherit; }
+    .offer-footer .legal a:hover { color: var(--text-muted); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .includes-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .price-now { font-size: 2.5rem; }
+      .offer-hero { padding: 56px 0 72px; }
+      .price-block { flex-direction: column; gap: 8px; padding: 20px 24px; }
+      .price-divider { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <div class="offer-header-wrap">
+    <div class="offer-header">
+      <a href="/" class="logo">Web<span>Orb</span><span class="dot">·</span></a>
+      <a href="tel:+447594517540" class="btn btn-sm btn-outline">07594 517 540</a>
+    </div>
+  </div>
+
+  <!-- ── Hero ── -->
+  <section class="offer-hero">
+    <div class="container">
+      <div class="offer-badge">Only 8 spots left this month</div>
+      <h1>Your business online.<br class="br-lg" /><span class="accent">£199.</span> Live in 5 days.</h1>
+      <p class="hero-sub">We design, write, and launch a professional landing page for your trade or local business. No technical knowledge needed. No long waits. No stress.</p>
+
+      <div class="price-block">
+        <span class="price-was">£799</span>
+        <div class="price-divider"></div>
+        <span class="price-now">£199</span>
+        <span class="price-detail">one-off payment<br />no monthly fees</span>
+      </div>
+
+      <div class="hero-ctas">
+        <a href="#claim" class="btn btn-lg">Claim Your Spot →</a>
+        <a href="https://wa.me/447594517540?text=Hi%2C%20I%27m%20interested%20in%20the%20%C2%A3199%20landing%20page%20offer" target="_blank" rel="noopener" class="btn btn-lg btn-wa">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── What You Get ── -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">What's included</p>
+        <h2>Everything you need.<br class="br-lg" />Nothing you don't.</h2>
+      </div>
+
+      <div class="includes-grid">
+        <div class="include-item reveal">
+          <div class="include-check">✓</div>
+          <div>
+            <h4>Hero section</h4>
+            <p>Bold headline, your service, your area. The first thing visitors see — designed to make them stay and call.</p>
+          </div>
+        </div>
+        <div class="include-item reveal">
+          <div class="include-check">✓</div>
+          <div>
+            <h4>Services section</h4>
+            <p>Clear breakdown of what you do, written professionally. Customers know immediately if you're the right fit.</p>
+          </div>
+        </div>
+        <div class="include-item reveal">
+          <div class="include-check">✓</div>
+          <div>
+            <h4>About / trust section</h4>
+            <p>A short "about you" that builds credibility — years of experience, area covered, what makes you different.</p>
+          </div>
+        </div>
+        <div class="include-item reveal">
+          <div class="include-check">✓</div>
+          <div>
+            <h4>Social proof</h4>
+            <p>2–3 customer reviews or trust indicators. A few words from a happy client changes everything.</p>
+          </div>
+        </div>
+        <div class="include-item reveal">
+          <div class="include-check">✓</div>
+          <div>
+            <h4>Contact form + click-to-call</h4>
+            <p>A working contact form and a big, tappable phone number so customers can reach you in one tap.</p>
+          </div>
+        </div>
+        <div class="include-item reveal">
+          <div class="include-check">✓</div>
+          <div>
+            <h4>Mobile-optimised & live online</h4>
+            <p>Looks sharp on every device. We handle hosting and launch — you get a real URL you can share instantly.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="not-included-note reveal">
+        <p><strong>Not included:</strong> multiple pages, Local SEO campaign, Google Ads, Google Business Profile setup. These are available as upgrades — we'll walk you through the options after your page is live.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── How It Works ── -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header" style="text-align:center">
+        <p class="section-eyebrow">The process</p>
+        <h2>Three steps to online</h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card reveal">
+          <div class="step-num">1</div>
+          <h3>Fill in the form</h3>
+          <p>Tell us your name, business, and how to reach you. Takes 60 seconds. No payment needed upfront.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-num">2</div>
+          <h3>Quick call with us</h3>
+          <p>We'll ring you for a 15-minute call. We write all the copy — you just answer a few questions.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-num">3</div>
+          <h3>Your page goes live</h3>
+          <p>We build, review with you, and launch. Your site is live on the internet within 5 working days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Claim Form ── -->
+  <section id="claim" class="section section-dark">
+    <div class="container">
+      <div class="section-header" style="text-align:center">
+        <p class="section-eyebrow">Limited spots</p>
+        <h2>Claim your spot</h2>
+        <p style="font-size:1.05rem;max-width:440px;margin:16px auto 0">We limit the number of projects each month to ensure every client gets our full attention.</p>
+      </div>
+
+      <div class="claim-wrap">
+        <form id="offer-form" class="claim-form" novalidate>
+          <input type="hidden" name="access_key" value="f62a219f-a1b0-48cb-b607-fb887e18d0a4" />
+          <input type="hidden" name="subject" value="£199 Landing Page — New Lead" />
+          <input type="hidden" name="redirect" value="false" />
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <div>
+            <label for="of-name">Your name</label>
+            <input id="of-name" name="name" type="text" placeholder="John Smith" autocomplete="name" required />
+          </div>
+          <div>
+            <label for="of-biz">Your business / trade</label>
+            <input id="of-biz" name="business" type="text" placeholder="e.g. Electrician, Plumber, Builder…" required />
+          </div>
+          <div>
+            <label for="of-phone">Phone number</label>
+            <input id="of-phone" name="phone" type="tel" placeholder="07700 000 000" autocomplete="tel" required />
+          </div>
+          <div>
+            <label for="of-email">Email address</label>
+            <input id="of-email" name="email" type="email" placeholder="john@example.com" autocomplete="email" required />
+          </div>
+
+          <button type="submit" class="btn btn-lg claim-submit">
+            <span class="btn-text">Claim My Spot →</span>
+            <span class="btn-loading" hidden>Sending…</span>
+          </button>
+          <div id="offer-success" class="form-msg-success" hidden>✓ Done! We'll be in touch within a few hours to book your quick call.</div>
+          <div id="offer-error" class="form-msg-error" hidden></div>
+        </form>
+
+        <div class="or-divider">or</div>
+
+        <a href="https://wa.me/447594517540?text=Hi%2C%20I%27m%20interested%20in%20the%20%C2%A3199%20landing%20page%20offer" target="_blank" rel="noopener" class="btn btn-lg btn-wa btn-wa-full">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Message us on WhatsApp
+        </a>
+
+        <p class="claim-note">No payment required now. We confirm everything on the call before charging.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header" style="text-align:center">
+        <p class="section-eyebrow">Questions</p>
+        <h2>Common questions</h2>
+      </div>
+      <div class="offer-faq">
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            Is £199 really all I pay?
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. £199 covers design, copywriting, development, and getting your page live online. No hidden fees. Hosting for the first year is included. After that, it's a small annual cost we'll be upfront about before you sign anything.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            What do I need to provide?
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-answer">
+            <p>Very little. A 15-minute phone call to tell us about your business, a few photos if you have them (not essential — we can source suitable images), and your basic contact details. We write all the copy. You don't touch a keyboard.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            Can I upgrade to a full website later?
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely — and many clients do. The £199 landing page is a great starting point. When you're ready to add more pages, local SEO, or Google Ads, we'll build on what's already there and apply your investment towards the upgrade.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            How is this different from a DIY website builder?
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-answer">
+            <p>A website builder takes hours to learn, gives you a generic template, and the writing is all on you. We give you a professionally written, custom-designed page built by people who've been doing this for 10+ years — and it's live in 5 days without you lifting a finger.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="offer-footer">
+    <div class="container">
+      <a href="/" class="logo">Web<span>Orb</span><span class="dot">·</span></a>
+      <p>
+        Questions? <a href="mailto:hello@web-orb.uk">hello@web-orb.uk</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="tel:+447594517540">07594 517 540</a>
+      </p>
+      <p class="legal">
+        <a href="/privacy-policy/">Privacy Policy</a>&nbsp;·&nbsp;<a href="/terms/">Terms</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        // Close all
+        document.querySelectorAll('.faq-question').forEach(b => {
+          b.setAttribute('aria-expanded', 'false');
+          b.nextElementSibling.classList.remove('open');
+        });
+        // Open this one if it was closed
+        if (!isOpen) {
+          btn.setAttribute('aria-expanded', 'true');
+          btn.nextElementSibling.classList.add('open');
+        }
+      });
+    });
+
+    // Form submission
+    const offerForm = document.getElementById('offer-form');
+    const successEl = document.getElementById('offer-success');
+    const errorEl = document.getElementById('offer-error');
+
+    offerForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      const btn = offerForm.querySelector('[type="submit"]');
+      const btnText = btn.querySelector('.btn-text');
+      const btnLoading = btn.querySelector('.btn-loading');
+
+      btnText.hidden = true;
+      btnLoading.hidden = false;
+      btn.disabled = true;
+      successEl.hidden = true;
+      errorEl.hidden = true;
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: new FormData(offerForm)
+        });
+        const result = await res.json();
+        if (result.success) {
+          offerForm.reset();
+          successEl.hidden = false;
+          successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          throw new Error(result.message || 'Submission failed');
+        }
+      } catch {
+        errorEl.textContent = 'Something went wrong — please WhatsApp or email us directly.';
+        errorEl.hidden = false;
+      } finally {
+        btnText.hidden = false;
+        btnLoading.hidden = true;
+        btn.disabled = false;
+      }
+    });
+  </script>
+
+</body>
+</html>
