@@ -620,9 +620,7 @@
         });
         const result = await res.json();
         if (result.success) {
-          offerForm.reset();
-          successEl.hidden = false;
-          successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          window.location.href = '/thank-you/';
         } else {
           throw new Error(result.message || 'Submission failed');
         }
