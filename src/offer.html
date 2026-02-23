@@ -246,6 +246,8 @@
     }
     .claim-form input:focus { border-color: var(--accent); }
     .claim-form input::placeholder { color: var(--text-dim); }
+    .claim-form input.input-error { border-color: #e05252; }
+    .claim-form input.input-error:focus { border-color: #e05252; }
 
     .claim-submit {
       width: 100%;
@@ -608,6 +610,23 @@
       const btn = offerForm.querySelector('[type="submit"]');
       const btnText = btn.querySelector('.btn-text');
       const btnLoading = btn.querySelector('.btn-loading');
+
+      // Validate required fields
+      const requiredFields = offerForm.querySelectorAll('input[required]');
+      let valid = true;
+      requiredFields.forEach(field => {
+        field.classList.remove('input-error');
+        if (!field.value.trim()) {
+          field.classList.add('input-error');
+          valid = false;
+        }
+      });
+      if (!valid) {
+        errorEl.textContent = 'Please fill in all fields before submitting.';
+        errorEl.hidden = false;
+        offerForm.querySelector('.input-error').focus();
+        return;
+      }
 
       btnText.hidden = true;
       btnLoading.hidden = false;
