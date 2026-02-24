@@ -28,7 +28,7 @@
       justify-content: space-between;
     }
 
-    /* Hero */
+    /* ── Hero ── */
     .offer-hero { padding: 80px 0 96px; text-align: center; }
 
     .offer-badge {
@@ -73,6 +73,62 @@
       flex-wrap: wrap;
     }
 
+    /* ── Trust strip ── */
+    .trust-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+      margin-top: 32px;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 0 20px;
+    }
+    .trust-item:not(:last-child) {
+      border-right: 1px solid var(--border-mid);
+    }
+    .trust-icon {
+      width: 16px; height: 16px;
+      color: var(--green);
+      flex-shrink: 0;
+    }
+
+    /* ── Urgency bar ── */
+    .urgency-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+    .urgency-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+    .urgency-label strong { color: var(--text); }
+    .urgency-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .urgency-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--border-mid);
+    }
+    .urgency-dot.taken {
+      background: var(--green);
+    }
+
+    /* ── WA button ── */
     .btn-wa {
       background: #22c55e;
       color: #fff;
@@ -84,7 +140,7 @@
     }
     .btn-wa svg { flex-shrink: 0; }
 
-    /* Includes */
+    /* ── Includes ── */
     .includes-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -124,7 +180,173 @@
     }
     .include-item p { font-size: 0.85rem; line-height: 1.55; margin: 0; }
 
-    /* Steps */
+    /* ── Project result cards ── */
+    .result-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .result-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+    .result-card:hover {
+      border-color: var(--border-mid);
+      transform: translateY(-3px);
+    }
+    .result-card-top {
+      height: 6px;
+    }
+    .result-card-body {
+      padding: 28px 28px 32px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .result-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .result-sector {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .result-location {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+    .result-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .result-metric-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 14px;
+      padding: 14px 16px;
+      background: var(--bg-raised);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .result-metric-val {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .result-metric-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+    .result-card p {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin: 0 0 18px;
+      flex: 1;
+    }
+    .result-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+    }
+    .result-tags span {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: var(--bg-raised);
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+    }
+
+    /* ── Mid-page CTA strip ── */
+    .mid-cta {
+      padding: 48px 0;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-surface);
+    }
+    .mid-cta p {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .mid-cta .sub {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      font-weight: 400;
+      margin-bottom: 0;
+      margin-top: 14px;
+    }
+
+    /* ── Testimonials ── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testi-card {
+      padding: 32px 28px;
+      background: var(--bg-raised);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .testi-stars {
+      display: flex;
+      gap: 3px;
+    }
+    .testi-stars span {
+      color: #f59e0b;
+      font-size: 0.95rem;
+    }
+    .testi-quote {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: var(--text);
+      font-style: italic;
+      margin: 0;
+      flex: 1;
+    }
+    .testi-author {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .testi-name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .testi-biz {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+
+    /* ── Steps ── */
     .steps-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -153,7 +375,7 @@
     .step-card h3 { font-size: 1.1rem; color: var(--text); margin-bottom: 12px; }
     .step-card p  { font-size: 0.875rem; line-height: 1.65; }
 
-    /* What comes next — upsell */
+    /* ── What comes next — upsell ── */
     .upsell-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -190,16 +412,7 @@
       line-height: 1.65;
     }
 
-    /* Our Work — project cards (reusing existing CSS) */
-    .work-section-note {
-      font-size: 0.85rem;
-      color: var(--text-dim);
-      text-align: center;
-      margin-top: -48px;
-      margin-bottom: 56px;
-    }
-
-    /* Claim form */
+    /* ── Claim form ── */
     .claim-wrap {
       max-width: 540px;
       margin: 0 auto;
@@ -282,7 +495,7 @@
       text-align: center;
     }
 
-    /* FAQ wrapper */
+    /* ── FAQ ── */
     .offer-faq {
       max-width: 680px;
       margin: 0 auto;
@@ -293,7 +506,7 @@
     .offer-faq .faq-item { border-bottom: 1px solid var(--border); }
     .offer-faq .faq-item:last-child { border-bottom: none; }
 
-    /* Footer */
+    /* ── Footer ── */
     .offer-footer {
       border-top: 1px solid var(--border);
       padding: 36px 0;
@@ -309,17 +522,23 @@
     .offer-footer .legal a { color: inherit; }
     .offer-footer .legal a:hover { color: var(--text-muted); }
 
-    /* Responsive */
+    /* ── Responsive ── */
     @media (max-width: 900px) {
-      .upsell-grid { grid-template-columns: 1fr 1fr; }
+      .upsell-grid         { grid-template-columns: 1fr 1fr; }
+      .result-cards-grid   { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid   { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
-      .includes-grid { grid-template-columns: 1fr; }
-      .steps-grid    { grid-template-columns: 1fr; }
-      .offer-hero    { padding: 56px 0 72px; }
+      .includes-grid      { grid-template-columns: 1fr; }
+      .steps-grid         { grid-template-columns: 1fr; }
+      .offer-hero         { padding: 56px 0 72px; }
+      .trust-strip        { gap: 8px 0; }
+      .trust-item         { border-right: none; padding: 4px 14px; }
     }
     @media (max-width: 640px) {
-      .upsell-grid { grid-template-columns: 1fr; }
+      .upsell-grid         { grid-template-columns: 1fr; }
+      .result-cards-grid   { grid-template-columns: 1fr; }
+      .testimonials-grid   { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -336,7 +555,19 @@
   <!-- ── Hero ── -->
   <section class="offer-hero">
     <div class="container">
-      <div class="offer-badge">Limited spots — 5 available this month</div>
+
+      <!-- Urgency -->
+      <div class="urgency-bar">
+        <div class="urgency-dots">
+          <div class="urgency-dot taken"></div>
+          <div class="urgency-dot taken"></div>
+          <div class="urgency-dot taken"></div>
+          <div class="urgency-dot"></div>
+          <div class="urgency-dot"></div>
+        </div>
+        <p class="urgency-label"><strong>3 of 5 spots</strong> claimed this month</p>
+      </div>
+
       <h1>Your trade business,<br class="br-lg" />online — <span class="accent">on us.</span></h1>
       <p class="hero-sub">We design and launch a professional landing page for your trade or local business at no cost to you. No templates. No jargon. A real site, live in 5 days.</p>
 
@@ -347,6 +578,27 @@
           WhatsApp Us
         </a>
       </div>
+
+      <!-- Trust strip -->
+      <div class="trust-strip">
+        <div class="trust-item">
+          <svg class="trust-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1l1.8 3.6L14 5.6l-3 2.9.7 4.1L8 10.5l-3.7 2.1.7-4.1-3-2.9 4.2-.6z"/></svg>
+          No payment, ever
+        </div>
+        <div class="trust-item">
+          <svg class="trust-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5v4l2.5 1.5"/></svg>
+          Live in 5 days
+        </div>
+        <div class="trust-item">
+          <svg class="trust-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="3" width="13" height="10" rx="1.5"/><path d="M5 3V2M11 3V2M1.5 7h13"/></svg>
+          Built by hand, not a template
+        </div>
+        <div class="trust-item">
+          <svg class="trust-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5 6.5-7"/></svg>
+          Yours to keep
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -410,229 +662,73 @@
     <div class="container">
       <div class="section-header" style="text-align:center">
         <p class="section-eyebrow">Our work</p>
-        <h2>Sites we've built<br class="br-lg" />for UK tradespeople.</h2>
+        <h2>Real businesses.<br class="br-lg" />Real results.</h2>
       </div>
 
-      <div class="projects-grid">
+      <div class="result-cards-grid">
 
-        <!-- Card 1 — Electrician -->
-        <div class="project-card reveal">
-          <div class="project-mockup">
-            <div class="mock-bar">
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-              <div class="mock-url"></div>
-            </div>
-            <div class="mock-body">
-              <div class="mock-hero" style="--pc:#4F8EF7"></div>
-              <div class="mock-content">
-                <div class="mock-col"></div>
-                <div class="mock-col"></div>
-                <div class="mock-col"></div>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-header">
-              <span class="work-tag">Electrician</span>
-              <span class="project-location">London</span>
-            </div>
-            <h3>Thames Electrical</h3>
-            <div class="project-metric">
-              <span class="metric-val">+3×</span>
-              <span class="metric-desc">enquiries within 6 weeks of launch</span>
-            </div>
-            <p>Landing page with emergency call-out section, certification badges, and local SEO targeting inner London boroughs.</p>
-            <div class="work-tags">
-              <span>Landing Page</span>
-              <span>Local SEO</span>
-              <span>Click-to-call</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2 — Plumber -->
-        <div class="project-card reveal">
-          <div class="project-mockup">
-            <div class="mock-bar">
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-              <div class="mock-url"></div>
-            </div>
-            <div class="mock-body">
-              <div class="mock-hero" style="--pc:#0ea5e9"></div>
-              <div class="mock-content">
-                <div class="mock-col"></div>
-                <div class="mock-col"></div>
-                <div class="mock-col"></div>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-header">
-              <span class="work-tag">Plumber</span>
-              <span class="project-location">London</span>
-            </div>
-            <h3>ProPlumb London</h3>
-            <div class="project-metric">
-              <span class="metric-val">2×</span>
-              <span class="metric-desc">leads doubled in 2 months</span>
-            </div>
-            <p>24/7 emergency page, Gas Safe credentials front and centre, contact form routed to WhatsApp.</p>
-            <div class="work-tags">
-              <span>Landing Page</span>
-              <span>Emergency CTA</span>
-              <span>WhatsApp</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3 — Roofer -->
-        <div class="project-card reveal">
-          <div class="project-mockup">
-            <div class="mock-bar">
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-              <div class="mock-url"></div>
-            </div>
-            <div class="mock-body">
-              <div class="mock-hero" style="--pc:#f97316"></div>
-              <div class="mock-content">
-                <div class="mock-col"></div>
-                <div class="mock-col"></div>
-                <div class="mock-col"></div>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-header">
-              <span class="work-tag">Roofer</span>
-              <span class="project-location">Sheffield</span>
-            </div>
-            <h3>Peak Roofing</h3>
-            <div class="project-metric">
-              <span class="metric-val">3×</span>
-              <span class="metric-desc">leads tripled after redesign</span>
-            </div>
-            <p>Storm damage landing page, quote request form, and seasonal SEO targeting high-intent local searches.</p>
-            <div class="work-tags">
-              <span>Landing Page</span>
-              <span>Quote Form</span>
-              <span>Local SEO</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 4 — Auto Garage -->
-        <div class="project-card reveal">
-          <div class="project-mockup">
-            <div class="mock-bar">
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-              <div class="mock-url"></div>
-            </div>
-            <div class="mock-body">
-              <div class="mock-hero" style="--pc:#a855f7"></div>
-              <div class="mock-content">
-                <div class="mock-col"></div>
-                <div class="mock-col"></div>
-                <div class="mock-col"></div>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-header">
-              <span class="work-tag">Auto Garage</span>
-              <span class="project-location">Brighton</span>
+        <!-- Brighton Auto Garage -->
+        <div class="result-card reveal">
+          <div class="result-card-top" style="background:#4F8EF7"></div>
+          <div class="result-card-body">
+            <div class="result-card-header">
+              <span class="result-sector">Auto Garage</span>
+              <span class="result-location">Brighton</span>
             </div>
             <h3>Brighton Auto Garage</h3>
-            <div class="project-metric">
-              <span class="metric-val">Pg 1</span>
-              <span class="metric-desc">Google ranking for local searches</span>
+            <div class="result-metric-row">
+              <span class="result-metric-val">2×</span>
+              <span class="result-metric-desc">enquiries within 8 weeks of launch</span>
             </div>
-            <p>Service pages, online booking CTA, and local SEO so customers find them before calling a competitor.</p>
-            <div class="work-tags">
-              <span>Landing Page</span>
+            <p>A dated site that wasn't converting visitors. We rebuilt it from scratch — service pages, online booking, and local SEO targeting "MOT Brighton" from day one.</p>
+            <div class="result-tags">
+              <span>Web Design</span>
+              <span>Local SEO</span>
               <span>Google Business</span>
-              <span>Local SEO</span>
             </div>
           </div>
         </div>
 
-        <!-- Card 5 — Landscaper -->
-        <div class="project-card reveal">
-          <div class="project-mockup">
-            <div class="mock-bar">
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-              <div class="mock-url"></div>
+        <!-- ProPlumb London -->
+        <div class="result-card reveal">
+          <div class="result-card-top" style="background:#0ea5e9"></div>
+          <div class="result-card-body">
+            <div class="result-card-header">
+              <span class="result-sector">Plumbing</span>
+              <span class="result-location">London</span>
             </div>
-            <div class="mock-body">
-              <div class="mock-hero" style="--pc:#34C97A"></div>
-              <div class="mock-content">
-                <div class="mock-col"></div>
-                <div class="mock-col"></div>
-                <div class="mock-col"></div>
-              </div>
+            <h3>ProPlumb London</h3>
+            <div class="result-metric-row">
+              <span class="result-metric-val">6 wks</span>
+              <span class="result-metric-desc">to page one on Google</span>
             </div>
-          </div>
-          <div class="project-info">
-            <div class="project-header">
-              <span class="work-tag">Landscaper</span>
-              <span class="project-location">Bristol</span>
-            </div>
-            <h3>GreenLeaf Landscaping</h3>
-            <div class="project-metric">
-              <span class="metric-val">£45k</span>
-              <span class="metric-desc">new contracts secured via the site</span>
-            </div>
-            <p>Portfolio gallery of past work, seasonal service pages, and a quote form that attracts higher-value garden projects.</p>
-            <div class="work-tags">
-              <span>Landing Page</span>
-              <span>Portfolio</span>
-              <span>Quote Form</span>
+            <p>No website, no Google presence — invisible to anyone who hadn't heard of them. We built a site with dedicated service pages and optimised their Google Business Profile for North London.</p>
+            <div class="result-tags">
+              <span>Web Design</span>
+              <span>Local SEO</span>
+              <span>Google Business</span>
             </div>
           </div>
         </div>
 
-        <!-- Card 6 — Builder -->
-        <div class="project-card reveal">
-          <div class="project-mockup">
-            <div class="mock-bar">
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-              <div class="mock-url"></div>
+        <!-- ReloCare -->
+        <div class="result-card reveal">
+          <div class="result-card-top" style="background:#34C97A"></div>
+          <div class="result-card-body">
+            <div class="result-card-header">
+              <span class="result-sector">Removals</span>
+              <span class="result-location">England</span>
             </div>
-            <div class="mock-body">
-              <div class="mock-hero" style="--pc:#eab308"></div>
-              <div class="mock-content">
-                <div class="mock-col"></div>
-                <div class="mock-col"></div>
-                <div class="mock-col"></div>
-              </div>
+            <h3>ReloCare</h3>
+            <div class="result-metric-row">
+              <span class="result-metric-val">1 mo</span>
+              <span class="result-metric-desc">to move majority of bookings online</span>
             </div>
-          </div>
-          <div class="project-info">
-            <div class="project-header">
-              <span class="work-tag">Builder</span>
-              <span class="project-location">Manchester</span>
-            </div>
-            <h3>MasterBuild Construction</h3>
-            <div class="project-metric">
-              <span class="metric-val">3mo</span>
-              <span class="metric-desc">booked ahead with renovation jobs</span>
-            </div>
-            <p>Extension &amp; renovation pages, project gallery, and accreditation badges — positioned to attract quality, higher-value work.</p>
-            <div class="work-tags">
-              <span>Full Website</span>
-              <span>Project Gallery</span>
-              <span>Local SEO</span>
+            <p>Quotes by email, bookings by phone — a frustrating process that was costing them business. We launched a site with instant pricing and a 3-step booking flow.</p>
+            <div class="result-tags">
+              <span>Web Design</span>
+              <span>Web Development</span>
+              <span>Booking System</span>
             </div>
           </div>
         </div>
@@ -640,6 +736,62 @@
       </div>
     </div>
   </section>
+
+  <!-- ── Testimonials ── -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header" style="text-align:center">
+        <p class="section-eyebrow">What clients say</p>
+        <h2>Don't take our word for it.</h2>
+      </div>
+
+      <div class="testimonials-grid">
+
+        <div class="testi-card reveal">
+          <div class="testi-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="testi-quote">"Before the new site, we relied on regulars and referrals. Within two months of launch, we were getting enquiries from people who found us on Google — that had never happened before. Enquiries literally doubled."</p>
+          <div class="testi-author">
+            <span class="testi-name">Mark T.</span>
+            <span class="testi-biz">Brighton Auto Garage, Brighton</span>
+          </div>
+        </div>
+
+        <div class="testi-card reveal">
+          <div class="testi-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="testi-quote">"We had nothing online — not even a basic page. Six weeks after WebOrb launched our site we were on page one for our main search terms. Calls from Google started coming in from week three and haven't stopped."</p>
+          <div class="testi-author">
+            <span class="testi-name">James R.</span>
+            <span class="testi-biz">ProPlumb London, North London</span>
+          </div>
+        </div>
+
+        <div class="testi-card reveal">
+          <div class="testi-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="testi-quote">"The instant pricing tool was a game-changer. Customers started booking directly through the site within the first week. We used to spend hours on quote emails — now most of that happens automatically."</p>
+          <div class="testi-author">
+            <span class="testi-name">Sarah M.</span>
+            <span class="testi-biz">ReloCare, England</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Mid-page CTA ── -->
+  <div class="mid-cta">
+    <div class="container">
+      <p>Seen enough? There are 2 spots left this month.</p>
+      <a href="#claim" class="btn btn-lg">Claim Your Free Site →</a>
+      <p class="sub">No payment required at any point.</p>
+    </div>
+  </div>
 
   <!-- ── How It Works ── -->
   <section class="section section-dark">
@@ -664,6 +816,59 @@
           <h3>Your page goes live</h3>
           <p>We build it, review it with you, and launch. Your site is live on a real URL within 5 working days.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Claim Form ── -->
+  <section id="claim" class="section section-dark">
+    <div class="container">
+      <div class="section-header" style="text-align:center">
+        <p class="section-eyebrow">Limited availability</p>
+        <h2>Claim your starter site</h2>
+        <p style="font-size:1.05rem;max-width:460px;margin:16px auto 0;line-height:1.8">We limit the number of projects each month to ensure every client gets our full attention. <strong>2 spots remaining.</strong></p>
+      </div>
+
+      <div class="claim-wrap">
+        <form id="offer-form" class="claim-form" novalidate>
+          <input type="hidden" name="access_key" value="f62a219f-a1b0-48cb-b607-fb887e18d0a4" />
+          <input type="hidden" name="subject" value="Starter Site — New Lead" />
+          <input type="hidden" name="redirect" value="false" />
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <div>
+            <label for="of-name">Your name</label>
+            <input id="of-name" name="name" type="text" placeholder="John Smith" autocomplete="name" required />
+          </div>
+          <div>
+            <label for="of-biz">Your business / trade</label>
+            <input id="of-biz" name="business" type="text" placeholder="e.g. Electrician, Plumber, Builder…" required />
+          </div>
+          <div>
+            <label for="of-phone">Phone number</label>
+            <input id="of-phone" name="phone" type="tel" placeholder="07700 000 000" autocomplete="tel" required />
+          </div>
+          <div>
+            <label for="of-email">Email address</label>
+            <input id="of-email" name="email" type="email" placeholder="john@example.com" autocomplete="email" required />
+          </div>
+
+          <button type="submit" class="btn btn-lg claim-submit">
+            <span class="btn-text">Claim My Spot →</span>
+            <span class="btn-loading" hidden>Sending…</span>
+          </button>
+          <div id="offer-success" class="form-msg-success" hidden>✓ Done! We'll be in touch within a few hours to book your quick call.</div>
+          <div id="offer-error" class="form-msg-error" hidden></div>
+        </form>
+
+        <div class="or-divider">or</div>
+
+        <a href="https://wa.me/447594517540?text=Hi%2C%20I%27d%20like%20to%20claim%20a%20starter%20site%20spot" target="_blank" rel="noopener" class="btn btn-lg btn-wa btn-wa-full">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Message us on WhatsApp
+        </a>
+
+        <p class="claim-note">No payment needed at any point. We'll walk you through everything on the call.</p>
       </div>
     </div>
   </section>
@@ -712,61 +917,8 @@
     </div>
   </section>
 
-  <!-- ── Claim Form ── -->
-  <section id="claim" class="section section-dark">
-    <div class="container">
-      <div class="section-header" style="text-align:center">
-        <p class="section-eyebrow">Limited availability</p>
-        <h2>Claim your starter site</h2>
-        <p style="font-size:1.05rem;max-width:460px;margin:16px auto 0;line-height:1.8">We limit the number of projects each month to ensure every client gets our full attention. Spots go fast.</p>
-      </div>
-
-      <div class="claim-wrap">
-        <form id="offer-form" class="claim-form" novalidate>
-          <input type="hidden" name="access_key" value="f62a219f-a1b0-48cb-b607-fb887e18d0a4" />
-          <input type="hidden" name="subject" value="Starter Site — New Lead" />
-          <input type="hidden" name="redirect" value="false" />
-          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
-
-          <div>
-            <label for="of-name">Your name</label>
-            <input id="of-name" name="name" type="text" placeholder="John Smith" autocomplete="name" required />
-          </div>
-          <div>
-            <label for="of-biz">Your business / trade</label>
-            <input id="of-biz" name="business" type="text" placeholder="e.g. Electrician, Plumber, Builder…" required />
-          </div>
-          <div>
-            <label for="of-phone">Phone number</label>
-            <input id="of-phone" name="phone" type="tel" placeholder="07700 000 000" autocomplete="tel" required />
-          </div>
-          <div>
-            <label for="of-email">Email address</label>
-            <input id="of-email" name="email" type="email" placeholder="john@example.com" autocomplete="email" required />
-          </div>
-
-          <button type="submit" class="btn btn-lg claim-submit">
-            <span class="btn-text">Claim My Spot →</span>
-            <span class="btn-loading" hidden>Sending…</span>
-          </button>
-          <div id="offer-success" class="form-msg-success" hidden>✓ Done! We'll be in touch within a few hours to book your quick call.</div>
-          <div id="offer-error" class="form-msg-error" hidden></div>
-        </form>
-
-        <div class="or-divider">or</div>
-
-        <a href="https://wa.me/447594517540?text=Hi%2C%20I%27d%20like%20to%20claim%20a%20starter%20site%20spot" target="_blank" rel="noopener" class="btn btn-lg btn-wa btn-wa-full">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Message us on WhatsApp
-        </a>
-
-        <p class="claim-note">No payment needed at any point. We'll walk you through everything on the call.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- ── FAQ ── -->
-  <section class="section">
+  <section class="section section-dark">
     <div class="container">
       <div class="section-header" style="text-align:center">
         <p class="section-eyebrow">Questions</p>
@@ -890,9 +1042,9 @@
 
     offerForm.addEventListener('submit', async e => {
       e.preventDefault();
-      const btn       = offerForm.querySelector('[type="submit"]');
-      const btnText   = btn.querySelector('.btn-text');
-      const btnLoad   = btn.querySelector('.btn-loading');
+      const btn     = offerForm.querySelector('[type="submit"]');
+      const btnText = btn.querySelector('.btn-text');
+      const btnLoad = btn.querySelector('.btn-loading');
 
       const required = offerForm.querySelectorAll('input[required]');
       let valid = true;
