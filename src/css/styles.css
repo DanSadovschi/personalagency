@@ -1170,6 +1170,7 @@ footer {
   font-size: clamp(1rem, 2vw, 1.15rem);
   max-width: 560px;
   line-height: 1.7;
+  margin-bottom: 40px;
 }
 
 /* Filter bar */
@@ -1882,7 +1883,7 @@ footer {
 }
 
 .faq-answer p {
-  padding: 0 32px 28px;
+  padding: 16px 32px 28px;
   font-size: 0.925rem;
   line-height: 1.8;
   color: var(--text-muted);
@@ -1890,7 +1891,7 @@ footer {
 
 @media (max-width: 640px) {
   .faq-question { padding: 20px 20px; font-size: 0.925rem; }
-  .faq-answer p { padding: 0 20px 20px; }
+  .faq-answer p { padding: 16px 20px 20px; }
 }
 
 /* ════════════════════════════════════════════════════════════
