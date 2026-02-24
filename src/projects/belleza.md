@@ -4,20 +4,23 @@ client: Belleza
 sector: Beauty & Wellness
 year: 2023
 cover: ""
-summary: Elegant website design for a beauty brand — visual identity and digital presence that embody the brand's philosophy of beauty within and without.
+summary: Full website for a beauty brand — brand identity, custom graphics, design, and development all built from scratch around the philosophy of beauty as something you live.
 services:
   - Web Design
-results: Refined brand presence that captures the essence of the Belleza identity
+  - Web Development
+results: Online sales grew steadily in the months following launch
 ---
 
-Belleza is a beauty brand with a clear philosophy: belleza in us, belleza in what we do. The site needed to be a visual extension of that idea — elegant, warm, and reflective of a brand that believes beauty is something you live, not just something you apply.
+Belleza is a beauty brand built around a clear philosophy: belleza in us, belleza in what we do. Beauty isn't a product — it's a way of living. The website needed to carry that idea before it said anything else. A visitor should feel the brand before they read a word about it.
 
 ## What we built
 
-We designed a site that leads with feeling before it leads with product. The visual language — colour palette, typography, image treatment — was chosen to create an atmosphere before a visitor reads a single word. The design is refined without being cold, approachable without being generic.
+We built everything from scratch: visual identity, custom graphics and all page illustrations, UI design, and the full production build. The colour palette, typography choices, and image treatment were all selected to create a specific atmosphere — warm, refined, and quietly confident. Nothing generic, nothing borrowed.
 
-The structure follows the brand's story: who they are, what they make, and why it matters. Each page reinforces the same sense of care and quality that defines the Belleza brand.
+The structure of the site follows the brand's story outward: who Belleza is and what they believe, what they make, and why it matters. Each page builds on the last rather than presenting isolated product information. The design earns trust gradually, which is how premium beauty brands actually sell.
+
+The mobile experience was given the same care as desktop. For a beauty brand, a significant portion of traffic comes from people browsing casually — the experience on a phone needed to be just as considered.
 
 ## The results
 
-Belleza launched with a digital presence that feels true to the brand. The design communicates quality and warmth in equal measure — exactly what a beauty brand needs to earn trust and drive purchase intent online.
+Online sales grew steadily in the months after launch. The site created a brand identity that hadn't existed clearly before — customers began referencing the visual language and brand philosophy in feedback, which meant the design was communicating exactly what it was meant to.

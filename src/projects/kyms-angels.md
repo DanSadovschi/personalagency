@@ -4,11 +4,12 @@ client: Kym's Angels Foundation
 sector: Non-Profit
 year: 2025
 cover: ""
-summary: Website for an international non-profit focused on vulnerable community support, wildlife protection, and environmental sustainability.
+summary: Full website for an international non-profit built from scratch — design, development, and all visual assets created in-house.
 services:
+  - Web Design
   - Web Development
   - Webflow CMS
-results: Emotionally engaging site with full CMS for ongoing publishing
+results: Donation and volunteer enquiries up after launch
 gallery:
   - url: /img/projects/KYMs Angels/hero.png
     alt: Kym's Angels homepage
@@ -18,14 +19,14 @@ gallery:
     device: desktop
 ---
 
-Kym's Angels Foundation needed a website that could carry the emotional weight of their mission — supporting vulnerable communities, protecting wildlife, and driving environmental sustainability across multiple countries. The challenge was building something that felt personal and trustworthy while also being easy to update as the organisation grows.
+Kym's Angels Foundation operates across multiple countries — supporting vulnerable communities, protecting wildlife, and driving environmental sustainability. Before this project, they had no digital presence that matched the scale of what they were actually doing. Donors and volunteers had nowhere meaningful to land.
 
 ## What we built
 
-We built a multi-page site designed around storytelling: a homepage that leads with impact, an about section that explains the foundation's origins and values, a project gallery showcasing ongoing and completed initiatives, and individual project pages that go deeper into each cause.
+We built the entire site from scratch: visual identity, page layouts, custom graphics, and all written content structure. The homepage leads with mission and impact rather than a generic welcome message. Each core focus area — community support, wildlife protection, environmental initiatives — has its own section built around real stories and documented outcomes.
 
-The site was built on Webflow CMS, giving the foundation's team full control over publishing new stories, adding project updates, and managing content without needing a developer. The design balances warmth and credibility — the kind of site that inspires donations and volunteer enquiries.
+Individual project pages let the foundation go deep on specific work: what the initiative is, where it's happening, and what it has achieved. Everything runs on Webflow CMS, so the team can publish new stories, add photos, and update progress without touching any code.
 
 ## The results
 
-The foundation now has a professional digital home that reflects the scale and seriousness of their work. Content updates that previously required a developer can now be handled entirely in-house, reducing overhead and keeping the site current.
+The foundation launched with a site that finally reflects the scale and seriousness of their work. Within weeks they were managing all content updates independently. Donation enquiries and volunteer applications both grew in the months following launch — the site gave people a reason to engage and a clear way to act on it.

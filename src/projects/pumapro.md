@@ -4,20 +4,21 @@ client: PumaPro
 sector: Real Estate & Property
 year: 2022
 cover: ""
-summary: Website for a property management platform making holiday stay management simpler and more efficient for hosts and property managers.
+summary: Website for a short-term rental management platform — visual identity, design, and development built from scratch to communicate simplicity and professionalism.
 services:
   - Web Design
-results: Clean platform presence that communicates the product's core value proposition
+  - Web Development
+results: Signups increased and the product started converting cold traffic for the first time
 ---
 
-PumaPro makes property management for holiday stays easier. Their platform helps hosts and property managers handle bookings, operations, and guest communication without the usual complexity. The site needed to communicate that simplicity clearly and immediately.
+PumaPro is a platform that makes property management for holiday stays easier. Hosts and short-term rental managers use it to handle bookings, operations, and guest communication in one place. The product was solid — the website wasn't communicating it clearly enough. Visitors weren't converting because they couldn't quickly understand what PumaPro did or why it was worth trying.
 
 ## What we built
 
-We designed a site built around the product's core promise: property management just got easier. The layout is clean and uncluttered — intentionally so, reflecting the experience the product itself delivers. Every section answers a question a potential customer might have: what is it, who is it for, how does it work, how do I get started.
+We built the site from scratch: brand identity, visual system, all custom graphics, and the full production build. The design was built to reflect the product's core promise — things just got easier. Clean layout, uncluttered structure, and copy written to answer the three questions every potential customer has within ten seconds of landing: what is this, is it for me, and what do I do next.
 
-The visual design is professional and approachable, positioned for property professionals who want a tool that works without getting in the way.
+Each feature of the platform got its own section with a specific explanation rather than a list of bullet points. The visual language is approachable and professional — credible enough for property managers handling multiple units, accessible enough for individual hosts just getting started.
 
 ## The results
 
-PumaPro launched with a website that accurately represents the product and its positioning. The clarity of the design mirrors the clarity of the platform itself — a natural extension of the brand.
+PumaPro saw a meaningful increase in signups after the new site launched. The platform started converting cold traffic — visitors who arrived through search or referral were understanding the product well enough to create an account without needing a demo call first. The clarity of the site reduced the sales cycle considerably.

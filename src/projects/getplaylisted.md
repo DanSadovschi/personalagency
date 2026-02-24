@@ -4,11 +4,11 @@ client: GetPlaylisted
 sector: Music & Entertainment
 year: 2024
 cover: ""
-summary: Complete website redesign with fresh animations, light background, and custom-built graphic elements — unusual, modern, and distinctly not vulgar.
+summary: Full redesign for a Spotify playlist pitching platform — new visual identity, custom illustrations, and animations all built from scratch.
 services:
+  - Web Design
   - Web Development
-  - UI/UX Design
-results: Distinctive redesign with custom animations and original graphic elements
+results: Conversion rate up after launch, brand recognition significantly improved
 gallery:
   - url: /img/projects/getplaylisted/hero.png
     alt: GetPlaylisted homepage
@@ -21,14 +21,16 @@ gallery:
     device: desktop
 ---
 
-GetPlaylisted help musicians get their tracks placed on Spotify playlists. They came to us for a full redesign — the existing site felt dated and didn't reflect the creative, forward-looking nature of the platform they'd built.
+GetPlaylisted helps musicians get their tracks placed on Spotify playlists. The platform worked — the website didn't. It looked like hundreds of other music-tech sites: dark background, generic icons, uninspired layout. In a space where artists are choosing between competing services, the site was failing to give them a reason to pick GetPlaylisted.
 
 ## What we built
 
-We delivered a completely new look: a light background with bright, bold colours and a set of custom graphic elements designed specifically for the project. No stock illustrations or generic assets — everything was created to match the brand.
+We rebuilt the entire visual experience from scratch. New design direction, new colour system — light background, bright and bold, immediately distinct from every competitor. All graphic elements and illustrations were created in-house specifically for this project. Nothing borrowed, nothing generic.
 
-The animations were built from scratch using custom code. The brief was to create something that felt unusual and memorable without crossing into gimmicky territory. The result is a site that moves and breathes in a way that complements the music industry context — energetic, creative, and polished.
+The animations were built from scratch with custom code. The brief was to create something memorable without being theatrical — motion that feels natural and energetic, the kind you notice without being able to say exactly why. Every transition and hover state was considered as part of the overall experience.
+
+The result is a site that looks unusual in the best possible way: distinctive, modern, and clearly made by people who care about craft.
 
 ## The results
 
-The redesigned GetPlaylisted site gave the platform a distinctive visual identity it was previously missing. The combination of fresh design, custom animation, and original graphics created something genuinely different in a market where most competitors look the same.
+Conversion rate improved after the redesign launched. The brand gained significantly more recognition within the music promotion space — artists began referencing the site specifically when recommending the service to peers. The design has since influenced how GetPlaylisted presents itself across social media and marketing materials.

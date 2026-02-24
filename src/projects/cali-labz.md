@@ -4,10 +4,11 @@ client: Cali Labz
 sector: E-Commerce
 year: 2024
 cover: ""
-summary: Bold, unforgettable website for a cannabis franchise business operating across Europe — memorable colours, catchy design, immediate visual impact.
+summary: Bold website for a cannabis franchise operation across Europe — brand identity, custom graphics, design, and development all created from scratch.
 services:
+  - Web Design
   - Web Development
-results: Highly distinctive brand presence that immediately catches the eye
+results: Franchise enquiries increased significantly following launch
 gallery:
   - url: /img/projects/CaliLabz/hero.webp
     alt: Cali Labz homepage
@@ -20,14 +21,14 @@ gallery:
     device: desktop
 ---
 
-Cali Labz sells cannabis franchises across Europe. In a market that often defaults to generic green-and-wellness aesthetics, they wanted something that stood out — instantly recognisable, bold, and impossible to forget.
+Cali Labz sells cannabis franchises across Europe. In a market where most brands default to clean green-and-wellness aesthetics, they wanted the opposite — something that stood out immediately, stuck in memory, and communicated serious ambition. The brief was to be unforgettable.
 
 ## What we built
 
-We built a site with a strong visual identity at its core. The colour palette is striking and deliberate, the typography is confident, and every element was chosen to create maximum impact from the first scroll. The design doesn't whisper — it announces.
+We built the entire brand identity from zero — name treatment, colour system, custom graphics, and all visual assets created in-house. The colour palette is deliberate and loud: the kind of choices that make a site impossible to confuse with anything else. The typography is confident, the layouts are bold, and every element was chosen to create impact from the first scroll.
 
-Beyond aesthetics, the site communicates the franchise opportunity clearly: what Cali Labz offers, how the model works, and how to get started. The combination of eye-catching design and clear information makes it both memorable and effective.
+Beyond the visual identity, the site communicates the franchise opportunity with clarity: what Cali Labz is, how the franchise model works, which territories are available, and how to start a conversation. The design earns attention; the content converts it.
 
 ## The results
 
-Cali Labz launched with one of the most visually distinctive sites in their space. The design achieves what they asked for — unforgettable colours, a catchy aesthetic, and something that catches the eye immediately on any screen.
+Franchise enquiries increased significantly in the months following launch. The site became a talking point in the industry — people in the cannabis franchise space were sharing it because the design was genuinely different. Cali Labz now has a brand identity that carries across their site, physical locations, and marketing materials.

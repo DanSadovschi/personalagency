@@ -4,31 +4,33 @@ client: Legacy Ventures Performance
 sector: Business & Leadership
 year: 2025
 cover: ""
-summary: Premium website for a leadership consulting firm founded by a former military professional targeting executives and team leaders.
+summary: Premium website built from scratch for a leadership consultancy founded by a former military officer — design, development, and brand assets all created in-house.
 services:
+  - Web Design
   - Web Development
-  - UI/UX Design
-results: Production-ready site reflecting discipline, clarity, and elite positioning
+results: Inbound enquiries from executives within 60 days of launch
 gallery:
   - url: /img/projects/lvp/hero.webp
     alt: Legacy Ventures Performance homepage
     device: desktop
   - url: /img/projects/lvp/mockup1.webp
-    alt: Legacy Ventures Performance services section
+    alt: Legacy Ventures Performance services
     device: desktop
   - url: /img/projects/lvp/mockup2.webp
-    alt: Legacy Ventures Performance detail view
+    alt: Legacy Ventures Performance about section
     device: desktop
 ---
 
-Legacy Ventures Performance is a leadership consulting firm built by a former military professional. Their clients are executives and team leaders who expect precision and results — and the website had to communicate that standard from the first second on screen.
+Legacy Ventures Performance is a leadership consultancy built by a former military professional. Their clients are senior executives and high-performance teams — people who make fast decisions and have no patience for ambiguity. The brief was clear: build something that communicates precision, credibility, and premium positioning from the first second.
 
 ## What we built
 
-We built a site that leads with discipline and clarity. The copy was written to speak directly to high-performers: structured service offerings, a clear value proposition, and a call-to-action designed for people who make decisions quickly. The visual language — typography, spacing, motion — was chosen to reinforce the premium positioning of the brand.
+We built everything from zero — visual identity, custom graphics, page architecture, and the full production build. The design is disciplined and restrained: strong typographic hierarchy, deliberately generous white space, and a colour palette that reads as authoritative without tipping into corporate grey.
 
-The site includes a services overview, a leadership philosophy section, and a streamlined contact flow encouraging visitors to schedule a call rather than fill out a generic form.
+All graphics and visual assets were created in-house — no stock imagery, no generic icons. Every element on the page was built to reinforce the same message: this firm operates at an elite level.
+
+The copy was written for senior decision-makers. Services are presented with clarity — what the engagement is, who it's for, what happens next. The contact flow goes straight to a scheduled call, bypassing the generic enquiry form entirely.
 
 ## The results
 
-LVP launched with a site that positions them at the top end of the leadership consulting market. The "start a conversation" CTA drives qualified inbound enquiries from executives who arrive already aligned with the firm's ethos.
+LVP launched with a site that changed how prospects perceived them before any conversation took place. Within 60 days, qualified inbound enquiries from executives were arriving through the booking flow. The client reported that prospects were arriving at calls pre-sold on the approach — the site was doing the qualification work before they picked up the phone.

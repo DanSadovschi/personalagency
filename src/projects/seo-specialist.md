@@ -4,20 +4,23 @@ client: SEO Specialist
 sector: Digital Marketing
 year: 2022
 cover: ""
-summary: Landing page design for an SEO specialist — focused, conversion-oriented, built to turn visitors into enquiries.
+summary: Conversion-focused landing page for an SEO consultant — visual identity, design, copy structure, and development all built from scratch.
 services:
   - Web Design
-results: High-converting landing page that communicates expertise at a glance
+  - Web Development
+results: Enquiries from organic traffic within the first few weeks of launch
 ---
 
-An SEO specialist who helps businesses rank on Google needed a website that demonstrated the same principles they apply for their clients: clear structure, fast loading, and a design that converts visitors into leads.
+An SEO consultant helping businesses rank on Google needed a website that could do the same. There's a particular irony in an SEO specialist having a site that doesn't convert — and that's exactly where this project started. The existing online presence wasn't generating enquiries, and the design wasn't doing any justice to the expertise behind it.
 
 ## What we built
 
-We designed a focused landing page built around one goal: getting the right kind of visitors to make contact. The copy leads with outcomes rather than process — what the client achieves, not just what the service involves.
+We built everything from scratch: visual identity, all page graphics, design, and the full production build. The entire site was constructed around a single goal — turning the right visitors into enquiries.
 
-The layout is clean and logical, guiding visitors from problem to solution to call-to-action without unnecessary friction. Every element earns its place on the page.
+The copy was written to lead with outcomes, not process. Potential clients land on a page that immediately tells them what they stand to gain, not a list of services with technical jargon. The layout moves from problem to proof to call to action in a logical sequence, with no unnecessary steps or distractions.
+
+The design is clean, professional, and fast — which matters both for the user experience and for how search engines evaluate the page. An SEO specialist's site should practice what they preach.
 
 ## The results
 
-The landing page gives the SEO specialist a professional online presence that reflects their expertise. The focused, conversion-oriented design does what a good SEO landing page should: rank, engage, and convert.
+The site started generating enquiries from organic traffic within the first few weeks of launch. More importantly, the quality of those enquiries was high — visitors who arrived through relevant searches were already aligned with the service and ready to have a conversation.
