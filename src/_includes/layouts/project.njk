@@ -65,3 +65,52 @@ activeNav: projects
 
   </div>
 </section>
+
+{% if gallery and gallery.length > 0 %}
+<section class="section project-gallery-section">
+  <div class="container">
+    <p class="gallery-label">Project screens</p>
+    <div class="gallery-grid">
+      {% for img in gallery %}
+      <button
+        class="gallery-item gallery-item--{{ img.device or 'desktop' }}"
+        data-src="{{ img.url }}"
+        data-alt="{{ img.alt }}"
+        aria-label="View screenshot: {{ img.alt }}"
+        type="button"
+      >
+        <div class="device-frame device-frame--{{ img.device or 'desktop' }}">
+          {% if img.device == 'mobile' %}
+          <div class="device-chrome device-chrome--mobile">
+            <span class="device-speaker"></span>
+          </div>
+          {% else %}
+          <div class="device-chrome device-chrome--browser">
+            <span class="device-dot"></span>
+            <span class="device-dot"></span>
+            <span class="device-dot"></span>
+            <div class="device-urlbar"></div>
+          </div>
+          {% endif %}
+          <div class="device-screen">
+            <img src="{{ img.url }}" alt="{{ img.alt }}" loading="lazy" />
+          </div>
+          {% if img.device == 'mobile' %}
+          <div class="device-home-bar"></div>
+          {% endif %}
+        </div>
+      </button>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+  <button class="lightbox-close" aria-label="Close" type="button">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  </button>
+  <div class="lightbox-stage">
+    <img class="lightbox-img" src="" alt="" />
+  </div>
+</div>
+{% endif %}

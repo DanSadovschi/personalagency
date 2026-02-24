@@ -349,3 +349,43 @@ async function handleFormSubmit(form) {
     });
   });
 })();
+
+/* ── Project Gallery Lightbox ───────────────────────────── */
+(function () {
+  const lightbox = document.getElementById('lightbox');
+  if (!lightbox) return;
+
+  const lbImg   = lightbox.querySelector('.lightbox-img');
+  const lbClose = lightbox.querySelector('.lightbox-close');
+
+  function openLb(src, alt) {
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    lbClose.focus();
+  }
+
+  function closeLb() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    setTimeout(() => { lbImg.src = ''; }, 200);
+  }
+
+  document.querySelectorAll('.gallery-item').forEach(btn => {
+    btn.addEventListener('click', () => openLb(btn.dataset.src, btn.dataset.alt));
+  });
+
+  lbClose.addEventListener('click', closeLb);
+
+  // Click dark backdrop (not the image) to close
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) closeLb();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLb();
+  });
+})();
