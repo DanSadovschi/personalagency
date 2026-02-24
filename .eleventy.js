@@ -4,6 +4,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/favicon.svg");
 
+  // Filters
+  eleventyConfig.addFilter("limit", (arr, n) => arr.slice(0, n));
+
   return {
     dir: {
       input: "src",

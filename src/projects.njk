@@ -1,0 +1,52 @@
+---
+layout: layouts/base.njk
+title: Projects — WebOrb
+description: A selection of websites and digital work built by WebOrb for companies across the UK.
+activeNav: projects
+---
+
+<section class="page-hero">
+  <div class="hero-bg-grid"></div>
+  <div class="container">
+    <p class="section-eyebrow reveal">Our work</p>
+    <h1 class="reveal">Projects we're<br /><span class="accent">proud of.</span></h1>
+    <p class="page-hero-sub reveal">A growing collection of websites and digital projects — from local service businesses to e-commerce stores and professional services firms.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {% if collections.projects and collections.projects.length > 0 %}
+    <div class="projects-grid">
+      {% for project in collections.projects | reverse %}
+      <a href="{{ project.url }}" class="project-card reveal">
+        <div class="project-card-cover{% if not project.data.cover %} project-card-cover--placeholder{% endif %}">
+          {% if project.data.cover %}
+          <img src="{{ project.data.cover }}" alt="{{ project.data.title }}" loading="lazy" />
+          {% endif %}
+          {% if project.data.sector %}
+          <span class="project-sector-tag">{{ project.data.sector }}</span>
+          {% endif %}
+        </div>
+        <div class="project-card-body">
+          <h3>{{ project.data.title }}</h3>
+          {% if project.data.summary %}<p>{{ project.data.summary }}</p>{% endif %}
+          {% if project.data.services %}
+          <div class="project-card-tags">
+            {% for svc in project.data.services %}
+            <span class="project-tag">{{ svc }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+          <span class="project-card-link">View project →</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="projects-empty reveal">
+      <p>Projects coming soon. <a href="/#contact">Get in touch</a> to discuss yours.</p>
+    </div>
+    {% endif %}
+  </div>
+</section>

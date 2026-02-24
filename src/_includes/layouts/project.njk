@@ -1,0 +1,67 @@
+---
+layout: layouts/base.njk
+activeNav: projects
+---
+
+<section class="project-hero">
+  {% if cover %}
+  <div class="project-cover-img" style="background-image: url('{{ cover }}')"></div>
+  {% else %}
+  <div class="project-cover-gradient"></div>
+  {% endif %}
+  <div class="container">
+    <a href="/projects/" class="project-back">← All Projects</a>
+    <div class="project-hero-meta">
+      {% if sector %}<span class="project-sector-tag">{{ sector }}</span>{% endif %}
+      {% if year %}<span class="project-year">{{ year }}</span>{% endif %}
+    </div>
+    <h1>{{ title }}</h1>
+    {% if summary %}<p class="project-summary">{{ summary }}</p>{% endif %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container project-layout">
+
+    <aside class="project-sidebar">
+      <div class="project-details-card">
+        {% if client %}
+        <div class="project-detail-row">
+          <span class="detail-label">Client</span>
+          <span>{{ client }}</span>
+        </div>
+        {% endif %}
+        {% if sector %}
+        <div class="project-detail-row">
+          <span class="detail-label">Sector</span>
+          <span>{{ sector }}</span>
+        </div>
+        {% endif %}
+        {% if services %}
+        <div class="project-detail-row">
+          <span class="detail-label">Services</span>
+          <span>{{ services | join(", ") }}</span>
+        </div>
+        {% endif %}
+        {% if year %}
+        <div class="project-detail-row">
+          <span class="detail-label">Year</span>
+          <span>{{ year }}</span>
+        </div>
+        {% endif %}
+        {% if results %}
+        <div class="project-detail-row project-results">
+          <span class="detail-label">Results</span>
+          <span>{{ results }}</span>
+        </div>
+        {% endif %}
+      </div>
+      <a href="/#contact" class="btn btn-lg project-sidebar-cta">Start Your Project</a>
+    </aside>
+
+    <div class="project-body">
+      {{ content | safe }}
+    </div>
+
+  </div>
+</section>
