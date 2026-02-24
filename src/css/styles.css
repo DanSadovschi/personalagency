@@ -2203,3 +2203,195 @@ footer {
 @media (max-width: 600px) {
   .projects-grid { grid-template-columns: 1fr; }
 }
+
+/* ════════════════════════════════════════════════════════════
+   PROJECT GALLERY — Device frames + Lightbox
+   ════════════════════════════════════════════════════════════ */
+
+.project-gallery-section {
+  border-top: 1px solid var(--border);
+}
+
+.gallery-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 28px;
+}
+
+/* Flex grid — desktop items grow, mobile stays phone-width */
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.gallery-item {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: zoom-in;
+  text-align: left;
+}
+
+.gallery-item--desktop {
+  flex: 1 1 300px;
+  min-width: 0;
+}
+
+.gallery-item--mobile {
+  flex: 0 0 180px;
+}
+
+/* ── Device frame shell ─────────────────────────────────── */
+.device-frame {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  transition: var(--transition);
+}
+
+.gallery-item:hover .device-frame {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 56px rgba(79, 142, 247, 0.14);
+}
+
+/* Browser chrome bar */
+.device-chrome--browser {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 12px;
+  background: var(--bg-raised);
+  border-bottom: 1px solid var(--border);
+}
+
+.device-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+.device-urlbar {
+  flex: 1;
+  height: 16px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  margin-left: 6px;
+}
+
+/* Phone frame */
+.device-frame--mobile {
+  border-radius: 20px;
+  border-width: 2px;
+}
+
+.device-chrome--mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 0 7px;
+  background: var(--bg-raised);
+  border-bottom: 1px solid var(--border);
+}
+
+.device-speaker {
+  width: 38px;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+}
+
+.device-home-bar {
+  height: 22px;
+  background: var(--bg-raised);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.device-home-bar::after {
+  content: '';
+  width: 40px;
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+}
+
+.device-screen img {
+  width: 100%;
+  display: block;
+}
+
+/* ── Lightbox ───────────────────────────────────────────── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.96);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.lightbox.is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.lightbox-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 90vw;
+  max-height: 88vh;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 88vh;
+  border-radius: 8px;
+  object-fit: contain;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .gallery-item--desktop { flex-basis: 100%; }
+  .gallery-item--mobile  { flex: 0 0 140px; }
+  .lightbox { padding: 20px; }
+}
