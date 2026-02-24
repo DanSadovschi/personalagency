@@ -4,8 +4,9 @@ activeNav: projects
 ---
 
 <section class="project-hero">
-  {% if cover %}
-  <div class="project-cover-img" style="background-image: url('{{ cover }}')"></div>
+  {% set heroImage = cover or (gallery and gallery.length > 0 and gallery[0].url) %}
+  {% if heroImage %}
+  <div class="project-cover-img" style="background-image: url('{{ heroImage }}')"></div>
   {% else %}
   <div class="project-cover-gradient"></div>
   {% endif %}
@@ -70,7 +71,10 @@ activeNav: projects
 <section class="section project-gallery-section">
   <div class="container">
     <p class="gallery-label">Project screens</p>
-    <div class="gallery-grid">
+    <div class="gallery-slider" id="gallery-slider">
+      <button class="gallery-nav gallery-nav--prev" id="gallery-prev" type="button" aria-label="Previous screenshot">←</button>
+      <div class="gallery-viewport">
+        <div class="gallery-track" id="gallery-track">
       {% for img in gallery %}
       <button
         class="gallery-item gallery-item--{{ img.device or 'desktop' }}"
@@ -101,6 +105,13 @@ activeNav: projects
         </div>
       </button>
       {% endfor %}
+        </div>
+      </div>
+      <button class="gallery-nav gallery-nav--next" id="gallery-next" type="button" aria-label="Next screenshot">→</button>
+    </div>
+    {% if gallery.length > 1 %}
+    <div class="gallery-dots" id="gallery-dots" aria-label="Gallery slide navigation"></div>
+    {% endif %}
     </div>
   </div>
 </section>
