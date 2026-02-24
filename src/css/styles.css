@@ -2137,12 +2137,16 @@ footer {
   align-items: start;
 }
 
+.project-sidebar {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+}
+
 .project-details-card {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  position: sticky;
-  top: 100px;
 }
 
 .project-detail-row {
@@ -2193,7 +2197,7 @@ footer {
 @media (max-width: 900px) {
   .projects-grid { grid-template-columns: repeat(2, 1fr); }
   .project-layout { grid-template-columns: 1fr; gap: 40px; }
-  .project-details-card { position: static; }
+  .project-sidebar { position: static; }
 }
 
 @media (max-width: 600px) {
