@@ -19,11 +19,11 @@ activeNav: projects
     {% if collections.projects and collections.projects.length > 0 %}
     <div class="projects-grid">
       {% for project in collections.projects | reverse %}
+      {% set projectCover = project.data.cover or (project.data.gallery and project.data.gallery[0] and project.data.gallery[0].url) %}
+      {% if projectCover %}
       <a href="{{ project.url }}" class="project-card reveal">
-        <div class="project-card-cover{% if not project.data.cover %} project-card-cover--placeholder{% endif %}">
-          {% if project.data.cover %}
-          <img src="{{ project.data.cover }}" alt="{{ project.data.title }}" loading="lazy" />
-          {% endif %}
+        <div class="project-card-cover">
+          <img src="{{ projectCover }}" alt="{{ project.data.title }}" loading="lazy" />
           {% if project.data.sector %}
           <span class="project-sector-tag">{{ project.data.sector }}</span>
           {% endif %}
@@ -41,6 +41,7 @@ activeNav: projects
           <span class="project-card-link">View project →</span>
         </div>
       </a>
+      {% endif %}
       {% endfor %}
     </div>
     {% else %}
