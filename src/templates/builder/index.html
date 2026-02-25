@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GroundWork Co. — London Builders & Extensions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    ul { list-style: none; }
+
+    :root {
+      --bg:          #080808;
+      --surface:     #0e0e0e;
+      --card:        #121212;
+      --card-hover:  #181818;
+      --accent:      #16a34a;
+      --accent-dim:  #15803d;
+      --accent-light:#22c55e;
+      --accent-glow: rgba(22,163,74,.2);
+      --accent-glow2:rgba(22,163,74,.07);
+      --text:        #f1f5f9;
+      --muted:       #94a3b8;
+      --border:      rgba(255,255,255,.06);
+      --border-acc:  rgba(22,163,74,.28);
+      --orange:      #f97316;
+      --radius:      6px;
+      --container:   1180px;
+    }
+
+    .container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+
+    /* ── CONCRETE TEXTURE ── */
+    .concrete-bg {
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 29px, rgba(255,255,255,.015) 30px),
+        repeating-linear-gradient(90deg, transparent, transparent 29px, rgba(255,255,255,.015) 30px);
+    }
+
+    /* ── NAVBAR ── */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; transition: background .3s, box-shadow .3s; }
+    .nav.scrolled { background: rgba(8,8,8,.96); backdrop-filter: blur(16px); box-shadow: 0 1px 0 var(--border); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .nav-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.45rem; text-transform: uppercase; letter-spacing: .06em; display: flex; align-items: center; gap: 10px; }
+    .nav-logo-icon { width: 34px; height: 34px; background: var(--accent); border-radius: 5px; display: flex; align-items: center; justify-content: center; }
+    .nav-logo-icon svg { width: 18px; height: 18px; stroke: #fff; fill: none; stroke-width: 2.2; }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { font-size: .875rem; font-weight: 500; color: var(--muted); transition: color .2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { background: var(--accent); color: #fff; font-weight: 700; font-size: .8rem; padding: 10px 22px; border-radius: var(--radius); text-transform: uppercase; letter-spacing: .07em; transition: background .2s, transform .15s, box-shadow .2s; }
+    .nav-cta:hover { background: var(--accent-dim); transform: translateY(-1px); box-shadow: 0 6px 20px var(--accent-glow); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; padding: 4px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; }
+
+    /* ── HERO ── */
+    .hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 80% at 65% 50%, rgba(22,163,74,.06) 0%, transparent 70%),
+        #060606;
+    }
+    .hero-blueprint {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(22,163,74,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(22,163,74,.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .hero-tape {
+      position: absolute; top: -10px; right: 140px;
+      width: 6px; height: 110vh;
+      background: repeating-linear-gradient(to bottom, var(--orange) 0, var(--orange) 20px, #111 20px, #111 24px);
+      opacity: .25; transform: rotate(3deg); pointer-events: none;
+    }
+    .hero-tape2 {
+      position: absolute; top: -10px; right: 115px;
+      width: 3px; height: 110vh;
+      background: repeating-linear-gradient(to bottom, var(--orange) 0, var(--orange) 20px, #111 20px, #111 24px);
+      opacity: .15; transform: rotate(3deg); pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 2; padding-top: 80px; max-width: 760px; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(22,163,74,.08); border: 1px solid var(--border-acc); color: var(--accent-light); font-size: .72rem; font-weight: 700; padding: 6px 14px; border-radius: 100px; margin-bottom: 28px; text-transform: uppercase; letter-spacing: .12em; }
+    .hero-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-light); box-shadow: 0 0 8px var(--accent); animation: dot 2s ease-in-out infinite; }
+    @keyframes dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.3;transform:scale(1.5)} }
+    .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(3.2rem,8.5vw,7rem); line-height: .88; text-transform: uppercase; letter-spacing: -.01em; margin-bottom: 28px; }
+    .hero h1 em { font-style: normal; color: var(--accent); text-shadow: 0 0 40px rgba(22,163,74,.35); display: block; }
+    .hero-sub { font-size: 1.05rem; color: var(--muted); max-width: 460px; line-height: 1.75; margin-bottom: 44px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-bottom: 56px; }
+    .btn-primary { background: var(--accent); color: #fff; font-weight: 700; font-size: .9rem; padding: 15px 30px; border-radius: var(--radius); text-transform: uppercase; letter-spacing: .06em; display: inline-flex; align-items: center; gap: 9px; transition: background .2s, transform .15s, box-shadow .2s; }
+    .btn-primary:hover { background: var(--accent-dim); transform: translateY(-2px); box-shadow: 0 12px 28px var(--accent-glow); }
+    .btn-ghost { border: 1.5px solid rgba(255,255,255,.15); color: var(--text); font-weight: 600; font-size: .9rem; padding: 13px 28px; border-radius: var(--radius); text-transform: uppercase; letter-spacing: .05em; transition: border-color .2s, background .2s; }
+    .btn-ghost:hover { border-color: var(--accent); background: var(--accent-glow2); }
+    .hero-trust { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .hero-trust-item { display: flex; align-items: center; gap: 8px; font-size: .8rem; color: var(--muted); }
+    .hero-trust-item svg { width: 16px; height: 16px; stroke: var(--accent); fill: none; flex-shrink: 0; }
+    .hero-scroll { position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--muted); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; z-index: 2; }
+    .hero-scroll-bar { width: 1px; height: 48px; background: linear-gradient(to bottom, var(--accent), transparent); animation: bar 2s ease-in-out infinite; }
+    @keyframes bar { 0%,100%{opacity:1} 50%{opacity:.2} }
+
+    /* ── STATS ── */
+    .stats { background: var(--surface); border-bottom: 1px solid var(--border); }
+    .stats-inner { display: grid; grid-template-columns: repeat(4,1fr); }
+    .stat { padding: 48px 20px; text-align: center; border-right: 1px solid var(--border); position: relative; }
+    .stat:last-child { border-right: none; }
+    .stat-n { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2.4rem,4.5vw,3.8rem); line-height: 1; color: var(--accent); margin-bottom: 6px; }
+    .stat-l { font-size: .78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
+
+    /* ── SECTION HEADER ── */
+    .eyebrow { font-size: .7rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .16em; margin-bottom: 10px; }
+    .section-h { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2rem,4.2vw,3.5rem); text-transform: uppercase; line-height: 1; margin-bottom: 14px; }
+    .section-p { font-size: .95rem; color: var(--muted); line-height: 1.75; max-width: 500px; }
+
+    /* ── BEFORE / AFTER ── */
+    .ba-section { padding: 110px 0; }
+    .ba-header { margin-bottom: 64px; }
+    .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media(max-width:768px){.ba-grid{grid-template-columns:1fr;}}
+
+    .ba-wrap { position: relative; border-radius: 10px; overflow: hidden; aspect-ratio: 16/11; user-select: none; }
+    .ba-before, .ba-after { position: absolute; inset: 0; display: flex; align-items: flex-end; padding: 20px; }
+    .ba-before { background: linear-gradient(135deg, #1a1412 0%, #241e18 100%); }
+    .ba-before::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(45deg, rgba(255,255,255,.03) 0, rgba(255,255,255,.03) 1px, transparent 1px, transparent 8px); }
+    .ba-after { clip-path: inset(0 50% 0 0); background: linear-gradient(135deg, #0a1a0f 0%, #112318 100%); transition: none; }
+    .ba-after::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 40% 40%, rgba(22,163,74,.12), transparent 60%); }
+
+    /* Project visual art */
+    .ba-art { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+    .ba-before .ba-art svg { opacity: .12; width: 120px; height: 120px; stroke: #888; fill: none; stroke-width: .8; }
+    .ba-after  .ba-art svg { opacity: .22; width: 120px; height: 120px; stroke: var(--accent); fill: none; stroke-width: .8; }
+
+    .ba-label { position: relative; z-index: 2; background: rgba(0,0,0,.6); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.1); border-radius: 4px; padding: 5px 12px; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
+    .ba-before .ba-label { color: #94a3b8; }
+    .ba-after  .ba-label { color: var(--accent-light); border-color: var(--border-acc); background: rgba(22,163,74,.15); }
+
+    .ba-handle { position: absolute; top: 0; bottom: 0; width: 3px; left: 50%; transform: translateX(-50%); background: #fff; z-index: 10; cursor: ew-resize; }
+    .ba-handle::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 36px; height: 36px; border-radius: 50%; background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,.5); display: flex; align-items: center; justify-content: center; }
+    .ba-handle::after { content: '◀  ▶'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: .55rem; color: #000; font-weight: 700; letter-spacing: -.5px; white-space: nowrap; }
+
+    .ba-range { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; z-index: 11; }
+
+    .ba-info { margin-top: 16px; }
+    .ba-project-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.2rem; text-transform: uppercase; margin-bottom: 4px; }
+    .ba-project-meta { font-size: .8rem; color: var(--muted); display: flex; gap: 12px; }
+    .ba-project-meta span { display: flex; align-items: center; gap: 5px; }
+    .ba-project-meta svg { width: 12px; height: 12px; stroke: var(--accent); fill: none; flex-shrink: 0; }
+
+    /* ── HOW WE WORK ── */
+    .process { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 110px 0; overflow: hidden; }
+    .process-header { margin-bottom: 72px; }
+    .steps { position: relative; display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; }
+    .steps::before {
+      content: '';
+      position: absolute; top: 32px; left: 10%; right: 10%; height: 2px;
+      background: repeating-linear-gradient(to right, var(--accent) 0, var(--accent) 12px, transparent 12px, transparent 22px);
+      z-index: 0;
+    }
+    .step { position: relative; z-index: 1; padding: 0 12px; text-align: center; }
+    .step-num {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: var(--card); border: 2px solid var(--border-acc);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.5rem;
+      color: var(--accent); transition: background .3s, border-color .3s, box-shadow .3s;
+    }
+    .step:hover .step-num { background: rgba(22,163,74,.15); border-color: var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
+    .step-icon { width: 26px; height: 26px; stroke: var(--accent); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; margin: 0 auto 14px; }
+    .step h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.05rem; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 8px; }
+    .step p { font-size: .8rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── SERVICES ── */
+    .services { padding: 110px 0; }
+    .services-header { margin-bottom: 64px; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .service-tile { background: var(--card); padding: 40px 32px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); position: relative; overflow: hidden; transition: background .25s; }
+    .service-tile:hover { background: var(--card-hover); }
+    .service-tile::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transition: transform .3s; transform-origin: left; }
+    .service-tile:hover::after { transform: scaleX(1); }
+    .service-num { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 3rem; line-height: 1; color: rgba(22,163,74,.12); margin-bottom: 12px; transition: color .25s; }
+    .service-tile:hover .service-num { color: rgba(22,163,74,.25); }
+    .service-tile h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.3rem; text-transform: uppercase; margin-bottom: 10px; letter-spacing: .03em; }
+    .service-tile p { font-size: .87rem; color: var(--muted); line-height: 1.7; }
+
+    /* ── QUOTE ESTIMATOR ── */
+    .estimator { background: var(--surface); border-top: 1px solid var(--border); padding: 110px 0; }
+    .estimator-header { margin-bottom: 60px; }
+    .estimator-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .est-panel { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 40px; }
+    .est-panel h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.2rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 20px; }
+
+    .radio-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 32px; }
+    .radio-option { position: relative; }
+    .radio-option input { position: absolute; opacity: 0; width: 0; height: 0; }
+    .radio-label {
+      display: flex; align-items: center; gap: 10px; padding: 14px 16px;
+      background: var(--card-hover); border: 1.5px solid var(--border);
+      border-radius: var(--radius); cursor: pointer; font-size: .875rem; font-weight: 500;
+      transition: border-color .2s, background .2s; user-select: none;
+    }
+    .radio-label svg { width: 18px; height: 18px; stroke: var(--muted); fill: none; flex-shrink: 0; transition: stroke .2s; }
+    .radio-option input:checked + .radio-label { border-color: var(--accent); background: rgba(22,163,74,.08); color: var(--text); }
+    .radio-option input:checked + .radio-label svg { stroke: var(--accent); }
+    .radio-option input:checked + .radio-label::after { content: '✓'; margin-left: auto; color: var(--accent); font-weight: 700; font-size: .85rem; }
+
+    .size-group { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 0; }
+
+    .est-result { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 40px; position: sticky; top: 96px; }
+    .est-result-label { font-size: .75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; }
+    .est-price { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2.2rem,4vw,3.5rem); line-height: 1; color: var(--accent); margin-bottom: 6px; min-height: 1.2em; transition: all .3s; }
+    .est-note { font-size: .82rem; color: var(--muted); margin-bottom: 28px; line-height: 1.6; }
+    .est-breakdown { display: flex; flex-direction: column; gap: 9px; margin-bottom: 32px; padding-top: 20px; border-top: 1px solid var(--border); }
+    .est-row { display: flex; justify-content: space-between; align-items: center; font-size: .85rem; }
+    .est-row-label { color: var(--muted); }
+    .est-row-val { font-weight: 600; color: var(--text); }
+    .est-row-val.green { color: var(--accent-light); }
+    .est-cta { display: block; width: 100%; text-align: center; background: var(--accent); color: #fff; font-weight: 700; font-size: .9rem; padding: 15px; border-radius: var(--radius); text-transform: uppercase; letter-spacing: .06em; transition: background .2s, transform .15s; }
+    .est-cta:hover { background: var(--accent-dim); transform: translateY(-1px); }
+    .est-placeholder { opacity: .45; font-style: italic; }
+
+    /* ── PARTNERS ── */
+    .partners { padding: 64px 0; border-top: 1px solid var(--border); overflow: hidden; }
+    .partners-label { text-align: center; font-size: .72rem; font-weight: 700; color: #374151; text-transform: uppercase; letter-spacing: .15em; margin-bottom: 28px; }
+    .partners-track-wrap { overflow: hidden; position: relative; }
+    .partners-track-wrap::before, .partners-track-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; }
+    .partners-track-wrap::before { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
+    .partners-track-wrap::after { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
+    .partners-track { display: flex; gap: 0; width: max-content; animation: marquee 28s linear infinite; }
+    .partners-track:hover { animation-play-state: paused; }
+    @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    .partner-item { padding: 0 44px; display: flex; align-items: center; gap: 10px; white-space: nowrap; border-right: 1px solid var(--border); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; text-transform: uppercase; letter-spacing: .06em; color: #374151; transition: color .2s; }
+    .partner-item:hover { color: var(--muted); }
+    .partner-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { padding: 110px 0; }
+    .testimonials-header { margin-bottom: 60px; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .tcard { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 32px 28px; transition: border-color .25s, transform .25s; }
+    .tcard:hover { border-color: rgba(22,163,74,.2); transform: translateY(-4px); }
+    .tcard-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+    .tcard-project { background: rgba(22,163,74,.08); border: 1px solid var(--border-acc); color: var(--accent-light); font-size: .7rem; font-weight: 700; padding: 4px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: .08em; }
+    .stars { display: flex; gap: 3px; }
+    .stars svg { width: 14px; height: 14px; fill: #f59e0b; }
+    .tcard blockquote { font-size: .9rem; color: #cbd5e1; line-height: 1.75; margin-bottom: 24px; font-style: italic; }
+    .tcard-author { display: flex; align-items: center; gap: 12px; }
+    .tcard-avatar { width: 40px; height: 40px; border-radius: 50%; background: rgba(22,163,74,.1); display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1rem; color: var(--accent); flex-shrink: 0; }
+    .tcard-name { font-weight: 600; font-size: .875rem; margin-bottom: 1px; }
+    .tcard-loc { font-size: .775rem; color: var(--muted); }
+
+    /* ── CTA ── */
+    .cta-band { padding: 100px 0; background: radial-gradient(ellipse 90% 80% at 50% 50%, rgba(22,163,74,.06), transparent 65%), #050505; border-top: 1px solid var(--border); }
+    .cta-inner { text-align: center; }
+    .cta-inner h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2.4rem,5vw,4.5rem); text-transform: uppercase; margin-bottom: 14px; }
+    .cta-inner h2 em { font-style: normal; color: var(--accent); text-shadow: 0 0 30px rgba(22,163,74,.35); }
+    .cta-inner p { color: var(--muted); font-size: .975rem; margin-bottom: 44px; }
+    .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── FOOTER ── */
+    .footer { background: #030303; border-top: 1px solid var(--border); padding: 64px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2.2fr 1fr 1fr; gap: 48px; margin-bottom: 52px; }
+    .footer-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.5rem; text-transform: uppercase; letter-spacing: .06em; display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .footer-logo-icon { width: 30px; height: 30px; background: var(--accent); border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+    .footer-logo-icon svg { width: 15px; height: 15px; stroke: #fff; fill: none; stroke-width: 2.2; }
+    .footer-desc { font-size: .875rem; color: var(--muted); line-height: 1.75; max-width: 280px; }
+    .footer-col h4 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: .875rem; text-transform: uppercase; letter-spacing: .1em; color: #4b5563; margin-bottom: 16px; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { font-size: .875rem; color: var(--muted); transition: color .2s; }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-copy { font-size: .8rem; color: #374151; }
+    .footer-ds { font-size: .8rem; color: #374151; }
+    .footer-ds a { color: var(--accent); font-weight: 600; }
+    .footer-ds a:hover { opacity: .75; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s} .d4{transition-delay:.4s} .d5{transition-delay:.5s}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1024px) {
+      .steps { grid-template-columns: repeat(3,1fr); gap: 24px; }
+      .steps::before { display: none; }
+      .services-grid { grid-template-columns: repeat(2,1fr); }
+      .estimator-wrap { grid-template-columns: 1fr; }
+      .est-result { position: static; }
+    }
+    @media(max-width:768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+      .stat:nth-child(2) { border-right: none; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .ba-grid { grid-template-columns: 1fr; }
+      .radio-group { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">
+          <div class="nav-logo-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          GroundWork
+        </a>
+        <ul class="nav-links">
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#process">How We Work</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#estimate">Get a Quote</a></li>
+        </ul>
+        <a href="tel:02071234567" class="nav-cta">Free Survey</a>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero concrete-bg" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-blueprint"></div>
+    <div class="hero-tape"></div>
+    <div class="hero-tape2"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow"><span class="hero-dot"></span> London's Trusted Builders</div>
+        <h1>We Build<br>What Others<br><em>Only Promise.</em></h1>
+        <p class="hero-sub">Extensions, loft conversions, full renovations. GroundWork Co. delivers on time, on budget, and built to last — with every project fully warranted.</p>
+        <div class="hero-actions">
+          <a href="#estimate" class="btn-primary">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            Get an Estimate
+          </a>
+          <a href="#projects" class="btn-ghost">See Our Work</a>
+        </div>
+        <div class="hero-trust">
+          <span class="hero-trust-item">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            FMB Registered
+          </span>
+          <span class="hero-trust-item">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            10-Year Structural Guarantee
+          </span>
+          <span class="hero-trust-item">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            All London Boroughs
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll"><div class="hero-scroll-bar"></div>Scroll</div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="container">
+      <div class="stats-inner">
+        <div class="stat reveal d1"><div class="stat-n" data-target="18" data-suffix=" yrs">0</div><div class="stat-l">Years Trading</div></div>
+        <div class="stat reveal d2"><div class="stat-n" data-target="340" data-suffix="+">0</div><div class="stat-l">Projects Completed</div></div>
+        <div class="stat reveal d3"><div class="stat-n" data-target="97" data-suffix="%">0</div><div class="stat-l">On Time & On Budget</div></div>
+        <div class="stat reveal d4"><div class="stat-n" data-target="48" data-suffix="hr">0</div><div class="stat-l">Survey Response</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEFORE / AFTER -->
+  <section class="ba-section" id="projects">
+    <div class="container">
+      <div class="ba-header">
+        <div class="eyebrow reveal">Our Work</div>
+        <h2 class="section-h reveal d1">Results That Speak</h2>
+        <p class="section-p reveal d2">Drag the handle to compare before and after on a selection of recent projects across London.</p>
+      </div>
+      <div class="ba-grid">
+
+        <!-- Project 1 -->
+        <div class="reveal d1">
+          <div class="ba-wrap" id="ba1">
+            <div class="ba-before">
+              <div class="ba-art">
+                <svg viewBox="0 0 120 120" width="120" height="120">
+                  <rect x="20" y="60" width="80" height="40" stroke-dasharray="4 2"/>
+                  <rect x="10" y="30" width="100" height="35" stroke-dasharray="4 2"/>
+                  <line x1="10" y1="30" x2="60" y2="10" stroke-dasharray="4 2"/>
+                  <line x1="110" y1="30" x2="60" y2="10" stroke-dasharray="4 2"/>
+                </svg>
+              </div>
+              <span class="ba-label">Before</span>
+            </div>
+            <div class="ba-after" id="ba1-after">
+              <div class="ba-art">
+                <svg viewBox="0 0 120 120" width="120" height="120">
+                  <rect x="10" y="50" width="100" height="60" stroke-width="1.2"/>
+                  <rect x="25" y="50" width="30" height="60" stroke-width="1.2"/>
+                  <rect x="65" y="50" width="35" height="60" stroke-width="1.2"/>
+                  <line x1="10" y1="50" x2="60" y2="20" stroke-width="1.2"/>
+                  <line x1="110" y1="50" x2="60" y2="20" stroke-width="1.2"/>
+                  <polyline points="60,20 10,50 110,50" stroke-width="1.2"/>
+                </svg>
+              </div>
+              <span class="ba-label">After</span>
+            </div>
+            <div class="ba-handle" id="handle1"></div>
+            <input type="range" min="0" max="100" value="50" class="ba-range" data-target="ba1" data-after="ba1-after" data-handle="handle1">
+          </div>
+          <div class="ba-info">
+            <div class="ba-project-name">Rear Extension — Islington</div>
+            <div class="ba-project-meta">
+              <span><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> 6m × 4m kitchen extension</span>
+              <span><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 9 weeks</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="reveal d2">
+          <div class="ba-wrap" id="ba2">
+            <div class="ba-before">
+              <div class="ba-art">
+                <svg viewBox="0 0 120 80" width="120" height="80">
+                  <rect x="10" y="10" width="100" height="60" stroke-dasharray="4 2"/>
+                  <line x1="10" y1="40" x2="110" y2="40" stroke-dasharray="4 2"/>
+                  <line x1="60" y1="10" x2="60" y2="70" stroke-dasharray="4 2"/>
+                </svg>
+              </div>
+              <span class="ba-label">Before</span>
+            </div>
+            <div class="ba-after" id="ba2-after">
+              <div class="ba-art">
+                <svg viewBox="0 0 120 80" width="120" height="80">
+                  <rect x="10" y="10" width="100" height="60" stroke-width="1.2"/>
+                  <rect x="15" y="15" width="42" height="28" stroke-width="1.2"/>
+                  <rect x="63" y="15" width="42" height="28" stroke-width="1.2"/>
+                  <rect x="30" y="50" width="60" height="15" stroke-width="1.2"/>
+                  <line x1="60" y1="15" x2="60" y2="43" stroke-width=".8" stroke-dasharray="2 2"/>
+                </svg>
+              </div>
+              <span class="ba-label">After</span>
+            </div>
+            <div class="ba-handle" id="handle2"></div>
+            <input type="range" min="0" max="100" value="50" class="ba-range" data-target="ba2" data-after="ba2-after" data-handle="handle2">
+          </div>
+          <div class="ba-info">
+            <div class="ba-project-name">Loft Conversion — Hackney</div>
+            <div class="ba-project-meta">
+              <span><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> Dormer + en-suite</span>
+              <span><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 11 weeks</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK -->
+  <section class="process concrete-bg" id="process">
+    <div class="container">
+      <div class="process-header">
+        <div class="eyebrow reveal">The Process</div>
+        <h2 class="section-h reveal d1">From Survey to Handover</h2>
+        <p class="section-p reveal d2">No surprises. Every project follows the same clear five-step process so you always know what's happening and when.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal d1">
+          <div class="step-num">01</div>
+          <svg class="step-icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <h3>Free Survey</h3>
+          <p>We visit within 48 hours, assess the site, take measurements and understand your vision.</p>
+        </div>
+        <div class="step reveal d2">
+          <div class="step-num">02</div>
+          <svg class="step-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <h3>Fixed Quote</h3>
+          <p>Detailed written quote within 5 days. Fixed price — no hidden costs, no surprise invoices.</p>
+        </div>
+        <div class="step reveal d3">
+          <div class="step-num">03</div>
+          <svg class="step-icon" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          <h3>Planning</h3>
+          <p>We handle planning permission and building regulations submissions where required.</p>
+        </div>
+        <div class="step reveal d4">
+          <div class="step-num">04</div>
+          <svg class="step-icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <h3>Build</h3>
+          <p>Weekly progress updates, site foreman on-site daily. You're never in the dark.</p>
+        </div>
+        <div class="step reveal d5">
+          <div class="step-num">05</div>
+          <svg class="step-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          <h3>Handover</h3>
+          <p>Snagging list addressed, building regs sign-off, and your 10-year structural warranty issued.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="services-header">
+        <div class="eyebrow reveal">What We Build</div>
+        <h2 class="section-h reveal d1">Our Specialisms</h2>
+        <p class="section-p reveal d2">General builders with deep expertise across residential extensions, conversions and renovations throughout London.</p>
+      </div>
+      <div class="services-grid reveal d1">
+        <div class="service-tile">
+          <div class="service-num">01</div>
+          <h3>Rear Extensions</h3>
+          <p>Single and double-storey rear extensions. Bi-folds, skylights, structural steel — we design and build the lot.</p>
+        </div>
+        <div class="service-tile">
+          <div class="service-num">02</div>
+          <h3>Loft Conversions</h3>
+          <p>Dormer, hip-to-gable, mansard. New bedroom, home office or en-suite — we handle planning and build.</p>
+        </div>
+        <div class="service-tile">
+          <div class="service-num">03</div>
+          <h3>Side Returns</h3>
+          <p>Reclaim the dead space beside your kitchen. Side return extensions that transform ground floor living.</p>
+        </div>
+        <div class="service-tile">
+          <div class="service-num">04</div>
+          <h3>Garage Conversions</h3>
+          <p>Permitted development, no planning needed in most cases. Habitable room ready in 4–6 weeks.</p>
+        </div>
+        <div class="service-tile">
+          <div class="service-num">05</div>
+          <h3>Full Renovations</h3>
+          <p>Strip back to brick and start fresh. Full refurbs managed start to finish with a single fixed quote.</p>
+        </div>
+        <div class="service-tile">
+          <div class="service-num">06</div>
+          <h3>New Builds</h3>
+          <p>Plot to completion. We work with architects and structural engineers to deliver standalone new-build homes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE ESTIMATOR -->
+  <section class="estimator" id="estimate">
+    <div class="container">
+      <div class="estimator-header">
+        <div class="eyebrow reveal">Cost Calculator</div>
+        <h2 class="section-h reveal d1">What Will It Cost?</h2>
+        <p class="section-p reveal d2">Get an indicative price in seconds. We'll confirm exact costs after a free site survey — no obligation.</p>
+      </div>
+      <div class="estimator-wrap">
+
+        <div class="est-panel reveal">
+          <h3>1 · Choose Your Project</h3>
+          <div class="radio-group" id="type-group">
+            <label class="radio-option">
+              <input type="radio" name="est-type" value="extension" checked>
+              <div class="radio-label">
+                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                Rear Extension
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="est-type" value="loft">
+              <div class="radio-label">
+                <svg viewBox="0 0 24 24"><path d="M3 12L12 3l9 9M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/></svg>
+                Loft Conversion
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="est-type" value="garage">
+              <div class="radio-label">
+                <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                Garage Conv.
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="est-type" value="renovation">
+              <div class="radio-label">
+                <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                Renovation
+              </div>
+            </label>
+          </div>
+
+          <h3>2 · Choose Size</h3>
+          <div class="radio-group size-group" id="size-group">
+            <label class="radio-option">
+              <input type="radio" name="est-size" value="small" checked>
+              <div class="radio-label" style="flex-direction:column;align-items:flex-start;gap:3px;">
+                <span style="font-weight:700">Small</span>
+                <span style="font-size:.77rem;color:var(--muted)">up to 20m²</span>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="est-size" value="medium">
+              <div class="radio-label" style="flex-direction:column;align-items:flex-start;gap:3px;">
+                <span style="font-weight:700">Medium</span>
+                <span style="font-size:.77rem;color:var(--muted)">20–40m²</span>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="est-size" value="large">
+              <div class="radio-label" style="flex-direction:column;align-items:flex-start;gap:3px;">
+                <span style="font-weight:700">Large</span>
+                <span style="font-size:.77rem;color:var(--muted)">40m²+</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="est-result reveal d1">
+          <div class="est-result-label">Indicative Cost Range</div>
+          <div class="est-price" id="est-price">£25,000 – £45,000</div>
+          <p class="est-note" id="est-note">Small rear extension. Actual cost confirmed after free survey.</p>
+          <div class="est-breakdown">
+            <div class="est-row"><span class="est-row-label">Typical duration</span><span class="est-row-val" id="est-duration">6–9 weeks</span></div>
+            <div class="est-row"><span class="est-row-label">Planning required</span><span class="est-row-val" id="est-planning">Usually no</span></div>
+            <div class="est-row"><span class="est-row-label">Survey fee</span><span class="est-row-val green">Free</span></div>
+            <div class="est-row"><span class="est-row-label">Fixed price quote</span><span class="est-row-val green">Yes — guaranteed</span></div>
+          </div>
+          <a href="tel:02071234567" class="est-cta">Book a Free Survey →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS STRIP -->
+  <div class="partners">
+    <div class="container" style="padding:0">
+      <p class="partners-label">Materials & Trade Partners</p>
+    </div>
+    <div class="partners-track-wrap">
+      <div class="partners-track" id="partners-track">
+        <div class="partner-item"><span class="partner-dot"></span>Jewson</div>
+        <div class="partner-item"><span class="partner-dot"></span>Travis Perkins</div>
+        <div class="partner-item"><span class="partner-dot"></span>Velux</div>
+        <div class="partner-item"><span class="partner-dot"></span>Knauf</div>
+        <div class="partner-item"><span class="partner-dot"></span>Tarmac</div>
+        <div class="partner-item"><span class="partner-dot"></span>Cemex</div>
+        <div class="partner-item"><span class="partner-dot"></span>Rockwool</div>
+        <div class="partner-item"><span class="partner-dot"></span>British Gypsum</div>
+        <div class="partner-item"><span class="partner-dot"></span>Jeld-Wen</div>
+        <div class="partner-item"><span class="partner-dot"></span>Schiedel</div>
+        <!-- duplicate for seamless loop -->
+        <div class="partner-item"><span class="partner-dot"></span>Jewson</div>
+        <div class="partner-item"><span class="partner-dot"></span>Travis Perkins</div>
+        <div class="partner-item"><span class="partner-dot"></span>Velux</div>
+        <div class="partner-item"><span class="partner-dot"></span>Knauf</div>
+        <div class="partner-item"><span class="partner-dot"></span>Tarmac</div>
+        <div class="partner-item"><span class="partner-dot"></span>Cemex</div>
+        <div class="partner-item"><span class="partner-dot"></span>Rockwool</div>
+        <div class="partner-item"><span class="partner-dot"></span>British Gypsum</div>
+        <div class="partner-item"><span class="partner-dot"></span>Jeld-Wen</div>
+        <div class="partner-item"><span class="partner-dot"></span>Schiedel</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="testimonials-header">
+        <div class="eyebrow reveal">Client Feedback</div>
+        <h2 class="section-h reveal d1">Clients Who Stayed in Touch</h2>
+        <p class="section-p reveal d2">We're proud that most of our work comes from referrals and repeat clients. Here's what they say.</p>
+      </div>
+      <div class="testimonials-grid">
+
+        <div class="tcard reveal d1">
+          <div class="tcard-top">
+            <span class="tcard-project">Rear Extension</span>
+            <div class="stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          </div>
+          <blockquote>"They came in under quote by £3,000 and finished two weeks early. The kitchen extension is stunning — it's completely changed how we use the house."</blockquote>
+          <div class="tcard-author"><div class="tcard-avatar">SR</div><div><div class="tcard-name">Sophie Reed</div><div class="tcard-loc">Crouch End, London</div></div></div>
+        </div>
+
+        <div class="tcard reveal d2">
+          <div class="tcard-top">
+            <span class="tcard-project">Loft Conversion</span>
+            <div class="stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          </div>
+          <blockquote>"Three quotes, GroundWork were mid-range. Chose them for their transparency. Weekly updates, no mess left overnight. We'd use them again without hesitation."</blockquote>
+          <div class="tcard-author"><div class="tcard-avatar">JK</div><div><div class="tcard-name">James &amp; Kim Patel</div><div class="tcard-loc">Walthamstow, London</div></div></div>
+        </div>
+
+        <div class="tcard reveal d3">
+          <div class="tcard-top">
+            <span class="tcard-project">Full Renovation</span>
+            <div class="stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          </div>
+          <blockquote>"Full gut and renovation on a Victorian terrace — structural work, new layout, the works. GroundWork delivered a genuinely beautiful home. Absolutely recommend."</blockquote>
+          <div class="tcard-author"><div class="tcard-avatar">AL</div><div><div class="tcard-name">Anna Lawson</div><div class="tcard-loc">Peckham, London</div></div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="container">
+      <div class="cta-inner">
+        <h2>Ready to <em>Build?</em></h2>
+        <p>Book your free site survey. No obligation, no hard sell — just an honest assessment and a fixed-price quote within 5 days.</p>
+        <div class="cta-actions">
+          <a href="tel:02071234567" class="btn-primary">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12 19.79 19.79 0 0 1 1.97 3.25 2 2 0 0 1 3.95 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            020 7123 4567
+          </a>
+          <a href="#estimate" class="btn-ghost">Use the Estimator</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <div class="footer-logo-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            GroundWork
+          </div>
+          <p class="footer-desc">FMB-registered builders serving all London boroughs. Extensions, loft conversions, renovations — fixed prices, 10-year guarantee.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Rear Extensions</a></li>
+            <li><a href="#services">Loft Conversions</a></li>
+            <li><a href="#services">Side Returns</a></li>
+            <li><a href="#services">Garage Conversions</a></li>
+            <li><a href="#services">Full Renovations</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:02071234567">020 7123 4567</a></li>
+            <li><a href="mailto:hello@groundworkco.co.uk">hello@groundworkco.co.uk</a></li>
+            <li><a href="#">14 Builder's Yard, London SE5 8RT</a></li>
+            <li><a href="#">Mon–Fri: 7am–6pm</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 GroundWork Co. Ltd. FMB Member. All rights reserved.</p>
+        <p class="footer-ds">Template by <a href="#">WebOrb Templates</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PREVIEW BAR CONFIG -->
+  <script>
+    window.__previewBar = {
+      name: "Builder Template",
+      tiers: [
+        { label: "Lite",     price: "£49",  url: "https://buy.stripe.com/7sY14o7Nb2AGeLoaRDf7i00?client_reference_id=builder" },
+        { label: "Standard", price: "£99",  url: "https://buy.stripe.com/fZuaEY6J71wC0Uye3Pf7i01?client_reference_id=builder" },
+        { label: "Pro",      price: "£199", url: "https://buy.stripe.com/00w9AU1oNdfk5aOgbXf7i02?client_reference_id=builder" }
+      ]
+    };
+  </script>
+  <script src="/js/preview-bar.js"></script>
+
+  <!-- SCRIPTS -->
+  <script>
+    /* ── NAVBAR ── */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), {passive:true});
+
+    /* ── SCROLL REVEAL ── */
+    const ro = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); ro.unobserve(e.target); } });
+    }, {threshold: 0.1});
+    document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+    /* ── COUNTERS ── */
+    const co = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if(!e.isIntersecting) return;
+        const el = e.target, target = +el.dataset.target, suffix = el.dataset.suffix||'';
+        let cur = 0; const step = Math.ceil(target/60);
+        const t = setInterval(() => {
+          cur = Math.min(cur+step, target);
+          el.textContent = (target>=1000?cur.toLocaleString():cur) + suffix;
+          if(cur>=target) clearInterval(t);
+        }, 22);
+        co.unobserve(el);
+      });
+    }, {threshold:0.5});
+    document.querySelectorAll('.stat-n').forEach(c => co.observe(c));
+
+    /* ── BEFORE/AFTER SLIDERS ── */
+    document.querySelectorAll('.ba-range').forEach(input => {
+      const afterEl  = document.getElementById(input.dataset.after);
+      const handleEl = document.getElementById(input.dataset.handle);
+      function update() {
+        const v = input.value;
+        afterEl.style.clipPath  = `inset(0 ${100-v}% 0 0)`;
+        handleEl.style.left     = v + '%';
+      }
+      update();
+      input.addEventListener('input', update);
+    });
+
+    /* ── QUOTE ESTIMATOR ── */
+    const prices = {
+      extension: { small:[25000,45000], medium:[55000,95000], large:[100000,170000] },
+      loft:      { small:[30000,55000], medium:[55000,90000], large:[80000,130000] },
+      garage:    { small:[8000,14000],  medium:[14000,26000], large:[24000,42000]  },
+      renovation:{ small:[12000,24000], medium:[25000,55000], large:[55000,100000] },
+    };
+    const durations = {
+      extension: { small:'6–9 wks', medium:'10–16 wks', large:'16–24 wks' },
+      loft:      { small:'8–10 wks', medium:'10–14 wks', large:'12–18 wks' },
+      garage:    { small:'3–5 wks', medium:'4–6 wks', large:'5–8 wks' },
+      renovation:{ small:'4–8 wks', medium:'8–14 wks', large:'14–24 wks' },
+    };
+    const planning = {
+      extension: { small:'Usually no', medium:'Sometimes', large:'Usually yes' },
+      loft:      { small:'Rarely', medium:'Sometimes', large:'Often' },
+      garage:    { small:'No', medium:'No', large:'No' },
+      renovation:{ small:'No', medium:'No', large:'Structural only' },
+    };
+
+    function fmt(n) { return '£' + n.toLocaleString(); }
+    function updateEstimate() {
+      const type = document.querySelector('[name="est-type"]:checked').value;
+      const size = document.querySelector('[name="est-size"]:checked').value;
+      const [lo, hi] = prices[type][size];
+      const priceEl    = document.getElementById('est-price');
+      const noteEl     = document.getElementById('est-note');
+      const durEl      = document.getElementById('est-duration');
+      const planEl     = document.getElementById('est-planning');
+      priceEl.textContent = fmt(lo) + ' – ' + fmt(hi);
+      const typeLabels = {extension:'Rear extension',loft:'Loft conversion',garage:'Garage conversion',renovation:'Renovation'};
+      const sizeLabels = {small:'small',medium:'medium',large:'large'};
+      noteEl.textContent = `${typeLabels[type]} (${sizeLabels[size]}). Indicative range — confirmed after free survey.`;
+      durEl.textContent  = durations[type][size];
+      planEl.textContent = planning[type][size];
+    }
+    document.querySelectorAll('[name="est-type"],[name="est-size"]').forEach(r => r.addEventListener('change', updateEstimate));
+    updateEstimate();
+  </script>
+</body>
+</html>
