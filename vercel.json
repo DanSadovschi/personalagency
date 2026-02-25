@@ -1,5 +1,9 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "_site",
-  "installCommand": "npm install"
+  "installCommand": "npm install",
+  "redirects": [
+    { "source": "/offer", "destination": "/starter", "permanent": false },
+    { "source": "/offer/", "destination": "/starter", "permanent": false }
+  ]
 }
