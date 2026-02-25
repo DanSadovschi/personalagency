@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VoltEdge Electrical — London Electricians</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; cursor: none; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    ul { list-style: none; }
+
+    /* ── VARIABLES ── */
+    :root {
+      --bg:          #080808;
+      --surface:     #0f0f0f;
+      --card:        #141414;
+      --card-hover:  #1c1c1c;
+      --accent:      #eab308;
+      --accent-dim:  #ca8a04;
+      --accent-glow: rgba(234,179,8,.2);
+      --accent-glow2:rgba(234,179,8,.08);
+      --text:        #f1f5f9;
+      --muted:       #94a3b8;
+      --border:      rgba(255,255,255,.06);
+      --border-acc:  rgba(234,179,8,.25);
+      --radius:      6px;
+      --container:   1180px;
+    }
+
+    /* ── CUSTOM CURSOR ── */
+    #cursor {
+      position: fixed; top: 0; left: 0; z-index: 99999;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 16px 4px var(--accent-glow);
+      pointer-events: none; transform: translate(-50%,-50%);
+      transition: width .15s, height .15s, opacity .15s;
+      mix-blend-mode: screen;
+    }
+    #cursor.clicking { width: 8px; height: 8px; }
+
+    /* ── SPARK CANVAS ── */
+    #sparkCanvas {
+      position: fixed; inset: 0; z-index: 99998;
+      pointer-events: none;
+    }
+
+    /* ── LAYOUT ── */
+    .container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+
+    /* ── NAVBAR ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      transition: background .3s, box-shadow .3s;
+    }
+    .nav.scrolled {
+      background: rgba(8,8,8,.96);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 var(--border);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .nav-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900; font-size: 1.5rem; text-transform: uppercase; letter-spacing: .04em;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { font-size: .875rem; font-weight: 500; color: var(--muted); transition: color .2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--accent); color: #000; font-weight: 800;
+      font-size: .8rem; padding: 10px 22px; border-radius: var(--radius);
+      text-transform: uppercase; letter-spacing: .07em;
+      transition: background .2s, transform .15s, box-shadow .2s;
+    }
+    .nav-cta:hover { background: var(--accent-dim); transform: translateY(-1px); box-shadow: 0 6px 20px var(--accent-glow); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: none; padding: 4px; }
+    .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; min-height: 100vh; display: flex; align-items: center;
+      overflow: hidden; background: #040404;
+    }
+    #heroCanvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
+    .hero-grid-lines {
+      position: absolute; inset: 0; z-index: 1;
+      background-image:
+        linear-gradient(rgba(234,179,8,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(234,179,8,.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 2;
+      background: radial-gradient(ellipse 80% 60% at 50% 50%, transparent 0%, rgba(4,4,4,.7) 100%);
+    }
+    .hero-content { position: relative; z-index: 3; padding-top: 80px; max-width: 800px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: rgba(234,179,8,.08); border: 1px solid var(--border-acc);
+      color: var(--accent); font-size: .75rem; font-weight: 700;
+      padding: 7px 16px; border-radius: 100px; margin-bottom: 32px;
+      text-transform: uppercase; letter-spacing: .1em;
+    }
+    .hero-badge-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      animation: pulsedot 1.8s ease-in-out infinite;
+    }
+    @keyframes pulsedot { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(1.5);opacity:.4;} }
+
+    .hero h1 {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+      font-size: clamp(3.4rem, 9vw, 7.5rem);
+      line-height: .9; text-transform: uppercase;
+      color: var(--text); letter-spacing: -.01em; margin-bottom: 8px;
+    }
+    .hero-typewriter-line {
+      display: block; color: var(--accent);
+      text-shadow: 0 0 40px rgba(234,179,8,.5), 0 0 80px rgba(234,179,8,.2);
+      min-height: 1em;
+    }
+    #typewriter { border-right: 4px solid var(--accent); padding-right: 6px; animation: blink-cursor .75s step-end infinite; }
+    @keyframes blink-cursor { 0%,100%{border-color:var(--accent);} 50%{border-color:transparent;} }
+
+    .hero-sub { font-size: 1.1rem; color: var(--muted); max-width: 480px; margin: 28px 0 44px; line-height: 1.7; }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+
+    .btn-primary {
+      background: var(--accent); color: #000; font-weight: 800;
+      font-size: .95rem; padding: 16px 34px; border-radius: var(--radius);
+      text-transform: uppercase; letter-spacing: .06em;
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: background .2s, transform .15s, box-shadow .2s;
+    }
+    .btn-primary:hover { background: var(--accent-dim); transform: translateY(-2px); box-shadow: 0 12px 32px var(--accent-glow); }
+    .btn-ghost {
+      border: 1.5px solid rgba(255,255,255,.18); color: var(--text);
+      font-weight: 600; font-size: .95rem; padding: 14px 32px;
+      border-radius: var(--radius); text-transform: uppercase; letter-spacing: .05em;
+      transition: border-color .2s, background .2s;
+    }
+    .btn-ghost:hover { border-color: var(--accent); background: var(--accent-glow2); }
+
+    .hero-scroll {
+      position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: var(--muted); font-size: .7rem; letter-spacing: .12em;
+      text-transform: uppercase; z-index: 3;
+    }
+    .hero-scroll-bar {
+      width: 1px; height: 50px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      animation: scrollbar 2s ease-in-out infinite;
+    }
+    @keyframes scrollbar { 0%,100%{opacity:1;transform:scaleY(1);} 50%{opacity:.2;transform:scaleY(.4);} }
+
+    /* ── URGENCY BAR ── */
+    .urgency-bar {
+      background: var(--accent); color: #000;
+      padding: 14px 0; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .urgency-bar::before {
+      content: ''; position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        45deg, transparent, transparent 10px,
+        rgba(0,0,0,.06) 10px, rgba(0,0,0,.06) 20px
+      );
+    }
+    .urgency-inner {
+      position: relative; display: flex; align-items: center;
+      justify-content: center; gap: 20px; flex-wrap: wrap;
+    }
+    .urgency-icon { font-size: 1.1rem; }
+    .urgency-text { font-weight: 700; font-size: .9rem; letter-spacing: .03em; }
+    .urgency-slot {
+      background: rgba(0,0,0,.15); border-radius: 4px;
+      padding: 4px 12px; font-weight: 800; font-size: .9rem;
+      letter-spacing: .05em; font-family: 'Barlow Condensed', sans-serif;
+    }
+    .urgency-cta {
+      background: #000; color: var(--accent); font-weight: 800;
+      font-size: .75rem; padding: 6px 14px; border-radius: 4px;
+      text-transform: uppercase; letter-spacing: .07em;
+      transition: opacity .2s;
+    }
+    .urgency-cta:hover { opacity: .8; }
+
+    /* ── STATS ── */
+    .stats { background: var(--surface); border-bottom: 1px solid var(--border); padding: 72px 0; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); }
+    .stat-item { text-align: center; padding: 28px 16px; border-right: 1px solid var(--border); }
+    .stat-item:last-child { border-right: none; }
+    .stat-number {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+      font-size: clamp(2.6rem,5vw,4.2rem); line-height: 1;
+      color: var(--accent); text-shadow: 0 0 20px var(--accent-glow);
+      margin-bottom: 8px;
+    }
+    .stat-label { font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
+
+    /* ── SECTION HEADER ── */
+    .section-eyebrow { font-size: .72rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .16em; margin-bottom: 10px; }
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+      font-size: clamp(2.2rem,4.5vw,3.8rem); text-transform: uppercase;
+      line-height: 1.0; margin-bottom: 16px;
+    }
+    .section-sub { font-size: .975rem; color: var(--muted); line-height: 1.75; max-width: 520px; }
+
+    /* ── SERVICES ── */
+    .services { padding: 110px 0; }
+    .services-header { margin-bottom: 64px; }
+    .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .service-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 36px 30px;
+      position: relative; overflow: hidden;
+      transition: transform .25s, border-color .3s, box-shadow .3s, background .25s;
+    }
+    .service-card::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(234,179,8,.06), transparent 60%);
+      opacity: 0; transition: opacity .3s;
+    }
+    .service-card:hover { transform: translateY(-7px); background: var(--card-hover); border-color: var(--border-acc); box-shadow: 0 20px 50px rgba(0,0,0,.7), 0 0 0 1px rgba(234,179,8,.06); }
+    .service-card:hover::after { opacity: 1; }
+    .service-icon {
+      width: 52px; height: 52px; background: rgba(234,179,8,.08);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 22px; transition: background .25s;
+    }
+    .service-card:hover .service-icon { background: rgba(234,179,8,.18); }
+    .service-icon svg { width: 24px; height: 24px; stroke: var(--accent); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .service-card h3 {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: 1.45rem; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 10px;
+    }
+    .service-card p { font-size: .875rem; color: var(--muted); line-height: 1.7; }
+
+    /* ── CERTS ── */
+    .certs { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 72px 0; }
+    .certs-header { text-align: center; margin-bottom: 52px; }
+    .certs-header .section-sub { margin: 0 auto; text-align: center; }
+    .certs-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+    .cert-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 32px 24px; text-align: center;
+      transition: border-color .25s, transform .25s;
+    }
+    .cert-card:hover { border-color: var(--border-acc); transform: translateY(-4px); }
+    .cert-badge {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(234,179,8,.1); border: 2px solid var(--border-acc);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .cert-badge svg { width: 28px; height: 28px; stroke: var(--accent); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .cert-card h4 {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
+      font-size: 1.1rem; text-transform: uppercase; letter-spacing: .05em;
+      margin-bottom: 6px;
+    }
+    .cert-card p { font-size: .8rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── PRICING ── */
+    .pricing { padding: 110px 0; }
+    .pricing-header { margin-bottom: 64px; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .pricing-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 40px 32px;
+      position: relative; transition: border-color .25s, transform .25s;
+    }
+    .pricing-card.featured {
+      border-color: var(--border-acc);
+      background: linear-gradient(135deg, #161200 0%, var(--card) 40%);
+      transform: scale(1.02);
+    }
+    .pricing-card:not(.featured):hover { border-color: rgba(234,179,8,.15); transform: translateY(-4px); }
+    .pricing-popular {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--accent); color: #000;
+      font-size: .7rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: .08em; padding: 4px 14px; border-radius: 100px;
+    }
+    .pricing-card h3 {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+      font-size: 1.5rem; text-transform: uppercase; margin-bottom: 6px;
+    }
+    .pricing-desc { font-size: .85rem; color: var(--muted); margin-bottom: 24px; }
+    .pricing-price {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+      font-size: 3rem; line-height: 1; color: var(--accent); margin-bottom: 4px;
+    }
+    .pricing-price span { font-size: 1.1rem; font-weight: 600; opacity: .7; }
+    .pricing-note { font-size: .78rem; color: var(--muted); margin-bottom: 28px; }
+    .pricing-features { display: flex; flex-direction: column; gap: 11px; margin-bottom: 32px; }
+    .pricing-feature { display: flex; align-items: center; gap: 10px; font-size: .875rem; color: #cbd5e1; }
+    .pricing-feature svg { width: 16px; height: 16px; stroke: var(--accent); fill: none; flex-shrink: 0; }
+    .pricing-btn {
+      display: block; width: 100%; text-align: center;
+      background: var(--card-hover); color: var(--text);
+      border: 1px solid var(--border-acc); font-weight: 700;
+      font-size: .875rem; padding: 13px; border-radius: var(--radius);
+      text-transform: uppercase; letter-spacing: .06em;
+      transition: background .2s, color .2s;
+    }
+    .pricing-card.featured .pricing-btn { background: var(--accent); color: #000; border-color: var(--accent); }
+    .pricing-card:not(.featured) .pricing-btn:hover { background: rgba(234,179,8,.1); color: var(--accent); }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { background: var(--surface); padding: 110px 0; }
+    .testimonials-header { margin-bottom: 60px; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .testimonial-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 32px 28px;
+      transition: border-color .25s, transform .25s;
+    }
+    .testimonial-card:hover { border-color: rgba(234,179,8,.2); transform: translateY(-4px); }
+    .stars { display: flex; gap: 4px; margin-bottom: 20px; }
+    .stars svg { width: 16px; height: 16px; fill: var(--accent); }
+    .testimonial-card blockquote { font-size: .9rem; color: #cbd5e1; line-height: 1.75; margin-bottom: 28px; font-style: italic; }
+    .testimonial-author { display: flex; align-items: center; gap: 13px; }
+    .author-avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: rgba(234,179,8,.12);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+      font-size: 1.1rem; color: var(--accent); flex-shrink: 0;
+    }
+    .author-name { font-weight: 600; font-size: .875rem; margin-bottom: 2px; }
+    .author-loc { font-size: .775rem; color: var(--muted); }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      padding: 96px 0;
+      background: radial-gradient(ellipse 80% 120% at 50% 50%, rgba(234,179,8,.07) 0%, transparent 60%), #050505;
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .cta-inner { text-align: center; }
+    .cta-inner h2 {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+      font-size: clamp(2.4rem,5vw,4.5rem); text-transform: uppercase; margin-bottom: 16px;
+    }
+    .cta-inner h2 em { font-style: normal; color: var(--accent); text-shadow: 0 0 30px rgba(234,179,8,.4); }
+    .cta-inner p { color: var(--muted); font-size: .975rem; margin-bottom: 44px; }
+    .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .phone-label { display: flex; align-items: center; gap: 8px; font-size: .9rem; color: var(--muted); }
+
+    /* ── FOOTER ── */
+    .footer { background: #030303; border-top: 1px solid var(--border); padding: 64px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2.2fr 1fr 1fr; gap: 48px; margin-bottom: 52px; }
+    .footer-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.6rem; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 14px; }
+    .footer-logo span { color: var(--accent); }
+    .footer-desc { font-size: .875rem; color: var(--muted); line-height: 1.75; max-width: 290px; }
+    .footer-col h4 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: .9rem; text-transform: uppercase; letter-spacing: .1em; color: #4b5563; margin-bottom: 16px; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { font-size: .875rem; color: var(--muted); transition: color .2s; }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-copy { font-size: .8rem; color: #374151; }
+    .footer-ds { font-size: .8rem; color: #374151; }
+    .footer-ds a { color: var(--accent); font-weight: 600; transition: opacity .2s; }
+    .footer-ds a:hover { opacity: .75; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1{transition-delay:.1s;} .d2{transition-delay:.2s;} .d3{transition-delay:.3s;}
+    .d4{transition-delay:.4s;} .d5{transition-delay:.5s;}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1024px) {
+      .services-grid { grid-template-columns: repeat(2,1fr); }
+      .certs-grid { grid-template-columns: repeat(2,1fr); }
+      .stats-grid { grid-template-columns: repeat(2,1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+      .pricing-card.featured { transform: none; }
+    }
+    @media(max-width:768px) {
+      .nav-links,.nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .services-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      body { cursor: auto; }
+      #cursor, #sparkCanvas { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── CUSTOM CURSOR ── -->
+  <div id="cursor"></div>
+  <canvas id="sparkCanvas"></canvas>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">Volt<span>Edge</span></a>
+        <ul class="nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#certs">Certifications</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+        <a href="tel:02071234567" class="nav-cta">⚡ Book Now</a>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-grid-lines"></div>
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          NICEIC Approved · London
+        </div>
+        <h1>
+          London's Trusted<br>
+          <span class="hero-typewriter-line"><span id="typewriter">Electricians</span></span>
+        </h1>
+        <p class="hero-sub">
+          Fast, certified electrical work across London. Fuse boards, EV chargers, rewires and smart lighting — all Part P compliant.
+        </p>
+        <div class="hero-actions">
+          <a href="tel:02071234567" class="btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12 19.79 19.79 0 0 1 1.97 3.25 2 2 0 0 1 3.95 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            020 7123 4567
+          </a>
+          <a href="#services" class="btn-ghost">View Services</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll"><div class="hero-scroll-bar"></div>Scroll</div>
+  </section>
+
+  <!-- ── URGENCY BAR ── -->
+  <div class="urgency-bar">
+    <div class="container">
+      <div class="urgency-inner">
+        <span class="urgency-icon">⚡</span>
+        <span class="urgency-text">Next available slot:</span>
+        <span class="urgency-slot" id="nextSlot">Loading…</span>
+        <a href="tel:02071234567" class="urgency-cta">Book It →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STATS ── -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal d1"><div class="stat-number" data-target="12" data-suffix=" yrs">0</div><div class="stat-label">Years Experience</div></div>
+        <div class="stat-item reveal d2"><div class="stat-number" data-target="2400" data-suffix="+">0</div><div class="stat-label">Jobs Completed</div></div>
+        <div class="stat-item reveal d3"><div class="stat-number" data-target="99" data-suffix="%">0</div><div class="stat-label">Customer Satisfaction</div></div>
+        <div class="stat-item reveal d4"><div class="stat-number" data-target="24" data-suffix="/7">0</div><div class="stat-label">Emergency Cover</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="services-header">
+        <div class="section-eyebrow reveal">What We Do</div>
+        <h2 class="section-title reveal d1">Our Services</h2>
+        <p class="section-sub reveal d2">Fully qualified, Part P certified electricians covering all domestic and commercial electrical work across London.</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card reveal d1">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+          </div>
+          <h3>Fuse Board Upgrade</h3>
+          <p>Old fuse boards are a fire risk. We upgrade to modern consumer units with RCD protection — fast, clean, and certified.</p>
+        </div>
+
+        <div class="service-card reveal d2">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3>EV Charger Install</h3>
+          <p>OZEV-certified home EV charger installation. We handle everything — survey, install, and OZEV grant paperwork.</p>
+        </div>
+
+        <div class="service-card reveal d3">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3>Full Rewires</h3>
+          <p>Complete house rewires to 18th Edition standard. Minimal disruption — most homes done in 3–5 days.</p>
+        </div>
+
+        <div class="service-card reveal d1">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </div>
+          <h3>Smart Lighting</h3>
+          <p>Hue, Lutron, or custom smart lighting systems. App control, scenes, and voice assistant integration.</p>
+        </div>
+
+        <div class="service-card reveal d2">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <h3>Emergency Callouts</h3>
+          <p>Power cuts, sparking sockets, tripped circuits — we're there fast. 24/7 emergency cover across London.</p>
+        </div>
+
+        <div class="service-card reveal d3">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h3>EICR Testing</h3>
+          <p>Electrical Installation Condition Reports for landlords and homeowners. Fast turnaround, full written report.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CERTIFICATIONS ── -->
+  <section class="certs" id="certs">
+    <div class="container">
+      <div class="certs-header">
+        <div class="section-eyebrow reveal">Fully Qualified</div>
+        <h2 class="section-title reveal d1">Our Certifications</h2>
+        <p class="section-sub reveal d2">Every job is carried out to the highest standard and fully certified — giving you complete peace of mind.</p>
+      </div>
+      <div class="certs-grid">
+        <div class="cert-card reveal d1">
+          <div class="cert-badge">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          </div>
+          <h4>NICEIC Approved</h4>
+          <p>Registered with the UK's leading electrical contractor scheme since 2015.</p>
+        </div>
+        <div class="cert-card reveal d2">
+          <div class="cert-badge">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 15 11 17 15 13"/></svg>
+          </div>
+          <h4>Part P Certified</h4>
+          <p>All domestic electrical work is self-certified to Building Regulations Part P.</p>
+        </div>
+        <div class="cert-card reveal d3">
+          <div class="cert-badge">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          </div>
+          <h4>18th Edition</h4>
+          <p>All electricians hold the IET 18th Edition Wiring Regulations qualification.</p>
+        </div>
+        <div class="cert-card reveal d4">
+          <div class="cert-badge">
+            <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h4>OZEV Certified</h4>
+          <p>Authorised to install EV home charging points and process OZEV grants on your behalf.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRICING ── -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="pricing-header">
+        <div class="section-eyebrow reveal">Transparent Pricing</div>
+        <h2 class="section-title reveal d1">No Hidden Costs</h2>
+        <p class="section-sub reveal d2">Fixed prices on our most popular jobs. Call for a free quote on anything else — we never charge for surveys.</p>
+      </div>
+      <div class="pricing-grid">
+
+        <div class="pricing-card reveal d1">
+          <h3>Fuse Board Upgrade</h3>
+          <p class="pricing-desc">Consumer unit replacement with RCD protection</p>
+          <div class="pricing-price">£499 <span>from</span></div>
+          <p class="pricing-note">Fully certified. Usually completed same day.</p>
+          <ul class="pricing-features">
+            <li class="pricing-feature"><svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> New dual RCD consumer unit</li>
+            <li class="pricing-feature"><svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Part P certificate included</li>
+            <li class="pricing-feature"><svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Free visual inspection</li>
+            <li class="pricing-feature"><svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 10-year parts guarantee</li>
+          </ul>
+          <a href="tel:02071234567" class="pricing-btn">Get a Quote</a>
+        </div>
+
+        <div class="pricing-card featured reveal d2">
+          <div class="pricing-popular">Most Popular</div>
+          <h3>EV Charger Install</h3>
+          <p class="pricing-desc">Home EV charging point — OZEV grant eligible</p>
+          <div class="pricing-price">£799 <span>from</span></div>
+          <p class="pricing-note">OZEV grant may reduce cost to £0. Ask us.</p>
+          <ul class="pricing-features">
+            <li class="pricing-feature"><svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 7.4kW smart charger</li>
+            <li class="pricing-feature"><svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> OZEV grant paperwork</li>
+            <li class="pricing-feature"><svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> App &amp; schedule control</li>
+            <li class="pricing-feature"><svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 3-year installation warranty</li>
+          </ul>
+          <a href="tel:02071234567" class="pricing-btn">Book Now</a>
+        </div>
+
+        <div class="pricing-card reveal d3">
+          <h3>Full Rewire</h3>
+          <p class="pricing-desc">Complete domestic rewire to 18th Edition</p>
+          <div class="pricing-price">£3,500 <span>from</span></div>
+          <p class="pricing-note">Price varies by property size. Free survey.</p>
+          <ul class="pricing-features">
+            <li class="pricing-feature"><svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Full 18th Edition rewire</li>
+            <li class="pricing-feature"><svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> New consumer unit</li>
+            <li class="pricing-feature"><svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> EICR certificate</li>
+            <li class="pricing-feature"><svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Minimal disruption</li>
+          </ul>
+          <a href="tel:02071234567" class="pricing-btn">Get a Quote</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ── -->
+  <section class="testimonials" id="reviews">
+    <div class="container">
+      <div class="testimonials-header">
+        <div class="section-eyebrow reveal">Real Customers</div>
+        <h2 class="section-title reveal d1">What They Say</h2>
+      </div>
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card reveal d1">
+          <div class="stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <blockquote>"VoltEdge upgraded my fuse board and fitted two EV chargers in a single visit. Incredibly clean work, certified the same day. Wouldn't use anyone else."</blockquote>
+          <div class="testimonial-author"><div class="author-avatar">PH</div><div><div class="author-name">Paul Harrison</div><div class="author-loc">Islington, London</div></div></div>
+        </div>
+
+        <div class="testimonial-card reveal d2">
+          <div class="stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <blockquote>"Emergency call at 8pm — sockets sparking in the kitchen. Dan was there within 40 minutes, sorted it, and left the place spotless. Absolute lifesaver."</blockquote>
+          <div class="testimonial-author"><div class="author-avatar">LO</div><div><div class="author-name">Lisa O'Brien</div><div class="author-loc">Hackney, London</div></div></div>
+        </div>
+
+        <div class="testimonial-card reveal d3">
+          <div class="stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <blockquote>"Full house rewire in a Victorian terrace — done in 4 days. They protected all our furniture, replastered every notch, and the EICR came through the next morning."</blockquote>
+          <div class="testimonial-author"><div class="author-avatar">MK</div><div><div class="author-name">Marcus &amp; Kate Finlay</div><div class="author-loc">Peckham, London</div></div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA BAND ── -->
+  <section class="cta-band">
+    <div class="container">
+      <div class="cta-inner">
+        <h2>Sparks flying?<br>Call <em>VoltEdge.</em></h2>
+        <p>Free quotes on all jobs. No call-out fee for bookings. Emergency cover 24/7.</p>
+        <div class="cta-actions">
+          <a href="tel:02071234567" class="btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12 19.79 19.79 0 0 1 1.97 3.25 2 2 0 0 1 3.95 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            020 7123 4567
+          </a>
+          <a href="mailto:hello@voltedge.co.uk" class="btn-ghost">hello@voltedge.co.uk</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">Volt<span>Edge</span></div>
+          <p class="footer-desc">London's most trusted NICEIC-approved electricians. Fast, clean, certified work — from emergency callouts to full rewires.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Fuse Board Upgrade</a></li>
+            <li><a href="#services">EV Charger Install</a></li>
+            <li><a href="#services">Full Rewires</a></li>
+            <li><a href="#services">Smart Lighting</a></li>
+            <li><a href="#services">Emergency Callouts</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:02071234567">020 7123 4567</a></li>
+            <li><a href="mailto:hello@voltedge.co.uk">hello@voltedge.co.uk</a></li>
+            <li><a href="#">22 Watt Lane, London SE1 9AB</a></li>
+            <li><a href="#">Mon–Sun: 8am–8pm</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 VoltEdge Electrical Ltd. NICEIC No. 0000000. All rights reserved.</p>
+        <p class="footer-ds">Template by <a href="#">WebOrb Templates</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── PREVIEW BAR CONFIG ── -->
+  <script>
+    window.__previewBar = {
+      name: "Electrician Template",
+      tiers: [
+        { label: "Lite",     price: "£49",  url: "https://buy.stripe.com/7sY14o7Nb2AGeLoaRDf7i00?client_reference_id=electrician" },
+        { label: "Standard", price: "£99",  url: "https://buy.stripe.com/fZuaEY6J71wC0Uye3Pf7i01?client_reference_id=electrician" },
+        { label: "Pro",      price: "£199", url: "https://buy.stripe.com/00w9AU1oNdfk5aOgbXf7i02?client_reference_id=electrician" }
+      ]
+    };
+  </script>
+  <script src="/js/preview-bar.js"></script>
+
+  <!-- ── SCRIPTS ── -->
+  <script>
+    /* ===== CUSTOM CURSOR ===== */
+    const cursor = document.getElementById('cursor');
+    let mx = -100, my = -100;
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left = mx + 'px';
+      cursor.style.top  = my + 'px';
+    });
+    document.addEventListener('mousedown', () => cursor.classList.add('clicking'));
+    document.addEventListener('mouseup',   () => cursor.classList.remove('clicking'));
+
+    /* ===== SPARK TRAIL ===== */
+    (function() {
+      const canvas = document.getElementById('sparkCanvas');
+      const ctx = canvas.getContext('2d');
+      let W = canvas.width  = window.innerWidth;
+      let H = canvas.height = window.innerHeight;
+      window.addEventListener('resize', () => { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; });
+
+      const sparks = [];
+      class Spark {
+        constructor(x, y) {
+          const angle = Math.random() * Math.PI * 2;
+          const spd   = Math.random() * 3.5 + 0.8;
+          this.x  = x; this.y = y;
+          this.vx = Math.cos(angle) * spd;
+          this.vy = Math.sin(angle) * spd - 1.5;
+          this.life = 1;
+          this.decay = Math.random() * 0.05 + 0.025;
+          this.r = Math.random() * 2.5 + 0.8;
+        }
+        update() { this.x += this.vx; this.y += this.vy; this.vy += 0.18; this.vx *= 0.97; this.life -= this.decay; this.r *= 0.96; }
+        draw() {
+          ctx.save();
+          ctx.globalAlpha = Math.max(0, this.life);
+          ctx.fillStyle = this.life > 0.5 ? '#fff' : '#eab308';
+          ctx.shadowBlur = 8; ctx.shadowColor = '#eab308';
+          ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI*2); ctx.fill();
+          ctx.restore();
+        }
+      }
+
+      let lastX = 0, lastY = 0, frame = 0;
+      function loop() {
+        ctx.clearRect(0, 0, W, H);
+        frame++;
+        const dx = mx - lastX, dy = my - lastY;
+        const speed = Math.sqrt(dx*dx + dy*dy);
+        if (speed > 3 && frame % 2 === 0) {
+          const count = Math.min(Math.floor(speed / 6), 4);
+          for (let i = 0; i < count; i++) sparks.push(new Spark(mx, my));
+        }
+        lastX = mx; lastY = my;
+        for (let i = sparks.length - 1; i >= 0; i--) {
+          sparks[i].update(); sparks[i].draw();
+          if (sparks[i].life <= 0) sparks.splice(i, 1);
+        }
+        requestAnimationFrame(loop);
+      }
+      loop();
+    })();
+
+    /* ===== HERO LIGHTNING CANVAS ===== */
+    (function() {
+      const canvas = document.getElementById('heroCanvas');
+      const ctx = canvas.getContext('2d');
+      function resize() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
+      resize();
+      window.addEventListener('resize', resize);
+
+      function makeBolt(x1, y1, x2, y2, depth) {
+        if (depth === 0) return [[x1,y1],[x2,y2]];
+        const mx = (x1+x2)/2 + (Math.random()-.5) * Math.abs(y2-y1) * 1.2;
+        const my = (y1+y2)/2 + (Math.random()-.5) * Math.abs(x2-x1) * 0.4;
+        return [...makeBolt(x1,y1,mx,my,depth-1), ...makeBolt(mx,my,x2,y2,depth-1)];
+      }
+
+      const bolts = [];
+      function spawnBolt() {
+        const x  = Math.random() * canvas.width;
+        const y2 = Math.random() * canvas.height * 0.5 + canvas.height * 0.1;
+        const pts = makeBolt(x, 0, x + (Math.random()-.5)*200, y2, 5);
+        bolts.push({ pts, alpha: 0, max: Math.random()*.7+.15, state: 'in' });
+      }
+      spawnBolt(); spawnBolt();
+      setInterval(spawnBolt, 1200 + Math.random()*1200);
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = bolts.length-1; i >= 0; i--) {
+          const b = bolts[i];
+          if (b.state === 'in')  { b.alpha += 0.12; if (b.alpha >= b.max) { b.alpha = b.max; b.state = 'hold'; b.hold = 0; } }
+          else if (b.state === 'hold') { b.hold++; if (b.hold > 6) b.state = 'out'; }
+          else { b.alpha -= 0.04; }
+          if (b.alpha <= 0) { bolts.splice(i, 1); continue; }
+
+          /* glow pass */
+          ctx.save();
+          ctx.globalAlpha = b.alpha * 0.4;
+          ctx.strokeStyle = '#eab308';
+          ctx.lineWidth = 6;
+          ctx.shadowBlur = 30; ctx.shadowColor = '#eab308';
+          ctx.beginPath();
+          b.pts.forEach(([x,y],j) => j===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y));
+          ctx.stroke();
+          ctx.restore();
+
+          /* core */
+          ctx.save();
+          ctx.globalAlpha = b.alpha;
+          ctx.strokeStyle = '#fffde7';
+          ctx.lineWidth = 1.2;
+          ctx.shadowBlur = 10; ctx.shadowColor = '#eab308';
+          ctx.beginPath();
+          b.pts.forEach(([x,y],j) => j===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y));
+          ctx.stroke();
+          ctx.restore();
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+    /* ===== TYPEWRITER ===== */
+    (function() {
+      const el = document.getElementById('typewriter');
+      const words = ['Electricians.','Rewires.','EV Chargers.','Smart Lighting.','Fuse Boards.'];
+      let wi = 0, ci = 0, deleting = false, pause = 0;
+      function tick() {
+        const word = words[wi];
+        if (pause > 0) { pause--; setTimeout(tick, 80); return; }
+        if (!deleting) {
+          ci++;
+          el.textContent = word.slice(0, ci);
+          if (ci === word.length) { deleting = true; pause = 30; }
+          setTimeout(tick, 90);
+        } else {
+          ci--;
+          el.textContent = word.slice(0, ci);
+          if (ci === 0) { deleting = false; wi = (wi+1) % words.length; pause = 8; }
+          setTimeout(tick, 45);
+        }
+      }
+      tick();
+    })();
+
+    /* ===== URGENCY SLOT ===== */
+    (function() {
+      const el = document.getElementById('nextSlot');
+      const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+      const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      const d = new Date(); d.setDate(d.getDate() + 2 + Math.floor(Math.random()*2));
+      el.textContent = days[d.getDay()] + ' ' + d.getDate() + ' ' + months[d.getMonth()];
+    })();
+
+    /* ===== NAVBAR SCROLL ===== */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
+
+    /* ===== SCROLL REVEAL ===== */
+    const revealEls = document.querySelectorAll('.reveal');
+    new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.1 }).observe = (function(orig){
+      return function(el){ orig.call(this, el); };
+    })(IntersectionObserver.prototype.observe);
+
+    const ro = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => ro.observe(el));
+
+    /* ===== COUNTERS ===== */
+    const counters = document.querySelectorAll('.stat-number');
+    const co = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const target = +el.dataset.target;
+        const suffix = el.dataset.suffix || '';
+        let cur = 0;
+        const step = Math.ceil(target / 60);
+        const t = setInterval(() => {
+          cur = Math.min(cur + step, target);
+          el.textContent = (target >= 1000 ? cur.toLocaleString() : cur) + suffix;
+          if (cur >= target) clearInterval(t);
+        }, 22);
+        co.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => co.observe(c));
+  </script>
+</body>
+</html>
