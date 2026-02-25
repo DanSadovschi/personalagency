@@ -28,8 +28,8 @@ ogTitle: WebOrb — Websites That Win Clients
     <div class="stats-bar reveal">
       <div class="container stats-inner">
         <div class="stat">
-          <span class="stat-num" data-count="10">0</span><span class="stat-plus">+</span>
-          <span class="stat-label">Years in Web</span>
+          <span class="stat-num" data-count="50">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Projects Delivered</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat">
@@ -316,12 +316,11 @@ ogTitle: WebOrb — Websites That Win Clients
       <div class="projects-grid">
         {% set shown = 0 %}
         {% for project in collections.projects | reverse %}
-          {% if shown < 3 %}
+          {% set projectCover = project.data.cover or (project.data.gallery and project.data.gallery[0] and project.data.gallery[0].url) %}
+          {% if shown < 3 and projectCover %}
           <a href="{{ project.url }}" class="project-card reveal">
-            <div class="project-card-cover{% if not project.data.cover %} project-card-cover--placeholder{% endif %}">
-              {% if project.data.cover %}
-              <img src="{{ project.data.cover }}" alt="{{ project.data.title }}" loading="lazy" />
-              {% endif %}
+            <div class="project-card-cover">
+              <img src="{{ projectCover }}" alt="{{ project.data.title }}" loading="lazy" />
               {% if project.data.sector %}
               <span class="project-sector-tag">{{ project.data.sector }}</span>
               {% endif %}
@@ -352,9 +351,9 @@ ogTitle: WebOrb — Websites That Win Clients
       </div>
       <div class="trust-grid">
         <div class="trust-card reveal">
-          <div class="trust-num">10+</div>
-          <h3>Years building websites professionally</h3>
-          <p>Not a new thing for us. We've spent over a decade building websites that rank on Google and convert visitors into paying clients — for growing startups, local operators, and national brands.</p>
+          <div class="trust-num">50+</div>
+          <h3>Projects delivered for real clients</h3>
+          <p>Not a new thing for us. We've delivered 50+ projects that rank on Google and convert visitors into paying clients — for growing startups, local operators, and national brands.</p>
         </div>
         <div class="trust-card reveal">
           <div class="trust-num">01</div>
