@@ -149,6 +149,31 @@ em { font-style: normal; color: var(--text); }
 .arrow { transition: transform 0.2s; }
 .btn-ghost:hover .arrow { transform: translateX(4px); }
 
+/* ── Mid-page CTA band (starter / offer pages) ──────────── */
+.mid-cta {
+  padding: 72px 0;
+  text-align: center;
+  background: var(--bg-raised);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.mid-cta p:first-child {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+}
+
+.mid-cta .btn {
+  display: inline-flex;
+}
+
+.sub {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  margin-top: 16px;
+}
+
 /* ── Offer/Starter shared cards (safety styles) ─────────── */
 .steps-grid {
   display: grid;
