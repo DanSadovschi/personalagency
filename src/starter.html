@@ -153,43 +153,6 @@
     .step-card h3 { font-size: 1.1rem; color: var(--text); margin-bottom: 12px; }
     .step-card p  { font-size: 0.875rem; line-height: 1.65; }
 
-    /* What comes next — upsell */
-    .upsell-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .upsell-card {
-      padding: 32px 28px;
-      background: var(--bg-raised);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      transition: border-color var(--transition), transform var(--transition);
-    }
-    .upsell-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-4px);
-    }
-    .upsell-num {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      color: var(--accent);
-      font-family: monospace;
-    }
-    .upsell-card h4 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-    .upsell-card p {
-      font-size: 0.875rem;
-      line-height: 1.65;
-    }
-
     /* Our Work — project cards (reusing existing CSS) */
     .work-section-note {
       font-size: 0.85rem;
@@ -311,7 +274,6 @@
 
     /* Responsive */
     @media (max-width: 900px) {
-      .upsell-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
       .includes-grid { grid-template-columns: 1fr; }
@@ -319,7 +281,6 @@
       .offer-hero    { padding: 56px 0 72px; }
     }
     @media (max-width: 640px) {
-      .upsell-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -401,7 +362,6 @@
             <p>Looks sharp on every device. We handle hosting and launch — you get a real URL you can share instantly.</p>
           </div>
         </div>
-      </div>
     </div>
   </section>
 
@@ -415,227 +375,53 @@
 
       <div class="projects-grid">
 
-        <!-- Card 1 — Electrician -->
-        <div class="project-card reveal">
-          <div class="project-mockup">
-            <div class="mock-bar">
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-              <div class="mock-url"></div>
-            </div>
-            <div class="mock-body">
-              <div class="mock-hero" style="--pc:#4F8EF7"></div>
-              <div class="mock-content">
-                <div class="mock-col"></div>
-                <div class="mock-col"></div>
-                <div class="mock-col"></div>
-              </div>
-            </div>
+        <article class="project-card reveal" aria-label="Case preview: Alchemis">
+          <div class="project-card-cover">
+            <img src="/img/projects/Alchemis/hero.webp" alt="Alchemis website preview" loading="lazy" />
+            <span class="project-sector-tag">Technology</span>
           </div>
-          <div class="project-info">
-            <div class="project-header">
-              <span class="work-tag">Electrician</span>
-              <span class="project-location">London</span>
+          <div class="project-card-body">
+            <h3>Alchemis</h3>
+            <p>Full product website with custom visuals and a clear conversion-focused flow from hero to signup.</p>
+            <div class="project-card-tags">
+              <span class="project-tag">Web Design</span>
+              <span class="project-tag">Web Development</span>
             </div>
-            <h3>Thames Electrical</h3>
-            <div class="project-metric">
-              <span class="metric-val">+3×</span>
-              <span class="metric-desc">enquiries within 6 weeks of launch</span>
-            </div>
-            <p>Landing page with emergency call-out section, certification badges, and local SEO targeting inner London boroughs.</p>
-            <div class="work-tags">
-              <span>Landing Page</span>
-              <span>Local SEO</span>
-              <span>Click-to-call</span>
-            </div>
+            <span class="project-card-link">Case preview</span>
           </div>
-        </div>
+        </article>
 
-        <!-- Card 2 — Plumber -->
-        <div class="project-card reveal">
-          <div class="project-mockup">
-            <div class="mock-bar">
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-              <div class="mock-url"></div>
-            </div>
-            <div class="mock-body">
-              <div class="mock-hero" style="--pc:#0ea5e9"></div>
-              <div class="mock-content">
-                <div class="mock-col"></div>
-                <div class="mock-col"></div>
-                <div class="mock-col"></div>
-              </div>
-            </div>
+        <article class="project-card reveal" aria-label="Case preview: Monthly Fans">
+          <div class="project-card-cover">
+            <img src="/img/projects/MonthlyFans/hero.webp" alt="Monthly Fans website preview" loading="lazy" />
+            <span class="project-sector-tag">Creator Platform</span>
           </div>
-          <div class="project-info">
-            <div class="project-header">
-              <span class="work-tag">Plumber</span>
-              <span class="project-location">London</span>
+          <div class="project-card-body">
+            <h3>Monthly Fans</h3>
+            <p>Marketing site and onboarding flow designed to increase trust and move creators to sign-up faster.</p>
+            <div class="project-card-tags">
+              <span class="project-tag">Landing Page</span>
+              <span class="project-tag">Conversion UX</span>
             </div>
-            <h3>ProPlumb London</h3>
-            <div class="project-metric">
-              <span class="metric-val">2×</span>
-              <span class="metric-desc">leads doubled in 2 months</span>
-            </div>
-            <p>24/7 emergency page, Gas Safe credentials front and centre, contact form routed to WhatsApp.</p>
-            <div class="work-tags">
-              <span>Landing Page</span>
-              <span>Emergency CTA</span>
-              <span>WhatsApp</span>
-            </div>
+            <span class="project-card-link">Case preview</span>
           </div>
-        </div>
+        </article>
 
-        <!-- Card 3 — Roofer -->
-        <div class="project-card reveal">
-          <div class="project-mockup">
-            <div class="mock-bar">
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-              <div class="mock-url"></div>
-            </div>
-            <div class="mock-body">
-              <div class="mock-hero" style="--pc:#f97316"></div>
-              <div class="mock-content">
-                <div class="mock-col"></div>
-                <div class="mock-col"></div>
-                <div class="mock-col"></div>
-              </div>
-            </div>
+        <article class="project-card reveal" aria-label="Case preview: Legacy Ventures Performance">
+          <div class="project-card-cover">
+            <img src="/img/projects/lvp/hero.webp" alt="Legacy Ventures Performance website preview" loading="lazy" />
+            <span class="project-sector-tag">Leadership Consulting</span>
           </div>
-          <div class="project-info">
-            <div class="project-header">
-              <span class="work-tag">Roofer</span>
-              <span class="project-location">Sheffield</span>
+          <div class="project-card-body">
+            <h3>Legacy Ventures Performance</h3>
+            <p>Consulting brand site built to communicate authority and turn traffic into qualified enquiries.</p>
+            <div class="project-card-tags">
+              <span class="project-tag">Web Design</span>
+              <span class="project-tag">Brand Identity</span>
             </div>
-            <h3>Peak Roofing</h3>
-            <div class="project-metric">
-              <span class="metric-val">3×</span>
-              <span class="metric-desc">leads tripled after redesign</span>
-            </div>
-            <p>Storm damage landing page, quote request form, and seasonal SEO targeting high-intent local searches.</p>
-            <div class="work-tags">
-              <span>Landing Page</span>
-              <span>Quote Form</span>
-              <span>Local SEO</span>
-            </div>
+            <span class="project-card-link">Case preview</span>
           </div>
-        </div>
-
-        <!-- Card 4 — Auto Garage -->
-        <div class="project-card reveal">
-          <div class="project-mockup">
-            <div class="mock-bar">
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-              <div class="mock-url"></div>
-            </div>
-            <div class="mock-body">
-              <div class="mock-hero" style="--pc:#a855f7"></div>
-              <div class="mock-content">
-                <div class="mock-col"></div>
-                <div class="mock-col"></div>
-                <div class="mock-col"></div>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-header">
-              <span class="work-tag">Auto Garage</span>
-              <span class="project-location">Brighton</span>
-            </div>
-            <h3>Brighton Auto Garage</h3>
-            <div class="project-metric">
-              <span class="metric-val">Pg 1</span>
-              <span class="metric-desc">Google ranking for local searches</span>
-            </div>
-            <p>Service pages, online booking CTA, and local SEO so customers find them before calling a competitor.</p>
-            <div class="work-tags">
-              <span>Landing Page</span>
-              <span>Google Business</span>
-              <span>Local SEO</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 5 — Landscaper -->
-        <div class="project-card reveal">
-          <div class="project-mockup">
-            <div class="mock-bar">
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-              <div class="mock-url"></div>
-            </div>
-            <div class="mock-body">
-              <div class="mock-hero" style="--pc:#34C97A"></div>
-              <div class="mock-content">
-                <div class="mock-col"></div>
-                <div class="mock-col"></div>
-                <div class="mock-col"></div>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-header">
-              <span class="work-tag">Landscaper</span>
-              <span class="project-location">Bristol</span>
-            </div>
-            <h3>GreenLeaf Landscaping</h3>
-            <div class="project-metric">
-              <span class="metric-val">£45k</span>
-              <span class="metric-desc">new contracts secured via the site</span>
-            </div>
-            <p>Portfolio gallery of past work, seasonal service pages, and a quote form that attracts higher-value garden projects.</p>
-            <div class="work-tags">
-              <span>Landing Page</span>
-              <span>Portfolio</span>
-              <span>Quote Form</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 6 — Builder -->
-        <div class="project-card reveal">
-          <div class="project-mockup">
-            <div class="mock-bar">
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-              <div class="mock-dot"></div>
-              <div class="mock-url"></div>
-            </div>
-            <div class="mock-body">
-              <div class="mock-hero" style="--pc:#eab308"></div>
-              <div class="mock-content">
-                <div class="mock-col"></div>
-                <div class="mock-col"></div>
-                <div class="mock-col"></div>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-header">
-              <span class="work-tag">Builder</span>
-              <span class="project-location">Manchester</span>
-            </div>
-            <h3>MasterBuild Construction</h3>
-            <div class="project-metric">
-              <span class="metric-val">3mo</span>
-              <span class="metric-desc">booked ahead with renovation jobs</span>
-            </div>
-            <p>Extension &amp; renovation pages, project gallery, and accreditation badges — positioned to attract quality, higher-value work.</p>
-            <div class="work-tags">
-              <span>Full Website</span>
-              <span>Project Gallery</span>
-              <span>Local SEO</span>
-            </div>
-          </div>
-        </div>
+        </article>
 
       </div>
     </div>
@@ -668,47 +454,12 @@
     </div>
   </section>
 
-  <!-- ── What Comes Next (upsell) ── -->
+  <!-- ── Next step note ── -->
   <section class="section">
-    <div class="container">
-      <div class="section-header" style="text-align:center">
-        <p class="section-eyebrow">What comes next</p>
-        <h2>Ready to go further?<br class="br-lg" />We've got you covered.</h2>
-        <p style="font-size:1.05rem;max-width:520px;margin:20px auto 0;line-height:1.8">Your starter site is the foundation. When you're ready to grow, these are the upgrades that drive real, consistent results.</p>
-      </div>
-
-      <div class="upsell-grid">
-        <div class="upsell-card reveal">
-          <div class="upsell-num">01</div>
-          <h4>Full multi-page website</h4>
-          <p>Expand from a single landing page to a full website — dedicated service pages, about page, portfolio, and more. Your investment today is credited towards the upgrade.</p>
-        </div>
-        <div class="upsell-card reveal">
-          <div class="upsell-num">02</div>
-          <h4>Your own domain</h4>
-          <p>Move from a shared subdomain to your own branded URL — yourbusiness.co.uk. We handle registration, DNS, and SSL. Nothing for you to configure.</p>
-        </div>
-        <div class="upsell-card reveal">
-          <div class="upsell-num">03</div>
-          <h4>Logo &amp; brand identity</h4>
-          <p>A clean, professional logo and brand identity built around your trade — so every touchpoint, from your van to your website, looks the part.</p>
-        </div>
-        <div class="upsell-card reveal">
-          <div class="upsell-num">04</div>
-          <h4>Local SEO campaign</h4>
-          <p>Rank on Google when local customers search for your trade. Most clients start seeing meaningful results within 4–8 weeks of launch.</p>
-        </div>
-        <div class="upsell-card reveal">
-          <div class="upsell-num">05</div>
-          <h4>Google Business Profile</h4>
-          <p>Full setup and optimisation of your Google Maps listing — so you appear at the top of local searches alongside your website.</p>
-        </div>
-        <div class="upsell-card reveal">
-          <div class="upsell-num">06</div>
-          <h4>Google Ads management</h4>
-          <p>Conversion-focused ads campaigns paired with a dedicated landing page and call tracking — for when you want leads on demand, not just organic traffic.</p>
-        </div>
-      </div>
+    <div class="container" style="text-align:center;max-width:860px;">
+      <p class="section-eyebrow">Optional next step</p>
+      <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);">First we launch. Then we decide together.</h2>
+      <p style="font-size:1.02rem;max-width:680px;margin:16px auto 0;line-height:1.8;color:var(--text-muted);">If your starter page brings the right enquiries, we can scale it later (extra pages, SEO, ads) — only when it makes sense for your business.</p>
     </div>
   </section>
 
@@ -826,11 +577,41 @@
 
         <div class="faq-item reveal">
           <button class="faq-question" aria-expanded="false">
-            How is this different from a DIY website builder?
+            Are you going to push me into paid services?
             <span class="faq-icon"></span>
           </button>
           <div class="faq-answer">
-            <p>A website builder takes hours to learn, gives you a generic template, and the writing is entirely on you. We give you a professionally written, custom-built site from people who've been doing this for 10+ years — and it's live in 5 days without you lifting a finger.</p>
+            <p>No. The starter page is delivered first. After it's live, we review results with you and only discuss next steps if they make sense for your business. No pressure, no locked contracts.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            How do you decide if I'm a good fit?
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-answer">
+            <p>On the call we check your service area, the type of jobs you want, and whether you're ready to handle incoming enquiries. We keep spots for businesses that can genuinely benefit from fast launch.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            What happens after the site goes live?
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-answer">
+            <p>We monitor early performance, gather your feedback, and suggest the next highest-impact step. You choose whether to continue with upgrades or keep the starter page as-is.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            How quickly will you contact me after I submit?
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-answer">
+            <p>Usually within a few hours during working days. If you submit in the evening or weekend, we'll message you on the next business day to book your quick 15-minute call.</p>
           </div>
         </div>
 

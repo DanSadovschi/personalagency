@@ -12,13 +12,13 @@ services:
 results: Enquiries up 2× in 2 months
 
 gallery:
-  - url: /img/projects/lvp/hero.jpg
+  - url: /img/projects/lvp/hero.webp
     alt: Homepage — desktop
     device: desktop
-  - url: /img/projects/lvp/team.jpg
+  - url: /img/projects/lvp/mockup1.webp
     alt: Services page — desktop
     device: desktop
-  - url: /img/projects/lvp/performance.jpg
+  - url: /img/projects/lvp/mockup2.webp
     alt: Homepage — mobile
     device: mobile
 
@@ -37,5 +37,4 @@ The site was built mobile-first and optimised for "garage near me" and "MOT Brig
 Within eight weeks of launch, the site ranked on page one for their primary local search terms. Enquiries via the contact form and click-to-call button doubled compared to the previous two months on the old site.
 
 The client reported that customers regularly mention finding them on Google — something that hadn't happened before.
-
 
