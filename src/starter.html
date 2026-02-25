@@ -28,7 +28,7 @@
       justify-content: space-between;
     }
 
-    /* Hero */
+    /* ── Hero ── */
     .offer-hero { padding: 80px 0 96px; text-align: center; }
 
     .offer-badge {
@@ -73,6 +73,62 @@
       flex-wrap: wrap;
     }
 
+    /* ── Trust strip ── */
+    .trust-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+      margin-top: 32px;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 0 20px;
+    }
+    .trust-item:not(:last-child) {
+      border-right: 1px solid var(--border-mid);
+    }
+    .trust-icon {
+      width: 16px; height: 16px;
+      color: var(--green);
+      flex-shrink: 0;
+    }
+
+    /* ── Urgency bar ── */
+    .urgency-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+    .urgency-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+    .urgency-label strong { color: var(--text); }
+    .urgency-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .urgency-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--border-mid);
+    }
+    .urgency-dot.taken {
+      background: var(--green);
+    }
+
+    /* ── WA button ── */
     .btn-wa {
       background: #22c55e;
       color: #fff;
@@ -84,7 +140,7 @@
     }
     .btn-wa svg { flex-shrink: 0; }
 
-    /* Includes */
+    /* ── Includes ── */
     .includes-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -124,31 +180,39 @@
     }
     .include-item p { font-size: 0.85rem; line-height: 1.55; margin: 0; }
 
-    /* Steps */
-    .steps-grid {
+    /* ── Project result cards ── */
+    .result-cards-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
-    .step-card {
-      text-align: center;
-      padding: 44px 28px 36px;
+    .result-card {
       background: var(--bg-surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color var(--transition), transform var(--transition);
     }
-    .step-num {
-      width: 52px; height: 52px;
-      border-radius: 50%;
-      background: rgba(79,142,247,0.1);
-      border: 1px solid rgba(79,142,247,0.25);
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 1.15rem;
+    .result-card:hover {
+      border-color: var(--border-mid);
+      transform: translateY(-3px);
+    }
+    .result-card-top {
+      height: 6px;
+    }
+    .result-card-body {
+      padding: 28px 28px 32px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .result-card-header {
       display: flex;
       align-items: center;
-      justify-content: center;
-      margin: 0 auto 22px;
+      justify-content: space-between;
+      margin-bottom: 20px;
     }
     .step-card h3 { font-size: 1.1rem; color: var(--text); margin-bottom: 12px; }
     .step-card p  { font-size: 0.875rem; line-height: 1.65; }
@@ -260,7 +324,7 @@
       text-align: center;
     }
 
-    /* FAQ wrapper */
+    /* ── FAQ ── */
     .offer-faq {
       max-width: 680px;
       margin: 0 auto;
@@ -271,7 +335,7 @@
     .offer-faq .faq-item { border-bottom: 1px solid var(--border); }
     .offer-faq .faq-item:last-child { border-bottom: none; }
 
-    /* Footer */
+    /* ── Footer ── */
     .offer-footer {
       border-top: 1px solid var(--border);
       padding: 36px 0;
@@ -287,13 +351,15 @@
     .offer-footer .legal a { color: inherit; }
     .offer-footer .legal a:hover { color: var(--text-muted); }
 
-    /* Responsive */
+    /* ── Responsive ── */
     @media (max-width: 900px) {
     }
     @media (max-width: 768px) {
-      .includes-grid { grid-template-columns: 1fr; }
-      .steps-grid    { grid-template-columns: 1fr; }
-      .offer-hero    { padding: 56px 0 72px; }
+      .includes-grid      { grid-template-columns: 1fr; }
+      .steps-grid         { grid-template-columns: 1fr; }
+      .offer-hero         { padding: 56px 0 72px; }
+      .trust-strip        { gap: 8px 0; }
+      .trust-item         { border-right: none; padding: 4px 14px; }
     }
     @media (max-width: 640px) {
     }
@@ -312,7 +378,19 @@
   <!-- ── Hero ── -->
   <section class="offer-hero">
     <div class="container">
-      <div class="offer-badge">Limited spots — 5 available this month</div>
+
+      <!-- Urgency -->
+      <div class="urgency-bar">
+        <div class="urgency-dots">
+          <div class="urgency-dot taken"></div>
+          <div class="urgency-dot taken"></div>
+          <div class="urgency-dot taken"></div>
+          <div class="urgency-dot"></div>
+          <div class="urgency-dot"></div>
+        </div>
+        <p class="urgency-label"><strong>3 of 5 spots</strong> claimed this month</p>
+      </div>
+
       <h1>Your trade business,<br class="br-lg" />online — <span class="accent">on us.</span></h1>
       <p class="hero-sub">We design and launch a professional landing page for your trade or local business at no cost to you. No templates. No jargon. A real site, live in 5 days.</p>
 
@@ -323,6 +401,27 @@
           WhatsApp Us
         </a>
       </div>
+
+      <!-- Trust strip -->
+      <div class="trust-strip">
+        <div class="trust-item">
+          <svg class="trust-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1l1.8 3.6L14 5.6l-3 2.9.7 4.1L8 10.5l-3.7 2.1.7-4.1-3-2.9 4.2-.6z"/></svg>
+          No payment, ever
+        </div>
+        <div class="trust-item">
+          <svg class="trust-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5v4l2.5 1.5"/></svg>
+          Live in 5 days
+        </div>
+        <div class="trust-item">
+          <svg class="trust-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="3" width="13" height="10" rx="1.5"/><path d="M5 3V2M11 3V2M1.5 7h13"/></svg>
+          Built by hand, not a template
+        </div>
+        <div class="trust-item">
+          <svg class="trust-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5 6.5-7"/></svg>
+          Yours to keep
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -442,6 +541,15 @@
     </div>
   </section>
 
+  <!-- ── Mid-page CTA ── -->
+  <div class="mid-cta">
+    <div class="container">
+      <p>Seen enough? There are 2 spots left this month.</p>
+      <a href="#claim" class="btn btn-lg">Claim Your Free Site →</a>
+      <p class="sub">No payment required at any point.</p>
+    </div>
+  </div>
+
   <!-- ── How It Works ── -->
   <section class="section section-dark">
     <div class="container">
@@ -484,7 +592,7 @@
       <div class="section-header" style="text-align:center">
         <p class="section-eyebrow">Limited availability</p>
         <h2>Claim your starter site</h2>
-        <p style="font-size:1.05rem;max-width:460px;margin:16px auto 0;line-height:1.8">We limit the number of projects each month to ensure every client gets our full attention. Spots go fast.</p>
+        <p style="font-size:1.05rem;max-width:460px;margin:16px auto 0;line-height:1.8">We limit the number of projects each month to ensure every client gets our full attention. <strong>2 spots remaining.</strong></p>
       </div>
 
       <div class="claim-wrap">
@@ -531,8 +639,52 @@
     </div>
   </section>
 
-  <!-- ── FAQ ── -->
+  <!-- ── What Comes Next (upsell) ── -->
   <section class="section">
+    <div class="container">
+      <div class="section-header" style="text-align:center">
+        <p class="section-eyebrow">What comes next</p>
+        <h2>Ready to go further?<br class="br-lg" />We've got you covered.</h2>
+        <p style="font-size:1.05rem;max-width:520px;margin:20px auto 0;line-height:1.8">Your starter site is the foundation. When you're ready to grow, these are the upgrades that drive real, consistent results.</p>
+      </div>
+
+      <div class="upsell-grid">
+        <div class="upsell-card reveal">
+          <div class="upsell-num">01</div>
+          <h4>Full multi-page website</h4>
+          <p>Expand from a single landing page to a full website — dedicated service pages, about page, portfolio, and more. Your investment today is credited towards the upgrade.</p>
+        </div>
+        <div class="upsell-card reveal">
+          <div class="upsell-num">02</div>
+          <h4>Your own domain</h4>
+          <p>Move from a shared subdomain to your own branded URL — yourbusiness.co.uk. We handle registration, DNS, and SSL. Nothing for you to configure.</p>
+        </div>
+        <div class="upsell-card reveal">
+          <div class="upsell-num">03</div>
+          <h4>Logo &amp; brand identity</h4>
+          <p>A clean, professional logo and brand identity built around your trade — so every touchpoint, from your van to your website, looks the part.</p>
+        </div>
+        <div class="upsell-card reveal">
+          <div class="upsell-num">04</div>
+          <h4>Local SEO campaign</h4>
+          <p>Rank on Google when local customers search for your trade. Most clients start seeing meaningful results within 4–8 weeks of launch.</p>
+        </div>
+        <div class="upsell-card reveal">
+          <div class="upsell-num">05</div>
+          <h4>Google Business Profile</h4>
+          <p>Full setup and optimisation of your Google Maps listing — so you appear at the top of local searches alongside your website.</p>
+        </div>
+        <div class="upsell-card reveal">
+          <div class="upsell-num">06</div>
+          <h4>Google Ads management</h4>
+          <p>Conversion-focused ads campaigns paired with a dedicated landing page and call tracking — for when you want leads on demand, not just organic traffic.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <section class="section section-dark">
     <div class="container">
       <div class="section-header" style="text-align:center">
         <p class="section-eyebrow">Questions</p>
@@ -686,9 +838,9 @@
 
     offerForm.addEventListener('submit', async e => {
       e.preventDefault();
-      const btn       = offerForm.querySelector('[type="submit"]');
-      const btnText   = btn.querySelector('.btn-text');
-      const btnLoad   = btn.querySelector('.btn-loading');
+      const btn     = offerForm.querySelector('[type="submit"]');
+      const btnText = btn.querySelector('.btn-text');
+      const btnLoad = btn.querySelector('.btn-loading');
 
       const required = offerForm.querySelectorAll('input[required]');
       let valid = true;
