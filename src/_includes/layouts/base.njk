@@ -13,9 +13,13 @@
   <meta property="og:title" content="{{ ogTitle }}" />
   <meta property="og:description" content="{{ description }}" />
   <meta property="og:site_name" content="WebOrb" />
+  <meta property="og:image" content="{{ ogImage if ogImage else 'https://web-orb.uk/img/og.png' }}" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="{{ ogTitle }}" />
   <meta name="twitter:description" content="{{ description }}" />
+  <meta name="twitter:image" content="{{ ogImage if ogImage else 'https://web-orb.uk/img/og.png' }}" />
   {% endif %}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
