@@ -177,12 +177,14 @@
 
   <!-- Preview bar config + script -->
   <script>
+    // Replace STRIPE_LITE / STRIPE_STD / STRIPE_PRO with your 3 Stripe Payment Link IDs.
+    // client_reference_id tells you which template was purchased — no extra links needed.
     window.__previewBar = {
       name: "Plumber Template",
       tiers: [
-        { label: "Lite",     price: "£49",  url: "https://buy.stripe.com/PLACEHOLDER_LITE" },
-        { label: "Standard", price: "£99",  url: "https://buy.stripe.com/PLACEHOLDER_STD" },
-        { label: "Pro",      price: "£199", url: "https://buy.stripe.com/PLACEHOLDER_PRO" }
+        { label: "Lite",     price: "£49",  url: "https://buy.stripe.com/STRIPE_LITE?client_reference_id=plumber" },
+        { label: "Standard", price: "£99",  url: "https://buy.stripe.com/STRIPE_STD?client_reference_id=plumber" },
+        { label: "Pro",      price: "£199", url: "https://buy.stripe.com/STRIPE_PRO?client_reference_id=plumber" }
       ]
     };
   </script>
