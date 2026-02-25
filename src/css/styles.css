@@ -149,6 +149,83 @@ em { font-style: normal; color: var(--text); }
 .arrow { transition: transform 0.2s; }
 .btn-ghost:hover .arrow { transform: translateX(4px); }
 
+/* ── Offer/Starter shared cards (safety styles) ─────────── */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.step-card {
+  text-align: center;
+  padding: 44px 28px 36px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.step-num {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(79, 142, 247, 0.1);
+  border: 1px solid rgba(79, 142, 247, 0.25);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 22px;
+}
+
+.step-card h3 {
+  font-size: 1.1rem;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.step-card p {
+  font-size: 0.875rem;
+  line-height: 1.65;
+}
+
+.upsell-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.upsell-card {
+  padding: 32px 28px;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.upsell-num {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  font-family: monospace;
+}
+
+@media (max-width: 900px) {
+  .upsell-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .steps-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .upsell-grid { grid-template-columns: 1fr; }
+}
+
 /* ── Scroll Reveal ────────────────────────────────────────── */
 .reveal {
   opacity: 0;
