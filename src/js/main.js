@@ -350,6 +350,53 @@ async function handleFormSubmit(form) {
   });
 })();
 
+/* ── Project Gallery Slider ───────────────────────────── */
+(function () {
+  const track = document.getElementById('gallery-track');
+  if (!track) return;
+
+  const slides = [...track.querySelectorAll('.gallery-item')];
+  const prevBtn = document.getElementById('gallery-prev');
+  const nextBtn = document.getElementById('gallery-next');
+  const dotsEl = document.getElementById('gallery-dots');
+  let current = 0;
+
+  function renderDots() {
+    if (!dotsEl) return;
+    dotsEl.innerHTML = '';
+    slides.forEach((_, index) => {
+      const dot = document.createElement('button');
+      dot.className = `gallery-dot${index === current ? ' is-active' : ''}`;
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+      dot.addEventListener('click', () => goTo(index));
+      dotsEl.appendChild(dot);
+    });
+  }
+
+  function update() {
+    track.style.transform = `translateX(-${current * 100}%)`;
+    if (prevBtn) prevBtn.disabled = current === 0;
+    if (nextBtn) nextBtn.disabled = current === slides.length - 1;
+    renderDots();
+  }
+
+  function goTo(index) {
+    current = Math.max(0, Math.min(index, slides.length - 1));
+    update();
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') goTo(current - 1);
+    if (e.key === 'ArrowRight') goTo(current + 1);
+  });
+
+  update();
+})();
+
 /* ── Project Gallery Lightbox ───────────────────────────── */
 (function () {
   const lightbox = document.getElementById('lightbox');
