@@ -375,44 +375,16 @@
     .step-card h3 { font-size: 1.1rem; color: var(--text); margin-bottom: 12px; }
     .step-card p  { font-size: 0.875rem; line-height: 1.65; }
 
-    /* ── What comes next — upsell ── */
-    .upsell-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .upsell-card {
-      padding: 32px 28px;
-      background: var(--bg-raised);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      transition: border-color var(--transition), transform var(--transition);
-    }
-    .upsell-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-4px);
-    }
-    .upsell-num {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      color: var(--accent);
-      font-family: monospace;
-    }
-    .upsell-card h4 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-    .upsell-card p {
-      font-size: 0.875rem;
-      line-height: 1.65;
+    /* Our Work — project cards (reusing existing CSS) */
+    .work-section-note {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      text-align: center;
+      margin-top: -48px;
+      margin-bottom: 56px;
     }
 
-    /* ── Claim form ── */
+    /* Claim form */
     .claim-wrap {
       max-width: 540px;
       margin: 0 auto;
@@ -524,9 +496,6 @@
 
     /* ── Responsive ── */
     @media (max-width: 900px) {
-      .upsell-grid         { grid-template-columns: 1fr 1fr; }
-      .result-cards-grid   { grid-template-columns: 1fr 1fr; }
-      .testimonials-grid   { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
       .includes-grid      { grid-template-columns: 1fr; }
@@ -536,9 +505,6 @@
       .trust-item         { border-right: none; padding: 4px 14px; }
     }
     @media (max-width: 640px) {
-      .upsell-grid         { grid-template-columns: 1fr; }
-      .result-cards-grid   { grid-template-columns: 1fr; }
-      .testimonials-grid   { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -754,47 +720,12 @@
     </div>
   </section>
 
-  <!-- ── What Comes Next (upsell) ── -->
+  <!-- ── Next step note ── -->
   <section class="section">
-    <div class="container">
-      <div class="section-header" style="text-align:center">
-        <p class="section-eyebrow">Optional next step</p>
-        <h2>If your starter page works,<br class="br-lg" />we can scale it with you.</h2>
-        <p style="font-size:1.05rem;max-width:620px;margin:20px auto 0;line-height:1.8">No pressure and no hard sell. First we launch your starter page, then we review lead quality together on a call. If it makes sense, we expand step-by-step based on your goals.</p>
-      </div>
-
-      <div class="upsell-grid">
-        <div class="upsell-card reveal">
-          <div class="upsell-num">01</div>
-          <h4>Full multi-page website</h4>
-          <p>When demand grows, we expand your starter page into a complete site with dedicated service pages, trust pages, and stronger enquiry paths.</p>
-        </div>
-        <div class="upsell-card reveal">
-          <div class="upsell-num">02</div>
-          <h4>Your own domain</h4>
-          <p>Move from starter hosting to your own branded domain whenever you're ready. We handle setup, DNS, SSL, and migration for you.</p>
-        </div>
-        <div class="upsell-card reveal">
-          <div class="upsell-num">03</div>
-          <h4>Logo &amp; brand identity</h4>
-          <p>If your branding needs work, we can refresh your logo and visual identity so your website, van, and socials all look consistent and professional.</p>
-        </div>
-        <div class="upsell-card reveal">
-          <div class="upsell-num">04</div>
-          <h4>Local SEO campaign</h4>
-          <p>Once the page is live, we can add local SEO campaigns to help you rank for high-intent searches in your area and bring in ongoing inbound leads.</p>
-        </div>
-        <div class="upsell-card reveal">
-          <div class="upsell-num">05</div>
-          <h4>Google Business Profile</h4>
-          <p>We can optimise your Google Business profile so your site and Maps listing support each other and improve local trust signals.</p>
-        </div>
-        <div class="upsell-card reveal">
-          <div class="upsell-num">06</div>
-          <h4>Google Ads management</h4>
-          <p>For faster lead volume, we can run conversion-focused ads tied to dedicated landing pages and call tracking once you're ready to scale.</p>
-        </div>
-      </div>
+    <div class="container" style="text-align:center;max-width:860px;">
+      <p class="section-eyebrow">Optional next step</p>
+      <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);">First we launch. Then we decide together.</h2>
+      <p style="font-size:1.02rem;max-width:680px;margin:16px auto 0;line-height:1.8;color:var(--text-muted);">If your starter page brings the right enquiries, we can scale it later (extra pages, SEO, ads) — only when it makes sense for your business.</p>
     </div>
   </section>
 
@@ -986,11 +917,11 @@
 
         <div class="faq-item reveal">
           <button class="faq-question" aria-expanded="false">
-            How is this different from a DIY website builder?
+            How quickly will you contact me after I submit?
             <span class="faq-icon"></span>
           </button>
           <div class="faq-answer">
-            <p>A website builder takes hours to learn, gives you a generic template, and the writing is entirely on you. We give you a professionally written, custom-built site from people who've been doing this for 10+ years — and it's live in 5 days without you lifting a finger.</p>
+            <p>Usually within a few hours during working days. If you submit in the evening or weekend, we'll message you on the next business day to book your quick 15-minute call.</p>
           </div>
         </div>
 
