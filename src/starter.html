@@ -476,6 +476,7 @@
             <p>Looks sharp on every device. We handle hosting and launch — you get a real URL you can share instantly.</p>
           </div>
         </div>
+      </div>
     </div>
   </section>
 
@@ -847,9 +848,12 @@
       required.forEach(f => {
         f.classList.remove('input-error');
         if (!f.value.trim()) { f.classList.add('input-error'); valid = false; }
+        else if (f.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value.trim())) {
+          f.classList.add('input-error'); valid = false;
+        }
       });
       if (!valid) {
-        errorEl.textContent = 'Please fill in all fields before submitting.';
+        errorEl.textContent = 'Please fill in all fields correctly before submitting.';
         errorEl.hidden = false;
         offerForm.querySelector('.input-error').focus();
         return;
