@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>ProFlow Plumbing — London's Trusted Plumber</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:       #1a56db;
+      --blue-dark:  #1340b0;
+      --blue-light: #eff6ff;
+      --dark:       #0f172a;
+      --body:       #334155;
+      --muted:      #64748b;
+      --border:     #e2e8f0;
+      --bg:         #ffffff;
+      --bg-off:     #f8fafc;
+      --amber:      #f59e0b;
+      --green:      #10b981;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: var(--body); background: var(--bg); line-height: 1.6; }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; max-width: 1140px; margin: 0 auto; }
+    .nav-logo { font-size: 1.25rem; font-weight: 800; color: var(--dark); letter-spacing: -.03em; }
+    .nav-logo span { color: var(--blue); }
+    .nav-links { display: flex; list-style: none; gap: 32px; }
+    .nav-links a { font-size: .9rem; font-weight: 500; color: var(--muted); transition: color .2s; }
+    .nav-links a:hover { color: var(--dark); }
+    .nav-phone { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--blue); font-size: .95rem; }
+    .nav-phone svg { flex-shrink: 0; }
+    @media(max-width:768px){ .nav-links{display:none;} }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 80px 0 72px;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-inner { display: grid; grid-template-columns: 1fr 420px; gap: 60px; align-items: center; position: relative; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(245,158,11,.15); border: 1px solid rgba(245,158,11,.4); color: var(--amber); font-size: .8rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; padding: 6px 14px; border-radius: 20px; margin-bottom: 20px; }
+    .hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; line-height: 1.1; letter-spacing: -.03em; color: #fff; margin-bottom: 20px; }
+    .hero h1 span { color: #60a5fa; }
+    .hero-sub { font-size: 1.1rem; color: #94a3b8; margin-bottom: 36px; max-width: 480px; }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--blue); color: #fff; font-size: .95rem; font-weight: 600; padding: 14px 28px; border-radius: 10px; transition: all .25s; border: none; cursor: pointer; }
+    .btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(26,86,219,.35); }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.1); color: #fff; font-size: .95rem; font-weight: 600; padding: 14px 28px; border-radius: 10px; border: 1px solid rgba(255,255,255,.2); transition: all .25s; cursor: pointer; }
+    .btn-secondary:hover { background: rgba(255,255,255,.18); }
+    .hero-trust { display: flex; gap: 28px; flex-wrap: wrap; }
+    .hero-trust-item { display: flex; align-items: center; gap: 8px; font-size: .85rem; color: #94a3b8; }
+    .hero-trust-item svg { color: var(--green); flex-shrink: 0; }
+
+    /* Card in hero */
+    .hero-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 20px; padding: 28px; }
+    .hero-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .hero-card-icon { width: 44px; height: 44px; background: var(--blue); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; }
+    .hero-card-title { font-weight: 700; color: #fff; font-size: 1.05rem; }
+    .hero-card-sub { font-size: .8rem; color: #94a3b8; margin-top: 2px; }
+    .hero-card-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+    .hero-card-item { display: flex; align-items: center; gap: 10px; font-size: .875rem; color: #cbd5e1; }
+    .hero-card-item svg { color: var(--green); flex-shrink: 0; }
+    .hero-card-cta { width: 100%; background: var(--amber); color: #0f172a; font-weight: 700; font-size: .95rem; padding: 14px; border-radius: 10px; border: none; cursor: pointer; text-align: center; display: block; transition: all .2s; }
+    .hero-card-cta:hover { background: #d97706; }
+
+    @media(max-width:900px){ .hero-inner{grid-template-columns:1fr;} .hero-card{display:none;} }
+
+    /* ── TRUST BAR ── */
+    .trust-bar { background: var(--bg-off); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 28px 0; }
+    .trust-bar-inner { display: flex; justify-content: space-around; gap: 24px; flex-wrap: wrap; }
+    .trust-item { text-align: center; }
+    .trust-item-num { font-size: 1.6rem; font-weight: 800; color: var(--dark); letter-spacing: -.03em; display: block; }
+    .trust-item-label { font-size: .8rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 80px 0; }
+    .section-eyebrow { font-size: .75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .12em; color: var(--blue); margin-bottom: 12px; }
+    .section-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 800; color: var(--dark); letter-spacing: -.03em; line-height: 1.15; margin-bottom: 16px; }
+    .section-sub { font-size: 1rem; color: var(--muted); max-width: 540px; margin-bottom: 56px; }
+
+    /* ── SERVICES ── */
+    .services { background: var(--bg); }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .service-card { background: var(--bg-off); border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px; transition: all .25s; }
+    .service-card:hover { border-color: var(--blue); box-shadow: 0 8px 24px rgba(26,86,219,.08); transform: translateY(-2px); }
+    .service-icon { width: 48px; height: 48px; background: var(--blue-light); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--blue); margin-bottom: 16px; }
+    .service-card h3 { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+    .service-card p { font-size: .875rem; color: var(--muted); line-height: 1.6; }
+    @media(max-width:768px){ .services-grid{grid-template-columns:1fr 1fr;} }
+    @media(max-width:500px){ .services-grid{grid-template-columns:1fr;} }
+
+    /* ── WHY US ── */
+    .why { background: var(--bg-off); }
+    .why-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .why-list { display: flex; flex-direction: column; gap: 24px; }
+    .why-item { display: flex; gap: 16px; }
+    .why-item-icon { width: 40px; height: 40px; background: var(--blue); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; flex-shrink: 0; margin-top: 2px; }
+    .why-item-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .why-item-desc { font-size: .875rem; color: var(--muted); }
+    .why-image-block { background: linear-gradient(135deg, #1e3a8a, #1a56db); border-radius: 20px; padding: 40px; color: #fff; }
+    .why-image-block h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 8px; }
+    .why-image-block p { font-size: .9rem; color: #bfdbfe; margin-bottom: 28px; }
+    .why-stat { display: flex; gap: 24px; }
+    .why-stat-item strong { display: block; font-size: 2rem; font-weight: 800; }
+    .why-stat-item span { font-size: .8rem; color: #93c5fd; }
+    @media(max-width:768px){ .why-inner{grid-template-columns:1fr;} }
+
+    /* ── REVIEWS ── */
+    .reviews { background: var(--bg); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .review-card { background: var(--bg-off); border: 1px solid var(--border); border-radius: 16px; padding: 28px; }
+    .review-stars { color: var(--amber); font-size: 1rem; margin-bottom: 14px; letter-spacing: 2px; }
+    .review-text { font-size: .9rem; color: var(--body); line-height: 1.65; margin-bottom: 20px; }
+    .review-author { display: flex; align-items: center; gap: 12px; }
+    .review-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .9rem; color: #fff; flex-shrink: 0; }
+    .review-name { font-size: .875rem; font-weight: 600; color: var(--dark); }
+    .review-location { font-size: .78rem; color: var(--muted); margin-top: 1px; }
+    @media(max-width:768px){ .reviews-grid{grid-template-columns:1fr;} }
+
+    /* ── CONTACT ── */
+    .contact { background: linear-gradient(135deg, #0f172a, #1e3a8a); color: #fff; padding: 100px 0; }
+    .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+    .contact h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; color: #fff; letter-spacing: -.03em; margin-bottom: 16px; }
+    .contact-sub { color: #94a3b8; margin-bottom: 36px; }
+    .contact-detail { display: flex; gap: 12px; align-items: center; margin-bottom: 16px; color: #cbd5e1; font-size: .95rem; }
+    .contact-detail svg { color: var(--blue); flex-shrink: 0; }
+    .contact-form { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 20px; padding: 32px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: .8rem; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.15);
+      color: #fff; padding: 12px 14px; border-radius: 8px; font-size: .9rem; font-family: inherit;
+      transition: border-color .2s; outline: none;
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: #475569; }
+    .form-group input:focus, .form-group textarea:focus { border-color: #60a5fa; }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-submit { width: 100%; background: var(--amber); color: #0f172a; font-weight: 700; font-size: 1rem; padding: 16px; border-radius: 10px; border: none; cursor: pointer; transition: all .2s; margin-top: 4px; }
+    .form-submit:hover { background: #d97706; }
+    @media(max-width:768px){ .contact-inner{grid-template-columns:1fr;} }
+
+    /* ── FOOTER ── */
+    footer { background: #0f172a; border-top: 1px solid rgba(255,255,255,.08); padding: 40px 0; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-logo { font-size: 1.2rem; font-weight: 800; color: #fff; letter-spacing: -.03em; }
+    .footer-logo span { color: #60a5fa; }
+    .footer-copy { font-size: .8rem; color: #475569; }
+    .footer-links a { font-size: .8rem; color: #475569; margin-left: 20px; transition: color .2s; }
+    .footer-links a:hover { color: #94a3b8; }
+  </style>
+</head>
+<body>
+
+  <!-- Preview bar config + script -->
+  <script>
+    window.__previewBar = {
+      name: "Plumber Template",
+      tiers: [
+        { label: "Lite",     price: "£49",  url: "https://buy.stripe.com/PLACEHOLDER_LITE" },
+        { label: "Standard", price: "£99",  url: "https://buy.stripe.com/PLACEHOLDER_STD" },
+        { label: "Pro",      price: "£199", url: "https://buy.stripe.com/PLACEHOLDER_PRO" }
+      ]
+    };
+  </script>
+  <script src="/js/preview-bar.js"></script>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">Pro<span>Flow</span></div>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why-us">About</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="tel:02012345678" class="nav-phone">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        020 1234 5678
+      </a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <div class="hero-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            24/7 Emergency Call-Out
+          </div>
+          <h1>London's Most <span>Trusted</span> Plumber</h1>
+          <p class="hero-sub">Fast response times, upfront pricing, and work guaranteed for 12 months. Gas Safe registered. Over 500 happy customers across London.</p>
+          <div class="hero-btns">
+            <a href="tel:02012345678" class="btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              Call Now — 020 1234 5678
+            </a>
+            <a href="#contact" class="btn-secondary">Get a Free Quote →</a>
+          </div>
+          <div class="hero-trust">
+            <div class="hero-trust-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+              Gas Safe Registered
+            </div>
+            <div class="hero-trust-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+              12-Month Guarantee
+            </div>
+            <div class="hero-trust-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+              Fully Insured
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <div class="hero-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <div class="hero-card-title">Emergency Call-Out</div>
+              <div class="hero-card-sub">We're usually there within 1 hour</div>
+            </div>
+          </div>
+          <div class="hero-card-list">
+            <div class="hero-card-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+              Burst pipes &amp; leaks
+            </div>
+            <div class="hero-card-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+              Boiler breakdowns
+            </div>
+            <div class="hero-card-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+              Blocked drains
+            </div>
+            <div class="hero-card-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+              No hot water
+            </div>
+          </div>
+          <a href="tel:02012345678" class="hero-card-cta">Call Now — 020 1234 5678</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TRUST BAR ── -->
+  <div class="trust-bar">
+    <div class="container">
+      <div class="trust-bar-inner">
+        <div class="trust-item">
+          <span class="trust-item-num">12+</span>
+          <span class="trust-item-label">Years experience</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-item-num">500+</span>
+          <span class="trust-item-label">Jobs completed</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-item-num">4.9 ★</span>
+          <span class="trust-item-label">Google rating</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-item-num">1 hr</span>
+          <span class="trust-item-label">Avg. response time</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SERVICES ── -->
+  <section class="services" id="services">
+    <div class="container">
+      <p class="section-eyebrow">What We Do</p>
+      <h2 class="section-title">Plumbing &amp; Heating Services</h2>
+      <p class="section-sub">From emergency call-outs to full bathroom installations — we cover it all across London.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Emergency Call-Out</h3>
+          <p>Burst pipes, leaks, flooding — we respond fast, 7 days a week, including Bank Holidays.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <h3>Boiler Installation</h3>
+          <p>Supply and fit of new gas boilers. We'll recommend the best model for your home and budget.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3>Boiler Service</h3>
+          <p>Annual boiler servicing to keep your warranty valid and your heating running efficiently.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0014 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 01-11.91 4.97"/></svg>
+          </div>
+          <h3>Central Heating</h3>
+          <p>Full central heating installation, power flushing, and radiator replacement across London.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <h3>Bathroom Installation</h3>
+          <p>Complete bathroom and en-suite fitting, including tiling, wet rooms, and walk-in showers.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+          </div>
+          <h3>Drain Unblocking</h3>
+          <p>Blocked drains, toilets, and sinks cleared fast. CCTV drain surveys also available.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY US ── -->
+  <section class="why" id="why-us">
+    <div class="container">
+      <div class="why-inner">
+        <div>
+          <p class="section-eyebrow">Why Choose Us</p>
+          <h2 class="section-title">Reliable plumbing you can actually count on</h2>
+          <div class="why-list">
+            <div class="why-item">
+              <div class="why-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+              </div>
+              <div>
+                <div class="why-item-title">Upfront, fixed pricing</div>
+                <div class="why-item-desc">You'll know the cost before we start. No hidden charges, ever.</div>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+              </div>
+              <div>
+                <div class="why-item-title">12-month workmanship guarantee</div>
+                <div class="why-item-desc">If anything goes wrong with our work, we'll fix it — at no extra cost.</div>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+              </div>
+              <div>
+                <div class="why-item-title">Fully insured &amp; Gas Safe registered</div>
+                <div class="why-item-desc">All gas work is carried out by our certified engineers. Your safety is everything.</div>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+              </div>
+              <div>
+                <div class="why-item-title">Tidy, respectful workmen</div>
+                <div class="why-item-desc">We protect your home, clean up after every job, and respect your time.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-image-block">
+          <h3>12 years serving London</h3>
+          <p>From Hackney to Hammersmith — we know London's plumbing inside out.</p>
+          <div class="why-stat">
+            <div class="why-stat-item">
+              <strong>500+</strong>
+              <span>Jobs done</span>
+            </div>
+            <div class="why-stat-item">
+              <strong>4.9/5</strong>
+              <span>Google rating</span>
+            </div>
+            <div class="why-stat-item">
+              <strong>100%</strong>
+              <span>Insured</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── REVIEWS ── -->
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <p class="section-eyebrow">Customer Reviews</p>
+      <h2 class="section-title">What our customers say</h2>
+      <p class="section-sub">Don't just take our word for it.</p>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Called at 8pm with a burst pipe — they arrived within the hour and sorted it completely. Brilliant service, really professional and tidy. Won't use anyone else."</p>
+          <div class="review-author">
+            <div class="review-avatar" style="background:#1a56db">S</div>
+            <div>
+              <div class="review-name">Sarah T.</div>
+              <div class="review-location">Islington, London</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Had a new boiler fitted last month. The quote was fair, the work was done in a day, and the engineer was really helpful explaining the controls. Highly recommend."</p>
+          <div class="review-author">
+            <div class="review-avatar" style="background:#059669">M</div>
+            <div>
+              <div class="review-name">Mark R.</div>
+              <div class="review-location">Wandsworth, London</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Used ProFlow for a full bathroom renovation. Everything from the plumbing to tiling was done perfectly. Communication was great throughout. 5 stars!"</p>
+          <div class="review-author">
+            <div class="review-avatar" style="background:#9333ea">J</div>
+            <div>
+              <div class="review-name">James &amp; Lisa W.</div>
+              <div class="review-location">Clapham, London</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <div>
+          <p class="section-eyebrow" style="color:#60a5fa">Get in Touch</p>
+          <h2>Get a free, no-obligation quote</h2>
+          <p class="contact-sub">Fill in the form or give us a call. We'll get back to you within 1 hour during business hours.</p>
+          <div class="contact-detail">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            020 1234 5678
+          </div>
+          <div class="contact-detail">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            info@proflowplumbing.co.uk
+          </div>
+          <div class="contact-detail">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Covering all London postcodes
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <div class="form-group">
+            <label>Your name</label>
+            <input type="text" placeholder="John Smith" />
+          </div>
+          <div class="form-group">
+            <label>Phone number</label>
+            <input type="tel" placeholder="07700 000000" />
+          </div>
+          <div class="form-group">
+            <label>What do you need?</label>
+            <select>
+              <option value="">Select a service…</option>
+              <option>Emergency call-out</option>
+              <option>Boiler installation</option>
+              <option>Boiler service</option>
+              <option>Central heating</option>
+              <option>Bathroom installation</option>
+              <option>Drain unblocking</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Brief description</label>
+            <textarea placeholder="Tell us a bit about the job…"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Enquiry →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Pro<span>Flow</span></div>
+        <div class="footer-copy">&copy; 2026 ProFlow Plumbing Ltd. Gas Safe No. 000000.</div>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
