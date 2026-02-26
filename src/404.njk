@@ -1,0 +1,180 @@
+---
+layout: layouts/base.njk
+title: 404 — Page Not Found | WebOrb
+description: The page you were looking for doesn't exist. Head back to WebOrb and find what you need.
+permalink: 404.html
+---
+
+<section class="e404-wrap">
+  <div class="e404-bg-grid"></div>
+
+  <div class="container e404-inner">
+
+    <div class="e404-glow" aria-hidden="true"></div>
+
+    <p class="e404-code reveal">404</p>
+
+    <h1 class="e404-title reveal">Lost in the void.</h1>
+
+    <p class="e404-sub reveal">
+      This page doesn't exist — or it moved.<br />
+      Let's get you somewhere useful.
+    </p>
+
+    <div class="e404-cards reveal">
+      <a href="/" class="e404-card">
+        <div class="e404-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>
+        </div>
+        <span class="e404-card-label">Home</span>
+        <span class="e404-card-arrow">→</span>
+      </a>
+      <a href="/projects/" class="e404-card">
+        <div class="e404-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        </div>
+        <span class="e404-card-label">Projects</span>
+        <span class="e404-card-arrow">→</span>
+      </a>
+      <a href="/templates/" class="e404-card">
+        <div class="e404-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="5" rx="1"/><rect x="3" y="10" width="8" height="11" rx="1"/><rect x="13" y="10" width="8" height="5" rx="1"/><rect x="13" y="17" width="8" height="4" rx="1"/></svg>
+        </div>
+        <span class="e404-card-label">Templates</span>
+        <span class="e404-card-arrow">→</span>
+      </a>
+      <a href="/#contact" class="e404-card e404-card--accent">
+        <div class="e404-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <span class="e404-card-label">Get a Quote</span>
+        <span class="e404-card-arrow">→</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.e404-wrap {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.e404-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: .35;
+  pointer-events: none;
+}
+.e404-inner {
+  position: relative;
+  text-align: center;
+  padding: 120px 24px 100px;
+}
+.e404-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -55%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139,92,246,.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.e404-code {
+  font-size: clamp(7rem, 20vw, 14rem);
+  font-weight: 700;
+  line-height: 1;
+  margin: 0 0 16px;
+  background: linear-gradient(135deg, var(--accent) 0%, rgba(139,92,246,.3) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -.04em;
+}
+.e404-title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  margin: 0 0 20px;
+  color: var(--text);
+}
+.e404-sub {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0 auto 56px;
+  max-width: 420px;
+}
+.e404-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.e404-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 28px 16px 24px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color .3s, transform .3s, background .3s;
+}
+.e404-card:hover {
+  border-color: var(--border-mid);
+  transform: translateY(-4px);
+  background: var(--bg-raised);
+}
+.e404-card--accent {
+  border-color: rgba(139,92,246,.4);
+  background: rgba(139,92,246,.08);
+}
+.e404-card--accent:hover {
+  border-color: var(--accent);
+  background: rgba(139,92,246,.15);
+}
+.e404-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.e404-card--accent .e404-card-icon {
+  background: rgba(139,92,246,.15);
+  border-color: rgba(139,92,246,.3);
+}
+.e404-card-label {
+  font-size: .95rem;
+  font-weight: 600;
+}
+.e404-card-arrow {
+  font-size: .85rem;
+  color: var(--text-muted);
+  transition: color .2s;
+}
+.e404-card:hover .e404-card-arrow { color: var(--accent); }
+
+@media (max-width: 600px) {
+  .e404-cards { grid-template-columns: repeat(2, 1fr); }
+  .e404-glow { width: 340px; height: 340px; }
+}
+</style>
