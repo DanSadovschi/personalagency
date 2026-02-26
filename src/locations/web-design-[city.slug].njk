@@ -19,6 +19,14 @@ permalink: "web-design-{{ city.slug }}/index.html"
   <link rel="stylesheet" href="/css/styles.css" />
   <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
   <script defer src="/_vercel/insights/script.js"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMQ7X1MFR3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LMQ7X1MFR3');
+  </script>
 </head>
 <body>
 
@@ -27,7 +35,9 @@ permalink: "web-design-{{ city.slug }}/index.html"
     <div class="nav-inner">
       <a href="/" class="logo">Web<span>Orb</span><span class="dot">·</span></a>
       <ul class="nav-links">
-        <li><a href="/#services">Services</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="/projects/">Projects</a></li>
+        <li><a href="/templates/">Templates</a></li>
         <li><a href="/work/">Founding Clients</a></li>
         <li><a href="/#pricing">Pricing</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -39,7 +49,9 @@ permalink: "web-design-{{ city.slug }}/index.html"
     </div>
     <div class="mobile-menu">
       <ul>
-        <li><a href="/#services">Services</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="/projects/">Projects</a></li>
+        <li><a href="/templates/">Templates</a></li>
         <li><a href="/work/">Founding Clients</a></li>
         <li><a href="/#pricing">Pricing</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -178,6 +190,79 @@ permalink: "web-design-{{ city.slug }}/index.html"
     </div>
   </section>
 
+  <!-- ══════════════════════════════ PROJECTS ═══════════════════════════ -->
+  {% if collections.projects and collections.projects.length > 0 %}
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Our work</p>
+        <h2>Projects we're<br />proud of.</h2>
+      </div>
+      <div class="projects-grid">
+        {% set shown = 0 %}
+        {% for project in collections.projects | reverse %}
+          {% set projectCover = project.data.cover or (project.data.gallery and project.data.gallery[0] and project.data.gallery[0].url) %}
+          {% if shown < 3 and projectCover %}
+          <a href="{{ project.url }}" class="project-card reveal">
+            <div class="project-card-cover">
+              <img src="{{ projectCover }}" alt="{{ project.data.title }}" loading="lazy" />
+              {% if project.data.sector %}
+              <span class="project-sector-tag">{{ project.data.sector }}</span>
+              {% endif %}
+            </div>
+            <div class="project-card-body">
+              <h3>{{ project.data.title }}</h3>
+              {% if project.data.summary %}<p>{{ project.data.summary }}</p>{% endif %}
+              <span class="project-card-link">View project →</span>
+            </div>
+          </a>
+          {% set shown = shown + 1 %}
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="trust-cta reveal" style="margin-top:48px;">
+        <a href="/projects/" class="btn btn-ghost">See all projects <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- ══════════════════════════════ TEMPLATES ══════════════════════════ -->
+  <section id="templates" class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Ready-Made Templates</p>
+        <h2>Need a site fast?<br />Pick a template.</h2>
+      </div>
+      <p class="reveal" style="max-width:600px;margin:0 auto 48px;text-align:center;color:var(--text-muted);font-size:1.05rem;">Choose a template built for your trade. We swap in your name, logo, phone and photos — live in 3 days from £49.</p>
+      <div class="tpl-cards-row reveal">
+        <a href="/templates/plumber/" class="tpl-mini-card">
+          <span class="tpl-mini-tag">Plumber</span>
+          <span class="tpl-mini-name">Plumber Template</span>
+          <span class="tpl-mini-price">from £49</span>
+        </a>
+        <a href="/templates/garage/" class="tpl-mini-card">
+          <span class="tpl-mini-tag">Garage</span>
+          <span class="tpl-mini-name">Garage Template</span>
+          <span class="tpl-mini-price">from £49</span>
+        </a>
+        <a href="/templates/electrician/" class="tpl-mini-card">
+          <span class="tpl-mini-tag">Electrician</span>
+          <span class="tpl-mini-name">Electrician Template</span>
+          <span class="tpl-mini-price">from £49</span>
+        </a>
+        <a href="/templates/builder/" class="tpl-mini-card">
+          <span class="tpl-mini-tag">Builder</span>
+          <span class="tpl-mini-name">Builder Template</span>
+          <span class="tpl-mini-price">from £49</span>
+        </a>
+      </div>
+      <div class="trust-cta reveal" style="margin-top:40px;">
+        <a href="/templates/" class="btn btn-ghost">Browse all templates <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
   <!-- ══════════════════════════════ CONTACT ════════════════════════════ -->
   <section id="contact" class="section">
     <div class="container">
@@ -189,6 +274,10 @@ permalink: "web-design-{{ city.slug }}/index.html"
           <div class="contact-details">
             <a href="mailto:hello@web-orb.uk" class="contact-link">hello@web-orb.uk</a>
             <a href="tel:+447594517540" class="contact-link">07594 517 540</a>
+            <a href="https://wa.me/447594517540" class="contact-link contact-link--wa" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp us
+            </a>
           </div>
         </div>
         <div class="contact-right reveal">
@@ -259,16 +348,18 @@ permalink: "web-design-{{ city.slug }}/index.html"
         <div class="footer-col">
           <h4>Services</h4>
           <ul>
-            <li><a href="/#services">Web Design</a></li>
-            <li><a href="/#services">Local SEO</a></li>
-            <li><a href="/#services">Google Business</a></li>
-            <li><a href="/#services">Landing Pages</a></li>
+            <li><a href="#services">Web Design</a></li>
+            <li><a href="#services">Local SEO</a></li>
+            <li><a href="#services">Google Business</a></li>
+            <li><a href="#services">Landing Pages</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Company</h4>
           <ul>
-            <li><a href="/work/">Our Work</a></li>
+            <li><a href="/projects/">Projects</a></li>
+            <li><a href="/templates/">Templates</a></li>
+            <li><a href="/work/">Founding Clients</a></li>
             <li><a href="/#pricing">Pricing</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -278,6 +369,7 @@ permalink: "web-design-{{ city.slug }}/index.html"
           <ul>
             <li><a href="mailto:hello@web-orb.uk">hello@web-orb.uk</a></li>
             <li><a href="tel:+447594517540">07594 517 540</a></li>
+            <li><a href="https://wa.me/447594517540" target="_blank" rel="noopener">WhatsApp</a></li>
           </ul>
         </div>
       </div>
@@ -292,6 +384,10 @@ permalink: "web-design-{{ city.slug }}/index.html"
       </div>
     </div>
   </footer>
+
+  <a href="https://wa.me/447594517540" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
 
   <script src="/js/main.js"></script>
 </body>
