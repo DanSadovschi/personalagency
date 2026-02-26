@@ -2756,6 +2756,32 @@ footer {
   line-height: 1.6;
 }
 
+.post-tip {
+  background: rgba(79,142,247,.06);
+  border: 1px solid rgba(79,142,247,.2);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin: 36px 0;
+}
+
+.post-tip p {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.post-tip strong { color: var(--accent); }
+
+.post-tip a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: rgba(79,142,247,.4);
+  text-underline-offset: 3px;
+}
+
+.post-tip a:hover { text-decoration-color: var(--accent); }
+
 .post-cta {
   border-top: 1px solid var(--border);
   padding-top: 64px;
