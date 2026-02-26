@@ -1,0 +1,44 @@
+---
+layout: layouts/base.njk
+title: Blog — WebOrb
+description: Tips, guides and honest advice on web design, local SEO, and growing your business online — from the WebOrb team.
+canonical: https://web-orb.uk/blog/
+ogTitle: Blog — WebOrb
+activeNav: blog
+---
+
+<section class="page-hero">
+  <div class="hero-bg-grid"></div>
+  <div class="container">
+    <p class="section-eyebrow reveal">From the WebOrb team</p>
+    <h1 class="reveal">Tips to grow your<br /><span class="accent">business online.</span></h1>
+    <p class="page-hero-sub reveal">Web design, local SEO, and honest advice for UK companies — no jargon, no fluff.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {% if collections.posts and collections.posts.length > 0 %}
+    <div class="blog-grid">
+      {% for post in collections.posts | reverse %}
+      <a href="{{ post.url }}" class="blog-card reveal">
+        <div class="blog-card-meta">
+          {% if post.data.category %}<span class="post-category-tag">{{ post.data.category }}</span>{% endif %}
+          {% if post.data.readTime %}<span class="blog-card-readtime">{{ post.data.readTime }}</span>{% endif %}
+        </div>
+        <h3>{{ post.data.title }}</h3>
+        {% if post.data.description %}<p>{{ post.data.description }}</p>{% endif %}
+        <div class="blog-card-footer">
+          {% if post.data.date %}<span class="blog-card-date">{{ post.data.date | readableDate }}</span>{% endif %}
+          <span class="blog-card-link">Read article →</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="projects-empty reveal">
+      <p>Articles coming soon. <a href="/#contact">Get in touch</a> in the meantime.</p>
+    </div>
+    {% endif %}
+  </div>
+</section>

@@ -7,6 +7,9 @@ module.exports = function (eleventyConfig) {
 
   // Filters
   eleventyConfig.addFilter("limit", (arr, n) => arr.slice(0, n));
+  eleventyConfig.addFilter("readableDate", (date) =>
+    new Date(date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })
+  );
 
   return {
     dir: {
