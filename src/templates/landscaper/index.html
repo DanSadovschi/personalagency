@@ -582,39 +582,8 @@
     }
 
     /* Before label content overlay */
-    .ba-before-content {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 8px;
-      z-index: 1;
-    }
-
-    .ba-before-content .bc-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.4rem;
-      color: rgba(255,255,255,.55);
-    }
-
-    .ba-after-content {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 8px;
-      z-index: 2;
-    }
-
-    .ba-after-content .ac-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.4rem;
-      color: rgba(255,255,255,.85);
-    }
+    .ba-before-content,
+    .ba-after-content { display: none; }
 
     /* ── TESTIMONIALS ── */
     .testimonials {
@@ -700,7 +669,6 @@
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 12px 60px rgba(0,0,0,.12);
-      margin: 0 24px;
     }
 
     .contact-left {
@@ -1023,7 +991,7 @@
   <div class="hero-content">
     <div class="hero-eyebrow">Garden Design &amp; Maintenance</div>
     <h1>Your Garden,<br><em>Transformed.</em></h1>
-    <p class="hero-sub">Expert landscaping and garden care across London &amp; the Home Counties. From first consultation to final flourish — we make every garden exceptional.</p>
+    <p class="hero-sub">Expert landscaping and garden care across the UK. From first consultation to final flourish — we make every garden exceptional.</p>
     <div class="hero-ctas">
       <a href="#contact" class="btn btn-green">Book a Free Survey &rarr;</a>
       <a href="#gallery" class="btn btn-outline-white">See Our Work</a>
@@ -1317,7 +1285,7 @@
             <div class="ba-handle-arrows">&#8592;&#8594;</div>
           </div>
         </div>
-        <p class="gallery-caption">Overgrown rear garden — Chiswick, London</p>
+        <p class="gallery-caption">Overgrown rear garden — Before</p>
       </div>
 
       <!-- Slider 2 -->
@@ -1383,7 +1351,7 @@
           <div class="t-avatar" style="background: linear-gradient(135deg, #2d6a4f, #52b788);">SR</div>
           <div>
             <div class="t-name">Sarah R.</div>
-            <div class="t-location">Chiswick, London</div>
+            <div class="t-location">West Midlands</div>
           </div>
         </div>
       </div>
@@ -1431,7 +1399,7 @@
 
     <div class="contact-left">
       <h2>Let's talk<br><em>gardens</em></h2>
-      <p>We cover London, Surrey, Hertfordshire, Kent and surrounding Home Counties. Call us or fill in the form and we'll be in touch within one working day.</p>
+      <p>We cover a wide area — call us to check availability in your postcode. Call us or fill in the form and we'll be in touch within one working day.</p>
       <div class="contact-info-items">
         <div class="contact-info-item">
           <div class="contact-info-icon">
@@ -1457,7 +1425,7 @@
           </div>
           <div class="contact-info-text">
             <strong>Coverage</strong>
-            <span>London &amp; Home Counties</span>
+            <span>Your Local Area</span>
           </div>
         </div>
         <div class="contact-info-item">
@@ -1540,7 +1508,7 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <a href="#" class="logo"><span>Green</span>Craft</a>
-      <p class="footer-tagline">Award-winning garden design and maintenance across London and the Home Counties. Transforming outdoor spaces since 2007.</p>
+      <p class="footer-tagline">Award-winning garden design and maintenance Transforming outdoor spaces since 2007.</p>
       <div class="footer-socials">
         <a href="#" class="footer-social" aria-label="Facebook">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
