@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Emergency Plumber London | IRONWORK Plumbing | 45-Min Response</title>
+  <meta name="description" content="London's fastest-response plumbing service. Gas Safe registered, 1,200+ jobs completed, 45-minute average call-out. Emergency repairs, boiler service and full installations across all 32 London boroughs. Free fixed quote. Call 24/7.">
+  <link rel="canonical" href="https://weborb.co.uk/templates/plumber2/">
+  <meta name="robots" content="index,follow">
+
+  <!-- OG -->
+  <meta property="og:title" content="Emergency Plumber London | Ironwork Plumbing">
+  <meta property="og:description" content="Gas Safe registered London plumbers. 45-min avg response, 1,200+ jobs, 4.9★ rated. Call 24/7.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://weborb.co.uk/templates/plumber2/">
+  <meta property="og:site_name" content="WebOrb">
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Plumber",
+    "name": "Ironwork Plumbing",
+    "url": "https://www.ironworkplumbing.co.uk",
+    "telephone": "+44-20-7123-4567",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "London",
+      "addressCountry": "GB"
+    },
+    "areaServed": { "@type": "City", "name": "London" },
+    "openingHours": "Mo-Su 00:00-23:59",
+    "priceRange": "££",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "340"
+    }
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #0c0c0c;
+      --surface:     #161616;
+      --surface2:    #1e1e1e;
+      --border:      #272727;
+      --border-mid:  #383838;
+      --yellow:      #F5C518;
+      --yellow-dim:  rgba(245,197,24,.10);
+      --yellow-glow: rgba(245,197,24,.22);
+      --text:        #ededed;
+      --muted:       #717171;
+      --font-d: 'Barlow Condensed', 'Impact', Arial Narrow, sans-serif;
+      --font-b: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-b);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Grain overlay */
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+      opacity: 0.032;
+      pointer-events: none;
+      z-index: 99998;
+    }
+
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--yellow); border-radius: 2px; }
+
+    /* ─── UTILITIES ─── */
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 28px; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.vis { opacity: 1; transform: none; }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      height: 62px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px;
+      background: rgba(12,12,12,.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--font-d);
+      font-size: 1.55rem; font-weight: 900;
+      letter-spacing: .05em; text-transform: uppercase;
+      text-decoration: none; color: var(--text);
+    }
+    .nav-logo em { color: var(--yellow); font-style: normal; }
+    .nav-right { display: flex; align-items: center; gap: 24px; }
+    .nav-tel {
+      font-size: .82rem; font-weight: 600;
+      color: var(--muted); text-decoration: none;
+      transition: color .2s; text-align: right;
+    }
+    .nav-tel strong { color: var(--text); display: block; font-size: .95rem; }
+    .nav-tel:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--yellow); color: #000;
+      font-weight: 700; font-size: .8rem;
+      text-transform: uppercase; letter-spacing: .09em;
+      padding: 9px 18px; border-radius: 3px;
+      text-decoration: none; transition: all .18s;
+    }
+    .nav-cta:hover { background: #fff; }
+
+    /* ─── TICKER ─── */
+    .ticker {
+      margin-top: 62px;
+      background: var(--yellow);
+      height: 34px; overflow: hidden;
+      display: flex; align-items: center;
+    }
+    .ticker-badge {
+      flex-shrink: 0;
+      display: flex; align-items: center; gap: 8px;
+      background: #000; color: var(--yellow);
+      height: 100%; padding: 0 18px;
+      font-size: .68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .15em;
+      z-index: 2;
+    }
+    .t-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--yellow);
+      animation: blink 1.2s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    .ticker-track { flex: 1; overflow: hidden; position: relative; }
+    .ticker-inner {
+      display: inline-flex; gap: 0;
+      animation: tick-scroll 32s linear infinite;
+      white-space: nowrap;
+    }
+    .ticker-track:hover .ticker-inner { animation-play-state: paused; }
+    .t-item {
+      padding: 0 40px;
+      font-size: .76rem; font-weight: 600; color: #000;
+      flex-shrink: 0;
+    }
+    .t-item::before { content: '▸ '; opacity: .55; }
+    @keyframes tick-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - 96px);
+      align-items: stretch;
+    }
+    .hero-left {
+      display: flex; align-items: center;
+      padding: 80px 60px 80px max(28px, calc((100vw - 1240px) / 2 + 28px));
+      position: relative;
+    }
+    /* warning tape accent — left edge */
+    .hero-left::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+      background: repeating-linear-gradient(
+        -45deg,
+        var(--yellow) 0, var(--yellow) 7px,
+        transparent 7px, transparent 14px
+      );
+    }
+    .hero-right {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 44px;
+      padding: 80px max(28px, calc((100vw - 1240px) / 2 + 28px)) 80px 60px;
+      background: var(--surface);
+      border-left: 1px solid var(--border);
+    }
+
+    .hero-content { max-width: 520px; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: .68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .18em;
+      color: var(--yellow); margin-bottom: 22px;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block;
+      width: 28px; height: 1px; background: var(--yellow);
+    }
+    .hero-h1 {
+      font-family: var(--font-d);
+      font-size: clamp(4.5rem, 7.5vw, 7.8rem);
+      font-weight: 900; line-height: .88;
+      text-transform: uppercase; letter-spacing: -.02em;
+      margin-bottom: 28px;
+    }
+    .hero-h1 em { color: var(--yellow); font-style: normal; display: block; }
+    .hero-sub {
+      font-size: .95rem; color: var(--muted);
+      line-height: 1.75; max-width: 420px;
+      margin-bottom: 36px;
+    }
+    .hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--yellow); color: #000;
+      font-family: var(--font-b); font-weight: 700;
+      font-size: .85rem; text-transform: uppercase; letter-spacing: .08em;
+      padding: 13px 24px; border-radius: 3px;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: all .2s;
+    }
+    .btn-primary:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,197,24,.25); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--text);
+      font-family: var(--font-b); font-weight: 600;
+      font-size: .85rem; padding: 13px 22px;
+      border: 1px solid var(--border); border-radius: 3px;
+      text-decoration: none; transition: all .2s;
+    }
+    .btn-ghost:hover { border-color: var(--yellow); color: var(--yellow); }
+
+    /* Timer ring */
+    .ring-wrap {
+      position: relative; width: 210px; height: 210px; flex-shrink: 0;
+    }
+    .ring-svg { width: 210px; height: 210px; transform: rotate(-90deg); }
+    .ring-bg  { fill: none; stroke: var(--surface2); stroke-width: 5; }
+    .ring-prog {
+      fill: none; stroke: var(--yellow);
+      stroke-width: 5; stroke-linecap: round;
+      stroke-dasharray: 597; stroke-dashoffset: 597;
+      transition: stroke-dashoffset 2s cubic-bezier(.4,0,.2,1);
+    }
+    .ring-inner {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+    }
+    .ring-num {
+      font-family: var(--font-d);
+      font-size: 4.8rem; font-weight: 900;
+      line-height: 1; color: var(--yellow);
+    }
+    .ring-unit {
+      font-size: .65rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .18em;
+      color: var(--muted); margin-top: 2px;
+    }
+    .ring-caption {
+      font-size: .68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .14em;
+      color: var(--muted); text-align: center; margin-top: -28px;
+    }
+
+    /* Hero stats bar */
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: 5px;
+      overflow: hidden; width: 100%;
+    }
+    .h-stat { background: var(--surface2); padding: 18px 12px; text-align: center; }
+    .h-stat-n {
+      font-family: var(--font-d);
+      font-size: 2rem; font-weight: 900; line-height: 1;
+      color: var(--text);
+    }
+    .h-stat-l {
+      font-size: .65rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: .1em; margin-top: 3px;
+    }
+
+    /* ─── SERVICES ─── */
+    .services {
+      padding: 96px 0;
+      background: var(--surface);
+      position: relative;
+    }
+    .services::after {
+      content: '';
+      position: absolute; right: 0; top: 0; bottom: 0; width: 4px;
+      background: repeating-linear-gradient(
+        -45deg, var(--yellow) 0, var(--yellow) 6px,
+        transparent 6px, transparent 12px
+      );
+    }
+
+    .section-top {
+      display: flex; align-items: flex-end;
+      justify-content: space-between; gap: 24px;
+      margin-bottom: 52px;
+    }
+    .s-eyebrow {
+      font-size: .68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .2em;
+      color: var(--yellow); margin-bottom: 10px;
+    }
+    .s-h2 {
+      font-family: var(--font-d);
+      font-size: clamp(2.8rem, 5vw, 4.8rem);
+      font-weight: 900; text-transform: uppercase;
+      line-height: .9; letter-spacing: -.01em;
+    }
+    .s-note {
+      max-width: 300px; font-size: .88rem;
+      color: var(--muted); line-height: 1.7; text-align: right;
+    }
+
+    .svc-list { display: flex; flex-direction: column; }
+    .svc-row {
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 64px 1fr auto 32px;
+      align-items: center; gap: 20px;
+      padding: 20px 0;
+      cursor: default;
+      position: relative; overflow: hidden;
+    }
+    .svc-row:last-child { border-bottom: 1px solid var(--border); }
+
+    /* fill sweep on hover */
+    .svc-row::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: var(--yellow-dim);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .35s ease;
+    }
+    .svc-row:hover::before { transform: scaleX(1); }
+    .svc-row:hover .svc-n  { color: var(--yellow); }
+    .svc-row:hover .svc-name { color: var(--yellow); }
+    .svc-row:hover .svc-arrow { transform: translateX(7px); color: var(--yellow); }
+    .svc-row:hover .svc-desc { max-height: 44px; opacity: 1; }
+
+    .svc-n {
+      font-family: var(--font-d);
+      font-size: 1.5rem; font-weight: 900;
+      color: var(--border); transition: color .3s; z-index: 1;
+    }
+    .svc-body { z-index: 1; }
+    .svc-name {
+      font-family: var(--font-d);
+      font-size: 1.7rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .02em; line-height: 1;
+      transition: color .3s;
+    }
+    .svc-desc {
+      font-size: .8rem; color: var(--muted);
+      margin-top: 3px;
+      max-height: 0; overflow: hidden; opacity: 0;
+      transition: max-height .35s ease, opacity .35s ease;
+    }
+    .svc-chips { display: flex; gap: 6px; z-index: 1; }
+    .svc-chip {
+      font-size: .63rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .1em;
+      padding: 3px 9px;
+      border: 1px solid var(--border); border-radius: 2px;
+      color: var(--muted);
+    }
+    .svc-arrow {
+      font-size: 1.2rem; color: var(--muted);
+      transition: all .3s; z-index: 1;
+    }
+
+    /* ─── COVERAGE MAP ─── */
+    .map-section { padding: 96px 0; background: var(--bg); }
+    .map-layout {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: center;
+    }
+
+    .borough-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px;
+    }
+    .borough {
+      padding: 10px 8px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 3px;
+      font-size: .68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .07em;
+      color: var(--muted); text-align: center;
+      cursor: default;
+      transition: all .18s; position: relative; overflow: hidden;
+    }
+    .borough span { position: relative; z-index: 1; }
+    .borough::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: var(--yellow);
+      opacity: 0; transition: opacity .18s;
+    }
+    .borough:hover { border-color: var(--yellow); transform: scale(1.06); color: #000; }
+    .borough:hover::after { opacity: 1; }
+    .borough.hq {
+      background: var(--yellow-dim);
+      border-color: rgba(245,197,24,.4);
+      color: var(--yellow);
+    }
+
+    .map-info { }
+    .map-live {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 28px;
+    }
+    .live-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--yellow); position: relative;
+    }
+    .live-dot::after {
+      content: '';
+      position: absolute; inset: -5px;
+      border-radius: 50%;
+      border: 1.5px solid var(--yellow);
+      animation: ring-pulse 2s ease-in-out infinite;
+    }
+    @keyframes ring-pulse {
+      0%,100% { opacity: .7; transform: scale(1); }
+      50%      { opacity: 0;   transform: scale(2.2); }
+    }
+    .live-label {
+      font-size: .68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .16em;
+      color: var(--yellow);
+    }
+    .map-big {
+      font-family: var(--font-d);
+      font-size: 6.5rem; font-weight: 900;
+      line-height: 1; color: var(--text); margin-bottom: 4px;
+    }
+    .map-big-label {
+      font-family: var(--font-d);
+      font-size: 1.8rem; font-weight: 700;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 22px;
+    }
+    .map-desc {
+      font-size: .88rem; color: var(--muted);
+      line-height: 1.75; max-width: 360px; margin-bottom: 32px;
+    }
+
+    /* ─── PROCESS ─── */
+    .process { padding: 96px 0; background: var(--surface); }
+    .process-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--border); border-radius: 6px;
+      overflow: hidden; margin-top: 52px;
+    }
+    .ps {
+      padding: 44px 36px;
+      border-right: 1px solid var(--border);
+      position: relative; transition: background .3s;
+    }
+    .ps:last-child { border-right: none; }
+    .ps:hover { background: var(--yellow-dim); }
+    .ps:hover .ps-n { color: var(--yellow); }
+
+    .ps-n {
+      font-family: var(--font-d);
+      font-size: 4rem; font-weight: 900;
+      line-height: 1; color: var(--border);
+      margin-bottom: 18px; transition: color .3s;
+    }
+    .ps-title {
+      font-family: var(--font-d);
+      font-size: 1.75rem; font-weight: 800;
+      text-transform: uppercase; margin-bottom: 12px;
+    }
+    .ps-desc { font-size: .88rem; color: var(--muted); line-height: 1.7; }
+
+    /* arrow connector between steps */
+    .ps-arrow {
+      position: absolute; right: -13px; top: 50%;
+      transform: translateY(-50%);
+      width: 26px; height: 26px;
+      background: var(--surface);
+      border: 1px solid var(--border); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .75rem; color: var(--yellow); z-index: 2;
+    }
+
+    /* ─── REVIEWS ─── */
+    .reviews { padding: 96px 0; background: var(--bg); }
+    .reviews-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 18px; margin-top: 52px;
+    }
+    .review {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 5px; padding: 26px;
+      transition: border-color .25s, transform .25s;
+    }
+    .review:hover { border-color: var(--yellow); transform: translateY(-5px); }
+    .review-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 14px;
+    }
+    .r-tag {
+      font-size: .62rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .12em;
+      padding: 3px 9px;
+      background: var(--yellow-dim); color: var(--yellow); border-radius: 2px;
+    }
+    .r-stars { font-size: .82rem; color: var(--yellow); letter-spacing: 2px; }
+    .r-text {
+      font-size: .9rem; color: var(--text);
+      line-height: 1.7; margin-bottom: 18px;
+    }
+    .r-footer {
+      display: flex; align-items: center; gap: 12px;
+      border-top: 1px solid var(--border); padding-top: 14px;
+    }
+    .r-avatar {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--surface2);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-d); font-weight: 900; font-size: .95rem;
+      color: var(--yellow);
+    }
+    .r-name { font-weight: 600; font-size: .83rem; }
+    .r-loc  { font-size: .72rem; color: var(--muted); }
+
+    /* ─── TRUST BAR ─── */
+    .trust-bar {
+      background: var(--yellow); padding: 28px 0;
+      overflow: hidden;
+    }
+    .trust-inner {
+      display: flex; align-items: center; justify-content: center;
+      gap: 48px; flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: .78rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .12em;
+      color: #000;
+    }
+    .trust-icon { font-size: 1.2rem; }
+
+    /* ─── CONTACT ─── */
+    .contact { padding: 96px 0; background: var(--surface); }
+    .contact-layout {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: start;
+    }
+    .c-tagline {
+      font-family: var(--font-d);
+      font-size: clamp(2.6rem, 4vw, 4.2rem);
+      font-weight: 900; text-transform: uppercase;
+      line-height: .92; margin-bottom: 28px;
+    }
+    .c-tagline em { color: var(--yellow); font-style: normal; }
+    .c-list {
+      list-style: none; display: flex; flex-direction: column;
+      gap: 13px; margin-bottom: 36px;
+    }
+    .c-list li {
+      display: flex; align-items: center; gap: 14px;
+      font-size: .88rem; color: var(--muted);
+    }
+    .c-list li::before {
+      content: ''; width: 5px; height: 5px;
+      background: var(--yellow); border-radius: 50%; flex-shrink: 0;
+    }
+    .c-tel {
+      font-family: var(--font-d);
+      font-size: 2.6rem; font-weight: 900;
+      color: var(--yellow); text-decoration: none;
+      display: block; margin-bottom: 6px;
+      transition: color .2s;
+    }
+    .c-tel:hover { color: #fff; }
+    .c-tel-label {
+      font-size: .68rem; text-transform: uppercase;
+      letter-spacing: .15em; color: var(--muted);
+    }
+
+    .c-form { display: flex; flex-direction: column; gap: 14px; }
+    .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .f-grp { display: flex; flex-direction: column; gap: 5px; }
+    .f-lbl {
+      font-size: .68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .13em; color: var(--muted);
+    }
+    .f-in, .f-sel, .f-ta {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 3px; color: var(--text);
+      font-family: var(--font-b); font-size: .88rem;
+      padding: 11px 14px; outline: none;
+      transition: border-color .2s; width: 100%;
+    }
+    .f-in:focus, .f-sel:focus, .f-ta:focus { border-color: var(--yellow); }
+    .f-ta { resize: vertical; min-height: 96px; }
+    .f-sel { appearance: none; cursor: pointer; }
+    .f-submit {
+      background: var(--yellow); color: #000;
+      font-family: var(--font-b); font-weight: 700;
+      font-size: .88rem; text-transform: uppercase; letter-spacing: .1em;
+      padding: 14px 28px; border: none; border-radius: 3px;
+      cursor: pointer; align-self: flex-start;
+      transition: all .2s;
+    }
+    .f-submit:hover { background: #fff; transform: translateY(-2px); }
+    .f-legal { font-size: .72rem; color: var(--muted); line-height: 1.6; }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: #080808;
+      border-top: 1px solid var(--border);
+      padding: 36px 0;
+    }
+    .footer-inner {
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 20px; flex-wrap: wrap;
+    }
+    .footer-logo {
+      font-family: var(--font-d);
+      font-size: 1.3rem; font-weight: 900;
+      letter-spacing: .05em; text-transform: uppercase;
+      text-decoration: none; color: var(--text);
+    }
+    .footer-logo em { color: var(--yellow); font-style: normal; }
+    .footer-meta { font-size: .76rem; color: var(--muted); line-height: 1.6; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a {
+      font-size: .76rem; color: var(--muted);
+      text-decoration: none; transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--text); }
+
+    /* ─── RESPONSIVE ─── */
+    @media(max-width: 960px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-left {
+        padding: 60px 28px 48px;
+        min-height: auto;
+      }
+      .hero-left::before { display: none; }
+      .hero-right {
+        padding: 48px 28px 60px;
+        border-left: none;
+        border-top: 1px solid var(--border);
+      }
+      .map-layout, .contact-layout { grid-template-columns: 1fr; gap: 48px; }
+      .section-top { flex-direction: column; align-items: flex-start; }
+      .s-note { text-align: left; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr; }
+      .ps { border-right: none; border-bottom: 1px solid var(--border); }
+      .ps:last-child { border-bottom: none; }
+      .ps-arrow { display: none; }
+    }
+    @media(max-width: 640px) {
+      .nav { padding: 0 16px; }
+      .f-row { grid-template-columns: 1fr; }
+      .svc-row { grid-template-columns: 52px 1fr 26px; }
+      .svc-chips { display: none; }
+      .trust-inner { gap: 24px; }
+      .borough-grid { grid-template-columns: repeat(3, 1fr); }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Preview Bar -->
+<script>
+  window.__previewBar = {
+    name: "Plumber Template 2",
+    tiers: [
+      { label: "Lite",     price: "£49",  url: "https://buy.stripe.com/7sY14o7Nb2AGeLoaRDf7i00?client_reference_id=plumber2" },
+      { label: "Standard", price: "£99",  url: "https://buy.stripe.com/fZuaEY6J71wC0Uye3Pf7i01?client_reference_id=plumber2" },
+      { label: "Pro",      price: "£199", url: "https://buy.stripe.com/00w9AU1oNdfk5aOgbXf7i02?client_reference_id=plumber2" }
+    ]
+  };
+</script>
+<script src="/js/preview-bar.js"></script>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="#">IRON<em>WORK</em></a>
+  <div class="nav-right">
+    <a class="nav-tel" href="tel:02071234567">
+      <strong>020 7123 4567</strong>
+      24/7 Emergency
+    </a>
+    <a class="nav-cta" href="#contact">Get a Quote</a>
+  </div>
+</nav>
+
+<!-- LIVE TICKER -->
+<div class="ticker">
+  <div class="ticker-badge">
+    <span class="t-dot"></span>
+    Live Jobs
+  </div>
+  <div class="ticker-track">
+    <div class="ticker-inner" id="tickerInner">
+      <span class="t-item">Burst pipe — Hackney · 47 mins ago</span>
+      <span class="t-item">Boiler service — Islington · 1 hr ago</span>
+      <span class="t-item">Leak repair — Lambeth · 2 hrs ago</span>
+      <span class="t-item">Radiator install — Camden · 2 hrs ago</span>
+      <span class="t-item">Emergency callout — Southwark · 3 hrs ago</span>
+      <span class="t-item">Bathroom refit — Hackney · 4 hrs ago</span>
+      <span class="t-item">Boiler breakdown — Newham · 5 hrs ago</span>
+      <span class="t-item">Drain blockage — Tower Hamlets · 6 hrs ago</span>
+      <!-- duplicate for seamless loop -->
+      <span class="t-item">Burst pipe — Hackney · 47 mins ago</span>
+      <span class="t-item">Boiler service — Islington · 1 hr ago</span>
+      <span class="t-item">Leak repair — Lambeth · 2 hrs ago</span>
+      <span class="t-item">Radiator install — Camden · 2 hrs ago</span>
+      <span class="t-item">Emergency callout — Southwark · 3 hrs ago</span>
+      <span class="t-item">Bathroom refit — Hackney · 4 hrs ago</span>
+      <span class="t-item">Boiler breakdown — Newham · 5 hrs ago</span>
+      <span class="t-item">Drain blockage — Tower Hamlets · 6 hrs ago</span>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-left">
+    <div class="hero-content">
+      <span class="hero-eyebrow">Gas Safe Registered · London-wide</span>
+      <h1 class="hero-h1">
+        <span id="scramble">London's</span>
+        <em>Fastest</em>
+        Plumbers.
+      </h1>
+      <p class="hero-sub">Emergency repairs, boiler service and full bathroom installations. Our own crew, on-site within 45 minutes across all 32 London boroughs. No call-out fee. Fixed price guaranteed.</p>
+      <div class="hero-actions">
+        <a href="tel:02071234567" class="btn-primary">Call Now &mdash; 24/7</a>
+        <a href="#contact" class="btn-ghost">Free Quote &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div>
+      <div class="ring-wrap" id="ringWrap">
+        <svg class="ring-svg" viewBox="0 0 210 210">
+          <circle class="ring-bg"   cx="105" cy="105" r="95"/>
+          <circle class="ring-prog" id="ringProg" cx="105" cy="105" r="95"/>
+        </svg>
+        <div class="ring-inner">
+          <span class="ring-num" id="ringNum">0</span>
+          <span class="ring-unit">Min</span>
+        </div>
+      </div>
+      <p class="ring-caption">Average Response Time</p>
+    </div>
+
+    <div class="hero-stats">
+      <div class="h-stat">
+        <div class="h-stat-n" data-target="1200" data-suffix="+">0</div>
+        <div class="h-stat-l">Jobs Done</div>
+      </div>
+      <div class="h-stat">
+        <div class="h-stat-n" data-target="15" data-suffix=" yrs">0</div>
+        <div class="h-stat-l">Trading</div>
+      </div>
+      <div class="h-stat">
+        <div class="h-stat-n" data-target="4.9" data-suffix="&#9733;" data-float="true">0</div>
+        <div class="h-stat-l">Rated</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="container">
+    <div class="section-top reveal">
+      <div>
+        <p class="s-eyebrow">What We Fix</p>
+        <h2 class="s-h2">Our<br>Services</h2>
+      </div>
+      <p class="s-note">Every job is fully insured. We quote before we start — no surprise costs, ever.</p>
+    </div>
+
+    <div class="svc-list">
+      <div class="svc-row reveal">
+        <span class="svc-n">01</span>
+        <div class="svc-body">
+          <div class="svc-name">Emergency Repairs</div>
+          <div class="svc-desc">Burst pipes, leaks, flooding — on-site within 45 mins, any time of day or night.</div>
+        </div>
+        <div class="svc-chips">
+          <span class="svc-chip">24/7</span>
+          <span class="svc-chip">Fast</span>
+        </div>
+        <span class="svc-arrow">&rarr;</span>
+      </div>
+      <div class="svc-row reveal">
+        <span class="svc-n">02</span>
+        <div class="svc-body">
+          <div class="svc-name">Boiler Service &amp; Repair</div>
+          <div class="svc-desc">Annual servicing, breakdowns, full replacements. All major brands, manufacturer-certified engineers.</div>
+        </div>
+        <div class="svc-chips"><span class="svc-chip">Gas Safe</span></div>
+        <span class="svc-arrow">&rarr;</span>
+      </div>
+      <div class="svc-row reveal">
+        <span class="svc-n">03</span>
+        <div class="svc-body">
+          <div class="svc-name">Bathroom Installations</div>
+          <div class="svc-desc">Full fit-outs, en-suites, wet rooms. Supply &amp; fit or fit-only — your choice.</div>
+        </div>
+        <div class="svc-chips"><span class="svc-chip">Full Fit</span></div>
+        <span class="svc-arrow">&rarr;</span>
+      </div>
+      <div class="svc-row reveal">
+        <span class="svc-n">04</span>
+        <div class="svc-body">
+          <div class="svc-name">Central Heating</div>
+          <div class="svc-desc">New systems, power flushing, radiator installs, underfloor heating. Quoted upfront, guaranteed.</div>
+        </div>
+        <div class="svc-chips"><span class="svc-chip">Heating</span></div>
+        <span class="svc-arrow">&rarr;</span>
+      </div>
+      <div class="svc-row reveal">
+        <span class="svc-n">05</span>
+        <div class="svc-body">
+          <div class="svc-name">Drain &amp; Waste</div>
+          <div class="svc-desc">Blockages, CCTV surveys, drain relining. High-pressure jetting for even the toughest roots.</div>
+        </div>
+        <div class="svc-chips"><span class="svc-chip">CCTV</span></div>
+        <span class="svc-arrow">&rarr;</span>
+      </div>
+      <div class="svc-row reveal">
+        <span class="svc-n">06</span>
+        <div class="svc-body">
+          <div class="svc-name">Landlord &amp; Commercial</div>
+          <div class="svc-desc">CP12 certificates, maintenance contracts, priority call-out for managing agents and businesses.</div>
+        </div>
+        <div class="svc-chips">
+          <span class="svc-chip">CP12</span>
+          <span class="svc-chip">Commercial</span>
+        </div>
+        <span class="svc-arrow">&rarr;</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE MAP -->
+<section class="map-section">
+  <div class="container">
+    <div class="map-layout">
+
+      <div class="borough-grid reveal">
+        <div class="borough hq"><span>HQ &#9679;</span></div>
+        <div class="borough"><span>Camden</span></div>
+        <div class="borough"><span>Islington</span></div>
+        <div class="borough"><span>Hackney</span></div>
+        <div class="borough"><span>Barnet</span></div>
+        <div class="borough"><span>Haringey</span></div>
+        <div class="borough"><span>Waltham F.</span></div>
+        <div class="borough"><span>Redbridge</span></div>
+        <div class="borough"><span>Ealing</span></div>
+        <div class="borough"><span>Hammersmith</span></div>
+        <div class="borough"><span>Westminster</span></div>
+        <div class="borough"><span>Tower H.</span></div>
+        <div class="borough"><span>Hounslow</span></div>
+        <div class="borough"><span>Wandsworth</span></div>
+        <div class="borough"><span>Southwark</span></div>
+        <div class="borough"><span>Newham</span></div>
+        <div class="borough"><span>Richmond</span></div>
+        <div class="borough"><span>Lambeth</span></div>
+        <div class="borough"><span>Lewisham</span></div>
+        <div class="borough"><span>Barking</span></div>
+        <div class="borough"><span>Kingston</span></div>
+        <div class="borough"><span>Merton</span></div>
+        <div class="borough"><span>Greenwich</span></div>
+        <div class="borough"><span>Havering</span></div>
+      </div>
+
+      <div class="map-info reveal">
+        <div class="map-live">
+          <div class="live-dot"></div>
+          <span class="live-label">Active coverage — London</span>
+        </div>
+        <div class="map-big" id="boroughCount">0</div>
+        <div class="map-big-label">Boroughs Covered</div>
+        <p class="map-desc">One team, all of London. From Barnet to Bromley, Ealing to Havering — we're within 45 minutes of every address in the city. No exclusion zones, no surcharges.</p>
+        <a href="#contact" class="btn-primary">Check Your Area &rarr;</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="container">
+    <div class="section-top reveal">
+      <div>
+        <p class="s-eyebrow">How It Works</p>
+        <h2 class="s-h2">Three<br>Steps</h2>
+      </div>
+      <p class="s-note">You tell us the problem. We turn up and fix it. You pay only what we quoted.</p>
+    </div>
+
+    <div class="process-grid">
+      <div class="ps reveal">
+        <div class="ps-n">01</div>
+        <div class="ps-title">Call or Book</div>
+        <p class="ps-desc">Call us 24/7 or fill in the form below. For most jobs we'll give you a fixed price over the phone — no waiting for a quote that never arrives.</p>
+        <div class="ps-arrow">&rarr;</div>
+      </div>
+      <div class="ps reveal">
+        <div class="ps-n">02</div>
+        <div class="ps-title">We Arrive Fast</div>
+        <p class="ps-desc">Our nearest engineer is dispatched immediately. For emergencies we target 45 minutes. You'll receive an ETA call the moment you hang up.</p>
+        <div class="ps-arrow">&rarr;</div>
+      </div>
+      <div class="ps reveal">
+        <div class="ps-n">03</div>
+        <div class="ps-title">Job Done. Guaranteed.</div>
+        <p class="ps-desc">All work is guaranteed for 12 months as standard. We clean up, we document everything in writing, and we charge only what we quoted.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item"><span class="trust-icon">&#9679;</span> Gas Safe Registered</div>
+    <div class="trust-item"><span class="trust-icon">&#9679;</span> No Call-Out Fee</div>
+    <div class="trust-item"><span class="trust-icon">&#9679;</span> Fixed Price Guaranteed</div>
+    <div class="trust-item"><span class="trust-icon">&#9679;</span> 12-Month Workmanship Warranty</div>
+    <div class="trust-item"><span class="trust-icon">&#9679;</span> Fully Insured</div>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="container">
+    <div class="section-top reveal">
+      <div>
+        <p class="s-eyebrow">What Clients Say</p>
+        <h2 class="s-h2">Field<br>Reports</h2>
+      </div>
+      <p class="s-note">4.9 stars across 340+ verified reviews on Google and Checkatrade.</p>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review reveal">
+        <div class="review-top">
+          <span class="r-tag">Emergency · Burst Pipe</span>
+          <span class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        </div>
+        <p class="r-text">"Called at 11pm with a burst pipe flooding our kitchen. Engineer was at the door in 38 minutes. Fixed within an hour, place left spotless. Genuinely could not ask for more."</p>
+        <div class="r-footer">
+          <div class="r-avatar">MH</div>
+          <div>
+            <div class="r-name">Mark H.</div>
+            <div class="r-loc">Islington, N1</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review reveal">
+        <div class="review-top">
+          <span class="r-tag">Boiler Service</span>
+          <span class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        </div>
+        <p class="r-text">"Used Ironwork for our annual boiler service and to replace two radiators. Both engineers were professional, explained everything clearly and left no mess. Booked for next year already."</p>
+        <div class="r-footer">
+          <div class="r-avatar">SC</div>
+          <div>
+            <div class="r-name">Sarah C.</div>
+            <div class="r-loc">Camden, NW1</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review reveal">
+        <div class="review-top">
+          <span class="r-tag">Full Bathroom Refit</span>
+          <span class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        </div>
+        <p class="r-text">"Complete strip-out and refit. Finished on schedule, price exactly as quoted, tiling is flawless. Three neighbours have already asked for the number. Absolutely recommended."</p>
+        <div class="r-footer">
+          <div class="r-avatar">JB</div>
+          <div>
+            <div class="r-name">James B.</div>
+            <div class="r-loc">Hackney, E8</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-layout">
+
+      <div class="reveal">
+        <h2 class="c-tagline">Get a<br><em>Fixed Price</em><br>Today.</h2>
+        <ul class="c-list">
+          <li>No call-out fee, ever</li>
+          <li>Price confirmed before work starts</li>
+          <li>Same-day appointments available</li>
+          <li>All work guaranteed 12 months</li>
+          <li>Gas Safe Reg. No. 000000</li>
+        </ul>
+        <a href="tel:02071234567" class="c-tel">020 7123 4567</a>
+        <span class="c-tel-label">Free to call &middot; Available 24 hours</span>
+      </div>
+
+      <form class="c-form reveal" onsubmit="return false">
+        <div class="f-row">
+          <div class="f-grp">
+            <label class="f-lbl" for="c-name">Your Name</label>
+            <input class="f-in" id="c-name" type="text" placeholder="John Smith">
+          </div>
+          <div class="f-grp">
+            <label class="f-lbl" for="c-tel">Phone Number</label>
+            <input class="f-in" id="c-tel" type="tel" placeholder="07700 900 000">
+          </div>
+        </div>
+        <div class="f-grp">
+          <label class="f-lbl" for="c-svc">Service Needed</label>
+          <select class="f-sel" id="c-svc">
+            <option value="">— Select a service —</option>
+            <option>Emergency Repair</option>
+            <option>Boiler Service / Repair</option>
+            <option>Bathroom Installation</option>
+            <option>Central Heating</option>
+            <option>Drain &amp; Waste</option>
+            <option>Landlord / Commercial</option>
+          </select>
+        </div>
+        <div class="f-grp">
+          <label class="f-lbl" for="c-pc">Your Postcode</label>
+          <input class="f-in" id="c-pc" type="text" placeholder="E.g. N1 9PX">
+        </div>
+        <div class="f-grp">
+          <label class="f-lbl" for="c-msg">Describe the Problem</label>
+          <textarea class="f-ta" id="c-msg" placeholder="Brief description — we'll call to confirm details…"></textarea>
+        </div>
+        <button type="submit" class="f-submit">Send Request &rarr;</button>
+        <p class="f-legal">We call back within 15 minutes during business hours. For emergencies call 020 7123 4567 directly — we answer 24/7.</p>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <a class="footer-logo" href="#">IRON<em>WORK</em></a>
+      <div class="footer-meta">
+        Ironwork Plumbing Ltd &middot; Gas Safe Reg. No. 000000 &middot; Company Reg. 09871234 &middot; London<br>
+        &copy; 2026 Ironwork Plumbing Ltd. All rights reserved.
+      </div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── Text Scramble on Hero H1 ──────────────────────────────────────────────────
+(function () {
+  var el = document.getElementById('scramble');
+  if (!el) return;
+  var chars  = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#@!?&';
+  var target = el.textContent;
+  var len    = target.length;
+  var frame  = 0;
+  var total  = 30;
+
+  function tick() {
+    var out = '';
+    for (var i = 0; i < len; i++) {
+      if (frame > i * (total / len)) {
+        out += target[i];
+      } else {
+        out += chars[Math.floor(Math.random() * chars.length)];
+      }
+    }
+    el.textContent = out;
+    frame++;
+    if (frame < total + 6) requestAnimationFrame(tick);
+    else el.textContent = target;
+  }
+  setTimeout(tick, 500);
+})();
+
+// ── Scroll Reveal ─────────────────────────────────────────────────────────────
+var revealIO = new IntersectionObserver(function (entries) {
+  entries.forEach(function (e) {
+    if (e.isIntersecting) {
+      e.target.classList.add('vis');
+      revealIO.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(function (el) { revealIO.observe(el); });
+
+// ── Counter Animation ─────────────────────────────────────────────────────────
+var counterIO = new IntersectionObserver(function (entries) {
+  entries.forEach(function (e) {
+    if (!e.isIntersecting) return;
+    var el      = e.target;
+    var target  = parseFloat(el.dataset.target);
+    var suffix  = el.dataset.suffix || '';
+    var isFloat = el.dataset.float === 'true';
+    var dur     = 1500;
+    var t0      = null;
+
+    function step(ts) {
+      if (!t0) t0 = ts;
+      var p = Math.min((ts - t0) / dur, 1);
+      var ease = 1 - Math.pow(1 - p, 3);
+      var val  = target * ease;
+      el.textContent = (isFloat ? val.toFixed(1) : Math.round(val)) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+    counterIO.unobserve(el);
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('[data-target]').forEach(function (el) { counterIO.observe(el); });
+
+// ── Response Timer Ring ───────────────────────────────────────────────────────
+(function () {
+  var wrap   = document.getElementById('ringWrap');
+  var prog   = document.getElementById('ringProg');
+  var numEl  = document.getElementById('ringNum');
+  if (!wrap || !prog) return;
+
+  var r     = 95;                        // matches SVG r attribute
+  var circ  = 2 * Math.PI * r;          // ≈ 597
+  var target = 45;
+  var done   = false;
+
+  var io = new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting && !done) {
+      done = true;
+      var dur = 1800, t0 = null;
+      function step(ts) {
+        if (!t0) t0 = ts;
+        var p   = Math.min((ts - t0) / dur, 1);
+        var ease = 1 - Math.pow(1 - p, 3);
+        var val  = Math.round(target * ease);
+        numEl.textContent = val;
+        // fill ~75% of ring at value 45 (treat 60 min as full circle)
+        prog.style.strokeDashoffset = circ * (1 - (val / 60) * 0.78);
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+  }, { threshold: 0.3 });
+  io.observe(wrap);
+})();
+
+// ── Borough counter ───────────────────────────────────────────────────────────
+(function () {
+  var el = document.getElementById('boroughCount');
+  if (!el) return;
+  var io = new IntersectionObserver(function (entries) {
+    if (!entries[0].isIntersecting) return;
+    var dur = 1200, t0 = null, target = 32;
+    function step(ts) {
+      if (!t0) t0 = ts;
+      var p = Math.min((ts - t0) / dur, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+    io.disconnect();
+  }, { threshold: 0.3 });
+  io.observe(el);
+})();
+
+// ── Borough hover ripple ──────────────────────────────────────────────────────
+document.querySelectorAll('.borough').forEach(function (b) {
+  b.addEventListener('mouseenter', function () {
+    b.style.transition = 'all .18s';
+  });
+});
+
+// ── Stagger reveal for review cards ──────────────────────────────────────────
+document.querySelectorAll('.review.reveal').forEach(function (el, i) {
+  el.style.transitionDelay = (i * 0.12) + 's';
+});
+</script>
+
+</body>
+</html>
