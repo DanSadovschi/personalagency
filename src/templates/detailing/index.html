@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Car Detailing Website Template UK — Luxury Dark | WebOrb — from £49</title>
+  <meta name="description" content="Professional car detailing website template with luxury dark design. Before/after drag slider, interactive price calculator, packages section and work gallery. Customised with your branding and live in 3 days from £49." />
+  <link rel="canonical" href="https://web-orb.uk/templates/detailing/" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- OG -->
+  <meta property="og:title" content="Car Detailing Website Template UK — Luxury Dark | WebOrb" />
+  <meta property="og:description" content="Professional car detailing website template with luxury dark design. Before/after slider, price calculator and work gallery. Live in 3 days from £49." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://web-orb.uk/templates/detailing/" />
+  <meta property="og:site_name" content="WebOrb" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #070707;
+      --surface:   #0d0d0d;
+      --surface2:  #141414;
+      --surface3:  #1a1a1a;
+      --border:    #1e1e1e;
+      --border2:   #2c2c2c;
+      --chrome:    #a0a0a0;
+      --chrome-hi: #e8e8e8;
+      --text:      #e2e2e2;
+      --muted:     #5a5a5a;
+      --font-d:    'Cormorant Garamond', Georgia, serif;
+      --font-b:    'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --chrome-grad: linear-gradient(100deg, #555 0%, #999 30%, #f0f0f0 55%, #999 78%, #555 100%);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-b);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--chrome); border-radius: 2px; }
+
+    /* grain */
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+      opacity: 0.025;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ─── UTILITIES ─── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+
+    .chrome-text {
+      background: var(--chrome-grad);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: chrome-anim 8s linear infinite;
+    }
+    @keyframes chrome-anim {
+      from { background-position: 200% center; }
+      to   { background-position: -200% center; }
+    }
+
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.vis { opacity: 1; transform: none; }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 36px;
+      background: rgba(7,7,7,.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--font-d);
+      text-decoration: none;
+      display: flex; flex-direction: column; line-height: 1;
+    }
+    .nav-logo-apex {
+      font-size: 1.4rem; font-weight: 700; letter-spacing: .18em;
+      text-transform: uppercase;
+      background: var(--chrome-grad);
+      background-size: 200% auto;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: chrome-anim 8s linear infinite;
+    }
+    .nav-logo-sub {
+      font-size: .55rem; font-weight: 400; letter-spacing: .28em;
+      text-transform: uppercase; color: var(--muted);
+      margin-top: 1px;
+    }
+    .nav-right { display: flex; align-items: center; gap: 28px; }
+    .nav-tel {
+      text-decoration: none; text-align: right;
+      font-size: .8rem; color: var(--muted); transition: color .2s;
+    }
+    .nav-tel strong { display: block; font-size: .9rem; color: var(--text); }
+    .nav-tel:hover { color: var(--text); }
+    .nav-cta {
+      padding: 9px 20px;
+      border: 1px solid var(--border2);
+      border-radius: 2px;
+      font-size: .78rem; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase;
+      text-decoration: none; color: var(--text);
+      transition: all .2s;
+      background: transparent;
+    }
+    .nav-cta:hover {
+      background: var(--chrome);
+      color: #000; border-color: var(--chrome);
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+      padding-top: 60px;
+    }
+    .hero-left {
+      display: flex; align-items: center;
+      padding: 80px 60px 80px max(28px, calc((100vw - 1200px) / 2 + 28px));
+    }
+    .hero-right {
+      display: flex; align-items: center; justify-content: center;
+      padding: 60px max(28px, calc((100vw - 1200px) / 2 + 28px)) 60px 60px;
+      background: var(--surface);
+      border-left: 1px solid var(--border);
+    }
+    .hero-content { max-width: 520px; }
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 12px;
+      font-size: .65rem; font-weight: 500;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 28px;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: ''; display: block;
+      height: 1px; background: var(--border2);
+    }
+    .hero-eyebrow::before { width: 32px; }
+    .hero-eyebrow::after  { flex: 1; max-width: 60px; }
+    .hero-h1 {
+      font-family: var(--font-d);
+      font-size: clamp(3.2rem, 5.5vw, 5.4rem);
+      font-weight: 700; font-style: italic;
+      line-height: .95; letter-spacing: -.01em;
+      margin-bottom: 24px;
+    }
+    .hero-h1 strong { font-style: normal; display: block; font-weight: 700; }
+    .hero-sub {
+      font-size: .95rem; color: var(--muted);
+      line-height: 1.8; max-width: 400px; margin-bottom: 40px;
+    }
+    .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+    .btn-chrome {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, #888 0%, #ccc 40%, #fff 50%, #ccc 60%, #888 100%);
+      color: #000; font-family: var(--font-b); font-weight: 600;
+      font-size: .8rem; letter-spacing: .1em; text-transform: uppercase;
+      padding: 13px 28px; border-radius: 2px;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: all .25s;
+    }
+    .btn-chrome:hover { filter: brightness(1.15); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,200,200,.18); }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--text);
+      font-family: var(--font-b); font-weight: 500; font-size: .8rem;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 13px 24px; border: 1px solid var(--border2);
+      border-radius: 2px; text-decoration: none; transition: all .2s;
+    }
+    .btn-outline:hover { border-color: var(--chrome); color: var(--chrome); }
+
+    /* ─── BEFORE / AFTER SLIDER ─── */
+    .ba-wrap {
+      width: 100%; max-width: 520px;
+      aspect-ratio: 4/3;
+      position: relative; overflow: hidden;
+      border-radius: 4px;
+      border: 1px solid var(--border2);
+      user-select: none; cursor: ew-resize;
+    }
+    .ba-after {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 38% 42%, #13161e 0%, #0a0c12 50%, #050608 100%);
+    }
+    /* chrome gloss highlight on "after" */
+    .ba-after::after {
+      content: '';
+      position: absolute;
+      top: 15%; left: 10%; right: 40%; height: 35%;
+      background: linear-gradient(135deg, rgba(255,255,255,.04) 0%, rgba(255,255,255,.02) 50%, transparent 100%);
+      border-radius: 50%;
+    }
+    .ba-before {
+      position: absolute; inset: 0;
+      width: 50%;
+      background: linear-gradient(160deg, #261a08 0%, #1e1207 30%, #140d05 60%, #0c0904 100%);
+      overflow: hidden;
+    }
+    .ba-before::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        -35deg,
+        rgba(255,255,255,.012) 0px, rgba(255,255,255,.012) 1px,
+        transparent 1px, transparent 6px
+      );
+    }
+    .ba-label {
+      position: absolute; top: 16px;
+      font-size: .6rem; font-weight: 600;
+      letter-spacing: .2em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 2px;
+    }
+    .ba-after .ba-label { right: 16px; background: rgba(255,255,255,.08); color: var(--chrome); }
+    .ba-before .ba-label { left: 16px; background: rgba(0,0,0,.5); color: var(--muted); }
+    .ba-desc {
+      position: absolute; bottom: 16px;
+      font-size: .72rem; color: var(--muted);
+      line-height: 1.4; padding: 0 16px;
+    }
+    .ba-after .ba-desc { right: 0; text-align: right; }
+    .ba-before .ba-desc { left: 0; }
+
+    .ba-handle {
+      position: absolute; top: 0; bottom: 0;
+      left: 50%; transform: translateX(-50%);
+      width: 2px;
+      background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,.8) 15%, rgba(255,255,255,.9) 85%, transparent 100%);
+      cursor: ew-resize; z-index: 10;
+    }
+    .ba-handle-btn {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 38px; height: 38px;
+      background: linear-gradient(135deg, #888 0%, #ddd 40%, #fff 50%, #ddd 60%, #888 100%);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 20px rgba(255,255,255,.15);
+      font-size: .7rem; color: #000; font-weight: 700;
+    }
+    .ba-hint {
+      position: absolute; bottom: -28px; left: 50%;
+      transform: translateX(-50%);
+      font-size: .62rem; color: var(--muted);
+      letter-spacing: .12em; text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* ─── STATS ─── */
+    .stats-bar {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 40px 0;
+    }
+    .stats-inner {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
+    }
+    .stat-cell {
+      background: var(--surface);
+      padding: 28px 32px; text-align: center;
+    }
+    .stat-n {
+      font-family: var(--font-d);
+      font-size: 3.2rem; font-weight: 700;
+      line-height: 1;
+      background: var(--chrome-grad);
+      background-size: 200% auto;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: chrome-anim 8s linear infinite;
+    }
+    .stat-l {
+      font-size: .72rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: .12em; margin-top: 6px;
+    }
+
+    /* ─── SHARED SECTION HEAD ─── */
+    .s-head { margin-bottom: 56px; }
+    .s-eyebrow {
+      font-size: .65rem; font-weight: 500;
+      text-transform: uppercase; letter-spacing: .26em;
+      color: var(--muted); margin-bottom: 14px;
+    }
+    .s-h2 {
+      font-family: var(--font-d);
+      font-size: clamp(2.8rem, 5vw, 4.8rem);
+      font-weight: 700; font-style: italic;
+      line-height: .9; letter-spacing: -.01em;
+    }
+    .s-h2 em { font-style: normal; }
+    .s-rule {
+      width: 40px; height: 1px;
+      background: linear-gradient(90deg, var(--chrome), transparent);
+      margin-top: 20px;
+    }
+
+    /* ─── PACKAGES ─── */
+    .packages { padding: 96px 0; background: var(--bg); }
+    .pkg-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    }
+    .pkg-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0;
+      overflow: hidden;
+      position: relative;
+      transition: border-color .3s, transform .3s, box-shadow .3s;
+    }
+    .pkg-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: var(--chrome-grad); background-size: 200% auto;
+      animation: chrome-anim 8s linear infinite;
+      opacity: 0; transition: opacity .3s;
+    }
+    .pkg-card:hover { border-color: var(--border2); transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,.5); }
+    .pkg-card:hover::before { opacity: 1; }
+
+    .pkg-card.featured {
+      border-color: var(--border2);
+      background: var(--surface2);
+    }
+    .pkg-card.featured::before { opacity: 1; }
+
+    .pkg-inner { padding: 32px 28px 28px; }
+    .pkg-tier {
+      font-size: .62rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .22em;
+      color: var(--muted); margin-bottom: 12px;
+    }
+    .pkg-name {
+      font-family: var(--font-d);
+      font-size: 1.9rem; font-weight: 700;
+      line-height: 1; margin-bottom: 6px;
+    }
+    .pkg-tagline { font-size: .82rem; color: var(--muted); margin-bottom: 24px; }
+    .pkg-price {
+      font-family: var(--font-d);
+      font-size: 2.6rem; font-weight: 600;
+      line-height: 1; margin-bottom: 4px;
+      background: var(--chrome-grad); background-size: 200% auto;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; animation: chrome-anim 8s linear infinite;
+    }
+    .pkg-price-note { font-size: .72rem; color: var(--muted); margin-bottom: 24px; }
+
+    .pkg-divider { height: 1px; background: var(--border); margin: 0 0 24px; }
+
+    .pkg-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+    .pkg-features li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: .84rem; color: var(--muted);
+    }
+    .pkg-features li::before {
+      content: '—'; color: var(--chrome); flex-shrink: 0;
+    }
+    .pkg-features li.inc { color: var(--text); }
+
+    .pkg-btn {
+      display: block; width: 100%; text-align: center;
+      padding: 12px; border: 1px solid var(--border2);
+      border-radius: 2px; font-family: var(--font-b); font-size: .78rem;
+      font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+      text-decoration: none; color: var(--text);
+      transition: all .2s; background: transparent;
+      cursor: pointer;
+    }
+    .pkg-btn:hover, .pkg-card.featured .pkg-btn {
+      background: linear-gradient(135deg, #888 0%, #ccc 40%, #fff 50%, #ccc 60%, #888 100%);
+      color: #000; border-color: transparent;
+    }
+    .pkg-card.featured .pkg-btn:hover { filter: brightness(1.1); }
+
+    .pkg-badge {
+      position: absolute; top: 16px; right: 16px;
+      font-size: .6rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .14em;
+      padding: 3px 10px; border-radius: 2px;
+      background: rgba(255,255,255,.06); color: var(--chrome);
+      border: 1px solid var(--border2);
+    }
+
+    /* ─── PRICE CALCULATOR ─── */
+    .calc-section { padding: 96px 0; background: var(--surface); }
+    .calc-layout {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+    }
+    .calc-widget {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px; padding: 36px;
+    }
+    .calc-step-label {
+      font-size: .62rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .2em;
+      color: var(--muted); margin-bottom: 12px;
+    }
+    .calc-chips {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px;
+    }
+    .calc-chip {
+      padding: 9px 18px;
+      border: 1px solid var(--border2); border-radius: 2px;
+      font-size: .78rem; font-weight: 500; letter-spacing: .06em;
+      color: var(--muted); background: transparent;
+      cursor: pointer; transition: all .18s; font-family: var(--font-b);
+    }
+    .calc-chip:hover { border-color: var(--chrome); color: var(--chrome); }
+    .calc-chip.active {
+      background: linear-gradient(135deg, #888 0%, #ccc 40%, #fff 50%, #ccc 60%, #888 100%);
+      color: #000; border-color: transparent; font-weight: 600;
+    }
+    .calc-divider { height: 1px; background: var(--border); margin: 0 0 24px; }
+    .calc-result {
+      margin-top: 28px; padding: 28px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 3px;
+      transition: all .3s;
+    }
+    .calc-result-label {
+      font-size: .62rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .2em;
+      color: var(--muted); margin-bottom: 8px;
+    }
+    .calc-result-price {
+      font-family: var(--font-d);
+      font-size: 3.8rem; font-weight: 700; line-height: 1;
+      background: var(--chrome-grad); background-size: 200% auto;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; animation: chrome-anim 8s linear infinite;
+      margin-bottom: 4px; transition: all .3s;
+    }
+    .calc-result-note { font-size: .78rem; color: var(--muted); margin-bottom: 20px; }
+    .calc-info { padding-top: 8px; }
+    .calc-info-q {
+      font-family: var(--font-d);
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 700; font-style: italic; line-height: 1; margin-bottom: 20px;
+    }
+    .calc-info-list {
+      list-style: none; display: flex; flex-direction: column; gap: 12px;
+      margin-bottom: 32px;
+    }
+    .calc-info-list li {
+      display: flex; align-items: center; gap: 12px;
+      font-size: .88rem; color: var(--muted);
+    }
+    .calc-info-list li::before {
+      content: ''; width: 4px; height: 4px;
+      background: var(--chrome); border-radius: 50%; flex-shrink: 0;
+    }
+    .calc-tel {
+      font-family: var(--font-d); font-size: 2rem; font-weight: 700;
+      color: var(--chrome); text-decoration: none; display: block; margin-bottom: 4px;
+    }
+    .calc-tel-note { font-size: .68rem; text-transform: uppercase; letter-spacing: .15em; color: var(--muted); }
+
+    /* ─── GALLERY ─── */
+    .gallery { padding: 96px 0; background: var(--bg); }
+    .g-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 260px 260px;
+      gap: 8px;
+    }
+    .g-item {
+      position: relative; overflow: hidden; border-radius: 3px;
+      cursor: default;
+    }
+    .g-item:nth-child(1) { grid-column: 1; grid-row: 1; }
+    .g-item:nth-child(2) { grid-column: 2; grid-row: 1 / 3; }
+    .g-item:nth-child(3) { grid-column: 3; grid-row: 1; }
+    .g-item:nth-child(4) { grid-column: 1; grid-row: 2; }
+    .g-item:nth-child(5) { grid-column: 3; grid-row: 2; }
+
+    .g-bg { position: absolute; inset: 0; transition: transform .5s ease; }
+    .g-item:hover .g-bg { transform: scale(1.04); }
+
+    .g-wm {
+      position: absolute; bottom: -8px; right: 12px;
+      font-family: var(--font-d); font-size: 5.5rem; font-weight: 700;
+      color: rgba(255,255,255,.04); letter-spacing: -.02em;
+      pointer-events: none; line-height: 1;
+      transition: color .4s;
+    }
+    .g-item:hover .g-wm { color: rgba(255,255,255,.07); }
+
+    .g-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.2) 50%, transparent 100%);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 20px;
+      opacity: 0; transition: opacity .35s;
+    }
+    .g-item:hover .g-overlay { opacity: 1; }
+
+    .g-tag {
+      display: inline-flex; align-items: center;
+      font-size: .6rem; font-weight: 600; letter-spacing: .16em;
+      text-transform: uppercase; padding: 3px 10px;
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+      border-radius: 2px; color: var(--chrome); margin-bottom: 6px;
+      align-self: flex-start;
+    }
+    .g-car { font-family: var(--font-d); font-size: 1.4rem; font-weight: 700; color: var(--text); }
+
+    /* gallery bg gradients */
+    .g1 { background: radial-gradient(ellipse at 35% 55%, #1e0a08 0%, #130504 50%, #080302 100%); }
+    .g2 { background: radial-gradient(ellipse at 60% 35%, #0a0a0e 0%, #0d0d14 40%, #060608 100%); }
+    .g3 { background: radial-gradient(ellipse at 50% 55%, #121208 0%, #0d0d06 40%, #080806 100%); }
+    .g4 { background: radial-gradient(ellipse at 30% 50%, #08100e 0%, #060c0a 40%, #050706 100%); }
+    .g5 { background: radial-gradient(ellipse at 55% 45%, #100a14 0%, #0b0710 40%, #060407 100%); }
+
+    /* ─── PROCESS ─── */
+    .process { padding: 96px 0; background: var(--surface); }
+    .process-row {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0; margin-top: 52px;
+      border: 1px solid var(--border); border-radius: 4px; overflow: hidden;
+    }
+    .ps {
+      padding: 44px 36px; border-right: 1px solid var(--border);
+      position: relative; transition: background .3s;
+    }
+    .ps:last-child { border-right: none; }
+    .ps:hover { background: rgba(255,255,255,.02); }
+    .ps-n {
+      font-family: var(--font-d); font-size: 4.5rem; font-weight: 700;
+      font-style: italic; line-height: 1;
+      color: rgba(255,255,255,.06); margin-bottom: 20px;
+      transition: color .3s;
+    }
+    .ps:hover .ps-n { color: rgba(255,255,255,.1); }
+    .ps-title {
+      font-family: var(--font-d); font-size: 1.7rem; font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .ps-desc { font-size: .86rem; color: var(--muted); line-height: 1.7; }
+    .ps-arr {
+      position: absolute; right: -12px; top: 50%;
+      transform: translateY(-50%);
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--surface); border: 1px solid var(--border2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .7rem; color: var(--chrome); z-index: 2;
+    }
+
+    /* ─── REVIEWS ─── */
+    .reviews { padding: 96px 0; background: var(--bg); }
+    .reviews-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 16px; margin-top: 52px;
+    }
+    .r-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 4px; padding: 28px;
+      transition: border-color .25s, transform .25s;
+      position: relative; overflow: hidden;
+    }
+    .r-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: var(--chrome-grad); background-size: 200% auto;
+      animation: chrome-anim 8s linear infinite;
+      opacity: 0; transition: opacity .3s;
+    }
+    .r-card:hover { border-color: var(--border2); transform: translateY(-4px); }
+    .r-card:hover::before { opacity: 1; }
+    .r-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 14px;
+    }
+    .r-car-tag {
+      font-size: .6rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: .14em; padding: 3px 9px;
+      background: rgba(160,160,160,.08); color: var(--chrome); border-radius: 2px;
+    }
+    .r-stars { font-size: .78rem; color: var(--chrome); letter-spacing: 2px; }
+    .r-text {
+      font-size: .88rem; color: var(--text); line-height: 1.75; margin-bottom: 18px;
+      font-style: italic; font-family: var(--font-d); font-size: 1rem;
+    }
+    .r-footer {
+      display: flex; align-items: center; gap: 12px;
+      border-top: 1px solid var(--border); padding-top: 14px;
+    }
+    .r-av {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--surface2); border: 1px solid var(--border2);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-d); font-weight: 700; font-size: .95rem;
+      color: var(--chrome);
+    }
+    .r-name { font-weight: 600; font-size: .82rem; }
+    .r-loc  { font-size: .7rem; color: var(--muted); }
+
+    /* ─── BOOKING ─── */
+    .booking { padding: 96px 0; background: var(--surface); }
+    .booking-layout {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+    }
+    .b-tagline {
+      font-family: var(--font-d);
+      font-size: clamp(2.8rem, 4vw, 4rem);
+      font-weight: 700; font-style: italic;
+      line-height: .95; margin-bottom: 24px;
+    }
+    .b-list {
+      list-style: none; display: flex; flex-direction: column;
+      gap: 12px; margin-bottom: 36px;
+    }
+    .b-list li {
+      display: flex; align-items: center; gap: 14px;
+      font-size: .88rem; color: var(--muted);
+    }
+    .b-list li::before {
+      content: ''; width: 4px; height: 4px;
+      background: var(--chrome); border-radius: 50%; flex-shrink: 0;
+    }
+    .b-tel {
+      font-family: var(--font-d); font-size: 2.4rem; font-weight: 700;
+      color: var(--chrome); text-decoration: none; display: block; margin-bottom: 4px;
+    }
+    .b-tel-note { font-size: .68rem; text-transform: uppercase; letter-spacing: .15em; color: var(--muted); }
+    .b-form { display: flex; flex-direction: column; gap: 14px; }
+    .b-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .b-grp { display: flex; flex-direction: column; gap: 5px; }
+    .b-lbl { font-size: .62rem; font-weight: 600; text-transform: uppercase; letter-spacing: .16em; color: var(--muted); }
+    .b-in, .b-sel, .b-ta {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 2px; color: var(--text);
+      font-family: var(--font-b); font-size: .88rem;
+      padding: 11px 14px; outline: none; width: 100%;
+      transition: border-color .2s;
+    }
+    .b-in:focus, .b-sel:focus, .b-ta:focus { border-color: var(--chrome); }
+    .b-ta { resize: vertical; min-height: 88px; }
+    .b-sel { appearance: none; cursor: pointer; }
+    .b-submit {
+      background: linear-gradient(135deg, #888 0%, #ccc 40%, #fff 50%, #ccc 60%, #888 100%);
+      color: #000; font-family: var(--font-b); font-weight: 600;
+      font-size: .8rem; text-transform: uppercase; letter-spacing: .12em;
+      padding: 14px 32px; border: none; border-radius: 2px;
+      cursor: pointer; align-self: flex-start; transition: all .2s;
+    }
+    .b-submit:hover { filter: brightness(1.12); transform: translateY(-2px); }
+    .b-legal { font-size: .7rem; color: var(--muted); line-height: 1.6; }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: #040404;
+      border-top: 1px solid var(--border);
+      padding: 36px 0;
+    }
+    .footer-inner {
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 20px; flex-wrap: wrap;
+    }
+    .footer-logo {
+      font-family: var(--font-d); text-decoration: none;
+      display: flex; flex-direction: column; line-height: 1;
+    }
+    .footer-logo-apex {
+      font-size: 1.2rem; font-weight: 700; letter-spacing: .18em;
+      text-transform: uppercase;
+      background: var(--chrome-grad); background-size: 200% auto;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; animation: chrome-anim 8s linear infinite;
+    }
+    .footer-logo-sub {
+      font-size: .5rem; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--muted); margin-top: 2px; font-family: var(--font-b);
+    }
+    .footer-weborb {
+      display: flex; flex-direction: column; align-items: center; gap: 5px;
+    }
+    .footer-weborb-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(160,160,160,.07);
+      border: 1px solid rgba(160,160,160,.15);
+      border-radius: 3px; padding: 6px 14px;
+      font-size: .68rem; font-weight: 500;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--chrome); text-decoration: none;
+      transition: background .2s, border-color .2s;
+    }
+    .footer-weborb-badge:hover { background: rgba(160,160,160,.12); border-color: var(--chrome); }
+    .footer-weborb-note { font-size: .66rem; color: var(--muted); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a {
+      font-size: .72rem; color: var(--muted);
+      text-decoration: none; transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--text); }
+
+    /* ─── RESPONSIVE ─── */
+    @media(max-width: 960px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 60px 28px 48px; }
+      .hero-right { padding: 48px 28px 60px; border-left: none; border-top: 1px solid var(--border); }
+      .pkg-grid { grid-template-columns: 1fr; }
+      .calc-layout { grid-template-columns: 1fr; gap: 48px; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .booking-layout { grid-template-columns: 1fr; gap: 48px; }
+      .process-row { grid-template-columns: 1fr; }
+      .ps { border-right: none; border-bottom: 1px solid var(--border); }
+      .ps:last-child { border-bottom: none; }
+      .ps-arr { display: none; }
+    }
+    @media(max-width: 640px) {
+      .nav { padding: 0 16px; }
+      .stats-inner { grid-template-columns: 1fr; }
+      .g-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 200px);
+      }
+      .g-item:nth-child(1) { grid-column: 1 / 3; grid-row: 1; }
+      .g-item:nth-child(2) { grid-column: 1; grid-row: 2 / 4; }
+      .g-item:nth-child(3) { grid-column: 2; grid-row: 2; }
+      .g-item:nth-child(4) { grid-column: 2; grid-row: 3; }
+      .g-item:nth-child(5) { display: none; }
+      .b-row { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Preview Bar -->
+<script>
+  window.__previewBar = {
+    name: "Car Detailing Template",
+    tiers: [
+      { label: "Lite",     price: "£49",  url: "#buy-lite" },
+      { label: "Standard", price: "£99",  url: "#buy-standard" },
+      { label: "Pro",      price: "£199", url: "#buy-pro" }
+    ]
+  };
+</script>
+<script src="/js/preview-bar.js"></script>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="#">
+    <span class="nav-logo-apex">Apex</span>
+    <span class="nav-logo-sub">Detailing Studio</span>
+  </a>
+  <div class="nav-right">
+    <a class="nav-tel" href="tel:01483123456">
+      <strong>01483 123 456</strong>
+      Mon–Sat 8am–6pm
+    </a>
+    <a class="nav-cta" href="#booking">Book Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-left">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Premium Car Care &middot; Surrey &amp; London</div>
+      <h1 class="hero-h1">
+        <span class="chrome-text">Precision.</span>
+        <strong>Perfection.</strong>
+        <span class="chrome-text">Protection.</span>
+      </h1>
+      <p class="hero-sub">Hand-finished detailing, paint correction and ceramic coating for vehicles that deserve nothing less. Fully mobile — we come to you.</p>
+      <div class="hero-actions">
+        <a href="#booking" class="btn-chrome">Book a Detail</a>
+        <a href="#calculator" class="btn-outline">Get a Price &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div style="width:100%;max-width:520px;">
+      <div class="ba-wrap" id="baWrap">
+        <!-- After (clean) -->
+        <div class="ba-after">
+          <span class="ba-label">After</span>
+          <p class="ba-desc">Ceramic-coated.<br>Showroom finish.</p>
+        </div>
+        <!-- Before (dirty) — clips to reveal after -->
+        <div class="ba-before" id="baBefore">
+          <span class="ba-label">Before</span>
+          <p class="ba-desc">Oxidised paintwork.<br>Road contaminants.</p>
+        </div>
+        <!-- Handle -->
+        <div class="ba-handle" id="baHandle">
+          <div class="ba-handle-btn">&#8596;</div>
+        </div>
+      </div>
+      <p class="ba-hint" style="margin-top:28px;">&#8592; Drag to compare &rarr;</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-inner">
+      <div class="stat-cell reveal">
+        <div class="stat-n" data-target="840" data-suffix="+">0</div>
+        <div class="stat-l">Cars Detailed</div>
+      </div>
+      <div class="stat-cell reveal">
+        <div class="stat-n" data-target="9" data-suffix=" Years">0</div>
+        <div class="stat-l">In Business</div>
+      </div>
+      <div class="stat-cell reveal">
+        <div class="stat-n" data-target="4.9" data-suffix="&#9733;" data-float="true">0</div>
+        <div class="stat-l">Google Rating</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PACKAGES -->
+<section class="packages" id="packages">
+  <div class="container">
+    <div class="s-head reveal">
+      <p class="s-eyebrow">What We Offer</p>
+      <h2 class="s-h2"><em class="chrome-text">The</em> Packages</h2>
+      <div class="s-rule"></div>
+    </div>
+
+    <div class="pkg-grid">
+
+      <!-- Essential -->
+      <div class="pkg-card reveal">
+        <div class="pkg-inner">
+          <p class="pkg-tier">Tier 01</p>
+          <h3 class="pkg-name">Essential Wash</h3>
+          <p class="pkg-tagline">The perfect regular maintenance detail.</p>
+          <div class="pkg-price">From £45</div>
+          <p class="pkg-price-note">Price varies by vehicle size</p>
+          <div class="pkg-divider"></div>
+          <ul class="pkg-features">
+            <li class="inc">Pre-rinse &amp; snow foam wash</li>
+            <li class="inc">Two-bucket hand wash &amp; dry</li>
+            <li class="inc">Tyre dressing &amp; wheel clean</li>
+            <li class="inc">Window clean inside &amp; out</li>
+            <li class="inc">Air freshener</li>
+            <li>Interior vacuum</li>
+            <li>Machine polish</li>
+            <li>Ceramic coat</li>
+          </ul>
+          <button class="pkg-btn">Book Essential</button>
+        </div>
+      </div>
+
+      <!-- Full Detail (featured) -->
+      <div class="pkg-card featured reveal">
+        <div class="pkg-badge">Most Popular</div>
+        <div class="pkg-inner">
+          <p class="pkg-tier">Tier 02</p>
+          <h3 class="pkg-name">Full Interior &amp; Exterior</h3>
+          <p class="pkg-tagline">A complete top-to-bottom transformation.</p>
+          <div class="pkg-price">From £120</div>
+          <p class="pkg-price-note">Price varies by vehicle size</p>
+          <div class="pkg-divider"></div>
+          <ul class="pkg-features">
+            <li class="inc">Everything in Essential</li>
+            <li class="inc">Full interior vacuum &amp; wipe-down</li>
+            <li class="inc">Leather clean &amp; conditioning</li>
+            <li class="inc">Engine bay clean</li>
+            <li class="inc">Paintwork clay bar treatment</li>
+            <li class="inc">Single-stage machine polish</li>
+            <li>Ceramic coat (upgrade available)</li>
+          </ul>
+          <button class="pkg-btn">Book Full Detail</button>
+        </div>
+      </div>
+
+      <!-- Ceramic Coat -->
+      <div class="pkg-card reveal">
+        <div class="pkg-inner">
+          <p class="pkg-tier">Tier 03</p>
+          <h3 class="pkg-name">Ceramic Coating</h3>
+          <p class="pkg-tagline">Ultimate protection. Lasts up to 3 years.</p>
+          <div class="pkg-price">From £350</div>
+          <p class="pkg-price-note">Price varies by vehicle size</p>
+          <div class="pkg-divider"></div>
+          <ul class="pkg-features">
+            <li class="inc">Everything in Full Detail</li>
+            <li class="inc">Paint decontamination &amp; prep</li>
+            <li class="inc">Multi-stage machine polish</li>
+            <li class="inc">Professional ceramic coat application</li>
+            <li class="inc">3-year protection warranty</li>
+            <li class="inc">Aftercare kit included</li>
+            <li class="inc">Certificate of application</li>
+          </ul>
+          <button class="pkg-btn">Book Ceramic</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRICE CALCULATOR -->
+<section class="calc-section" id="calculator">
+  <div class="container">
+    <div class="calc-layout">
+
+      <div class="calc-info reveal">
+        <p class="s-eyebrow">Instant Pricing</p>
+        <h2 class="calc-info-q"><em class="chrome-text">Your Price,</em><br>Instantly.</h2>
+        <div class="s-rule" style="margin-bottom:24px;"></div>
+        <ul class="calc-info-list">
+          <li>Prices are fixed — no hidden extras</li>
+          <li>Same-day appointments often available</li>
+          <li>Fully mobile — we come to you</li>
+          <li>All products are professional-grade</li>
+        </ul>
+        <a href="tel:01483123456" class="calc-tel">01483 123 456</a>
+        <span class="calc-tel-note">Call to book or ask a question</span>
+      </div>
+
+      <div class="calc-widget reveal">
+        <p class="calc-step-label">Step 1 — Your Vehicle</p>
+        <div class="calc-chips" id="carChips">
+          <button class="calc-chip active" data-car="hatch">Hatchback</button>
+          <button class="calc-chip" data-car="saloon">Saloon</button>
+          <button class="calc-chip" data-car="suv">SUV / 4x4</button>
+          <button class="calc-chip" data-car="van">Van / MPV</button>
+        </div>
+
+        <div class="calc-divider"></div>
+
+        <p class="calc-step-label">Step 2 — Package</p>
+        <div class="calc-chips" id="pkgChips">
+          <button class="calc-chip" data-pkg="essential">Essential Wash</button>
+          <button class="calc-chip active" data-pkg="full">Full Detail</button>
+          <button class="calc-chip" data-pkg="ceramic">Ceramic Coat</button>
+        </div>
+
+        <div class="calc-result" id="calcResult">
+          <p class="calc-result-label">Your estimated price</p>
+          <div class="calc-result-price" id="calcPrice">£145</div>
+          <p class="calc-result-note" id="calcNote">Full Interior &amp; Exterior · Saloon — price includes all labour</p>
+          <button class="btn-chrome" style="width:100%;justify-content:center;" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book This Package &rarr;</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="container">
+    <div class="s-head reveal">
+      <p class="s-eyebrow">Recent Work</p>
+      <h2 class="s-h2"><em class="chrome-text">The</em> Results</h2>
+      <div class="s-rule"></div>
+    </div>
+
+    <div class="g-grid">
+      <div class="g-item reveal">
+        <div class="g-bg g1"></div>
+        <span class="g-wm">BMW</span>
+        <div class="g-overlay">
+          <span class="g-tag">Full Detail</span>
+          <div class="g-car">BMW 3 Series &mdash; Ceramic Upgrade</div>
+        </div>
+      </div>
+      <div class="g-item reveal">
+        <div class="g-bg g2"></div>
+        <span class="g-wm">911</span>
+        <div class="g-overlay">
+          <span class="g-tag">Ceramic Coat</span>
+          <div class="g-car">Porsche 911 &mdash; Full Correction</div>
+        </div>
+      </div>
+      <div class="g-item reveal">
+        <div class="g-bg g3"></div>
+        <span class="g-wm">AMG</span>
+        <div class="g-overlay">
+          <span class="g-tag">Essential Wash</span>
+          <div class="g-car">Mercedes C63 AMG</div>
+        </div>
+      </div>
+      <div class="g-item reveal">
+        <div class="g-bg g4"></div>
+        <span class="g-wm">RR</span>
+        <div class="g-overlay">
+          <span class="g-tag">Full Detail</span>
+          <div class="g-car">Range Rover Vogue &mdash; Interior Restoration</div>
+        </div>
+      </div>
+      <div class="g-item reveal">
+        <div class="g-bg g5"></div>
+        <span class="g-wm">RS</span>
+        <div class="g-overlay">
+          <span class="g-tag">Ceramic Coat</span>
+          <div class="g-car">Audi RS6 &mdash; 3-Year Protection</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="container">
+    <div class="s-head reveal">
+      <p class="s-eyebrow">How It Works</p>
+      <h2 class="s-h2"><em class="chrome-text">The</em> Process</h2>
+      <div class="s-rule"></div>
+    </div>
+
+    <div class="process-row">
+      <div class="ps reveal">
+        <div class="ps-n">01</div>
+        <div class="ps-title">Book Online or Call</div>
+        <p class="ps-desc">Choose your package, pick a date and time. We confirm within the hour. Same-day slots are often available — just call us directly.</p>
+        <div class="ps-arr">&rarr;</div>
+      </div>
+      <div class="ps reveal">
+        <div class="ps-n">02</div>
+        <div class="ps-title">We Come to You</div>
+        <p class="ps-desc">Our fully-equipped mobile unit arrives at your home or office. No need to drop your car off — we bring everything needed for a flawless finish.</p>
+        <div class="ps-arr">&rarr;</div>
+      </div>
+      <div class="ps reveal">
+        <div class="ps-n">03</div>
+        <div class="ps-title">Drive Away Impressed</div>
+        <p class="ps-desc">Inspect the work, pay the fixed price we quoted. Every detail is photographed and documented. If you're not satisfied, we'll make it right.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="container">
+    <div class="s-head reveal">
+      <p class="s-eyebrow">What Clients Say</p>
+      <h2 class="s-h2"><em class="chrome-text">The</em> Verdict</h2>
+      <div class="s-rule"></div>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="r-card reveal">
+        <div class="r-top">
+          <span class="r-car-tag">BMW 5 Series &middot; Ceramic</span>
+          <span class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        </div>
+        <p class="r-text">"The paintwork looks better than when I drove it out of the showroom. The team were meticulous, professional and the ceramic coat has completely transformed how the car looks in sunlight."</p>
+        <div class="r-footer">
+          <div class="r-av">DP</div>
+          <div>
+            <div class="r-name">David P.</div>
+            <div class="r-loc">Guildford, Surrey</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="r-card reveal">
+        <div class="r-top">
+          <span class="r-car-tag">Range Rover Sport &middot; Full Detail</span>
+          <span class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        </div>
+        <p class="r-text">"I have a white Range Rover with kids. Apex got it back to spotless — including things I'd completely given up on. The mobile service is so convenient, just booked and they came to the house."</p>
+        <div class="r-footer">
+          <div class="r-av">RL</div>
+          <div>
+            <div class="r-name">Rachel L.</div>
+            <div class="r-loc">Cobham, Surrey</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="r-card reveal">
+        <div class="r-top">
+          <span class="r-car-tag">Porsche 911 &middot; Correction + Coat</span>
+          <span class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        </div>
+        <p class="r-text">"I'm very particular about my 911 and have tried several detailers over the years. Apex is on a different level. The paint correction removed swirls I thought were permanent. Highly recommended."</p>
+        <div class="r-footer">
+          <div class="r-av">JF</div>
+          <div>
+            <div class="r-name">James F.</div>
+            <div class="r-loc">Wimbledon, London</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="booking">
+  <div class="container">
+    <div class="booking-layout">
+
+      <div class="reveal">
+        <p class="s-eyebrow">Get in Touch</p>
+        <h2 class="b-tagline"><em class="chrome-text">Book</em><br>Your Detail.</h2>
+        <ul class="b-list">
+          <li>Fully mobile — we come to you</li>
+          <li>Fixed prices, quoted before we start</li>
+          <li>Same-day slots often available</li>
+          <li>All work photographed &amp; documented</li>
+        </ul>
+        <a href="tel:01483123456" class="b-tel">01483 123 456</a>
+        <span class="b-tel-note">Mon–Sat 8am–6pm &middot; Fast callback guaranteed</span>
+      </div>
+
+      <form class="b-form reveal" onsubmit="return false">
+        <div class="b-row">
+          <div class="b-grp">
+            <label class="b-lbl" for="b-name">Your Name</label>
+            <input class="b-in" id="b-name" type="text" placeholder="David Smith">
+          </div>
+          <div class="b-grp">
+            <label class="b-lbl" for="b-tel">Phone Number</label>
+            <input class="b-in" id="b-tel" type="tel" placeholder="07700 900 000">
+          </div>
+        </div>
+        <div class="b-row">
+          <div class="b-grp">
+            <label class="b-lbl" for="b-car">Your Vehicle</label>
+            <input class="b-in" id="b-car" type="text" placeholder="E.g. BMW 3 Series 2022">
+          </div>
+          <div class="b-grp">
+            <label class="b-lbl" for="b-pkg">Package</label>
+            <select class="b-sel" id="b-pkg">
+              <option value="">— Select —</option>
+              <option>Essential Wash</option>
+              <option>Full Interior &amp; Exterior</option>
+              <option>Ceramic Coating</option>
+              <option>Not sure — advise me</option>
+            </select>
+          </div>
+        </div>
+        <div class="b-grp">
+          <label class="b-lbl" for="b-post">Your Postcode</label>
+          <input class="b-in" id="b-post" type="text" placeholder="E.g. KT11 1AB">
+        </div>
+        <div class="b-grp">
+          <label class="b-lbl" for="b-msg">Anything else?</label>
+          <textarea class="b-ta" id="b-msg" placeholder="Any specific concerns, preferred dates or questions…"></textarea>
+        </div>
+        <button type="submit" class="b-submit">Send Enquiry &rarr;</button>
+        <p class="b-legal">We'll reply within 2 hours during business hours. All prices are confirmed by phone before booking is finalised.</p>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <a class="footer-logo" href="#">
+        <span class="footer-logo-apex">Apex</span>
+        <span class="footer-logo-sub">Detailing Studio</span>
+      </a>
+      <div class="footer-weborb">
+        <a href="https://web-orb.uk" class="footer-weborb-badge">
+          &#9679;&nbsp; Website Template by WebOrb
+        </a>
+        <span class="footer-weborb-note">Demo content only &mdash; Apex Detailing is a fictional brand.</span>
+      </div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── Scroll Reveal ─────────────────────────────────────────────────────────────
+var revIO = new IntersectionObserver(function(e) {
+  e.forEach(function(x) {
+    if (x.isIntersecting) { x.target.classList.add('vis'); revIO.unobserve(x.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(function(el) { revIO.observe(el); });
+
+// Stagger review cards
+document.querySelectorAll('.r-card.reveal').forEach(function(el, i) {
+  el.style.transitionDelay = (i * 0.1) + 's';
+});
+// Stagger gallery items
+document.querySelectorAll('.g-item.reveal').forEach(function(el, i) {
+  el.style.transitionDelay = (i * 0.08) + 's';
+});
+
+// ── Counter Animation ─────────────────────────────────────────────────────────
+var cntIO = new IntersectionObserver(function(e) {
+  e.forEach(function(x) {
+    if (!x.isIntersecting) return;
+    var el = x.target;
+    var target  = parseFloat(el.dataset.target);
+    var suffix  = el.dataset.suffix || '';
+    var isFloat = el.dataset.float === 'true';
+    var dur = 1400, t0 = null;
+    function step(ts) {
+      if (!t0) t0 = ts;
+      var p = Math.min((ts - t0) / dur, 1);
+      var e2 = 1 - Math.pow(1 - p, 3);
+      el.textContent = (isFloat ? (target * e2).toFixed(1) : Math.round(target * e2)) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+    cntIO.unobserve(el);
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('[data-target]').forEach(function(el) { cntIO.observe(el); });
+
+// ── Before / After Drag Slider ────────────────────────────────────────────────
+(function() {
+  var wrap   = document.getElementById('baWrap');
+  var before = document.getElementById('baBefore');
+  var handle = document.getElementById('baHandle');
+  if (!wrap) return;
+
+  var dragging = false;
+
+  function setPos(clientX) {
+    var r   = wrap.getBoundingClientRect();
+    var pct = Math.max(2, Math.min(98, (clientX - r.left) / r.width * 100));
+    before.style.width = pct + '%';
+    handle.style.left  = pct + '%';
+  }
+
+  handle.addEventListener('mousedown',  function(e) { dragging = true; e.preventDefault(); });
+  document.addEventListener('mousemove', function(e) { if (dragging) setPos(e.clientX); });
+  document.addEventListener('mouseup',   function()  { dragging = false; });
+
+  handle.addEventListener('touchstart',  function(e) { dragging = true; e.preventDefault(); }, {passive:false});
+  document.addEventListener('touchmove', function(e) { if (dragging) setPos(e.touches[0].clientX); }, {passive:false});
+  document.addEventListener('touchend',  function()  { dragging = false; });
+
+  // Allow clicking anywhere on wrap to set position
+  wrap.addEventListener('click', function(e) { setPos(e.clientX); });
+})();
+
+// ── Price Calculator ──────────────────────────────────────────────────────────
+(function() {
+  var prices = {
+    hatch:  { essential: 45,  full: 120, ceramic: 350 },
+    saloon: { essential: 55,  full: 145, ceramic: 420 },
+    suv:    { essential: 65,  full: 175, ceramic: 550 },
+    van:    { essential: 70,  full: 195, ceramic: 600 }
+  };
+  var pkgNames = {
+    essential: 'Essential Wash',
+    full:      'Full Interior & Exterior',
+    ceramic:   'Ceramic Coating'
+  };
+  var carNames = {
+    hatch:  'Hatchback',
+    saloon: 'Saloon',
+    suv:    'SUV / 4x4',
+    van:    'Van / MPV'
+  };
+
+  var curCar = 'saloon', curPkg = 'full';
+  var priceEl = document.getElementById('calcPrice');
+  var noteEl  = document.getElementById('calcNote');
+
+  function update() {
+    var val = prices[curCar][curPkg];
+    if (!priceEl) return;
+
+    // Animate price change
+    var old = parseInt(priceEl.textContent.replace(/\D/g,'')) || 0;
+    var dur = 400, t0 = null;
+    function step(ts) {
+      if (!t0) t0 = ts;
+      var p = Math.min((ts - t0) / dur, 1);
+      var e2 = 1 - Math.pow(1 - p, 3);
+      priceEl.textContent = '£' + Math.round(old + (val - old) * e2);
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+    noteEl.innerHTML = pkgNames[curPkg] + ' &middot; ' + carNames[curCar] + ' &mdash; price includes all labour';
+  }
+
+  document.querySelectorAll('#carChips .calc-chip').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('#carChips .calc-chip').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      curCar = btn.dataset.car;
+      update();
+    });
+  });
+
+  document.querySelectorAll('#pkgChips .calc-chip').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('#pkgChips .calc-chip').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      curPkg = btn.dataset.pkg;
+      update();
+    });
+  });
+
+  update();
+})();
+</script>
+
+</body>
+</html>
