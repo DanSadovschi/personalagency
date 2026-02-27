@@ -3,7 +3,9 @@
   "outputDirectory": "_site",
   "installCommand": "npm install",
   "redirects": [
-    { "source": "/offer", "destination": "/starter", "permanent": false },
-    { "source": "/offer/", "destination": "/starter", "permanent": false }
+    { "source": "/offer",    "destination": "/", "permanent": false },
+    { "source": "/offer/",   "destination": "/", "permanent": false },
+    { "source": "/starter",  "destination": "/", "permanent": false },
+    { "source": "/starter/", "destination": "/", "permanent": false }
   ]
 }
