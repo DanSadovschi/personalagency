@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Massage & Beauty Website Template UK — Warm Organic | WebOrb — from £49</title>
+  <meta name="description" content="Personal massage and beauty therapist website template. Warm organic design with booking form, services, reviews and about section. Customised with your branding and live in 3 days from £49." />
+  <link rel="canonical" href="https://web-orb.uk/templates/massage/" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Massage & Beauty Website Template UK — Warm Organic | WebOrb" />
+  <meta property="og:description" content="Personal massage and beauty therapist website template with warm organic design. Booking form, services and reviews. Live in 3 days from £49." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://web-orb.uk/templates/massage/" />
+  <meta property="og:site_name" content="WebOrb" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #F9F4EE;
+      --surface:  #F0E8DC;
+      --surface2: #E8DDD0;
+      --terracotta: #C07A5A;
+      --terra-dark: #9E5E40;
+      --terra-light: #D9A08A;
+      --dark:     #2C1F14;
+      --mid:      #5A3E2B;
+      --muted:    #8C6F5A;
+      --border:   rgba(44,31,20,.1);
+      --border2:  rgba(44,31,20,.18);
+      --font-d:   'Playfair Display', Georgia, serif;
+      --font-b:   'DM Sans', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--dark);
+      font-family: var(--font-b);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a   { color: inherit; text-decoration: none; }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity .75s ease, transform .75s ease;
+    }
+    .reveal.vis { opacity: 1; transform: none; }
+
+    /* ── CONTAINER ── */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+
+    /* ── BUTTONS ── */
+    .btn-terra {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--terracotta); color: #fff;
+      font-family: var(--font-b); font-size: .88rem; font-weight: 600;
+      letter-spacing: .06em; padding: 14px 30px; border-radius: 60px;
+      border: none; cursor: pointer; text-decoration: none;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      white-space: nowrap;
+    }
+    .btn-terra:hover {
+      background: var(--terra-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(192,122,90,.28);
+    }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--dark);
+      font-family: var(--font-b); font-size: .88rem; font-weight: 500;
+      padding: 13px 24px; border-radius: 60px;
+      border: 1.5px solid var(--border2);
+      cursor: pointer; text-decoration: none;
+      transition: all .2s;
+    }
+    .btn-ghost:hover { border-color: var(--terracotta); color: var(--terracotta); }
+
+    /* ── EYEBROW ── */
+    .eyebrow {
+      font-size: .68rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .22em;
+      color: var(--terracotta); margin-bottom: 14px;
+      display: block;
+    }
+
+    /* ══════════════════════════════════════
+       TICKER
+    ══════════════════════════════════════ */
+    .ticker {
+      background: var(--terracotta);
+      overflow: hidden; padding: 10px 0;
+    }
+    .ticker-track {
+      display: flex; gap: 0;
+      animation: ticker-scroll 28s linear infinite;
+      width: max-content;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
+    .ticker-item {
+      display: flex; align-items: center; gap: 24px;
+      padding: 0 28px;
+      font-size: .75rem; font-weight: 600;
+      letter-spacing: .15em; text-transform: uppercase;
+      color: rgba(255,255,255,.92); white-space: nowrap;
+    }
+    .ticker-dot {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: rgba(255,255,255,.5); flex-shrink: 0;
+    }
+    @keyframes ticker-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ══════════════════════════════════════
+       NAV
+    ══════════════════════════════════════ */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 64px;
+      display: flex; align-items: center;
+      background: rgba(249,244,238,.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid transparent;
+      transition: border-color .3s;
+    }
+    .nav.scrolled { border-color: var(--border); }
+    .nav-inner {
+      max-width: 1160px; margin: 0 auto; padding: 0 28px;
+      width: 100%;
+      display: flex; align-items: center; gap: 36px;
+    }
+    .nav-logo {
+      font-family: var(--font-d); font-size: 1.25rem;
+      font-weight: 700; font-style: italic;
+      color: var(--dark); text-decoration: none; flex-shrink: 0;
+    }
+    .nav-logo span { color: var(--terracotta); }
+    .nav-links {
+      display: flex; gap: 28px; margin-right: auto; list-style: none;
+    }
+    .nav-links a {
+      font-size: .85rem; color: var(--muted);
+      transition: color .2s; font-weight: 500;
+    }
+    .nav-links a:hover { color: var(--dark); }
+    .nav-wa {
+      display: flex; align-items: center; gap: 8px;
+      font-size: .82rem; font-weight: 500; color: var(--terracotta);
+      text-decoration: none;
+    }
+    .nav-wa svg { flex-shrink: 0; }
+
+    /* ══════════════════════════════════════
+       HERO
+    ══════════════════════════════════════ */
+    .hero {
+      padding-top: 64px; /* nav height */
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 80px max(28px, calc((100vw - 1160px)/2 + 28px)) 80px;
+      background: var(--bg);
+    }
+    .hero-right {
+      position: relative; overflow: hidden;
+      background: var(--surface);
+    }
+    .hero-photo {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* Photo placeholder — warm gradient fill for demo */
+    .hero-photo-placeholder {
+      width: 100%; height: 100%; min-height: 560px;
+      background:
+        radial-gradient(ellipse at 40% 35%, rgba(192,122,90,.22) 0%, transparent 65%),
+        radial-gradient(ellipse at 70% 70%, rgba(208,168,138,.18) 0%, transparent 60%),
+        linear-gradient(160deg, #e8ddd0 0%, #d6c7b4 50%, #c9b59d 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: flex-end;
+      padding: 36px;
+      gap: 12px;
+    }
+    .hero-photo-label {
+      font-family: var(--font-d); font-size: 1.05rem;
+      font-style: italic; color: rgba(44,31,20,.45);
+      text-align: center;
+    }
+    /* organic blob overlay on right panel */
+    .hero-right::before {
+      content: '';
+      position: absolute; bottom: -60px; left: -60px; z-index: 1;
+      width: 280px; height: 280px;
+      background: var(--bg);
+      border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+      pointer-events: none;
+    }
+
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .72rem; font-weight: 600; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .hero-tag::before {
+      content: '';
+      display: inline-block; width: 28px; height: 1px;
+      background: var(--terracotta);
+    }
+
+    .hero-h1 {
+      font-family: var(--font-d);
+      font-size: clamp(3rem, 5.5vw, 5.2rem);
+      font-weight: 700; line-height: .96;
+      letter-spacing: -.02em; margin-bottom: 24px;
+    }
+    .hero-h1 em {
+      font-style: italic; color: var(--terracotta);
+    }
+
+    .hero-sub {
+      font-size: .96rem; color: var(--muted);
+      max-width: 400px; line-height: 1.75; margin-bottom: 36px;
+    }
+
+    .hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+
+    .hero-chips {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 44px;
+    }
+    .hero-chip {
+      font-size: .72rem; font-weight: 500;
+      padding: 5px 14px; border-radius: 40px;
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--mid);
+    }
+
+    /* ══════════════════════════════════════
+       SERVICES
+    ══════════════════════════════════════ */
+    .services { padding: 96px 0; background: var(--bg); }
+
+    .section-head { margin-bottom: 52px; }
+    .section-head h2 {
+      font-family: var(--font-d);
+      font-size: clamp(2.4rem, 4.5vw, 4rem);
+      font-weight: 700; line-height: .95;
+      letter-spacing: -.02em;
+    }
+    .section-head h2 em { font-style: italic; color: var(--terracotta); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .svc-card {
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 36px 28px;
+      border: 1px solid var(--border);
+      transition: transform .3s, box-shadow .3s, border-color .3s;
+      position: relative; overflow: hidden;
+    }
+    .svc-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px rgba(44,31,20,.1);
+      border-color: var(--border2);
+    }
+    /* warm blob decorative */
+    .svc-card::after {
+      content: '';
+      position: absolute; bottom: -40px; right: -40px;
+      width: 140px; height: 140px;
+      background: rgba(192,122,90,.07);
+      border-radius: 40% 60% 55% 45% / 50% 40% 60% 50%;
+      pointer-events: none;
+      transition: transform .4s;
+    }
+    .svc-card:hover::after { transform: scale(1.2); }
+
+    .svc-icon {
+      width: 48px; height: 48px;
+      background: var(--bg);
+      border-radius: 14px;
+      border: 1px solid var(--border2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; margin-bottom: 20px;
+    }
+    .svc-name {
+      font-family: var(--font-d); font-size: 1.55rem;
+      font-weight: 700; margin-bottom: 10px;
+      line-height: 1.1;
+    }
+    .svc-desc {
+      font-size: .86rem; color: var(--muted);
+      line-height: 1.7; margin-bottom: 24px;
+    }
+    .svc-list {
+      list-style: none; display: flex; flex-direction: column;
+      gap: 7px; margin-bottom: 28px;
+    }
+    .svc-list li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: .82rem; color: var(--mid);
+    }
+    .svc-list li::before {
+      content: '';
+      width: 5px; height: 5px;
+      background: var(--terracotta); border-radius: 50%; flex-shrink: 0;
+    }
+    .svc-price {
+      display: flex; align-items: baseline; gap: 4px;
+    }
+    .svc-price-from { font-size: .72rem; color: var(--muted); }
+    .svc-price-num {
+      font-family: var(--font-d); font-size: 2rem;
+      font-weight: 700; color: var(--terracotta);
+    }
+    .svc-price-dur { font-size: .78rem; color: var(--muted); margin-left: 4px; }
+
+    /* ══════════════════════════════════════
+       ABOUT
+    ══════════════════════════════════════ */
+    .about { padding: 96px 0; background: var(--surface); }
+    .about-layout {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .about-photo-wrap {
+      position: relative;
+    }
+    .about-photo {
+      width: 100%;
+      border-radius: 24px;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      background: linear-gradient(160deg, #d6c8b8 0%, #c9b8a5 50%, #bda890 100%);
+      display: block;
+    }
+    .about-photo-placeholder {
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: 24px;
+      background:
+        radial-gradient(ellipse at 50% 30%, rgba(192,122,90,.2) 0%, transparent 60%),
+        linear-gradient(160deg, #dccfbf 0%, #cdbfad 50%, #bfad9b 100%);
+      display: flex; align-items: flex-end; justify-content: center;
+      padding-bottom: 28px;
+    }
+    .about-cert-badge {
+      position: absolute; bottom: 24px; right: -20px;
+      background: var(--bg); border-radius: 16px;
+      padding: 16px 20px;
+      box-shadow: 0 8px 32px rgba(44,31,20,.12);
+      border: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 2px;
+      min-width: 160px;
+    }
+    .about-cert-n {
+      font-family: var(--font-d); font-size: 2.2rem;
+      font-weight: 700; color: var(--terracotta); line-height: 1;
+    }
+    .about-cert-l {
+      font-size: .72rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: .1em;
+    }
+    .about-text h2 {
+      font-family: var(--font-d);
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      font-weight: 700; line-height: .95;
+      letter-spacing: -.02em; margin-bottom: 20px;
+    }
+    .about-text h2 em { font-style: italic; color: var(--terracotta); }
+    .about-body {
+      font-size: .95rem; color: var(--muted);
+      line-height: 1.8; margin-bottom: 28px;
+    }
+    .about-creds {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px;
+    }
+    .cred-tag {
+      font-size: .72rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .1em;
+      padding: 6px 14px; border-radius: 40px;
+      background: var(--bg); border: 1px solid var(--border2);
+      color: var(--mid);
+    }
+
+    /* ══════════════════════════════════════
+       REVIEWS
+    ══════════════════════════════════════ */
+    .reviews { padding: 96px 0; background: var(--bg); }
+    .reviews-intro {
+      display: flex; align-items: flex-end;
+      justify-content: space-between; margin-bottom: 52px; gap: 24px;
+      flex-wrap: wrap;
+    }
+    .reviews-rating {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .reviews-score {
+      font-family: var(--font-d); font-size: 3.6rem;
+      font-weight: 700; color: var(--terracotta); line-height: 1;
+    }
+    .reviews-stars { font-size: 1rem; color: var(--terracotta); letter-spacing: 3px; }
+    .reviews-count { font-size: .82rem; color: var(--muted); }
+    .reviews-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .r-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; padding: 28px;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .r-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(44,31,20,.08); }
+    .r-top {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+    }
+    .r-av {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--surface2); border: 1px solid var(--border2);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-d); font-weight: 700; font-size: 1.05rem;
+      color: var(--terracotta); flex-shrink: 0;
+    }
+    .r-name { font-weight: 600; font-size: .9rem; }
+    .r-svc  { font-size: .72rem; color: var(--muted); }
+    .r-stars { color: var(--terracotta); font-size: .8rem; letter-spacing: 2px; margin-bottom: 10px; }
+    .r-text {
+      font-family: var(--font-d); font-size: .98rem;
+      font-style: italic; color: var(--mid); line-height: 1.75;
+    }
+
+    /* ══════════════════════════════════════
+       BOOKING
+    ══════════════════════════════════════ */
+    .booking {
+      padding: 96px 0;
+      background: var(--dark); color: #fff;
+      position: relative; overflow: hidden;
+    }
+    /* organic blobs */
+    .booking::before, .booking::after {
+      content: ''; position: absolute; border-radius: 50%;
+      pointer-events: none;
+    }
+    .booking::before {
+      width: 500px; height: 500px;
+      background: rgba(192,122,90,.1);
+      top: -120px; right: -120px;
+      border-radius: 40% 60% 55% 45%;
+    }
+    .booking::after {
+      width: 350px; height: 350px;
+      background: rgba(192,122,90,.07);
+      bottom: -80px; left: -60px;
+      border-radius: 60% 40% 50% 50%;
+    }
+    .booking-layout {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: start; position: relative; z-index: 1;
+    }
+    .booking-left {}
+    .booking-left .eyebrow { color: var(--terra-light); }
+    .booking-h2 {
+      font-family: var(--font-d);
+      font-size: clamp(2.4rem, 4.5vw, 4rem);
+      font-weight: 700; line-height: .95;
+      letter-spacing: -.02em; color: #fff;
+      margin-bottom: 20px;
+    }
+    .booking-h2 em { font-style: italic; color: var(--terra-light); }
+    .booking-sub {
+      font-size: .95rem; line-height: 1.75;
+      color: rgba(255,255,255,.5); margin-bottom: 36px;
+    }
+    .booking-contacts { display: flex; flex-direction: column; gap: 14px; }
+    .b-contact-row {
+      display: flex; align-items: center; gap: 14px;
+      font-size: .9rem; color: rgba(255,255,255,.7);
+    }
+    .b-contact-icon {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+    .b-contact-row a { color: rgba(255,255,255,.85); transition: color .2s; }
+    .b-contact-row a:hover { color: var(--terra-light); }
+
+    /* Form */
+    .b-form { display: flex; flex-direction: column; gap: 14px; }
+    .b-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .b-grp { display: flex; flex-direction: column; gap: 5px; }
+    .b-lbl {
+      font-size: .64rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .14em;
+      color: rgba(255,255,255,.4);
+    }
+    .b-in, .b-sel, .b-ta {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 10px; color: #fff;
+      font-family: var(--font-b); font-size: .9rem;
+      padding: 12px 16px; outline: none; width: 100%;
+      transition: border-color .2s;
+    }
+    .b-in::placeholder, .b-ta::placeholder { color: rgba(255,255,255,.25); }
+    .b-in:focus, .b-sel:focus, .b-ta:focus { border-color: var(--terra-light); }
+    .b-sel { appearance: none; cursor: pointer; }
+    .b-ta { resize: vertical; min-height: 80px; }
+    .b-submit {
+      background: var(--terracotta); color: #fff;
+      font-family: var(--font-b); font-weight: 600;
+      font-size: .88rem; letter-spacing: .06em;
+      padding: 14px 32px; border: none; border-radius: 60px;
+      cursor: pointer; align-self: flex-start;
+      transition: background .2s, transform .2s;
+    }
+    .b-submit:hover { background: #a56448; transform: translateY(-2px); }
+
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+    .footer {
+      background: var(--dark);
+      border-top: 1px solid rgba(255,255,255,.06);
+      padding: 32px 0;
+    }
+    .footer-inner {
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo {
+      font-family: var(--font-d); font-size: 1.1rem; font-style: italic;
+      font-weight: 700; color: rgba(255,255,255,.7); text-decoration: none;
+    }
+    .footer-logo span { color: var(--terra-light); }
+    .footer-weborb {
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+    }
+    .footer-weborb-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 6px; padding: 5px 14px;
+      font-size: .68rem; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: rgba(255,255,255,.4); text-decoration: none;
+      transition: background .2s;
+    }
+    .footer-weborb-badge:hover { background: rgba(255,255,255,.09); color: rgba(255,255,255,.7); }
+    .footer-weborb-note { font-size: .64rem; color: rgba(255,255,255,.2); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a {
+      font-size: .75rem; color: rgba(255,255,255,.35);
+      text-decoration: none; transition: color .2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,.7); }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 60px 28px 48px; }
+      .hero-right { min-height: 400px; }
+      .hero-right::before { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .about-layout { grid-template-columns: 1fr; gap: 48px; }
+      .about-cert-badge { right: 16px; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .booking-layout { grid-template-columns: 1fr; gap: 52px; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .b-row { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .services-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+    }
+    @media (min-width: 961px) {
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Preview Bar -->
+<script>
+  window.__previewBar = {
+    name: "Massage & Beauty Template",
+    tiers: [
+      { label: "Lite",     price: "£49",  url: "#buy-lite" },
+      { label: "Standard", price: "£99",  url: "#buy-standard" },
+      { label: "Pro",      price: "£199", url: "#buy-pro" }
+    ]
+  };
+</script>
+<script src="/js/preview-bar.js"></script>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">Alina <span>Vita</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#booking">Book</a></li>
+    </ul>
+    <a class="btn-terra" href="#booking" style="font-size:.8rem;padding:10px 22px;">Book a session</a>
+  </div>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker" style="margin-top:64px;">
+  <div class="ticker-track" id="tickerTrack">
+    <span class="ticker-item">Your masseuse is ready<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Book your session today<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Relaxation massage<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Waxing specialist<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Skin care focus<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Anti-cellulite treatment<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Feel better in one session<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Your masseuse is ready<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Book your session today<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Relaxation massage<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Waxing specialist<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Skin care focus<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Anti-cellulite treatment<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Feel better in one session<span class="ticker-dot"></span></span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-left">
+    <div class="hero-tag">Massage &amp; Beauty · London</div>
+    <h1 class="hero-h1 reveal">
+      Feel<br>
+      <em>better.</em><br>
+      Right now.
+    </h1>
+    <p class="hero-sub reveal">Personalised massage therapy and beauty treatments from Alina — your masseuse who actually listens to what your body needs.</p>
+    <div class="hero-actions reveal">
+      <a href="#booking" class="btn-terra">Book a session →</a>
+      <a href="#services" class="btn-ghost">See services</a>
+    </div>
+    <div class="hero-chips reveal">
+      <span class="hero-chip">Relaxation massage</span>
+      <span class="hero-chip">Anti-cellulite</span>
+      <span class="hero-chip">Waxing</span>
+      <span class="hero-chip">Skin care</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-photo-placeholder">
+      <p class="hero-photo-label">Your photo goes here</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">What I offer</span>
+      <h2>Three ways to <em>feel good.</em></h2>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- Massage -->
+      <div class="svc-card reveal">
+        <div class="svc-icon">🤲</div>
+        <h3 class="svc-name">Massage Therapy</h3>
+        <p class="svc-desc">Tailored to your body — whether you need deep muscle release or a full switch-off from daily stress.</p>
+        <ul class="svc-list">
+          <li>Classic relaxation massage</li>
+          <li>Deep tissue / therapeutic</li>
+          <li>Anti-cellulite body massage</li>
+          <li>Back &amp; shoulder focus</li>
+        </ul>
+        <div class="svc-price">
+          <span class="svc-price-from">from</span>
+          <span class="svc-price-num">£55</span>
+          <span class="svc-price-dur">/ 60 min</span>
+        </div>
+      </div>
+
+      <!-- Waxing -->
+      <div class="svc-card reveal">
+        <div class="svc-icon">✨</div>
+        <h3 class="svc-name">Waxing</h3>
+        <p class="svc-desc">Professional waxing with careful skin prep — smooth results that last, with minimal discomfort.</p>
+        <ul class="svc-list">
+          <li>Full leg wax</li>
+          <li>Bikini &amp; Hollywood</li>
+          <li>Underarms &amp; arms</li>
+          <li>Face &amp; brow wax</li>
+        </ul>
+        <div class="svc-price">
+          <span class="svc-price-from">from</span>
+          <span class="svc-price-num">£25</span>
+          <span class="svc-price-dur">/ area</span>
+        </div>
+      </div>
+
+      <!-- Skin Care -->
+      <div class="svc-card reveal">
+        <div class="svc-icon">🌿</div>
+        <h3 class="svc-name">Skin Care</h3>
+        <p class="svc-desc">Result-focused facial and body treatments. Healthy skin isn't a luxury — it's maintenance.</p>
+        <ul class="svc-list">
+          <li>Facial cleanse &amp; hydration</li>
+          <li>Body scrub &amp; wrap</li>
+          <li>Post-wax skin soothing</li>
+          <li>Personalised aftercare advice</li>
+        </ul>
+        <div class="svc-price">
+          <span class="svc-price-from">from</span>
+          <span class="svc-price-num">£45</span>
+          <span class="svc-price-dur">/ session</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-layout">
+
+      <div class="about-photo-wrap reveal">
+        <div class="about-photo-placeholder">
+          <p style="font-family:var(--font-d);font-style:italic;color:rgba(44,31,20,.35);font-size:.95rem;">Your photo here</p>
+        </div>
+        <div class="about-cert-badge">
+          <div class="about-cert-n">5+</div>
+          <div class="about-cert-l">Years of practice</div>
+        </div>
+      </div>
+
+      <div class="about-text reveal">
+        <span class="eyebrow">About Alina</span>
+        <h2>Your<br><em>masseuse.</em></h2>
+        <p class="about-body">
+          I'm Alina — a certified massage therapist and waxing specialist. I work with people who want to feel genuinely better, not just go through the motions of a spa day.<br><br>
+          I focus on skin care, body treatment and real results. Every session is adjusted to you — your tension points, your skin, your goals.
+        </p>
+        <div class="about-creds">
+          <span class="cred-tag">Certified Masseuse</span>
+          <span class="cred-tag">Waxing Specialist</span>
+          <span class="cred-tag">Skin Care Focus</span>
+          <span class="cred-tag">5+ years</span>
+        </div>
+        <a href="#booking" class="btn-terra">Book with Alina →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="reviews-intro">
+      <div>
+        <span class="eyebrow">Client feedback</span>
+        <h2 class="section-head" style="margin-bottom:0;">
+          <span style="font-family:var(--font-d);font-size:clamp(2.4rem,4.5vw,4rem);font-weight:700;line-height:.95;letter-spacing:-.02em;">
+            What they <em style="font-style:italic;color:var(--terracotta);">say.</em>
+          </span>
+        </h2>
+      </div>
+      <div class="reviews-rating">
+        <div class="reviews-score">4.9</div>
+        <div>
+          <div class="reviews-stars">★★★★★</div>
+          <div class="reviews-count">Based on 47 reviews</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+
+      <div class="r-card reveal">
+        <div class="r-top">
+          <div class="r-av">SK</div>
+          <div>
+            <div class="r-name">Sarah K.</div>
+            <div class="r-svc">Relaxation massage</div>
+          </div>
+        </div>
+        <div class="r-stars">★★★★★</div>
+        <p class="r-text">"I came in completely wrecked from work stress. Alina knew exactly where to focus without me explaining everything three times. Left feeling like a different person."</p>
+      </div>
+
+      <div class="r-card reveal">
+        <div class="r-top">
+          <div class="r-av">MT</div>
+          <div>
+            <div class="r-name">Marina T.</div>
+            <div class="r-svc">Anti-cellulite + Waxing</div>
+          </div>
+        </div>
+        <div class="r-stars">★★★★★</div>
+        <p class="r-text">"Best waxing I've ever had — she is genuinely careful and fast. The massage after was incredible. I've already booked my next appointment before I even left."</p>
+      </div>
+
+      <div class="r-card reveal">
+        <div class="r-top">
+          <div class="r-av">JP</div>
+          <div>
+            <div class="r-name">Julia P.</div>
+            <div class="r-svc">Skin care facial</div>
+          </div>
+        </div>
+        <div class="r-stars">★★★★★</div>
+        <p class="r-text">"Alina really understands skin. She gave me practical advice I could actually follow, not just a sales pitch. My skin has been glowing for two weeks since the session."</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="booking">
+  <div class="container">
+    <div class="booking-layout">
+
+      <div class="booking-left reveal">
+        <span class="eyebrow">Book a session</span>
+        <h2 class="booking-h2">Ready when<br><em>you are.</em></h2>
+        <p class="booking-sub">Fill in the form and I'll get back to you within a few hours to confirm a time that works for you.</p>
+        <div class="booking-contacts">
+          <div class="b-contact-row">
+            <div class="b-contact-icon">📱</div>
+            <a href="https://wa.me/447000000000">WhatsApp: +44 7000 000 000</a>
+          </div>
+          <div class="b-contact-row">
+            <div class="b-contact-icon">📸</div>
+            <a href="https://www.instagram.com/_berberia_/" target="_blank" rel="noopener">@_berberia_ on Instagram</a>
+          </div>
+          <div class="b-contact-row">
+            <div class="b-contact-icon">📍</div>
+            <span>Studio location — Central London</span>
+          </div>
+        </div>
+      </div>
+
+      <form class="b-form reveal" onsubmit="return false;">
+        <div class="b-row">
+          <div class="b-grp">
+            <label class="b-lbl" for="b-name">Your name</label>
+            <input class="b-in" id="b-name" type="text" placeholder="Sarah">
+          </div>
+          <div class="b-grp">
+            <label class="b-lbl" for="b-tel">Phone / WhatsApp</label>
+            <input class="b-in" id="b-tel" type="tel" placeholder="+44 7000 000 000">
+          </div>
+        </div>
+        <div class="b-grp">
+          <label class="b-lbl" for="b-svc">Service</label>
+          <select class="b-sel" id="b-svc">
+            <option value="">— Choose a service —</option>
+            <option>Classic relaxation massage</option>
+            <option>Anti-cellulite massage</option>
+            <option>Deep tissue massage</option>
+            <option>Waxing</option>
+            <option>Skin care facial</option>
+            <option>Not sure — advise me</option>
+          </select>
+        </div>
+        <div class="b-row">
+          <div class="b-grp">
+            <label class="b-lbl" for="b-date">Preferred date</label>
+            <input class="b-in" id="b-date" type="date">
+          </div>
+          <div class="b-grp">
+            <label class="b-lbl" for="b-time">Preferred time</label>
+            <select class="b-sel" id="b-time">
+              <option value="">— Morning / Afternoon / Evening —</option>
+              <option>Morning (9am–12pm)</option>
+              <option>Afternoon (12pm–5pm)</option>
+              <option>Evening (5pm–8pm)</option>
+            </select>
+          </div>
+        </div>
+        <div class="b-grp">
+          <label class="b-lbl" for="b-msg">Anything to mention?</label>
+          <textarea class="b-ta" id="b-msg" placeholder="E.g. area of tension, skin concerns, first visit…"></textarea>
+        </div>
+        <button type="submit" class="b-submit">Send booking request →</button>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <a class="footer-logo" href="#">Alina <span>Vita</span></a>
+      <div class="footer-weborb">
+        <a href="https://web-orb.uk" class="footer-weborb-badge">&#9679;&nbsp; Website Template by WebOrb</a>
+        <span class="footer-weborb-note">Demo content only — Alina Vita is a fictional brand for this template.</span>
+      </div>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+var io = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(function(el, i) {
+  el.style.transitionDelay = (i % 4 * 0.1) + 's';
+  io.observe(el);
+});
+
+// Nav scroll class
+window.addEventListener('scroll', function() {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+
+// Duplicate ticker for seamless loop
+(function() {
+  var track = document.getElementById('tickerTrack');
+  if (!track) return;
+  var clone = track.cloneNode(true);
+  clone.setAttribute('aria-hidden', 'true');
+  track.parentNode.appendChild(clone);
+})();
+</script>
+
+</body>
+</html>
