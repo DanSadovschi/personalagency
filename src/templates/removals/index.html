@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atlas Removals — House &amp; Office Moves</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Space+Mono:wght@400;700&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper:      #F0EAE0;
+      --paper-dark: #E5DDD3;
+      --ink:        #1A1918;
+      --ink-2:      #444240;
+      --ink-3:      #7A7774;
+      --stamp:      #B83232;
+      --rule:       rgba(26,25,24,.14);
+      --white:      #FDFCFA;
+      --display:    'Barlow Condensed', sans-serif;
+      --mono:       'Space Mono', monospace;
+      --body:       'Space Grotesk', sans-serif;
+    }
+
+    body {
+      font-family: var(--body);
+      background: var(--white);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ─── */
+    .nav {
+      background: var(--ink);
+      color: var(--paper);
+      height: 56px;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-family: var(--display);
+      font-size: 1.3rem;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--paper);
+      text-decoration: none;
+    }
+    .nav-logo em { font-style: normal; color: var(--stamp); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .nav-tel {
+      font-family: var(--mono);
+      font-size: .75rem;
+      color: var(--paper);
+      text-decoration: none;
+      letter-spacing: .04em;
+    }
+    .nav-tel strong {
+      display: block;
+      font-size: .58rem;
+      color: var(--ink-3);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-weight: 400;
+    }
+
+    .nav-cta {
+      font-family: var(--display);
+      font-size: .9rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      background: var(--stamp);
+      color: #fff;
+      padding: 9px 22px;
+      text-decoration: none;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: var(--paper);
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .ref-bar {
+      border-bottom: 1px solid var(--rule);
+      padding: 9px 40px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .ref-item {
+      font-family: var(--mono);
+      font-size: .62rem;
+      color: var(--ink-3);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      flex: 1;
+      padding-right: 24px;
+    }
+
+    .ref-item + .ref-item {
+      border-left: 1px solid var(--rule);
+      padding-left: 24px;
+    }
+
+    .ref-item strong { color: var(--ink); }
+
+    .hero-body {
+      display: grid;
+      grid-template-columns: 1fr 460px;
+      min-height: 540px;
+    }
+
+    /* Left */
+    .hero-left {
+      padding: 52px 48px 52px 40px;
+      border-right: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: .63rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 1.5px;
+      background: var(--ink-3);
+    }
+
+    .hero-h1 {
+      font-family: var(--display);
+      font-size: clamp(3.8rem, 6.5vw, 6rem);
+      font-weight: 900;
+      line-height: .93;
+      letter-spacing: -.01em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--stamp);
+    }
+
+    .hero-facts {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .hero-facts li {
+      font-size: .88rem;
+      color: var(--ink-2);
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      line-height: 1.4;
+    }
+    .hero-facts li::before {
+      content: '✓';
+      font-family: var(--mono);
+      font-size: .72rem;
+      color: var(--stamp);
+      flex-shrink: 0;
+    }
+
+    .stamps {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .stamp {
+      display: inline-block;
+      border: 2px solid var(--stamp);
+      color: var(--stamp);
+      font-family: var(--mono);
+      font-size: .58rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      position: relative;
+    }
+    .stamp::before {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      border: 1px solid var(--stamp);
+      opacity: .35;
+    }
+    .stamp:nth-child(1) { transform: rotate(-2deg); }
+    .stamp:nth-child(2) { transform: rotate(1.2deg); }
+    .stamp:nth-child(3) { transform: rotate(-.7deg); }
+
+    /* Right — manifest form */
+    .hero-right {
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-head {
+      background: var(--ink);
+      padding: 16px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .form-head-title {
+      font-family: var(--display);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--paper);
+    }
+    .form-head-ref {
+      font-family: var(--mono);
+      font-size: .6rem;
+      color: var(--ink-3);
+      letter-spacing: .08em;
+    }
+
+    .quote-form {
+      flex: 1;
+      padding: 0 28px 28px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .f-field {
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+    }
+    .f-field:last-of-type { border-bottom: none; }
+
+    .f-label {
+      display: block;
+      font-family: var(--mono);
+      font-size: .58rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      padding-top: 14px;
+      padding-bottom: 4px;
+    }
+
+    .f-field input,
+    .f-field select {
+      width: 100%;
+      background: transparent;
+      border: none;
+      font-family: var(--body);
+      font-size: .9rem;
+      color: var(--ink);
+      padding-bottom: 12px;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    .f-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 20px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .f-row .f-field { border-bottom: none; }
+
+    .form-btn {
+      margin-top: 20px;
+      width: 100%;
+      background: var(--ink);
+      color: var(--white);
+      font-family: var(--display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      border: 2px solid var(--ink);
+      padding: 16px;
+      cursor: pointer;
+      transition: background .18s, color .18s;
+    }
+    .form-btn:hover {
+      background: var(--stamp);
+      border-color: var(--stamp);
+    }
+
+    .form-note {
+      font-family: var(--mono);
+      font-size: .6rem;
+      color: var(--ink-3);
+      letter-spacing: .05em;
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    /* ─── SHARED ─── */
+    .section {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .s-tag {
+      font-family: var(--mono);
+      font-size: .6rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .s-tag::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .s-h2 {
+      font-family: var(--display);
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: .95;
+      letter-spacing: .01em;
+    }
+
+    /* ─── PROCESS ─── */
+    .process-section { background: var(--paper); }
+
+    .process-top {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 56px;
+      gap: 40px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .process-note {
+      font-size: .88rem;
+      color: var(--ink-2);
+      max-width: 300px;
+      line-height: 1.6;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      position: relative;
+    }
+
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 27px;
+      left: calc(10% + 8px);
+      right: calc(10% + 8px);
+      height: 1.5px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--ink) 0, var(--ink) 6px,
+        transparent 6px, transparent 14px
+      );
+    }
+
+    .step {
+      text-align: center;
+      padding: 0 12px;
+    }
+
+    .step-num {
+      width: 54px;
+      height: 54px;
+      border: 2px solid var(--ink);
+      background: var(--paper);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: .85rem;
+      font-weight: 700;
+      margin: 0 auto 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .step:first-child .step-num,
+    .step:last-child .step-num {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .step-code {
+      font-family: var(--mono);
+      font-size: .58rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 6px;
+    }
+
+    .step-title {
+      font-family: var(--display);
+      font-size: 1.15rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .step-desc {
+      font-size: .8rem;
+      color: var(--ink-2);
+      line-height: 1.55;
+    }
+
+    /* ─── SERVICES ─── */
+    .services-section { background: var(--white); }
+
+    .services-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 40px;
+      padding-bottom: 28px;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .services-note {
+      font-size: .88rem;
+      color: var(--ink-2);
+      line-height: 1.65;
+    }
+
+    .rate-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 2px solid var(--ink);
+    }
+
+    .rate-card {
+      padding: 32px;
+      border-right: 1px solid var(--rule);
+    }
+    .rate-card:last-child { border-right: none; }
+
+    .card-head {
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+
+    .card-type {
+      font-family: var(--mono);
+      font-size: .58rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 8px;
+    }
+
+    .card-name {
+      font-family: var(--display);
+      font-size: 1.9rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .card-from {
+      font-family: var(--mono);
+      font-size: .68rem;
+      color: var(--stamp);
+      letter-spacing: .04em;
+      margin-top: 8px;
+    }
+
+    .card-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .card-items li {
+      font-size: .85rem;
+      color: var(--ink-2);
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.4;
+    }
+    .card-items li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--rule);
+      font-family: var(--mono);
+    }
+
+    .card-cta {
+      display: block;
+      margin-top: 28px;
+      border: 1.5px solid var(--ink);
+      font-family: var(--display);
+      font-size: .95rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 12px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--ink);
+      background: transparent;
+      cursor: pointer;
+      transition: background .18s, color .18s;
+    }
+    .card-cta:hover {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    /* ─── FLEET ─── */
+    .fleet-section { background: var(--paper); }
+
+    .fleet-top {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 48px;
+      gap: 40px;
+    }
+
+    .fleet-note {
+      font-size: .88rem;
+      color: var(--ink-2);
+      max-width: 280px;
+      line-height: 1.6;
+    }
+
+    .fleet-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .fleet-card {
+      background: var(--white);
+      border: 1.5px solid var(--rule);
+      padding: 28px;
+    }
+
+    .fleet-badge {
+      font-family: var(--mono);
+      font-size: .58rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      border: 1px solid var(--rule);
+      padding: 3px 8px;
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+
+    .fleet-name {
+      font-family: var(--display);
+      font-size: 1.7rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .fleet-sub {
+      font-family: var(--mono);
+      font-size: .65rem;
+      color: var(--ink-3);
+      letter-spacing: .06em;
+      margin-top: 4px;
+      margin-bottom: 20px;
+    }
+
+    .van-svg {
+      width: 100%;
+      opacity: .75;
+      margin: 4px 0 8px;
+    }
+
+    .fleet-specs {
+      list-style: none;
+      border-top: 1px solid var(--rule);
+      padding-top: 16px;
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .fleet-specs li {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--mono);
+      font-size: .68rem;
+      color: var(--ink-2);
+    }
+    .fleet-specs li span:last-child {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    /* ─── DISPATCH LOG (reviews) ─── */
+    .reviews-section { background: var(--white); }
+
+    .reviews-top {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      gap: 32px;
+    }
+
+    .reviews-meta {
+      font-family: var(--mono);
+      font-size: .65rem;
+      color: var(--ink-3);
+      letter-spacing: .06em;
+    }
+
+    .dispatch-log {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1.5px solid var(--ink);
+      gap: 1px;
+      background: var(--rule);
+    }
+
+    .log-entry {
+      background: var(--white);
+      padding: 28px;
+    }
+
+    .log-ref {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--mono);
+      font-size: .58rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 14px;
+    }
+
+    .log-stars {
+      color: var(--stamp);
+      font-size: .75rem;
+      letter-spacing: .06em;
+      margin-bottom: 14px;
+    }
+
+    .log-text {
+      font-size: .86rem;
+      color: var(--ink-2);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .log-footer {
+      border-top: 1px solid var(--rule);
+      padding-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .log-name {
+      font-size: .86rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .log-job-type {
+      font-family: var(--mono);
+      font-size: .6rem;
+      color: var(--ink-3);
+      letter-spacing: .04em;
+      margin-top: 2px;
+    }
+    .log-loc {
+      font-family: var(--mono);
+      font-size: .6rem;
+      color: var(--ink-3);
+      letter-spacing: .06em;
+      text-align: right;
+    }
+
+    /* ─── FAQ ─── */
+    .faq-section { background: var(--paper); }
+
+    .faq-grid {
+      margin-top: 48px;
+      border: 1.5px solid var(--ink);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .faq-item {
+      padding: 24px 28px;
+      border-bottom: 1px solid var(--rule);
+      border-right: 1px solid var(--rule);
+    }
+    .faq-item:nth-child(even) { border-right: none; }
+    .faq-item:nth-last-child(-n+2) { border-bottom: none; }
+
+    .faq-q {
+      font-family: var(--display);
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: 10px;
+      display: flex;
+      gap: 10px;
+      line-height: 1.2;
+    }
+    .faq-n {
+      font-family: var(--mono);
+      font-size: .6rem;
+      color: var(--ink-3);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .faq-a {
+      font-size: .85rem;
+      color: var(--ink-2);
+      line-height: 1.65;
+    }
+
+    /* ─── CONTACT / CTA ─── */
+    .cta-section {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 80px 0;
+    }
+
+    .cta-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .cta-tag {
+      font-family: var(--mono);
+      font-size: .62rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 16px;
+    }
+
+    .cta-h2 {
+      font-family: var(--display);
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: .93;
+      margin-bottom: 40px;
+    }
+    .cta-h2 em {
+      font-style: italic;
+      color: var(--stamp);
+    }
+
+    .cta-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .cta-detail {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding: 16px 0;
+    }
+    .cta-detail:last-child { border-bottom: 1px solid rgba(255,255,255,.1); }
+
+    .cta-dl {
+      font-family: var(--mono);
+      font-size: .58rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 4px;
+    }
+    .cta-dv {
+      font-size: .92rem;
+      color: var(--paper);
+      line-height: 1.4;
+    }
+
+    /* Dark form */
+    .dark-form-wrap {
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .dark-form-head {
+      padding: 14px 24px;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      font-family: var(--mono);
+      font-size: .6rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      display: flex;
+      justify-content: space-between;
+    }
+    .dark-form {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .dark-field {
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+    .dark-label {
+      display: block;
+      font-family: var(--mono);
+      font-size: .56rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      padding-top: 14px;
+      padding-bottom: 4px;
+    }
+    .dark-field input,
+    .dark-field select,
+    .dark-field textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: var(--paper);
+      font-family: var(--body);
+      font-size: .88rem;
+      padding-bottom: 12px;
+      outline: none;
+      -webkit-appearance: none;
+    }
+    .dark-field input::placeholder,
+    .dark-field textarea::placeholder { color: rgba(240,234,224,.3); }
+    .dark-field select option { background: #1A1918; }
+    .dark-field textarea { resize: none; }
+    .dark-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 20px;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+    .dark-row .dark-field { border-bottom: none; }
+
+    .dark-submit {
+      width: 100%;
+      margin-top: 20px;
+      background: var(--stamp);
+      color: #fff;
+      border: none;
+      font-family: var(--display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 16px;
+      cursor: pointer;
+      transition: opacity .18s;
+    }
+    .dark-submit:hover { opacity: .88; }
+
+    .dark-note {
+      font-family: var(--mono);
+      font-size: .58rem;
+      color: rgba(240,234,224,.3);
+      letter-spacing: .05em;
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 28px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .footer-logo {
+      font-family: var(--display);
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--paper);
+    }
+    .footer-logo em { font-style: normal; color: var(--stamp); }
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: .6rem;
+      color: rgba(240,234,224,.35);
+      letter-spacing: .05em;
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-links a {
+      font-family: var(--mono);
+      font-size: .6rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(240,234,224,.35);
+      text-decoration: none;
+    }
+    .footer-links a:hover { color: var(--paper); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .hero-body { grid-template-columns: 1fr; }
+      .hero-right { border-top: 2px solid var(--ink); }
+      .steps { grid-template-columns: 1fr 1fr; gap: 40px 24px; }
+      .steps::before { display: none; }
+      .rate-cards { grid-template-columns: 1fr; }
+      .rate-card { border-right: none; border-bottom: 1px solid var(--rule); }
+      .rate-card:last-child { border-bottom: none; }
+      .fleet-grid { grid-template-columns: 1fr 1fr; }
+      .dispatch-log { grid-template-columns: 1fr; }
+      .cta-inner { grid-template-columns: 1fr; gap: 48px; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .faq-item { border-right: none; }
+      .faq-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--rule); }
+      .faq-item:last-child { border-bottom: none; }
+    }
+
+    @media (max-width: 768px) {
+      .nav { padding: 0 20px; }
+      .nav-right .nav-cta { display: none; }
+      .ref-bar { padding: 8px 20px; flex-wrap: wrap; gap: 6px; }
+      .ref-item + .ref-item { border-left: none; padding-left: 0; }
+      .hero-left { padding: 36px 20px; }
+      .container { padding: 0 20px; }
+      .section { padding: 56px 0; }
+      .process-top { flex-direction: column; align-items: flex-start; }
+      .fleet-top { flex-direction: column; align-items: flex-start; }
+      .reviews-top { flex-direction: column; align-items: flex-start; }
+      .fleet-grid { grid-template-columns: 1fr; }
+      .services-top { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; text-align: center; }
+      .dark-row { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ─── -->
+  <nav class="nav">
+    <a class="nav-logo" href="#">ATLAS<em>.</em>REMOVALS</a>
+    <div class="nav-right">
+      <a class="nav-tel" href="tel:08001234567">
+        <strong>Free phone</strong>
+        0800 123 4567
+      </a>
+      <a class="nav-cta" href="#contact">Get a Quote</a>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero" id="quote">
+    <div class="ref-bar">
+      <span class="ref-item">ATLAS REMOVALS LTD · REG. <strong>09871234</strong></span>
+      <span class="ref-item">INSURED TO <strong>£50,000 GOODS IN TRANSIT</strong></span>
+      <span class="ref-item">MON–SAT · <strong>7AM–7PM</strong></span>
+      <span class="ref-item">ESTABLISHED <strong>2009</strong></span>
+    </div>
+    <div class="hero-body">
+
+      <div class="hero-left">
+        <div>
+          <p class="eyebrow">House &amp; Office Removals — Enquiry Form</p>
+          <h1 class="hero-h1">We get<br>your stuff<br><em>there.</em></h1>
+          <ul class="hero-facts">
+            <li>Fixed price, confirmed in writing before you commit</li>
+            <li>Our own crew — never subcontracted</li>
+            <li>Same team loads and unloads at your new address</li>
+            <li>Fully insured: goods in transit to £50,000 as standard</li>
+            <li>Free packing materials on all full-house moves</li>
+            <li>7-day availability, including weekends</li>
+          </ul>
+        </div>
+        <div class="stamps">
+          <div class="stamp">Fully Insured</div>
+          <div class="stamp">BAR Member</div>
+          <div class="stamp">7 Days</div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="form-head">
+          <span class="form-head-title">Job Enquiry Form</span>
+          <span class="form-head-ref">REF: #______</span>
+        </div>
+        <form class="quote-form" onsubmit="return false">
+          <div class="f-field">
+            <label class="f-label">Moving from</label>
+            <input type="text" placeholder="Postcode or town" />
+          </div>
+          <div class="f-field">
+            <label class="f-label">Moving to</label>
+            <input type="text" placeholder="Postcode or town" />
+          </div>
+          <div class="f-row">
+            <div class="f-field">
+              <label class="f-label">Preferred date</label>
+              <input type="date" />
+            </div>
+            <div class="f-field">
+              <label class="f-label">Property size</label>
+              <select>
+                <option value="">Select…</option>
+                <option>Studio flat</option>
+                <option>1–2 bedroom flat</option>
+                <option>2–3 bedroom house</option>
+                <option>4+ bedroom house</option>
+                <option>Office / commercial</option>
+              </select>
+            </div>
+          </div>
+          <div class="f-field">
+            <label class="f-label">Your name</label>
+            <input type="text" placeholder="Full name" />
+          </div>
+          <div class="f-field">
+            <label class="f-label">Contact number</label>
+            <input type="tel" placeholder="Best number to reach you" />
+          </div>
+          <button class="form-btn" type="submit">Request Free Quote →</button>
+          <p class="form-note">No obligation. We aim to respond within 2 hours.</p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── HOW IT WORKS ─── -->
+  <section class="section process-section">
+    <div class="container">
+      <div class="process-top">
+        <div>
+          <p class="s-tag">Sequence</p>
+          <h2 class="s-h2">Five steps.<br>One smooth move.</h2>
+        </div>
+        <p class="process-note">We handle moves end-to-end. From the first survey to the final box placed, you deal with the same team throughout.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <p class="step-code">Step 01</p>
+          <h3 class="step-title">Enquiry</h3>
+          <p class="step-desc">Fill in the form or call us free. We'll ask a few quick questions to scope the job.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <p class="step-code">Step 02</p>
+          <h3 class="step-title">Survey</h3>
+          <p class="step-desc">Quick video or in-person survey. We assess volume, access, and any specialist items.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <p class="step-code">Step 03</p>
+          <h3 class="step-title">Booking</h3>
+          <p class="step-desc">Fixed written quote. Confirm with a small deposit to lock in your date.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <p class="step-code">Step 04</p>
+          <h3 class="step-title">Move Day</h3>
+          <p class="step-desc">Crew arrives on time. Your belongings are loaded, transported, and placed exactly where you want them.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">05</div>
+          <p class="step-code">Step 05</p>
+          <h3 class="step-title">Done</h3>
+          <p class="step-desc">Balance due on completion. We follow up the next day to make sure everything is in order.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SERVICES ─── -->
+  <section class="section services-section" id="services">
+    <div class="container">
+      <div class="services-top">
+        <div>
+          <p class="s-tag">What We Do</p>
+          <h2 class="s-h2">Services &amp;<br>rate guide</h2>
+        </div>
+        <p class="services-note">All jobs are individually priced — the figures below are starting points. Your quote is fixed in writing before you commit a penny.</p>
+      </div>
+      <div class="rate-cards">
+        <div class="rate-card">
+          <div class="card-head">
+            <p class="card-type">TYPE — 01</p>
+            <h3 class="card-name">Domestic</h3>
+            <p class="card-from">From £350 — studio or 1-bed flat</p>
+          </div>
+          <ul class="card-items">
+            <li>Studio, flat and house moves of any size</li>
+            <li>Full furniture dismantling &amp; reassembly</li>
+            <li>Wardrobe boxes supplied on request</li>
+            <li>Full packing service available as an add-on</li>
+            <li>Goods in transit insurance included</li>
+            <li>Available 7 days a week</li>
+          </ul>
+          <a class="card-cta" href="#contact">Get a Quote →</a>
+        </div>
+        <div class="rate-card">
+          <div class="card-head">
+            <p class="card-type">TYPE — 02</p>
+            <h3 class="card-name">Commercial</h3>
+            <p class="card-from">From £600 — office of 10+ desks</p>
+          </div>
+          <ul class="card-items">
+            <li>Office, retail and business relocations</li>
+            <li>Weekend &amp; out-of-hours moves available</li>
+            <li>IT equipment handled with full care</li>
+            <li>Crating and specialist wrap for sensitive stock</li>
+            <li>Project management from survey to sign-off</li>
+            <li>Written job certificate for your records</li>
+          </ul>
+          <a class="card-cta" href="#contact">Get a Quote →</a>
+        </div>
+        <div class="rate-card">
+          <div class="card-head">
+            <p class="card-type">TYPE — 03</p>
+            <h3 class="card-name">Specialist</h3>
+            <p class="card-from">Quoted individually — call to discuss</p>
+          </div>
+          <ul class="card-items">
+            <li>Pianos — upright and grand</li>
+            <li>Art, antiques and high-value items</li>
+            <li>Pool &amp; snooker tables</li>
+            <li>Large garden machinery</li>
+            <li>Single-item delivery &amp; collection</li>
+            <li>International removals via vetted partners</li>
+          </ul>
+          <a class="card-cta" href="#contact">Get a Quote →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FLEET ─── -->
+  <section class="section fleet-section" id="fleet">
+    <div class="container">
+      <div class="fleet-top">
+        <div>
+          <p class="s-tag">Our Fleet</p>
+          <h2 class="s-h2">Right van<br>for every job.</h2>
+        </div>
+        <p class="fleet-note">We bring the correct vehicle — or vehicles — for your job. Every van is GPS tracked, clean and checked before each move.</p>
+      </div>
+      <div class="fleet-grid">
+
+        <!-- Transit -->
+        <div class="fleet-card">
+          <span class="fleet-badge">VAN TYPE — 01</span>
+          <h3 class="fleet-name">Transit</h3>
+          <p class="fleet-sub">Ford Transit · Long Wheelbase</p>
+          <svg class="van-svg" viewBox="0 0 300 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="18" y="22" width="250" height="50" rx="3" stroke="var(--ink)" stroke-width="1.5"/>
+            <rect x="18" y="22" width="66" height="50" rx="3" stroke="var(--ink)" stroke-width="1.5" fill="var(--paper)"/>
+            <path d="M18 46 L18 22 Q18 18 22 18 L66 18 L84 22" stroke="var(--ink)" stroke-width="1.5" fill="none"/>
+            <circle cx="72" cy="76" r="12" stroke="var(--ink)" stroke-width="1.5" fill="var(--paper)"/>
+            <circle cx="72" cy="76" r="5" stroke="var(--ink)" stroke-width="1"/>
+            <circle cx="220" cy="76" r="12" stroke="var(--ink)" stroke-width="1.5" fill="var(--paper)"/>
+            <circle cx="220" cy="76" r="5" stroke="var(--ink)" stroke-width="1"/>
+            <line x1="138" y1="22" x2="138" y2="72" stroke="var(--rule)" stroke-width="1" stroke-dasharray="4 4"/>
+          </svg>
+          <ul class="fleet-specs">
+            <li><span>Cargo volume</span><span>7.4 m³</span></li>
+            <li><span>Payload</span><span>1,300 kg</span></li>
+            <li><span>Suited to</span><span>Studio–2 bed flat</span></li>
+            <li><span>Crew size</span><span>2 removers</span></li>
+          </ul>
+        </div>
+
+        <!-- Luton -->
+        <div class="fleet-card">
+          <span class="fleet-badge">VAN TYPE — 02</span>
+          <h3 class="fleet-name">Luton</h3>
+          <p class="fleet-sub">Luton Box Van · Tail Lift</p>
+          <svg class="van-svg" viewBox="0 0 300 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="14" y="14" width="260" height="58" rx="3" stroke="var(--ink)" stroke-width="1.5"/>
+            <rect x="14" y="14" width="64" height="58" rx="3" stroke="var(--ink)" stroke-width="1.5" fill="var(--paper)"/>
+            <rect x="78" y="14" width="196" height="46" stroke="var(--ink)" stroke-width="1.5" fill="none"/>
+            <path d="M14 42 L14 14 Q14 10 18 10 L62 10 L78 14" stroke="var(--ink)" stroke-width="1.5" fill="none"/>
+            <rect x="262" y="64" width="12" height="8" stroke="var(--ink)" stroke-width="1" fill="none"/>
+            <circle cx="66" cy="78" r="10" stroke="var(--ink)" stroke-width="1.5" fill="var(--paper)"/>
+            <circle cx="66" cy="78" r="4.5" stroke="var(--ink)" stroke-width="1"/>
+            <circle cx="218" cy="78" r="10" stroke="var(--ink)" stroke-width="1.5" fill="var(--paper)"/>
+            <circle cx="218" cy="78" r="4.5" stroke="var(--ink)" stroke-width="1"/>
+          </svg>
+          <ul class="fleet-specs">
+            <li><span>Cargo volume</span><span>16 m³</span></li>
+            <li><span>Payload</span><span>1,800 kg</span></li>
+            <li><span>Suited to</span><span>3–4 bed house</span></li>
+            <li><span>Crew size</span><span>2–3 removers</span></li>
+          </ul>
+        </div>
+
+        <!-- 7.5t -->
+        <div class="fleet-card">
+          <span class="fleet-badge">VAN TYPE — 03</span>
+          <h3 class="fleet-name">7.5 Tonne</h3>
+          <p class="fleet-sub">Mercedes Atego · Tail Lift</p>
+          <svg class="van-svg" viewBox="0 0 300 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="12" width="88" height="60" rx="3" stroke="var(--ink)" stroke-width="1.5" fill="var(--paper)"/>
+            <rect x="94" y="6" width="196" height="66" rx="3" stroke="var(--ink)" stroke-width="1.5"/>
+            <path d="M6 38 L6 12 Q6 8 10 8 L74 8 L94 12" stroke="var(--ink)" stroke-width="1.5" fill="none"/>
+            <rect x="278" y="68" width="12" height="8" stroke="var(--ink)" stroke-width="1" fill="none"/>
+            <circle cx="40" cy="78" r="10" stroke="var(--ink)" stroke-width="1.5" fill="var(--paper)"/>
+            <circle cx="40" cy="78" r="4.5" stroke="var(--ink)" stroke-width="1"/>
+            <circle cx="212" cy="78" r="10" stroke="var(--ink)" stroke-width="1.5" fill="var(--paper)"/>
+            <circle cx="212" cy="78" r="4.5" stroke="var(--ink)" stroke-width="1"/>
+            <circle cx="236" cy="78" r="10" stroke="var(--ink)" stroke-width="1.5" fill="var(--paper)"/>
+            <circle cx="236" cy="78" r="4.5" stroke="var(--ink)" stroke-width="1"/>
+          </svg>
+          <ul class="fleet-specs">
+            <li><span>Cargo volume</span><span>28 m³</span></li>
+            <li><span>Payload</span><span>3,800 kg</span></li>
+            <li><span>Suited to</span><span>5+ bed / office</span></li>
+            <li><span>Crew size</span><span>3–4 removers</span></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── DISPATCH LOG ─── -->
+  <section class="section reviews-section" id="reviews">
+    <div class="container">
+      <div class="reviews-top">
+        <div>
+          <p class="s-tag">Client Dispatch Log</p>
+          <h2 class="s-h2">What clients<br>actually say.</h2>
+        </div>
+        <p class="reviews-meta">4.9 ★ · 312 verified reviews · Google &amp; Trustpilot</p>
+      </div>
+      <div class="dispatch-log">
+        <div class="log-entry">
+          <div class="log-ref">
+            <span>JOB #4721</span>
+            <span>04 Sep 2024</span>
+          </div>
+          <div class="log-stars">★★★★★</div>
+          <p class="log-text">"Punctual, professional and careful with our furniture. They wrapped everything without being asked and the crew was brilliant. Nothing was damaged. The easiest move we've done."</p>
+          <div class="log-footer">
+            <div>
+              <div class="log-name">Sarah M.</div>
+              <div class="log-job-type">3-bed semi → 4-bed detached</div>
+            </div>
+            <div class="log-loc">West Yorkshire</div>
+          </div>
+        </div>
+        <div class="log-entry">
+          <div class="log-ref">
+            <span>JOB #4689</span>
+            <span>22 Aug 2024</span>
+          </div>
+          <div class="log-stars">★★★★★</div>
+          <p class="log-text">"Used them for our office — 30 desks, server room, the lot. Done on a Saturday, zero downtime Monday. Price was exactly as quoted. We'll use them again without hesitation."</p>
+          <div class="log-footer">
+            <div>
+              <div class="log-name">David K., Operations Manager</div>
+              <div class="log-job-type">Office relocation — 30 desks</div>
+            </div>
+            <div class="log-loc">Manchester</div>
+          </div>
+        </div>
+        <div class="log-entry">
+          <div class="log-ref">
+            <span>JOB #4643</span>
+            <span>11 Aug 2024</span>
+          </div>
+          <div class="log-stars">★★★★★</div>
+          <p class="log-text">"They moved my upright piano — something three other companies refused to quote on. Handled it perfectly. The survey was thorough and the price was fair. Highly recommended."</p>
+          <div class="log-footer">
+            <div>
+              <div class="log-name">Rachel T.</div>
+              <div class="log-job-type">Specialist — piano + 1-bed contents</div>
+            </div>
+            <div class="log-loc">Bristol</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FAQ ─── -->
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <p class="s-tag">FAQ</p>
+      <h2 class="s-h2">Common questions.</h2>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <div class="faq-q"><span class="faq-n">01</span><span>Are your prices fixed or can they change?</span></div>
+          <p class="faq-a">All quotes are fixed in writing before you book. The price you're given is the price you pay. No surprise charges on move day.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span class="faq-n">02</span><span>Do you use your own crew?</span></div>
+          <p class="faq-a">Always. We never subcontract jobs. The same team who loads your belongings at your old address will unload them at the new one.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span class="faq-n">03</span><span>What insurance do you carry?</span></div>
+          <p class="faq-a">All moves include goods in transit cover up to £50,000 as standard. Additional cover for high-value items is available — ask when booking.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span class="faq-n">04</span><span>Do you offer a packing service?</span></div>
+          <p class="faq-a">Yes. Full or partial packing is available as an add-on. We supply all materials — boxes, tape, tissue paper and specialist containers.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span class="faq-n">05</span><span>How far in advance should I book?</span></div>
+          <p class="faq-a">For weekends and month-end dates, 3–4 weeks is ideal. Weekday moves are often available with shorter notice. Contact us to check availability.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span class="faq-n">06</span><span>What if completion is delayed?</span></div>
+          <p class="faq-a">Property chains slip — we know. Call us as early as possible and we'll do everything we can to accommodate the change without penalty.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ─── -->
+  <section class="cta-section" id="contact">
+    <div class="container">
+      <div class="cta-inner">
+        <div>
+          <p class="cta-tag">Ready to move?</p>
+          <h2 class="cta-h2">Get a fixed<br>quote <em>today.</em></h2>
+          <div class="cta-details">
+            <div class="cta-detail">
+              <p class="cta-dl">Phone</p>
+              <p class="cta-dv">0800 123 4567 (free from mobiles)</p>
+            </div>
+            <div class="cta-detail">
+              <p class="cta-dl">Email</p>
+              <p class="cta-dv">hello@atlasremovals.co.uk</p>
+            </div>
+            <div class="cta-detail">
+              <p class="cta-dl">Hours</p>
+              <p class="cta-dv">Mon–Sat, 7am–7pm<br>Sunday quotes by arrangement</p>
+            </div>
+            <div class="cta-detail">
+              <p class="cta-dl">Coverage</p>
+              <p class="cta-dv">UK-wide — enter your postcodes<br>and we'll confirm availability</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="dark-form-wrap">
+            <div class="dark-form-head">
+              <span>Callback Request</span>
+              <span>REF: #______</span>
+            </div>
+            <form class="dark-form" onsubmit="return false">
+              <div class="dark-row">
+                <div class="dark-field">
+                  <label class="dark-label">Your name</label>
+                  <input type="text" placeholder="Full name" />
+                </div>
+                <div class="dark-field">
+                  <label class="dark-label">Phone</label>
+                  <input type="tel" placeholder="Best number" />
+                </div>
+              </div>
+              <div class="dark-row">
+                <div class="dark-field">
+                  <label class="dark-label">Moving from</label>
+                  <input type="text" placeholder="Postcode" />
+                </div>
+                <div class="dark-field">
+                  <label class="dark-label">Moving to</label>
+                  <input type="text" placeholder="Postcode" />
+                </div>
+              </div>
+              <div class="dark-field">
+                <label class="dark-label">Property size</label>
+                <select>
+                  <option value="">Select…</option>
+                  <option>Studio flat</option>
+                  <option>1–2 bed flat</option>
+                  <option>3–4 bed house</option>
+                  <option>5+ bed house</option>
+                  <option>Office / commercial</option>
+                </select>
+              </div>
+              <div class="dark-field">
+                <label class="dark-label">Preferred date</label>
+                <input type="date" />
+              </div>
+              <div class="dark-field">
+                <label class="dark-label">Additional notes</label>
+                <textarea rows="3" placeholder="Parking, access, specialist items, storage needs…"></textarea>
+              </div>
+              <button class="dark-submit" type="submit">Send Enquiry →</button>
+              <p class="dark-note">No obligation. We aim to call back within 2 hours.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="footer-logo">ATLAS<em>.</em>REMOVALS</div>
+    <div class="footer-copy">© 2025 Atlas Removals Ltd · Reg. 09871234 · VAT 123 456 789</div>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Insurance</a>
+    </div>
+  </footer>
+
+</body>
+</html>
