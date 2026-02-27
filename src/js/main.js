@@ -299,6 +299,29 @@ async function handleFormSubmit(form) {
   startAuto();
 })();
 
+/* ── Template card iframe scale ──────────────────────────── */
+(function () {
+  const previews = document.querySelectorAll('.tpl-card-preview');
+  if (!previews.length) return;
+
+  function scaleIframe(wrap) {
+    const iframe = wrap.querySelector('iframe');
+    if (!iframe) return;
+    iframe.style.transform = 'scale(' + (wrap.offsetWidth / 1280) + ')';
+  }
+
+  previews.forEach(scaleIframe);
+
+  if (typeof ResizeObserver !== 'undefined') {
+    const ro = new ResizeObserver(entries => {
+      entries.forEach(e => scaleIframe(e.target));
+    });
+    previews.forEach(wrap => ro.observe(wrap));
+  } else {
+    window.addEventListener('resize', () => previews.forEach(scaleIframe), { passive: true });
+  }
+})();
+
 /* ── FAQ Accordion ───────────────────────────────────────── */
 (function () {
   const items = document.querySelectorAll('.faq-item');
