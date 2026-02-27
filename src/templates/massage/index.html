@@ -3,543 +3,534 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Massage & Beauty Website Template UK — Warm Organic | WebOrb — from £49</title>
-  <meta name="description" content="Personal massage and beauty therapist website template. Warm organic design with booking form, services, reviews and about section. Customised with your branding and live in 3 days from £49." />
+  <title>Massage & Beauty Website Template UK — Sensory | WebOrb — from £49</title>
+  <meta name="description" content="Personal massage and beauty therapist website template. Immersive dark design with fixed photo, expandable service rows, quote slider and booking form. From £49." />
   <link rel="canonical" href="https://web-orb.uk/templates/massage/" />
   <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="Massage & Beauty Website Template UK — Warm Organic | WebOrb" />
-  <meta property="og:description" content="Personal massage and beauty therapist website template with warm organic design. Live in 3 days from £49." />
+  <meta property="og:title" content="Massage & Beauty Website Template UK | WebOrb" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://web-orb.uk/templates/massage/" />
   <meta property="og:site_name" content="WebOrb" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400;1,600;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
+    /* ─── RESET ───────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    img  { display: block; max-width: 100%; }
+    a    { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
 
+    /* ─── TOKENS ──────────────────────────────────────────── */
     :root {
-      --bg:       #FAF7F3;
-      --surface:  #F2EBE1;
-      --surface2: #E8DDD1;
-      --terra:    #B8704C;
-      --terra-dk: #9A5A38;
-      --terra-lt: #D9A882;
-      --dark:     #1C1410;
-      --mid:      #4A3728;
-      --muted:    #8A6E5A;
-      --border:   rgba(26,18,12,.1);
-      --border2:  rgba(26,18,12,.16);
-      --font-d: 'Playfair Display', Georgia, serif;
+      --dark:   #090705;
+      --dark2:  #110D09;
+      --ivory:  #F2EDE5;
+      --ivory2: rgba(242,237,229,.65);
+      --ivory3: rgba(242,237,229,.35);
+      --amber:  #D4956A;
+      --amb-lt: #E8B992;
+      --amb-dk: #B8744A;
+      --border: rgba(242,237,229,.11);
+      --font-d: 'Cormorant Garamond', Georgia, serif;
       --font-b: 'DM Sans', system-ui, sans-serif;
+      --ease:   cubic-bezier(.16,1,.3,1);
     }
 
-    html { scroll-behavior: smooth; }
-
     body {
-      background: var(--bg);
-      color: var(--dark);
+      background: var(--dark);
+      color: var(--ivory);
       font-family: var(--font-b);
+      font-weight: 300;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
+      cursor: none;
     }
 
-    img { display: block; max-width: 100%; }
-    a   { color: inherit; text-decoration: none; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
 
-    .container { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
-
-    /* reveal */
-    .rv {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity .7s ease, transform .7s ease;
+    /* ─── CUSTOM CURSOR ───────────────────────────────────── */
+    #cur {
+      position: fixed; z-index: 9999;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--amber);
+      pointer-events: none;
+      transform: translate(-50%,-50%);
+      transition: width .35s var(--ease), height .35s var(--ease),
+                  background .35s, opacity .3s;
+      mix-blend-mode: screen;
     }
+    #cur.big {
+      width: 56px; height: 56px;
+      background: rgba(212,149,106,.18);
+      border: 1px solid rgba(212,149,106,.4);
+    }
+    #cur.hidden { opacity: 0; }
+
+    /* ─── SCROLL REVEAL ───────────────────────────────────── */
+    .rv { opacity: 0; transform: translateY(28px);
+          transition: opacity .8s var(--ease), transform .8s var(--ease); }
     .rv.in { opacity: 1; transform: none; }
-    .rv.d1 { transition-delay: .1s; }
-    .rv.d2 { transition-delay: .2s; }
-    .rv.d3 { transition-delay: .3s; }
+    .rv.d1 { transition-delay: .12s; }
+    .rv.d2 { transition-delay: .24s; }
+    .rv.d3 { transition-delay: .36s; }
 
-    /* buttons */
-    .btn-p {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--terra); color: #fff;
-      font-family: var(--font-b); font-weight: 600;
-      font-size: .88rem; letter-spacing: .04em;
-      padding: 14px 30px; border-radius: 50px;
-      border: none; cursor: pointer;
-      transition: background .2s, transform .2s, box-shadow .2s;
+    /* ─── PAGE BACKGROUND (fixed, always visible) ─────────── */
+    .page-bg {
+      position: fixed; inset: 0; z-index: -1;
+      pointer-events: none;
     }
-    .btn-p:hover { background: var(--terra-dk); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(184,112,76,.3); }
-
-    .btn-wh {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: transparent; color: rgba(255,255,255,.85);
-      font-family: var(--font-b); font-weight: 500; font-size: .88rem;
-      padding: 13px 26px; border-radius: 50px;
-      border: 1.5px solid rgba(255,255,255,.35);
-      transition: all .2s;
+    .page-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 25%;
     }
-    .btn-wh:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.7); color: #fff; }
-
-    .btn-outline {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: transparent; color: var(--mid);
-      font-family: var(--font-b); font-weight: 500; font-size: .88rem;
-      padding: 13px 26px; border-radius: 50px;
-      border: 1.5px solid var(--border2);
-      transition: all .2s;
-    }
-    .btn-outline:hover { border-color: var(--terra); color: var(--terra); }
-
-    /* eyebrow */
-    .ew {
-      display: block;
-      font-size: .66rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: .22em;
-      color: var(--terra); margin-bottom: 14px;
+    .page-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(9,7,5,.45);
     }
 
-    /* ══ NAV ══════════════════════════════════════════════════ */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 300;
-      height: 64px;
-      background: rgba(250,247,243,.92);
-      backdrop-filter: blur(16px);
+    /* ─── NAV ─────────────────────────────────────────────── */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 200; height: 64px;
+      display: flex; align-items: center;
+      padding: 0 40px;
+      transition: background .4s, border-color .4s;
       border-bottom: 1px solid transparent;
-      transition: border-color .3s;
     }
-    .nav.on { border-color: var(--border); }
-    .nav-in {
-      max-width: 1160px; margin: 0 auto; padding: 0 32px;
-      height: 64px; display: flex; align-items: center;
+    #nav.on {
+      background: rgba(9,7,5,.82);
+      backdrop-filter: blur(20px);
+      border-color: var(--border);
     }
     .nav-logo {
-      font-family: var(--font-d); font-size: 1.2rem;
-      font-weight: 700; font-style: italic; flex-shrink: 0;
-      text-decoration: none; color: var(--dark);
+      font-family: var(--font-d); font-size: 1.05rem;
+      letter-spacing: .28em; text-transform: uppercase;
+      font-weight: 600; color: var(--ivory); flex-grow: 1;
     }
-    .nav-logo span { color: var(--terra); }
-    .nav-links {
-      display: flex; gap: 28px; margin: 0 auto; list-style: none;
+    .nav-logo span { color: var(--amber); }
+    .nav-book {
+      font-size: .72rem; font-weight: 500;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--ivory3); padding: 9px 22px;
+      border: 1px solid var(--border); border-radius: 40px;
+      transition: all .25s;
     }
-    .nav-links a {
-      font-size: .84rem; color: var(--muted);
-      font-weight: 500; transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--dark); }
+    .nav-book:hover { color: var(--ivory); border-color: var(--amber); }
 
-    /* ══ HERO ══════════════════════════════════════════════════ */
-    .hero {
-      position: relative;
+    /* ─── HERO ────────────────────────────────────────────── */
+    .s-hero {
       min-height: 100vh;
-      display: flex; align-items: center;
       padding-top: 64px;
-      overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: center 30%;
-      z-index: 0;
-    }
-    .hero-overlay {
-      position: absolute; inset: 0; z-index: 1;
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
       background: linear-gradient(
-        135deg,
-        rgba(26,16,10,.75) 0%,
-        rgba(26,16,10,.5) 60%,
-        rgba(26,16,10,.35) 100%
+        to top,
+        rgba(9,7,5,.92) 0%,
+        rgba(9,7,5,.6)  35%,
+        rgba(9,7,5,.2)  70%,
+        transparent     100%
       );
     }
-    .hero .container { position: relative; z-index: 2; padding-top: 40px; padding-bottom: 40px; }
-    .hero-content { max-width: 580px; }
+
+    .hero-name {
+      position: absolute; top: 88px; right: 40px;
+      font-size: .65rem; letter-spacing: .28em;
+      text-transform: uppercase; color: var(--ivory3);
+      writing-mode: vertical-rl;
+    }
+
+    .hero-b { padding: 0 40px 56px; max-width: 900px; }
 
     .hero-tag {
-      display: inline-flex; align-items: center; gap: 12px;
-      font-size: .68rem; font-weight: 600; letter-spacing: .2em;
-      text-transform: uppercase; color: var(--terra-lt);
-      margin-bottom: 24px;
+      font-size: .66rem; letter-spacing: .24em;
+      text-transform: uppercase; color: var(--amber);
+      margin-bottom: 20px; display: block;
     }
-    .hero-tag::before {
-      content: ''; width: 28px; height: 1px;
-      background: var(--terra-lt); flex-shrink: 0;
-    }
+
     .hero-h1 {
       font-family: var(--font-d);
-      font-size: clamp(3.4rem, 6.5vw, 6rem);
-      font-weight: 700; line-height: .92;
-      letter-spacing: -.02em; color: #fff;
-      margin-bottom: 22px;
+      font-size: clamp(5rem, 11vw, 11rem);
+      font-weight: 700; font-style: italic;
+      line-height: .88; letter-spacing: -.02em;
+      color: var(--ivory); margin-bottom: 32px;
     }
-    .hero-h1 em { font-style: italic; color: var(--terra-lt); }
-    .hero-sub {
-      font-size: 1rem; line-height: 1.7;
-      color: rgba(255,255,255,.65);
-      max-width: 420px; margin-bottom: 36px;
-    }
-    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 56px; }
+    .hero-h1 span { color: var(--amber); }
 
-    .hero-facts {
-      display: flex; gap: 32px; flex-wrap: wrap;
-      border-top: 1px solid rgba(255,255,255,.12);
-      padding-top: 28px;
+    .hero-foot {
+      display: flex; align-items: flex-end;
+      justify-content: space-between; gap: 40px;
     }
-    .hero-fact-n {
-      font-family: var(--font-d); font-size: 2.2rem;
-      font-weight: 700; color: #fff; line-height: 1;
-    }
-    .hero-fact-l {
-      font-size: .72rem; color: rgba(255,255,255,.45);
-      text-transform: uppercase; letter-spacing: .12em;
-      margin-top: 3px;
+    .hero-desc {
+      font-size: .88rem; color: var(--ivory2);
+      line-height: 1.7; max-width: 320px;
     }
 
-    /* ══ TICKER ═══════════════════════════════════════════════ */
-    .ticker {
-      background: var(--terra);
-      padding: 11px 0; overflow: hidden;
+    .hero-scroll {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 10px; flex-shrink: 0;
+      color: var(--ivory3); font-size: .6rem;
+      letter-spacing: .22em; text-transform: uppercase;
     }
-    .ticker-row {
-      display: flex; width: max-content;
-      animation: tick 30s linear infinite;
+    .hero-scroll-line {
+      width: 1px; height: 44px;
+      background: linear-gradient(to bottom, var(--amber), transparent);
+      animation: pulse-line 2.2s ease-in-out infinite;
     }
-    .ticker-row:hover { animation-play-state: paused; }
-    .ticker-item {
-      display: flex; align-items: center; gap: 20px;
-      padding: 0 24px;
-      font-size: .72rem; font-weight: 600;
-      letter-spacing: .18em; text-transform: uppercase;
-      color: rgba(255,255,255,.88); white-space: nowrap;
-    }
-    .ticker-sep {
-      width: 3px; height: 3px; border-radius: 50%;
-      background: rgba(255,255,255,.4); flex-shrink: 0;
-    }
-    @keyframes tick {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
+    @keyframes pulse-line {
+      0%, 100% { opacity: .4; transform: scaleY(.8); }
+      50%       { opacity: 1;  transform: scaleY(1); }
     }
 
-    /* ══ SERVICES ═════════════════════════════════════════════ */
-    .services { padding: 96px 0; }
-
-    .sh { margin-bottom: 52px; }
-    .sh h2 {
-      font-family: var(--font-d);
-      font-size: clamp(2.4rem, 4.5vw, 4rem);
-      font-weight: 700; line-height: .92;
-      letter-spacing: -.02em;
+    /* ─── SERVICES ────────────────────────────────────────── */
+    .s-services {
+      background: rgba(9,7,5,.94);
+      backdrop-filter: blur(2px);
+      border-top: 1px solid var(--border);
+      padding: 80px 0 96px;
     }
-    .sh h2 em { font-style: italic; color: var(--terra); }
-
-    .svc-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+    .svc-header {
+      display: flex; align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 48px;
+      border-bottom: 1px solid var(--border); padding-bottom: 20px;
+    }
+    .svc-hd-l {
+      font-family: var(--font-d); font-size: 1rem;
+      font-style: italic; letter-spacing: .06em; color: var(--ivory2);
+    }
+    .svc-hd-r {
+      font-size: .62rem; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--ivory3);
     }
 
-    .svc-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 20px;
+    .svc-row {
+      border-bottom: 1px solid var(--border);
       overflow: hidden;
-      transition: transform .3s, box-shadow .3s;
     }
-    .svc-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 48px rgba(26,18,12,.1);
+    .svc-row-head {
+      display: grid;
+      grid-template-columns: 48px 1fr auto 40px;
+      align-items: center; gap: 24px;
+      padding: 28px 0; cursor: pointer;
+      transition: padding .4s var(--ease);
     }
-    .svc-img {
-      height: 200px; overflow: hidden; position: relative;
+    .svc-row:first-child .svc-row-head { padding-top: 0; }
+    .svc-row.open .svc-row-head { padding-bottom: 20px; }
+
+    .svc-num {
+      font-size: .62rem; letter-spacing: .18em;
+      color: var(--ivory3); font-weight: 500;
     }
-    .svc-img img {
+    .svc-title {
+      font-family: var(--font-d);
+      font-size: clamp(1.9rem, 3.5vw, 3rem);
+      font-weight: 600; line-height: 1;
+      transition: color .25s;
+    }
+    .svc-row:hover .svc-title,
+    .svc-row.open .svc-title { color: var(--amber); }
+
+    .svc-price-tag {
+      font-family: var(--font-d); font-size: 1.4rem;
+      font-style: italic; color: var(--ivory2);
+    }
+    .svc-plus {
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; color: var(--ivory3);
+      transition: transform .4s var(--ease), border-color .25s, color .25s;
+      flex-shrink: 0;
+    }
+    .svc-row:hover .svc-plus { border-color: var(--amber); color: var(--amber); }
+    .svc-row.open .svc-plus { transform: rotate(45deg); border-color: var(--amber); color: var(--amber); }
+
+    .svc-row-body {
+      display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px;
+      max-height: 0; overflow: hidden;
+      transition: max-height .6s var(--ease);
+    }
+    .svc-row.open .svc-row-body { max-height: 500px; }
+
+    .svc-body-img {
+      aspect-ratio: 3/2; border-radius: 12px; overflow: hidden;
+      margin-bottom: 32px;
+    }
+    .svc-body-img img {
       width: 100%; height: 100%; object-fit: cover;
-      transition: transform .6s ease;
+      transition: transform .8s var(--ease);
     }
-    .svc-card:hover .svc-img img { transform: scale(1.06); }
+    .svc-row.open .svc-body-img img { transform: scale(1.04); }
 
-    .svc-body { padding: 28px; }
-    .svc-label {
-      font-size: .63rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: .18em;
-      color: var(--terra); margin-bottom: 8px;
+    .svc-body-txt { padding-top: 2px; padding-bottom: 32px; }
+    .svc-body-desc {
+      font-size: .9rem; color: var(--ivory2); line-height: 1.75; margin-bottom: 20px;
     }
-    .svc-name {
-      font-family: var(--font-d); font-size: 1.55rem;
-      font-weight: 700; margin-bottom: 10px; line-height: 1.1;
+    .svc-body-list {
+      list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px;
     }
-    .svc-desc {
-      font-size: .84rem; color: var(--muted);
-      line-height: 1.7; margin-bottom: 20px;
+    .svc-body-list li {
+      display: flex; align-items: center; gap: 12px;
+      font-size: .82rem; color: var(--ivory3);
     }
-    .svc-list {
-      list-style: none; display: flex; flex-direction: column;
-      gap: 7px; margin-bottom: 24px;
+    .svc-body-list li::before {
+      content: ''; width: 16px; height: 1px;
+      background: var(--amber); flex-shrink: 0;
     }
-    .svc-list li {
-      display: flex; align-items: center; gap: 9px;
-      font-size: .82rem; color: var(--mid);
+    .svc-book-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .72rem; font-weight: 500;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--amber); transition: gap .2s;
     }
-    .svc-list li::before {
-      content: ''; width: 4px; height: 4px;
-      background: var(--terra); border-radius: 50%; flex-shrink: 0;
-    }
-    .svc-from {
-      display: flex; align-items: baseline; gap: 4px;
-      border-top: 1px solid var(--border); padding-top: 18px;
-    }
-    .svc-from-txt { font-size: .72rem; color: var(--muted); }
-    .svc-price {
-      font-family: var(--font-d); font-size: 2rem;
-      font-weight: 700; color: var(--terra);
-    }
-    .svc-dur { font-size: .76rem; color: var(--muted); margin-left: 4px; }
+    .svc-book-link:hover { gap: 14px; }
 
-    /* ══ ABOUT ════════════════════════════════════════════════ */
-    .about { padding: 96px 0; background: var(--surface); }
+    /* ─── ABOUT ───────────────────────────────────────────── */
+    .s-about {
+      background: var(--ivory);
+      color: #1A1210;
+      padding: 100px 0;
+    }
     .about-layout {
-      display: grid; grid-template-columns: 5fr 7fr;
-      gap: 80px; align-items: center;
+      display: grid; grid-template-columns: 5fr 7fr; gap: 80px; align-items: center;
     }
-
     .about-img-wrap { position: relative; }
     .about-img {
-      width: 100%; aspect-ratio: 3/4;
-      object-fit: cover; object-position: top center;
-      border-radius: 24px;
-      display: block;
+      width: 100%; aspect-ratio: 3/4; object-fit: cover;
+      object-position: top; border-radius: 4px; display: block;
     }
-    .about-badge {
-      position: absolute; bottom: 28px; right: -20px;
-      background: #fff; border-radius: 16px;
-      padding: 18px 22px;
-      box-shadow: 0 12px 40px rgba(26,18,12,.14);
-      border: 1px solid var(--border);
+    .about-img-caption {
+      position: absolute; bottom: -16px; right: -16px;
+      background: var(--amber); color: #fff;
+      padding: 14px 20px; border-radius: 4px;
+      font-size: .68rem; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase;
     }
-    .about-badge-n {
-      font-family: var(--font-d); font-size: 2.4rem;
-      font-weight: 700; color: var(--terra); line-height: 1;
+    .about-eyebrow {
+      font-size: .64rem; font-weight: 500;
+      letter-spacing: .24em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 16px; display: block;
     }
-    .about-badge-l {
-      font-size: .68rem; text-transform: uppercase;
-      letter-spacing: .1em; color: var(--muted); margin-top: 3px;
-    }
-
-    .about-text h2 {
+    .about-h2 {
       font-family: var(--font-d);
-      font-size: clamp(2.2rem, 4vw, 3.6rem);
-      font-weight: 700; line-height: .92;
-      letter-spacing: -.02em; margin-bottom: 20px;
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      font-weight: 700; font-style: italic;
+      line-height: .9; letter-spacing: -.02em;
+      color: #1A1210; margin-bottom: 24px;
     }
-    .about-text h2 em { font-style: italic; color: var(--terra); }
     .about-p {
-      font-size: .95rem; color: var(--muted);
-      line-height: 1.8; margin-bottom: 28px;
+      font-size: .93rem; color: #6B5040;
+      line-height: 1.8; margin-bottom: 18px;
     }
-    .about-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
-    .about-tag {
-      font-size: .71rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: .1em;
+    .about-creds {
+      display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 32px;
+    }
+    .cred {
+      font-size: .68rem; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase;
       padding: 6px 16px; border-radius: 40px;
-      background: var(--bg); border: 1px solid var(--border2);
-      color: var(--mid);
+      border: 1px solid rgba(26,18,12,.18);
+      color: #4A3020;
     }
+    .btn-amber {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--amb-dk); color: #fff;
+      font-family: var(--font-b); font-weight: 500;
+      font-size: .8rem; letter-spacing: .1em; text-transform: uppercase;
+      padding: 14px 30px; border-radius: 50px;
+      transition: background .2s, transform .2s;
+    }
+    .btn-amber:hover { background: #9E5E35; transform: translateY(-2px); }
 
-    /* ══ REVIEWS ══════════════════════════════════════════════ */
-    .reviews { padding: 96px 0; }
+    /* ─── REVIEWS ─────────────────────────────────────────── */
+    .s-reviews {
+      background: var(--dark2);
+      padding: 100px 0;
+      border-top: 1px solid var(--border);
+    }
+    .reviews-label {
+      font-size: .62rem; letter-spacing: .28em;
+      text-transform: uppercase; color: var(--amber);
+      margin-bottom: 56px; display: block;
+    }
+    .r-slider { position: relative; min-height: 280px; }
+    .r-slide {
+      position: absolute; inset: 0;
+      opacity: 0; transition: opacity .6s var(--ease);
+      pointer-events: none;
+    }
+    .r-slide.active { opacity: 1; pointer-events: all; }
 
-    .reviews-top {
-      display: flex; align-items: flex-end;
-      justify-content: space-between; gap: 24px;
-      margin-bottom: 48px; flex-wrap: wrap;
+    .r-mark {
+      font-family: var(--font-d); font-size: 5rem;
+      line-height: .6; color: var(--amber); opacity: .35;
+      margin-bottom: 20px; display: block;
     }
-    .reviews-score {
-      display: flex; align-items: center; gap: 16px;
+    .r-text {
+      font-family: var(--font-d);
+      font-size: clamp(1.6rem, 3vw, 2.6rem);
+      font-style: italic; font-weight: 400;
+      line-height: 1.3; color: var(--ivory);
+      max-width: 880px; margin-bottom: 28px;
     }
-    .reviews-big {
-      font-family: var(--font-d); font-size: 4rem;
-      font-weight: 700; color: var(--terra); line-height: 1;
+    .r-who {
+      font-size: .78rem; color: var(--ivory2);
+      letter-spacing: .06em;
     }
-    .reviews-stars { font-size: 1.1rem; color: var(--terra); letter-spacing: 3px; }
-    .reviews-cnt { font-size: .8rem; color: var(--muted); margin-top: 3px; }
+    .r-who span { color: var(--amber); }
 
-    .r-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+    .reviews-nav {
+      display: flex; align-items: center; gap: 24px; margin-top: 52px;
     }
-    .r-card {
-      background: #fff; border: 1px solid var(--border);
-      border-radius: 20px; padding: 28px;
-      transition: transform .25s, box-shadow .25s;
-    }
-    .r-card:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(26,18,12,.08); }
-    .r-head {
-      display: flex; align-items: center;
-      justify-content: space-between; margin-bottom: 16px;
-    }
-    .r-who { display: flex; align-items: center; gap: 10px; }
-    .r-av {
-      width: 40px; height: 40px; border-radius: 50%;
-      background: var(--surface2);
+    .r-btn {
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 1px solid var(--border);
       display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-d); font-weight: 700; font-size: .95rem;
-      color: var(--terra); flex-shrink: 0;
+      color: var(--ivory2); font-size: .9rem;
+      transition: border-color .2s, color .2s;
     }
-    .r-name { font-weight: 600; font-size: .88rem; line-height: 1.2; }
-    .r-svc  { font-size: .72rem; color: var(--muted); }
-    .r-stars { color: var(--terra); font-size: .8rem; letter-spacing: 2px; }
-    .r-quote {
-      font-family: var(--font-d); font-size: .97rem;
-      font-style: italic; color: var(--mid); line-height: 1.75;
-      border-top: 1px solid var(--border); padding-top: 16px;
+    .r-btn:hover { border-color: var(--amber); color: var(--amber); }
+    .r-indicator {
+      font-size: .68rem; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--ivory3);
     }
+    .r-dots { display: flex; gap: 8px; margin-left: auto; }
+    .r-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--border); transition: background .3s;
+    }
+    .r-dot.active { background: var(--amber); }
 
-    /* ══ BOOKING ══════════════════════════════════════════════ */
-    .booking {
-      padding: 96px 0;
+    /* ─── BOOKING ─────────────────────────────────────────── */
+    .s-booking {
       background: var(--dark);
-      position: relative; overflow: hidden;
+      border-top: 1px solid var(--border);
+      padding: 100px 0;
     }
-    /* blob decorations */
-    .booking::before {
-      content: ''; position: absolute;
-      width: 600px; height: 600px;
-      background: rgba(184,112,76,.08);
-      border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%;
-      top: -200px; right: -150px;
-      pointer-events: none;
+    .booking-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start;
     }
-    .booking::after {
-      content: ''; position: absolute;
-      width: 400px; height: 400px;
-      background: rgba(184,112,76,.06);
-      border-radius: 60% 40% 50% 50% / 55% 50% 45% 45%;
-      bottom: -100px; left: -80px;
-      pointer-events: none;
+    .booking-l-tag {
+      font-size: .62rem; letter-spacing: .26em;
+      text-transform: uppercase; color: var(--amber); display: block; margin-bottom: 20px;
     }
-    .booking-in {
-      position: relative; z-index: 1;
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 80px; align-items: start;
-    }
-    .booking-left .ew { color: var(--terra-lt); }
     .booking-h2 {
       font-family: var(--font-d);
-      font-size: clamp(2.4rem, 4.5vw, 4rem);
-      font-weight: 700; line-height: .92;
-      letter-spacing: -.02em; color: #fff;
-      margin-bottom: 20px;
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      font-weight: 700; font-style: italic;
+      line-height: .9; letter-spacing: -.02em;
+      margin-bottom: 28px;
     }
-    .booking-h2 em { font-style: italic; color: var(--terra-lt); }
+    .booking-h2 span { color: var(--amber); }
     .booking-sub {
-      font-size: .93rem; color: rgba(255,255,255,.45);
-      line-height: 1.75; margin-bottom: 36px;
+      font-size: .88rem; color: var(--ivory2);
+      line-height: 1.75; margin-bottom: 40px;
     }
     .b-contacts { display: flex; flex-direction: column; gap: 14px; }
-    .b-row {
-      display: flex; align-items: center; gap: 14px;
-      font-size: .88rem; color: rgba(255,255,255,.6);
+    .b-citem {
+      display: flex; align-items: center; gap: 16px;
+      font-size: .86rem; color: var(--ivory3);
     }
-    .b-ico {
-      width: 40px; height: 40px; border-radius: 12px;
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.08);
+    .b-icon {
+      width: 38px; height: 38px; border-radius: 10px;
+      border: 1px solid var(--border);
       display: flex; align-items: center; justify-content: center;
-      font-size: 1rem; flex-shrink: 0;
+      font-size: .9rem; flex-shrink: 0;
     }
-    .b-row a { color: rgba(255,255,255,.8); transition: color .2s; }
-    .b-row a:hover { color: var(--terra-lt); }
+    .b-citem a { color: var(--ivory2); transition: color .2s; }
+    .b-citem a:hover { color: var(--amber); }
 
-    /* form */
-    .b-form { display: flex; flex-direction: column; gap: 14px; }
-    .b-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .b-grp { display: flex; flex-direction: column; gap: 5px; }
+    .b-form { display: flex; flex-direction: column; gap: 16px; }
+    .b-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .b-grp { display: flex; flex-direction: column; gap: 6px; }
     .b-lbl {
-      font-size: .62rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: .14em;
-      color: rgba(255,255,255,.35);
+      font-size: .6rem; font-weight: 500;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--ivory3);
     }
     .b-in, .b-sel, .b-ta {
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 10px; color: rgba(255,255,255,.85);
-      font-family: var(--font-b); font-size: .88rem;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+      border-radius: 8px; color: var(--ivory);
+      font-family: var(--font-b); font-size: .88rem; font-weight: 300;
       padding: 12px 16px; outline: none; width: 100%;
       transition: border-color .2s;
       -webkit-appearance: none;
     }
-    .b-in::placeholder, .b-ta::placeholder { color: rgba(255,255,255,.2); }
-    .b-in:focus, .b-sel:focus, .b-ta:focus { border-color: var(--terra-lt); }
+    .b-in::placeholder, .b-ta::placeholder { color: var(--ivory3); }
+    .b-in:focus, .b-sel:focus, .b-ta:focus { border-color: var(--amber); }
     .b-ta { resize: vertical; min-height: 88px; }
     .b-sel { cursor: pointer; }
-    option { background: #2a1a10; }
+    option { background: #1a1208; }
     .b-sub {
-      background: var(--terra); color: #fff;
-      font-family: var(--font-b); font-weight: 600;
-      font-size: .88rem; padding: 14px 32px;
-      border: none; border-radius: 50px;
-      cursor: pointer; align-self: flex-start;
+      background: var(--amber); color: #fff;
+      font-family: var(--font-b); font-weight: 500;
+      font-size: .8rem; letter-spacing: .12em; text-transform: uppercase;
+      padding: 14px 36px; border-radius: 50px; align-self: flex-start;
       transition: background .2s, transform .2s;
     }
-    .b-sub:hover { background: var(--terra-dk); transform: translateY(-2px); }
+    .b-sub:hover { background: var(--amb-dk); transform: translateY(-2px); }
 
-    /* ══ FOOTER ═══════════════════════════════════════════════ */
+    /* ─── FOOTER ──────────────────────────────────────────── */
     .footer {
       background: var(--dark);
-      border-top: 1px solid rgba(255,255,255,.05);
-      padding: 28px 0;
-    }
-    .footer-in {
+      border-top: 1px solid var(--border);
+      padding: 28px 40px;
       display: flex; align-items: center;
-      justify-content: space-between; flex-wrap: wrap; gap: 16px;
+      justify-content: space-between; flex-wrap: wrap; gap: 14px;
     }
     .footer-logo {
-      font-family: var(--font-d); font-size: 1.1rem;
-      font-style: italic; font-weight: 700;
-      color: rgba(255,255,255,.6); text-decoration: none;
+      font-family: var(--font-d); font-size: 1rem;
+      font-style: italic; letter-spacing: .14em;
+      color: var(--ivory3);
     }
-    .footer-logo span { color: var(--terra-lt); }
-    .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
+    .footer-logo span { color: var(--amber); }
+    .footer-mid {
+      font-size: .62rem; color: rgba(242,237,229,.18);
+    }
+    .footer-mid a { color: rgba(242,237,229,.28); text-decoration: underline; }
     .footer-badge {
       display: inline-flex; align-items: center; gap: 7px;
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 6px; padding: 5px 14px;
-      font-size: .67rem; font-weight: 500;
+      font-size: .65rem; font-weight: 500;
       letter-spacing: .12em; text-transform: uppercase;
-      color: rgba(255,255,255,.35); text-decoration: none;
-      transition: background .2s;
+      color: var(--ivory3); border: 1px solid var(--border);
+      padding: 6px 14px; border-radius: 6px;
+      transition: border-color .2s, color .2s;
     }
-    .footer-badge:hover { background: rgba(255,255,255,.08); color: rgba(255,255,255,.6); }
-    .footer-note { font-size: .62rem; color: rgba(255,255,255,.18); text-align: right; }
-    .footer-photo-credit { font-size: .62rem; color: rgba(255,255,255,.15); }
-    .footer-photo-credit a { color: rgba(255,255,255,.25); text-decoration: underline; }
+    .footer-badge:hover { border-color: var(--amber); color: var(--amb-lt); }
 
-    /* ══ RESPONSIVE ═══════════════════════════════════════════ */
-    @media (max-width: 960px) {
-      .svc-grid { grid-template-columns: 1fr; }
-      .about-layout { grid-template-columns: 1fr; gap: 48px; }
-      .about-badge { right: 16px; }
-      .r-grid { grid-template-columns: 1fr; }
-      .booking-in { grid-template-columns: 1fr; gap: 52px; }
-    }
-    @media (max-width: 640px) {
-      .nav-links { display: none; }
-      .hero-h1 { font-size: clamp(2.8rem, 9vw, 4rem); }
-      .hero-facts { gap: 20px; }
+    /* ─── MOBILE ──────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      body { cursor: auto; }
+      #cur { display: none; }
+      .container { padding: 0 24px; }
+      #nav { padding: 0 24px; }
+      .hero-b { padding: 0 24px 48px; }
+      .hero-name { display: none; }
+      .hero-h1 { font-size: clamp(3.8rem, 13vw, 7rem); }
+      .svc-row-head { grid-template-columns: 36px 1fr 32px; gap: 16px; }
+      .svc-price-tag { display: none; }
+      .svc-row-body { grid-template-columns: 1fr; gap: 24px; }
+      .svc-body-img { margin-bottom: 0; }
+      .about-layout { grid-template-columns: 1fr; gap: 52px; }
+      .about-img-caption { right: 0; }
+      .booking-grid { grid-template-columns: 1fr; gap: 60px; }
       .b-pair { grid-template-columns: 1fr; }
-      .footer-in { flex-direction: column; align-items: flex-start; }
-      .footer-right { align-items: flex-start; }
-      .footer-note { text-align: left; }
+      .footer { flex-direction: column; align-items: flex-start; padding: 24px; }
     }
-    @media (min-width: 641px) and (max-width: 960px) {
-      .svc-grid { grid-template-columns: repeat(2, 1fr); }
-      .r-grid { grid-template-columns: repeat(2, 1fr); }
+
+    @media (max-width: 500px) {
+      .hero-foot { flex-direction: column; align-items: flex-start; gap: 24px; }
+      .hero-scroll { flex-direction: row; align-items: center; }
+      .hero-scroll-line { width: 28px; height: 1px; background: linear-gradient(to right, var(--amber), transparent); }
     }
   </style>
 </head>
@@ -558,174 +549,154 @@
 </script>
 <script src="/js/preview-bar.js"></script>
 
+<!-- FIXED BACKGROUND -->
+<div class="page-bg" aria-hidden="true">
+  <img
+    src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1920&q=75"
+    alt=""
+    fetchpriority="high"
+  />
+</div>
+
+<!-- CUSTOM CURSOR -->
+<div id="cur"></div>
+
 <!-- NAV -->
-<nav class="nav" id="siteNav">
-  <div class="nav-in">
-    <a class="nav-logo" href="#">Alina <span>Vita</span></a>
-    <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#reviews">Reviews</a></li>
-      <li><a href="#booking">Book</a></li>
-    </ul>
-    <a class="btn-p" href="#booking" style="margin-left:auto;font-size:.8rem;padding:10px 22px;">Book a session</a>
-  </div>
+<nav id="nav">
+  <a class="nav-logo" href="#">Alina <span>·</span> Vita</a>
+  <a class="nav-book" href="#booking">Book a session</a>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <img
-    class="hero-bg"
-    src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1920&q=80"
-    alt="Massage therapy"
-    loading="eager"
-  />
-  <div class="hero-overlay"></div>
-  <div class="container">
-    <div class="hero-content">
-      <div class="hero-tag rv in">Massage &amp; Beauty · London</div>
-      <h1 class="hero-h1 rv in d1">
-        Feel<br><em>better.</em><br>Book today.
-      </h1>
-      <p class="hero-sub rv in d2">
+<!-- ─── HERO ─── -->
+<section class="s-hero">
+  <div class="hero-name rv in">Massage · Waxing · Skin Care</div>
+
+  <div class="hero-b">
+    <span class="hero-tag rv in">London — UA</span>
+    <h1 class="hero-h1 rv in d1">
+      Feel<br><span>everything.</span>
+    </h1>
+    <div class="hero-foot rv in d2">
+      <p class="hero-desc">
         Personalised massage, waxing and skin care from Alina — your masseuse who listens to what your body actually needs.
       </p>
-      <div class="hero-btns rv in d2">
-        <a href="#booking" class="btn-p">Book a session →</a>
-        <a href="#services" class="btn-wh">See services</a>
-      </div>
-      <div class="hero-facts rv in d3">
-        <div>
-          <div class="hero-fact-n">5+</div>
-          <div class="hero-fact-l">Years of practice</div>
-        </div>
-        <div>
-          <div class="hero-fact-n">300+</div>
-          <div class="hero-fact-l">Happy clients</div>
-        </div>
-        <div>
-          <div class="hero-fact-n">4.9★</div>
-          <div class="hero-fact-l">Average rating</div>
-        </div>
+      <div class="hero-scroll">
+        <div class="hero-scroll-line"></div>
+        scroll
       </div>
     </div>
   </div>
 </section>
 
-<!-- TICKER -->
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-row" id="tickerRow">
-    <span class="ticker-item">Your masseuse is ready<span class="ticker-sep"></span></span>
-    <span class="ticker-item">Book your session today<span class="ticker-sep"></span></span>
-    <span class="ticker-item">Relaxation massage<span class="ticker-sep"></span></span>
-    <span class="ticker-item">Waxing specialist<span class="ticker-sep"></span></span>
-    <span class="ticker-item">Skin care focus<span class="ticker-sep"></span></span>
-    <span class="ticker-item">Anti-cellulite treatment<span class="ticker-sep"></span></span>
-    <span class="ticker-item">Feel the difference<span class="ticker-sep"></span></span>
-    <span class="ticker-item">Your masseuse is ready<span class="ticker-sep"></span></span>
-    <span class="ticker-item">Book your session today<span class="ticker-sep"></span></span>
-    <span class="ticker-item">Relaxation massage<span class="ticker-sep"></span></span>
-    <span class="ticker-item">Waxing specialist<span class="ticker-sep"></span></span>
-    <span class="ticker-item">Skin care focus<span class="ticker-sep"></span></span>
-    <span class="ticker-item">Anti-cellulite treatment<span class="ticker-sep"></span></span>
-    <span class="ticker-item">Feel the difference<span class="ticker-sep"></span></span>
-  </div>
-</div>
-
-<!-- SERVICES -->
-<section class="services" id="services">
+<!-- ─── SERVICES ─── -->
+<section class="s-services" id="services">
   <div class="container">
-    <div class="sh rv">
-      <span class="ew">What I offer</span>
-      <h2>Three ways to <em>feel good.</em></h2>
+    <div class="svc-header rv">
+      <span class="svc-hd-l">What I offer</span>
+      <span class="svc-hd-r">01 — 03</span>
     </div>
 
-    <div class="svc-grid">
-
-      <div class="svc-card rv">
-        <div class="svc-img">
-          <img
-            src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=700&h=400&q=80"
-            alt="Massage therapy"
-            loading="lazy"
-          />
+    <div class="svc-row rv" id="svc1">
+      <div class="svc-row-head" role="button" tabindex="0" aria-expanded="false" data-target="svc1">
+        <span class="svc-num">01</span>
+        <span class="svc-title">Massage Therapy</span>
+        <span class="svc-price-tag">from £55</span>
+        <span class="svc-plus">+</span>
+      </div>
+      <div class="svc-row-body">
+        <div>
+          <div class="svc-body-img">
+            <img
+              src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=700&h=460&q=80"
+              alt="Massage therapy"
+              loading="lazy"
+            />
+          </div>
         </div>
-        <div class="svc-body">
-          <div class="svc-label">Massage Therapy</div>
-          <h3 class="svc-name">Relax &amp; Restore</h3>
-          <p class="svc-desc">Tailored to your tension — whether you need deep muscle release or a total switch-off from daily stress.</p>
-          <ul class="svc-list">
+        <div class="svc-body-txt">
+          <p class="svc-body-desc">
+            Tailored to your body and tension pattern. Whether you need deep muscle release or a complete switch-off — the session is shaped around you.
+          </p>
+          <ul class="svc-body-list">
             <li>Classic relaxation massage</li>
             <li>Deep tissue / therapeutic</li>
             <li>Anti-cellulite body massage</li>
             <li>Back, neck &amp; shoulder focus</li>
           </ul>
-          <div class="svc-from">
-            <span class="svc-from-txt">from</span>
-            <span class="svc-price">£55</span>
-            <span class="svc-dur">/ 60 min</span>
-          </div>
+          <a href="#booking" class="svc-book-link">Book this service →</a>
         </div>
       </div>
+    </div>
 
-      <div class="svc-card rv d1">
-        <div class="svc-img">
-          <img
-            src="https://images.unsplash.com/photo-1570172619644-b3a8e0bc6d1f?auto=format&fit=crop&w=700&h=400&q=80"
-            alt="Waxing treatment"
-            loading="lazy"
-          />
+    <div class="svc-row rv d1" id="svc2">
+      <div class="svc-row-head" role="button" tabindex="0" aria-expanded="false" data-target="svc2">
+        <span class="svc-num">02</span>
+        <span class="svc-title">Waxing</span>
+        <span class="svc-price-tag">from £25</span>
+        <span class="svc-plus">+</span>
+      </div>
+      <div class="svc-row-body">
+        <div>
+          <div class="svc-body-img">
+            <img
+              src="https://images.unsplash.com/photo-1570172619644-b3a8e0bc6d1f?auto=format&fit=crop&w=700&h=460&q=80"
+              alt="Waxing treatment"
+              loading="lazy"
+            />
+          </div>
         </div>
-        <div class="svc-body">
-          <div class="svc-label">Waxing</div>
-          <h3 class="svc-name">Smooth &amp; Precise</h3>
-          <p class="svc-desc">Professional waxing with careful skin prep — smooth results that last, with minimal discomfort.</p>
-          <ul class="svc-list">
+        <div class="svc-body-txt">
+          <p class="svc-body-desc">
+            Professional waxing with careful skin prep before and soothing care after. Smooth results that last — with minimal discomfort.
+          </p>
+          <ul class="svc-body-list">
             <li>Full leg wax</li>
             <li>Bikini &amp; Hollywood</li>
             <li>Underarms &amp; arms</li>
             <li>Face &amp; brow shaping</li>
           </ul>
-          <div class="svc-from">
-            <span class="svc-from-txt">from</span>
-            <span class="svc-price">£25</span>
-            <span class="svc-dur">/ area</span>
-          </div>
+          <a href="#booking" class="svc-book-link">Book this service →</a>
         </div>
       </div>
+    </div>
 
-      <div class="svc-card rv d2">
-        <div class="svc-img">
-          <img
-            src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=700&h=400&q=80"
-            alt="Skin care treatment"
-            loading="lazy"
-          />
+    <div class="svc-row rv d2" id="svc3">
+      <div class="svc-row-head" role="button" tabindex="0" aria-expanded="false" data-target="svc3">
+        <span class="svc-num">03</span>
+        <span class="svc-title">Skin Care</span>
+        <span class="svc-price-tag">from £45</span>
+        <span class="svc-plus">+</span>
+      </div>
+      <div class="svc-row-body">
+        <div>
+          <div class="svc-body-img">
+            <img
+              src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=700&h=460&q=80"
+              alt="Skin care treatment"
+              loading="lazy"
+            />
+          </div>
         </div>
-        <div class="svc-body">
-          <div class="svc-label">Skin Care</div>
-          <h3 class="svc-name">Glow &amp; Protect</h3>
-          <p class="svc-desc">Result-focused facial and body treatments. Healthy skin isn't a luxury — it's maintenance.</p>
-          <ul class="svc-list">
+        <div class="svc-body-txt">
+          <p class="svc-body-desc">
+            Result-focused facial and body treatments. Healthy skin isn't a luxury — it's something you maintain. Personalised advice included.
+          </p>
+          <ul class="svc-body-list">
             <li>Facial cleanse &amp; hydration</li>
             <li>Body scrub &amp; wrap</li>
-            <li>Post-wax skin soothing</li>
-            <li>Personalised aftercare plan</li>
+            <li>Post-wax soothing</li>
+            <li>Aftercare plan</li>
           </ul>
-          <div class="svc-from">
-            <span class="svc-from-txt">from</span>
-            <span class="svc-price">£45</span>
-            <span class="svc-dur">/ session</span>
-          </div>
+          <a href="#booking" class="svc-book-link">Book this service →</a>
         </div>
       </div>
-
     </div>
+
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about" id="about">
+<!-- ─── ABOUT ─── -->
+<section class="s-about" id="about">
   <div class="container">
     <div class="about-layout">
 
@@ -736,119 +707,87 @@
           alt="Alina Vita — massage therapist"
           loading="lazy"
         />
-        <div class="about-badge">
-          <div class="about-badge-n">5+</div>
-          <div class="about-badge-l">Years of practice</div>
-        </div>
+        <div class="about-img-caption">5+ years of practice</div>
       </div>
 
-      <div class="about-text rv d1">
-        <span class="ew">About Alina</span>
-        <h2>Your<br><em>masseuse.</em></h2>
+      <div class="rv d1">
+        <span class="about-eyebrow">About Alina</span>
+        <h2 class="about-h2">Your<br>masseuse.</h2>
         <p class="about-p">
           I'm Alina — a certified massage therapist and waxing specialist. I work with people who want to feel genuinely better, not just go through the motions of a spa day.
         </p>
         <p class="about-p">
-          Every session is adjusted to you — your tension points, your skin, your goals. No scripts, no rushing. Just the work, done properly.
+          Every session is adjusted to you — your tension, your skin, your goals. No scripts, no rushing. Just the work, done properly.
         </p>
-        <div class="about-tags">
-          <span class="about-tag">Certified Masseuse</span>
-          <span class="about-tag">Waxing Specialist</span>
-          <span class="about-tag">Skin Care Focus</span>
-          <span class="about-tag">5+ years</span>
+        <div class="about-creds">
+          <span class="cred">Certified Masseuse</span>
+          <span class="cred">Waxing Specialist</span>
+          <span class="cred">Skin Care Focus</span>
+          <span class="cred">5+ years</span>
         </div>
-        <a href="#booking" class="btn-p">Book with Alina →</a>
+        <a href="#booking" class="btn-amber">Book with Alina →</a>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- REVIEWS -->
-<section class="reviews" id="reviews">
+<!-- ─── REVIEWS ─── -->
+<section class="s-reviews" id="reviews">
   <div class="container">
-    <div class="reviews-top">
-      <div class="rv">
-        <span class="ew">Client feedback</span>
-        <div class="sh" style="margin-bottom:0;">
-          <h2>What they <em>say.</em></h2>
-        </div>
+    <span class="reviews-label rv">Client feedback</span>
+
+    <div class="r-slider rv d1" id="rSlider">
+      <div class="r-slide active">
+        <span class="r-mark">"</span>
+        <p class="r-text">I came in completely wrecked from work stress. Alina knew exactly where to focus without me explaining everything three times. Left feeling like a different person.</p>
+        <p class="r-who">— Sarah K. &nbsp;<span>· Relaxation massage</span></p>
       </div>
-      <div class="reviews-score rv d1">
-        <div class="reviews-big">4.9</div>
-        <div>
-          <div class="reviews-stars">★★★★★</div>
-          <div class="reviews-cnt">Based on 47 reviews</div>
-        </div>
+      <div class="r-slide">
+        <span class="r-mark">"</span>
+        <p class="r-text">Best waxing I've ever had — genuinely careful and fast. The massage after was incredible. I booked my next session before I even left.</p>
+        <p class="r-who">— Marina T. &nbsp;<span>· Anti-cellulite + Waxing</span></p>
+      </div>
+      <div class="r-slide">
+        <span class="r-mark">"</span>
+        <p class="r-text">Alina really understands skin. She gave me practical advice I could actually follow — not just a sales pitch. My skin has been glowing for two weeks.</p>
+        <p class="r-who">— Julia P. &nbsp;<span>· Skin care facial</span></p>
       </div>
     </div>
 
-    <div class="r-grid">
-      <div class="r-card rv">
-        <div class="r-head">
-          <div class="r-who">
-            <div class="r-av">SK</div>
-            <div>
-              <div class="r-name">Sarah K.</div>
-              <div class="r-svc">Relaxation massage</div>
-            </div>
-          </div>
-          <div class="r-stars">★★★★★</div>
-        </div>
-        <p class="r-quote">"I came in completely wrecked from work stress. Alina knew exactly where to focus without me explaining everything three times. Left feeling like a different person."</p>
-      </div>
-
-      <div class="r-card rv d1">
-        <div class="r-head">
-          <div class="r-who">
-            <div class="r-av">MT</div>
-            <div>
-              <div class="r-name">Marina T.</div>
-              <div class="r-svc">Anti-cellulite + Waxing</div>
-            </div>
-          </div>
-          <div class="r-stars">★★★★★</div>
-        </div>
-        <p class="r-quote">"Best waxing I've ever had — genuinely careful and fast. The massage after was incredible. I booked my next session before I even left."</p>
-      </div>
-
-      <div class="r-card rv d2">
-        <div class="r-head">
-          <div class="r-who">
-            <div class="r-av">JP</div>
-            <div>
-              <div class="r-name">Julia P.</div>
-              <div class="r-svc">Skin care facial</div>
-            </div>
-          </div>
-          <div class="r-stars">★★★★★</div>
-        </div>
-        <p class="r-quote">"Alina really understands skin. She gave me practical advice I could actually follow — not just a sales pitch. My skin has been glowing for two weeks."</p>
+    <div class="reviews-nav rv d2">
+      <button class="r-btn" id="rPrev" aria-label="Previous">←</button>
+      <span class="r-indicator" id="rCount">01 / 03</span>
+      <button class="r-btn" id="rNext" aria-label="Next">→</button>
+      <div class="r-dots" id="rDots">
+        <div class="r-dot active"></div>
+        <div class="r-dot"></div>
+        <div class="r-dot"></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BOOKING -->
-<section class="booking" id="booking">
+<!-- ─── BOOKING ─── -->
+<section class="s-booking" id="booking">
   <div class="container">
-    <div class="booking-in">
+    <div class="booking-grid">
 
       <div class="rv">
-        <span class="ew">Book a session</span>
-        <h2 class="booking-h2">Ready when<br><em>you are.</em></h2>
+        <span class="booking-l-tag">Book a session</span>
+        <h2 class="booking-h2">Ready<br>when <span>you are.</span></h2>
         <p class="booking-sub">Fill in the form and I'll get back to you within a few hours to confirm a time that works.</p>
         <div class="b-contacts">
-          <div class="b-row">
-            <div class="b-ico">📱</div>
+          <div class="b-citem">
+            <div class="b-icon">📱</div>
             <a href="https://wa.me/447000000000">WhatsApp: +44 7000 000 000</a>
           </div>
-          <div class="b-row">
-            <div class="b-ico">📸</div>
-            <a href="https://www.instagram.com/_berberia_/" target="_blank" rel="noopener">@_berberia_ on Instagram</a>
+          <div class="b-citem">
+            <div class="b-icon">📸</div>
+            <a href="https://www.instagram.com/_berberia_/" target="_blank" rel="noopener">@_berberia_</a>
           </div>
-          <div class="b-row">
-            <div class="b-ico">📍</div>
+          <div class="b-citem">
+            <div class="b-icon">📍</div>
             <span>Studio — Central London</span>
           </div>
         </div>
@@ -869,7 +808,7 @@
           <label class="b-lbl" for="bs">Service</label>
           <select class="b-sel" id="bs">
             <option value="">— Choose a service —</option>
-            <option>Classic relaxation massage</option>
+            <option>Relaxation massage</option>
             <option>Anti-cellulite massage</option>
             <option>Deep tissue massage</option>
             <option>Waxing</option>
@@ -885,7 +824,7 @@
           <div class="b-grp">
             <label class="b-lbl" for="bti">Time of day</label>
             <select class="b-sel" id="bti">
-              <option value="">— Morning / Afternoon / Evening —</option>
+              <option value="">— Preference —</option>
               <option>Morning (9am–12pm)</option>
               <option>Afternoon (12pm–5pm)</option>
               <option>Evening (5pm–8pm)</option>
@@ -896,42 +835,98 @@
           <label class="b-lbl" for="bm">Anything to mention?</label>
           <textarea class="b-ta" id="bm" placeholder="E.g. area of tension, skin type, first visit…"></textarea>
         </div>
-        <button type="submit" class="b-sub">Send booking request →</button>
+        <button type="submit" class="b-sub">Send request →</button>
       </form>
 
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ─── FOOTER ─── -->
 <footer class="footer">
-  <div class="container">
-    <div class="footer-in">
-      <div>
-        <a class="footer-logo" href="#">Alina <span>Vita</span></a>
-        <p class="footer-photo-credit" style="margin-top:6px;">Demo photos: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></p>
-      </div>
-      <div class="footer-right">
-        <a href="https://web-orb.uk" class="footer-badge">&#9679;&nbsp; Website Template by WebOrb</a>
-        <span class="footer-note">Demo content only — Alina Vita is a fictional brand for this template.</span>
-      </div>
-    </div>
-  </div>
+  <a class="footer-logo" href="#">Alina <span>Vita</span></a>
+  <span class="footer-mid">
+    Demo photos: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>
+    &nbsp;·&nbsp; Demo content only — Alina Vita is a fictional brand.
+  </span>
+  <a href="https://web-orb.uk" class="footer-badge">&#9679;&nbsp; Website Template by WebOrb</a>
 </footer>
 
 <script>
-// Nav scroll
-window.addEventListener('scroll', function() {
-  document.getElementById('siteNav').classList.toggle('on', scrollY > 10);
-}, { passive: true });
+(function () {
+  'use strict';
 
-// Scroll reveal
-var obs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) {
-    if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+  /* ── Custom cursor ── */
+  var cur = document.getElementById('cur');
+  if (cur && window.matchMedia('(pointer:fine)').matches) {
+    document.addEventListener('mousemove', function (e) {
+      cur.style.transform = 'translate(' + e.clientX + 'px,' + e.clientY + 'px) translate(-50%,-50%)';
+    }, { passive: true });
+    document.querySelectorAll('a, button, .svc-row-head, .r-btn').forEach(function (el) {
+      el.addEventListener('mouseenter', function () { cur.classList.add('big'); });
+      el.addEventListener('mouseleave', function () { cur.classList.remove('big'); });
+    });
+    document.addEventListener('mouseleave', function () { cur.classList.add('hidden'); });
+    document.addEventListener('mouseenter', function () { cur.classList.remove('hidden'); });
+  }
+
+  /* ── Nav scroll ── */
+  window.addEventListener('scroll', function () {
+    document.getElementById('nav').classList.toggle('on', window.scrollY > 20);
+  }, { passive: true });
+
+  /* ── Scroll reveal ── */
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.rv:not(.in)').forEach(function (el) { obs.observe(el); });
+
+  /* ── Service row expand ── */
+  document.querySelectorAll('.svc-row-head').forEach(function (head) {
+    function toggle() {
+      var row = document.getElementById(head.dataset.target);
+      var isOpen = row.classList.contains('open');
+      // close all
+      document.querySelectorAll('.svc-row.open').forEach(function (r) {
+        r.classList.remove('open');
+        r.querySelector('.svc-row-head').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        row.classList.add('open');
+        head.setAttribute('aria-expanded', 'true');
+      }
+    }
+    head.addEventListener('click', toggle);
+    head.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
   });
-}, { threshold: 0.1 });
-document.querySelectorAll('.rv:not(.in)').forEach(function(el) { obs.observe(el); });
+
+  /* ── Reviews slider ── */
+  var slides = document.querySelectorAll('.r-slide');
+  var dots   = document.querySelectorAll('.r-dot');
+  var count  = document.getElementById('rCount');
+  var cur2   = 0;
+
+  function goTo(n) {
+    slides[cur2].classList.remove('active');
+    dots[cur2].classList.remove('active');
+    cur2 = (n + slides.length) % slides.length;
+    slides[cur2].classList.add('active');
+    dots[cur2].classList.add('active');
+    count.textContent = String(cur2 + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+  }
+
+  document.getElementById('rPrev').addEventListener('click', function () { goTo(cur2 - 1); });
+  document.getElementById('rNext').addEventListener('click', function () { goTo(cur2 + 1); });
+  dots.forEach(function (d, i) { d.addEventListener('click', function () { goTo(i); }); });
+
+  // Auto-advance
+  setInterval(function () { goTo(cur2 + 1); }, 6000);
+
+})();
 </script>
 
 </body>
