@@ -124,7 +124,7 @@
        NAV
     ──────────────────────────────────────── */
     .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      position: fixed; top: 54px; left: 0; right: 0; z-index: 1000;
       height: 64px;
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 40px;
@@ -183,7 +183,7 @@
     .hero {
       position: relative; min-height: 100vh;
       display: flex; align-items: flex-end;
-      padding-bottom: 80px; padding-top: 64px;
+      padding-bottom: 80px; padding-top: 118px;
       overflow: hidden;
     }
     .hero-bg {
@@ -851,6 +851,19 @@
   </style>
 </head>
 <body>
+
+<!-- Preview bar config + script -->
+<script>
+  window.__previewBar = {
+    name: "Detailing Template",
+    tiers: [
+      { label: "Lite",     price: "£49",  url: "https://buy.stripe.com/7sY14o7Nb2AGeLoaRDf7i00?client_reference_id=detailing" },
+      { label: "Standard", price: "£99",  url: "https://buy.stripe.com/fZuaEY6J71wC0Uye3Pf7i01?client_reference_id=detailing" },
+      { label: "Pro",      price: "£199", url: "https://buy.stripe.com/00w9AU1oNdfk5aOgbXf7i02?client_reference_id=detailing" }
+    ]
+  };
+</script>
+<script src="/js/preview-bar.js"></script>
 
 <!-- ════════════════════════════════════════
      NAV
