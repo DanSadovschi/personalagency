@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Mobile Car Detailing London — Swift Detail | WebOrb Template — from £49</title>
+  <meta name="description" content="Mobile car detailing website template for UK businesses. Cinematic dark design with video hero, booking form, before/after slider and pricing. Customised for your business from £49." />
+  <link rel="canonical" href="https://web-orb.uk/templates/mobile-detailing/" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:title" content="Mobile Car Detailing Website Template UK — Swift Detail | WebOrb" />
+  <meta property="og:description" content="Mobile car detailing website template. Cinematic dark design, video hero, booking form, before/after slider. Live in 3 days from £49." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://web-orb.uk/templates/mobile-detailing/" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&q=80&auto=format&fit=crop" />
+  <meta property="og:site_name" content="WebOrb" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mobile Car Detailing Website Template UK | WebOrb" />
+  <meta name="twitter:description" content="Mobile car detailing website template. Cinematic dark design, video hero, booking form. From £49." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&q=80&auto=format&fit=crop" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #030308;
+      --surf:       #0a0a12;
+      --surf2:      #0f0f1a;
+      --border:     #1a1a2e;
+      --border2:    #252540;
+      --accent:     #0090ff;
+      --accent-lt:  #40b0ff;
+      --accent-dim: #003a6e;
+      --text:       #f0f0ff;
+      --muted:      #55557a;
+      --muted2:     #8888aa;
+      --font-h:     'Barlow Condensed', Impact, sans-serif;
+      --font-b:     'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius:     6px;
+      --t:          .25s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-b);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent-dim); border-radius: 2px; }
+
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+    /* ─── REVEAL ─── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.vis { opacity: 1; transform: none; }
+
+    /* ─── BUTTONS ─── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      font-family: var(--font-b); font-size: .9rem; font-weight: 600;
+      cursor: pointer; text-decoration: none;
+      transition: all var(--t);
+      border: none;
+    }
+    .btn-primary {
+      background: var(--accent); color: #fff;
+    }
+    .btn-primary:hover { background: var(--accent-lt); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border2);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+    /* ─── SEC LABELS ─── */
+    .sec-label {
+      font-size: .72rem; font-weight: 600; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .sec-title {
+      font-family: var(--font-h);
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .sec-sub {
+      font-size: 1rem; color: var(--muted2); line-height: 1.7;
+      max-width: 560px;
+    }
+
+    /* ════════════════════════════════════════
+       NAV
+    ════════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 54px;
+      left: 0; right: 0;
+      height: 64px;
+      z-index: 800;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background var(--t), border-color var(--t);
+    }
+    .nav.scrolled {
+      background: rgba(3,3,8,.92);
+      border-bottom-color: var(--border);
+    }
+    .nav-logo {
+      font-family: var(--font-h);
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text);
+      white-space: nowrap;
+    }
+    .nav-logo-dot { color: var(--accent); }
+    .nav-center { display: flex; align-items: center; gap: 8px; }
+    .nav-center a {
+      color: var(--muted2); text-decoration: none;
+      font-size: .88rem; font-weight: 500;
+      padding: 6px 14px; border-radius: var(--radius);
+      transition: color var(--t), background var(--t);
+    }
+    .nav-center a:hover { color: var(--text); background: rgba(255,255,255,.04); }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-phone {
+      font-size: .88rem; font-weight: 500; color: var(--muted2);
+      text-decoration: none;
+      transition: color var(--t);
+    }
+    .nav-phone:hover { color: var(--text); }
+    .nav-cta {
+      padding: 9px 20px;
+      background: var(--accent); color: #fff;
+      border-radius: var(--radius);
+      font-size: .85rem; font-weight: 600;
+      text-decoration: none;
+      transition: background var(--t), transform var(--t);
+    }
+    .nav-cta:hover { background: var(--accent-lt); transform: translateY(-1px); }
+    .nav-burger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 4px;
+    }
+    .nav-burger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--text); border-radius: 2px;
+      transition: all var(--t);
+    }
+
+    /* ════════════════════════════════════════
+       HERO
+    ════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 620px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      padding-top: 118px;
+    }
+    .hero-video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(
+        to bottom,
+        rgba(3,3,8,.45) 0%,
+        rgba(3,3,8,.25) 30%,
+        rgba(3,3,8,.55) 70%,
+        rgba(3,3,8,.95) 100%
+      );
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center;
+      padding: 0 20px;
+      max-width: 960px;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: .8rem; font-weight: 500; letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--accent-lt);
+      margin-bottom: 24px;
+      padding: 6px 16px;
+      border: 1px solid rgba(0,144,255,.3);
+      border-radius: 100px;
+      background: rgba(0,144,255,.06);
+    }
+    .hero h1 {
+      font-family: var(--font-h);
+      font-size: clamp(5rem, 11vw, 9rem);
+      font-weight: 900;
+      line-height: .95;
+      letter-spacing: -.01em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 28px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .hero-sub {
+      font-size: clamp(.95rem, 1.8vw, 1.15rem);
+      color: rgba(240,240,255,.7);
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto 36px;
+    }
+    .hero-btns {
+      display: flex; align-items: center; justify-content: center;
+      gap: 16px; flex-wrap: wrap;
+    }
+    .hero-facts {
+      position: absolute;
+      bottom: 0; left: 0; right: 0; z-index: 2;
+      border-top: 1px solid rgba(255,255,255,.08);
+      background: rgba(3,3,8,.7);
+      backdrop-filter: blur(8px);
+      display: flex; justify-content: center; gap: 0;
+    }
+    .hero-fact {
+      padding: 16px 32px;
+      font-size: .82rem; font-weight: 500;
+      color: rgba(240,240,255,.75);
+      border-right: 1px solid rgba(255,255,255,.07);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .hero-fact:last-child { border-right: none; }
+
+    /* ════════════════════════════════════════
+       TICKER
+    ════════════════════════════════════════ */
+    .ticker {
+      background: var(--surf);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-track {
+      display: inline-flex;
+      animation: ticker-scroll 28s linear infinite;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
+    .ticker-item {
+      display: inline-flex; align-items: center; gap: 16px;
+      font-size: .78rem; font-weight: 600; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--muted2);
+      padding: 0 24px;
+    }
+    .ticker-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    @keyframes ticker-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ════════════════════════════════════════
+       USP / HOW IT WORKS
+    ════════════════════════════════════════ */
+    .usp {
+      padding: 100px 0;
+      background: var(--bg);
+    }
+    .usp-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .usp-step {
+      display: flex; gap: 28px;
+      margin-bottom: 48px;
+    }
+    .usp-step:last-child { margin-bottom: 0; }
+    .usp-num {
+      font-family: var(--font-h);
+      font-size: 4rem; font-weight: 900;
+      line-height: 1;
+      color: var(--accent-dim);
+      flex-shrink: 0;
+      width: 80px;
+      text-align: right;
+    }
+    .usp-step-body {}
+    .usp-step-title {
+      font-family: var(--font-h);
+      font-size: 1.7rem; font-weight: 800;
+      letter-spacing: .04em; text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .usp-step-desc {
+      font-size: .95rem; color: var(--muted2); line-height: 1.7;
+    }
+    .usp-img-wrap {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+    }
+    .usp-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+    .usp-badge {
+      position: absolute;
+      bottom: 28px; left: 50%; transform: translateX(-50%);
+      background: var(--accent);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 100px;
+      font-size: .85rem; font-weight: 600;
+      white-space: nowrap;
+      box-shadow: 0 8px 32px rgba(0,144,255,.4);
+    }
+
+    /* ════════════════════════════════════════
+       SERVICES
+    ════════════════════════════════════════ */
+    .services {
+      padding: 100px 0;
+      background: var(--surf);
+    }
+    .services-head {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 48px; gap: 24px;
+    }
+    .services-head .btn { flex-shrink: 0; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+    .svc-card {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .svc-card img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform .6s ease;
+    }
+    .svc-card:hover img { transform: scale(1.05); }
+    .svc-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(3,3,8,.92) 0%, rgba(3,3,8,.2) 55%, transparent 100%);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 28px;
+      transition: background var(--t);
+    }
+    .svc-label {
+      font-size: .72rem; font-weight: 600; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .svc-title {
+      font-family: var(--font-h);
+      font-size: 1.8rem; font-weight: 800;
+      text-transform: uppercase; color: #fff;
+      line-height: 1.1; margin-bottom: 8px;
+    }
+    .svc-desc {
+      font-size: .85rem; color: rgba(240,240,255,.6);
+      line-height: 1.5; margin-bottom: 14px;
+      display: none;
+    }
+    .svc-card:hover .svc-desc { display: block; }
+    .svc-price {
+      font-family: var(--font-h);
+      font-size: 1.3rem; font-weight: 700;
+      color: var(--accent-lt);
+    }
+
+    /* ════════════════════════════════════════
+       COVERAGE AREA
+    ════════════════════════════════════════ */
+    .coverage {
+      padding: 100px 0;
+      background: var(--surf2);
+      text-align: center;
+    }
+    .coverage .sec-sub { margin: 0 auto 48px; }
+    .area-grid {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 10px;
+      max-width: 820px; margin: 0 auto 32px;
+    }
+    .area-pill {
+      padding: 8px 18px;
+      border: 1px solid var(--border2);
+      border-radius: 100px;
+      font-size: .82rem; font-weight: 500;
+      color: var(--muted2);
+      background: var(--surf);
+      transition: all var(--t);
+    }
+    .area-pill:hover {
+      border-color: var(--accent);
+      color: var(--accent-lt);
+      background: rgba(0,144,255,.06);
+    }
+    .coverage-note {
+      font-size: .88rem; color: var(--muted);
+      max-width: 540px; margin: 0 auto;
+    }
+    .coverage-note a { color: var(--accent); text-decoration: none; }
+
+    /* ════════════════════════════════════════
+       BEFORE / AFTER SLIDER
+    ════════════════════════════════════════ */
+    .ba-section {
+      padding: 100px 0;
+      background: var(--bg);
+    }
+    .ba-head {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .ba-head .sec-sub { margin: 0 auto; }
+    .ba-wrap {
+      position: relative;
+      max-width: 880px; margin: 0 auto;
+      border-radius: 12px;
+      overflow: hidden;
+      user-select: none;
+      cursor: col-resize;
+      aspect-ratio: 16/9;
+      border: 1px solid var(--border);
+    }
+    .ba-after, .ba-before {
+      position: absolute; inset: 0;
+    }
+    .ba-after img, .ba-before img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+    .ba-before {
+      clip-path: inset(0 50% 0 0);
+    }
+    .ba-handle {
+      position: absolute; top: 0; bottom: 0;
+      left: 50%;
+      width: 3px;
+      background: #fff;
+      transform: translateX(-50%);
+      z-index: 5;
+    }
+    .ba-handle::before {
+      content: '';
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 4px 16px rgba(0,0,0,.4);
+    }
+    .ba-handle::after {
+      content: '◀ ▶';
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: .6rem; color: var(--bg);
+      white-space: nowrap;
+      z-index: 6;
+      pointer-events: none;
+    }
+    .ba-label {
+      position: absolute; top: 16px;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: .72rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      z-index: 4;
+    }
+    .ba-label-before { left: 16px; background: rgba(0,0,0,.7); color: #fff; }
+    .ba-label-after  { right: 16px; background: var(--accent); color: #fff; }
+
+    /* ════════════════════════════════════════
+       PRICING
+    ════════════════════════════════════════ */
+    .pricing {
+      padding: 100px 0;
+      background: var(--surf);
+    }
+    .pricing-head {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .pricing-head .sec-sub { margin: 0 auto; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .price-card {
+      background: var(--surf2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 36px 28px;
+      position: relative;
+      transition: border-color var(--t), transform var(--t);
+    }
+    .price-card:hover { border-color: var(--border2); transform: translateY(-4px); }
+    .price-card.featured {
+      border-color: var(--accent);
+      background: linear-gradient(135deg, rgba(0,144,255,.06) 0%, var(--surf2) 100%);
+    }
+    .price-card.featured:hover { transform: translateY(-6px); }
+    .price-badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--accent); color: #fff;
+      padding: 4px 16px; border-radius: 100px;
+      font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .price-tier {
+      font-size: .75rem; font-weight: 600; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .price-card.featured .price-tier { color: var(--accent); }
+    .price-amount {
+      font-family: var(--font-h);
+      font-size: 3rem; font-weight: 900;
+      color: var(--text); line-height: 1;
+      margin-bottom: 6px;
+    }
+    .price-from {
+      font-size: .82rem; color: var(--muted2);
+      margin-bottom: 28px;
+    }
+    .price-divider {
+      border: none; border-top: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+    .price-features {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+    .price-features li {
+      font-size: .88rem; color: var(--muted2);
+      padding: 7px 0; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .price-features li::before {
+      content: '';
+      width: 16px; height: 16px; flex-shrink: 0;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%230090ff' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .price-features li:last-child { border-bottom: none; }
+    .price-cta { display: block; width: 100%; text-align: center; }
+
+    /* ════════════════════════════════════════
+       BOOKING FORM
+    ════════════════════════════════════════ */
+    .booking {
+      padding: 100px 0;
+      background: var(--surf2);
+    }
+    .booking-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .booking-info {}
+    .booking-info .sec-sub { max-width: none; margin-top: 16px; }
+    .booking-perks {
+      margin-top: 36px;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .booking-perk {
+      display: flex; align-items: center; gap: 14px;
+      font-size: .9rem; color: var(--muted2);
+    }
+    .booking-perk-icon {
+      width: 38px; height: 38px; flex-shrink: 0;
+      background: rgba(0,144,255,.08);
+      border: 1px solid var(--accent-dim);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .booking-form {
+      background: var(--surf);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-group {
+      display: flex; flex-direction: column; gap: 6px;
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      font-size: .78rem; font-weight: 600;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--muted2);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--surf2);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: var(--font-b);
+      font-size: .9rem;
+      padding: 12px 14px;
+      width: 100%;
+      transition: border-color var(--t);
+      outline: none;
+      -webkit-appearance: none;
+    }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238888aa' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--accent); }
+    .form-group textarea { min-height: 100px; resize: vertical; }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--muted); }
+    .form-submit { display: block; width: 100%; text-align: center; margin-top: 8px; padding: 16px; font-size: 1rem; }
+
+    /* ════════════════════════════════════════
+       TESTIMONIALS
+    ════════════════════════════════════════ */
+    .testi {
+      padding: 100px 0;
+      background: var(--bg);
+    }
+    .testi-head { text-align: center; margin-bottom: 56px; }
+    .testi-head .sec-sub { margin: 0 auto; }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .testi-card {
+      background: var(--surf);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      transition: border-color var(--t);
+    }
+    .testi-card:hover { border-color: var(--border2); }
+    .testi-stars {
+      color: var(--accent-lt);
+      font-size: 1rem;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .testi-quote {
+      font-size: .95rem; color: var(--muted2);
+      line-height: 1.7; font-style: italic;
+      margin-bottom: 24px;
+      flex: 1;
+    }
+    .testi-person {
+      display: flex; align-items: center; gap: 14px;
+    }
+    .testi-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      object-fit: cover; display: block;
+      border: 2px solid var(--border2);
+    }
+    .testi-name {
+      font-weight: 600; font-size: .9rem; color: var(--text);
+    }
+    .testi-car {
+      font-size: .78rem; color: var(--muted);
+    }
+
+    /* ════════════════════════════════════════
+       FAQ
+    ════════════════════════════════════════ */
+    .faq {
+      padding: 100px 0;
+      background: var(--surf2);
+    }
+    .faq-head { text-align: center; margin-bottom: 56px; }
+    .faq-head .sec-sub { margin: 0 auto; }
+    .faq-list {
+      max-width: 760px; margin: 0 auto;
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .faq-item {
+      background: var(--surf);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .faq-q {
+      width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 24px;
+      font-size: .95rem; font-weight: 500; color: var(--text);
+      text-align: left;
+      background: none; border: none; cursor: pointer;
+      transition: background var(--t);
+      gap: 16px;
+    }
+    .faq-q:hover { background: rgba(255,255,255,.02); }
+    .faq-icon {
+      width: 22px; height: 22px; flex-shrink: 0;
+      border: 1px solid var(--border2); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .8rem; color: var(--accent);
+      transition: transform var(--t), border-color var(--t);
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); border-color: var(--accent); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height .35s ease, padding var(--t);
+    }
+    .faq-item.open .faq-a { max-height: 300px; }
+    .faq-a-inner {
+      padding: 0 24px 20px;
+      font-size: .9rem; color: var(--muted2); line-height: 1.7;
+    }
+
+    /* ════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════ */
+    .footer {
+      background: var(--surf);
+      border-top: 1px solid var(--border);
+      padding: 72px 0 0;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 48px;
+      padding-bottom: 56px;
+    }
+    .footer-brand-name {
+      font-family: var(--font-h);
+      font-size: 1.4rem; font-weight: 900;
+      letter-spacing: .04em; text-transform: uppercase;
+      color: var(--text); margin-bottom: 12px;
+    }
+    .footer-brand-name span { color: var(--accent); }
+    .footer-brand-desc {
+      font-size: .875rem; color: var(--muted2); line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .footer-socials { display: flex; gap: 10px; }
+    .footer-social {
+      width: 36px; height: 36px;
+      border: 1px solid var(--border2); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .8rem; color: var(--muted2);
+      text-decoration: none;
+      transition: all var(--t);
+    }
+    .footer-social:hover { border-color: var(--accent); color: var(--accent); }
+    .footer-col-title {
+      font-size: .75rem; font-weight: 700; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a {
+      font-size: .875rem; color: var(--muted2); text-decoration: none;
+      transition: color var(--t);
+    }
+    .footer-links a:hover { color: var(--accent-lt); }
+    .footer-contact-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: .875rem; color: var(--muted2); margin-bottom: 12px;
+    }
+    .footer-contact-icon { color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding: 20px 0;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy { font-size: .8rem; color: var(--muted); }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a {
+      font-size: .8rem; color: var(--muted); text-decoration: none;
+      transition: color var(--t);
+    }
+    .footer-bottom-links a:hover { color: var(--muted2); }
+
+    /* ════════════════════════════════════════
+       PREVIEW BAR (bottom)
+    ════════════════════════════════════════ */
+    .preview-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 9000;
+      background: var(--accent);
+      color: #fff;
+      padding: 12px 24px;
+      display: flex; align-items: center; justify-content: center; gap: 20px;
+      font-size: .82rem; font-weight: 600; letter-spacing: .04em;
+    }
+    .preview-bar a { color: #fff; font-weight: 700; text-decoration: underline; }
+    .pb-close {
+      position: absolute; right: 20px;
+      cursor: pointer; font-size: 1.1rem;
+      opacity: .8; transition: opacity var(--t); background: none; border: none;
+      color: #fff; padding: 4px;
+    }
+    .pb-close:hover { opacity: 1; }
+
+    /* ════════════════════════════════════════
+       MOBILE RESPONSIVE
+    ════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .nav-center { display: none; }
+      .usp-layout { grid-template-columns: 1fr; gap: 56px; }
+      .usp-img-wrap { max-width: 480px; margin: 0 auto; }
+      .booking-layout { grid-template-columns: 1fr; gap: 48px; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav { padding: 0 20px; }
+      .nav-phone { display: none; }
+      .nav-burger { display: flex; }
+
+      .hero h1 { font-size: clamp(3.5rem, 14vw, 5.5rem); }
+      .hero-facts { flex-direction: column; gap: 0; }
+      .hero-fact { border-right: none; border-bottom: 1px solid rgba(255,255,255,.07); width: 100%; justify-content: center; }
+      .hero-fact:last-child { border-bottom: none; }
+
+      .services-grid { grid-template-columns: 1fr; }
+      .svc-card { aspect-ratio: 4/3; }
+
+      .pricing-grid,
+      .testi-grid { grid-template-columns: 1fr; }
+
+      .form-row { grid-template-columns: 1fr; }
+
+      .ba-wrap { aspect-ratio: 4/3; }
+
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .footer-bottom-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Preview bar config + script -->
+<script>
+  window.__previewBar = {
+    name: "Mobile Detailing Template",
+    tiers: [
+      { label: "Lite",     price: "£49",  url: "https://buy.stripe.com/7sY14o7Nb2AGeLoaRDf7i00?client_reference_id=mobile-detailing" },
+      { label: "Standard", price: "£99",  url: "https://buy.stripe.com/fZuaEY6J71wC0Uye3Pf7i01?client_reference_id=mobile-detailing" },
+      { label: "Pro",      price: "£199", url: "https://buy.stripe.com/00w9AU1oNdfk5aOgbXf7i02?client_reference_id=mobile-detailing" }
+    ]
+  };
+</script>
+<script src="/js/preview-bar.js"></script>
+
+<!-- ════════════════════════════════════════
+     NAV
+════════════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">
+    Swift<span class="nav-logo-dot">·</span>Detail
+  </a>
+
+  <div class="nav-center">
+    <a href="#services">Services</a>
+    <a href="#coverage">Area</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#booking">Book</a>
+  </div>
+
+  <div class="nav-right">
+    <a href="tel:02079461234" class="nav-phone">020 7946 1234</a>
+    <a href="#booking" class="nav-cta">Book Now</a>
+    <button class="nav-burger" id="navBurger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <video class="hero-video" autoplay muted loop playsinline
+    poster="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1800&q=80&auto=format&fit=crop">
+    <source src="https://videos.pexels.com/video-files/3209285/3209285-hd_1920_1080_25fps.mp4" type="video/mp4" />
+    <source src="https://assets.mixkit.co/videos/preview/mixkit-washing-a-car-with-a-high-pressure-hose-1102-large.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">&#9733; Mobile Car Detailing &middot; London</div>
+    <h1>DETAILING.<br><em>AT YOUR DOOR.</em></h1>
+    <p class="hero-sub">We bring the studio to you. Professional-grade results at your home, office or anywhere in London.</p>
+    <div class="hero-btns">
+      <a href="#booking" class="btn btn-primary">Book a Visit &rarr;</a>
+      <a href="#services" class="btn btn-outline">See Services</a>
+    </div>
+  </div>
+
+  <div class="hero-facts">
+    <div class="hero-fact">&#9889; Same-day available</div>
+    <div class="hero-fact">&#128205; We come to you</div>
+    <div class="hero-fact">&#128737; Fully insured</div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     TICKER
+════════════════════════════════════════ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-item">FULLY INSURED <span class="ticker-dot"></span></span>
+    <span class="ticker-item">SAME-DAY AVAILABLE <span class="ticker-dot"></span></span>
+    <span class="ticker-item">ECO-FRIENDLY PRODUCTS <span class="ticker-dot"></span></span>
+    <span class="ticker-item">5&#9733; RATED <span class="ticker-dot"></span></span>
+    <span class="ticker-item">NO TRAVEL CHARGE <span class="ticker-dot"></span></span>
+    <span class="ticker-item">LONDON-WIDE COVERAGE <span class="ticker-dot"></span></span>
+    <span class="ticker-item">FULLY INSURED <span class="ticker-dot"></span></span>
+    <span class="ticker-item">SAME-DAY AVAILABLE <span class="ticker-dot"></span></span>
+    <span class="ticker-item">ECO-FRIENDLY PRODUCTS <span class="ticker-dot"></span></span>
+    <span class="ticker-item">5&#9733; RATED <span class="ticker-dot"></span></span>
+    <span class="ticker-item">NO TRAVEL CHARGE <span class="ticker-dot"></span></span>
+    <span class="ticker-item">LONDON-WIDE COVERAGE <span class="ticker-dot"></span></span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     USP — HOW IT WORKS
+════════════════════════════════════════ -->
+<section class="usp" id="how">
+  <div class="container">
+    <div class="usp-layout">
+      <div class="usp-left reveal">
+        <div class="sec-label">How It Works</div>
+        <h2 class="sec-title">We Come<br>To You</h2>
+
+        <div class="usp-step">
+          <div class="usp-num">01</div>
+          <div class="usp-step-body">
+            <div class="usp-step-title">Book Online</div>
+            <p class="usp-step-desc">Choose your service, pick a date and time that suits you, and confirm your booking in under 60 seconds — no phone calls required.</p>
+          </div>
+        </div>
+
+        <div class="usp-step">
+          <div class="usp-num">02</div>
+          <div class="usp-step-body">
+            <div class="usp-step-title">We Arrive at Your Location</div>
+            <p class="usp-step-desc">Our fully-equipped van pulls up to your home, office or wherever your car is parked. We bring everything — water, power, products.</p>
+          </div>
+        </div>
+
+        <div class="usp-step">
+          <div class="usp-num">03</div>
+          <div class="usp-step-body">
+            <div class="usp-step-title">Drive Away Spotless</div>
+            <p class="usp-step-desc">Sit back and relax while we transform your car. When we're done, you'll find it looking better than the day you bought it.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="usp-img-wrap reveal">
+        <img src="https://images.unsplash.com/photo-1493238792000-8113da705763?w=900&q=80&auto=format&fit=crop"
+          alt="Professional car detailing at customer's location" loading="lazy" />
+        <div class="usp-badge">No need to leave home</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SERVICES
+════════════════════════════════════════ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-head reveal">
+      <div>
+        <div class="sec-label">What We Offer</div>
+        <h2 class="sec-title">Our Services</h2>
+      </div>
+      <a href="#booking" class="btn btn-outline">Book a Service &rarr;</a>
+    </div>
+
+    <div class="services-grid reveal">
+      <div class="svc-card">
+        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80&auto=format&fit=crop"
+          alt="Exterior Wash and Wax" loading="lazy" />
+        <div class="svc-overlay">
+          <div class="svc-label">Most Popular</div>
+          <div class="svc-title">Exterior Wash &amp; Wax</div>
+          <p class="svc-desc">Full exterior wash, clay bar treatment, hand wax and tyre dressing. Protection that lasts for months.</p>
+          <div class="svc-price">from £79</div>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&q=80&auto=format&fit=crop"
+          alt="Full Interior Valet" loading="lazy" />
+        <div class="svc-overlay">
+          <div class="svc-label">Interior</div>
+          <div class="svc-title">Full Interior Valet</div>
+          <p class="svc-desc">Deep steam clean, leather conditioning, fabric protection, odour elimination and full sanitisation.</p>
+          <div class="svc-price">from £89</div>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80&auto=format&fit=crop"
+          alt="Paint Correction" loading="lazy" />
+        <div class="svc-overlay">
+          <div class="svc-label">Advanced</div>
+          <div class="svc-title">Paint Correction</div>
+          <p class="svc-desc">Multi-stage machine polishing to remove swirl marks, scratches and oxidation for a mirror-like finish.</p>
+          <div class="svc-price">from £199</div>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80&auto=format&fit=crop"
+          alt="Ceramic Coating" loading="lazy" />
+        <div class="svc-overlay">
+          <div class="svc-label">Premium Protection</div>
+          <div class="svc-title">Ceramic Coating</div>
+          <p class="svc-desc">Professional-grade nano-ceramic coating for 3+ years of protection, hydrophobic surface and stunning gloss.</p>
+          <div class="svc-price">from £349</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     COVERAGE AREA
+════════════════════════════════════════ -->
+<section class="coverage" id="coverage">
+  <div class="container">
+    <div class="reveal">
+      <div class="sec-label">Service Area</div>
+      <h2 class="sec-title">We Cover All of London</h2>
+      <p class="sec-sub">From Chelsea to Canary Wharf, we come to you — wherever you are in the capital.</p>
+    </div>
+
+    <div class="area-grid reveal">
+      <span class="area-pill">Chelsea SW3</span>
+      <span class="area-pill">Kensington W8</span>
+      <span class="area-pill">Westminster SW1</span>
+      <span class="area-pill">Mayfair W1</span>
+      <span class="area-pill">Canary Wharf E14</span>
+      <span class="area-pill">Shoreditch E1</span>
+      <span class="area-pill">Islington N1</span>
+      <span class="area-pill">Notting Hill W11</span>
+      <span class="area-pill">Fulham SW6</span>
+      <span class="area-pill">Battersea SW11</span>
+      <span class="area-pill">Clapham SW4</span>
+      <span class="area-pill">Brixton SW2</span>
+      <span class="area-pill">Greenwich SE10</span>
+      <span class="area-pill">Bermondsey SE1</span>
+      <span class="area-pill">Hackney E8</span>
+      <span class="area-pill">Stratford E15</span>
+      <span class="area-pill">Richmond TW9</span>
+      <span class="area-pill">Wimbledon SW19</span>
+      <span class="area-pill">Putney SW15</span>
+      <span class="area-pill">Camden NW1</span>
+    </div>
+
+    <p class="coverage-note reveal">
+      Don't see your area? <a href="#booking">Get in touch</a> — we travel further for larger jobs.
+    </p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     BEFORE / AFTER
+════════════════════════════════════════ -->
+<section class="ba-section" id="results">
+  <div class="container">
+    <div class="ba-head reveal">
+      <div class="sec-label">The Proof</div>
+      <h2 class="sec-title">Before &amp; After</h2>
+      <p class="sec-sub">Drag the slider to see the transformation. Every car leaves looking its absolute best.</p>
+    </div>
+
+    <div class="ba-wrap reveal" id="baWrap">
+      <div class="ba-after">
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80&auto=format&fit=crop"
+          alt="Car after detailing" loading="lazy" />
+      </div>
+      <div class="ba-before" id="baBefore">
+        <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=1200&q=80&auto=format&fit=crop"
+          alt="Car before detailing" loading="lazy" />
+      </div>
+      <div class="ba-handle" id="baHandle"></div>
+      <span class="ba-label ba-label-before">Before</span>
+      <span class="ba-label ba-label-after">After</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     PRICING
+════════════════════════════════════════ -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="pricing-head reveal">
+      <div class="sec-label">Transparent Pricing</div>
+      <h2 class="sec-title">Simple Packages</h2>
+      <p class="sec-sub">No hidden fees, no surprises. Just outstanding results at fair prices — with everything we need brought to you.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <div class="price-tier">Essential</div>
+        <div class="price-amount">£79</div>
+        <div class="price-from">Starting from</div>
+        <hr class="price-divider" />
+        <ul class="price-features">
+          <li>Full exterior hand wash</li>
+          <li>Wheel &amp; tyre clean</li>
+          <li>Window clean inside &amp; out</li>
+          <li>Interior vacuum &amp; wipe down</li>
+          <li>Air freshener</li>
+        </ul>
+        <a href="#booking" class="btn btn-outline price-cta">Book Essential</a>
+      </div>
+
+      <div class="price-card featured reveal">
+        <div class="price-badge">Most Popular</div>
+        <div class="price-tier">Full Valet</div>
+        <div class="price-amount">£179</div>
+        <div class="price-from">Starting from</div>
+        <hr class="price-divider" />
+        <ul class="price-features">
+          <li>Everything in Essential</li>
+          <li>Machine polish &amp; wax</li>
+          <li>Full interior deep clean</li>
+          <li>Leather condition &amp; protect</li>
+          <li>Engine bay clean</li>
+          <li>Odour treatment</li>
+          <li>Fabric protection spray</li>
+        </ul>
+        <a href="#booking" class="btn btn-primary price-cta">Book Full Valet</a>
+      </div>
+
+      <div class="price-card reveal">
+        <div class="price-tier">Premium Package</div>
+        <div class="price-amount">£399</div>
+        <div class="price-from">Starting from</div>
+        <hr class="price-divider" />
+        <ul class="price-features">
+          <li>Everything in Full Valet</li>
+          <li>Full paint correction</li>
+          <li>Ceramic coating (3yr)</li>
+          <li>Glass treatment</li>
+          <li>Alloy seal &amp; protect</li>
+          <li>Before &amp; after photos</li>
+          <li>6-month follow-up service</li>
+        </ul>
+        <a href="#booking" class="btn btn-outline price-cta">Book Premium</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     BOOKING FORM
+════════════════════════════════════════ -->
+<section class="booking" id="booking">
+  <div class="container">
+    <div class="booking-layout">
+      <div class="booking-info reveal">
+        <div class="sec-label">Book a Visit</div>
+        <h2 class="sec-title">Get Your Car<br>Looking Flawless</h2>
+        <p class="sec-sub">Fill in the form and we'll confirm your booking within 2 hours. We come to you — no dropping off required.</p>
+
+        <div class="booking-perks">
+          <div class="booking-perk">
+            <div class="booking-perk-icon">&#9889;</div>
+            <span>Same-day appointments available on request</span>
+          </div>
+          <div class="booking-perk">
+            <div class="booking-perk-icon">&#128205;</div>
+            <span>We come to your home, office or car park</span>
+          </div>
+          <div class="booking-perk">
+            <div class="booking-perk-icon">&#128737;</div>
+            <span>Fully insured &mdash; your vehicle is always protected</span>
+          </div>
+          <div class="booking-perk">
+            <div class="booking-perk-icon">&#9733;</div>
+            <span>5-star rated by over 300 London customers</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-form reveal">
+        <form id="bookingForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-name">Full Name</label>
+              <input type="text" id="f-name" name="name" placeholder="James Wilson" required />
+            </div>
+            <div class="form-group">
+              <label for="f-phone">Phone Number</label>
+              <input type="tel" id="f-phone" name="phone" placeholder="07700 900 123" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="f-email">Email Address</label>
+            <input type="email" id="f-email" name="email" placeholder="james@example.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="f-service">Service Required</label>
+            <select id="f-service" name="service" required>
+              <option value="" disabled selected>Select a service...</option>
+              <option value="essential">Essential Wash — from £79</option>
+              <option value="exterior">Exterior Wash &amp; Wax — from £79</option>
+              <option value="interior">Full Interior Valet — from £89</option>
+              <option value="full-valet">Full Valet Package — from £179</option>
+              <option value="paint">Paint Correction — from £199</option>
+              <option value="ceramic">Ceramic Coating — from £349</option>
+              <option value="premium">Premium Package — from £399</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-date">Preferred Date</label>
+              <input type="date" id="f-date" name="date" required />
+            </div>
+            <div class="form-group">
+              <label for="f-time">Preferred Time</label>
+              <select id="f-time" name="time" required>
+                <option value="" disabled selected>Select time...</option>
+                <option value="morning">Morning (8am &ndash; 12pm)</option>
+                <option value="afternoon">Afternoon (12pm &ndash; 5pm)</option>
+                <option value="evening">Evening (5pm &ndash; 8pm)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="f-address">Your Location / Address</label>
+            <input type="text" id="f-address" name="address" placeholder="14 Chelsea Manor St, London SW3 5RZ" required />
+          </div>
+
+          <div class="form-group">
+            <label for="f-notes">Additional Notes</label>
+            <textarea id="f-notes" name="notes" placeholder="Car make/model, any specific areas of concern, access details..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary form-submit">Confirm Booking &rarr;</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     TESTIMONIALS
+════════════════════════════════════════ -->
+<section class="testi" id="reviews">
+  <div class="container">
+    <div class="testi-head reveal">
+      <div class="sec-label">Customer Reviews</div>
+      <h2 class="sec-title">What Londoners Say</h2>
+      <p class="sec-sub">Over 300 five-star reviews and counting. Don't take our word for it.</p>
+    </div>
+
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testi-quote">"Absolutely blown away. They turned up on time, were completely professional and my BMW M3 looks better than when I bought it. The ceramic coating is incredible — water just beads straight off. Will never go to a car wash again."</p>
+        <div class="testi-person">
+          <img class="testi-avatar"
+            src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=100&h=100&q=80&auto=format&fit=crop&crop=face"
+            alt="James M" loading="lazy" />
+          <div>
+            <div class="testi-name">James M.</div>
+            <div class="testi-car">BMW M3 Competition &mdash; Chelsea</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testi-quote">"Used Swift Detail for the first time last week and I'm genuinely impressed. They came to my office car park in Canary Wharf, did the full interior valet while I was working, and the car was spotless by the time I finished for the day. Brilliant service."</p>
+        <div class="testi-person">
+          <img class="testi-avatar"
+            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&q=80&auto=format&fit=crop&crop=face"
+            alt="Sarah K" loading="lazy" />
+          <div>
+            <div class="testi-name">Sarah K.</div>
+            <div class="testi-car">Audi A6 &mdash; Canary Wharf</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testi-quote">"I had the paint correction done on my Tesla Model S after some nasty swirl marks appeared. The result is genuinely astonishing — it looks like a brand new car. The team were professional, careful and kept me updated throughout. Highly recommended."</p>
+        <div class="testi-person">
+          <img class="testi-avatar"
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&q=80&auto=format&fit=crop&crop=face"
+            alt="Daniel R" loading="lazy" />
+          <div>
+            <div class="testi-name">Daniel R.</div>
+            <div class="testi-car">Tesla Model S &mdash; Kensington</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     FAQ
+════════════════════════════════════════ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="faq-head reveal">
+      <div class="sec-label">FAQs</div>
+      <h2 class="sec-title">Common Questions</h2>
+      <p class="sec-sub">Everything you need to know before booking your mobile detail.</p>
+    </div>
+
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>How long does it take?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            It depends on the service and vehicle size. An Essential Wash takes around 1.5&ndash;2 hours. A Full Interior Valet takes 3&ndash;4 hours. Paint Correction can take a full day (6&ndash;8 hours). Our Premium Package with ceramic coating typically takes 1&ndash;2 days. We'll give you a precise time estimate when you book.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>Do you need access to water or power?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            No &mdash; our fully self-contained vans carry everything we need, including fresh water tanks, a water recycling system and a generator. You don't need to provide anything. We work from your driveway, office car park, street or any other location.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>Do you cover my area?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            We cover all London postcodes including Chelsea, Kensington, Westminster, Mayfair, Canary Wharf, Shoreditch, Hackney, Brixton, Richmond, Wimbledon and everywhere in between. For locations just outside the M25, we're happy to travel for larger jobs &mdash; just get in touch and we'll confirm availability.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>What if it rains?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Light rain is usually fine &mdash; we carry pop-up shelters and can work in covered areas. For exterior polishing or ceramic coating, we'll reschedule to the next dry day at no charge. We monitor weather forecasts and will contact you in advance if we need to move your appointment.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>Are you insured?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Yes, fully. We carry comprehensive public liability insurance and motor trade insurance that covers your vehicle while it's in our care. All of our detailers are background-checked, professionally trained and experienced. You can request a copy of our insurance documents at any time.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Swift<span>·</span>Detail</div>
+        <p class="footer-brand-desc">London's premier mobile car detailing service. We bring professional-grade results directly to your door, your office, or wherever your car is parked.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" aria-label="Instagram">&#x1D4D8;</a>
+          <a href="#" class="footer-social" aria-label="Facebook">f</a>
+          <a href="#" class="footer-social" aria-label="Google">G</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="#services">Exterior Wash &amp; Wax</a></li>
+          <li><a href="#services">Full Interior Valet</a></li>
+          <li><a href="#services">Paint Correction</a></li>
+          <li><a href="#services">Ceramic Coating</a></li>
+          <li><a href="#pricing">Full Valet Package</a></li>
+          <li><a href="#pricing">Premium Package</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Areas We Cover</div>
+        <ul class="footer-links">
+          <li><a href="#coverage">Chelsea &amp; Kensington</a></li>
+          <li><a href="#coverage">Westminster &amp; Mayfair</a></li>
+          <li><a href="#coverage">Canary Wharf</a></li>
+          <li><a href="#coverage">Shoreditch &amp; Hackney</a></li>
+          <li><a href="#coverage">Fulham &amp; Battersea</a></li>
+          <li><a href="#coverage">Richmond &amp; Wimbledon</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-contact-item">
+          <span class="footer-contact-icon">&#128222;</span>
+          <a href="tel:02079461234" style="color:inherit;text-decoration:none;">020 7946 1234</a>
+        </div>
+        <div class="footer-contact-item">
+          <span class="footer-contact-icon">&#9993;</span>
+          <a href="mailto:hello@swiftdetail.co.uk" style="color:inherit;text-decoration:none;">hello@swiftdetail.co.uk</a>
+        </div>
+        <div class="footer-contact-item">
+          <span class="footer-contact-icon">&#128337;</span>
+          <span>Mon&ndash;Sat: 7am &ndash; 8pm<br>Sunday: 9am &ndash; 6pm</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="footer-contact-icon">&#128205;</span>
+          <span>London-wide coverage<br>No fixed base &mdash; we come to you</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 Swift Detail. All rights reserved. Template by <a href="https://web-orb.uk" style="color:var(--muted2);text-decoration:none;">WebOrb</a>.</div>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+        <a href="https://web-orb.uk">Template by WebOrb</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ════════════════════════════════════════
+     PREVIEW BAR (bottom)
+════════════════════════════════════════ -->
+<div class="preview-bar" id="previewBar">
+  <span>&#128075; This is a <strong>WebOrb template preview</strong> &mdash; <a href="https://web-orb.uk/#contact">get this customised for your business from £49</a></span>
+  <button class="pb-close" onclick="document.getElementById('previewBar').remove()" aria-label="Close">&#x2715;</button>
+</div>
+
+<script>
+  /* ── NAV SCROLL ── */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  /* ── REVEAL ON SCROLL ── */
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('vis');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  /* ── BEFORE / AFTER SLIDER ── */
+  (function () {
+    const wrap   = document.getElementById('baWrap');
+    const before = document.getElementById('baBefore');
+    const handle = document.getElementById('baHandle');
+    if (!wrap) return;
+
+    let dragging = false;
+
+    function setPos(clientX) {
+      const rect = wrap.getBoundingClientRect();
+      let pct = (clientX - rect.left) / rect.width;
+      pct = Math.max(0.02, Math.min(0.98, pct));
+      const pctPc = (pct * 100).toFixed(2) + '%';
+      before.style.clipPath = 'inset(0 ' + (100 - pct * 100).toFixed(2) + '% 0 0)';
+      handle.style.left = pctPc;
+    }
+
+    wrap.addEventListener('mousedown', e => { dragging = true; setPos(e.clientX); });
+    window.addEventListener('mousemove', e => { if (dragging) setPos(e.clientX); });
+    window.addEventListener('mouseup', () => { dragging = false; });
+
+    wrap.addEventListener('touchstart', e => { dragging = true; setPos(e.touches[0].clientX); }, { passive: true });
+    window.addEventListener('touchmove', e => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
+    window.addEventListener('touchend', () => { dragging = false; });
+  })();
+
+  /* ── FAQ ACCORDION ── */
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+
+      document.querySelectorAll('.faq-item.open').forEach(openItem => {
+        openItem.classList.remove('open');
+        openItem.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  /* ── NAV BURGER (mobile) ── */
+  const burger = document.getElementById('navBurger');
+  if (burger) {
+    burger.addEventListener('click', () => {
+      const center = nav.querySelector('.nav-center');
+      if (!center) return;
+      if (center.style.display === 'flex') {
+        center.style.display = '';
+      } else {
+        center.style.display = 'flex';
+        center.style.flexDirection = 'column';
+        center.style.position = 'absolute';
+        center.style.top = '64px';
+        center.style.left = '0';
+        center.style.right = '0';
+        center.style.background = 'rgba(3,3,8,.97)';
+        center.style.padding = '16px 24px';
+        center.style.borderBottom = '1px solid var(--border)';
+        center.style.zIndex = '900';
+      }
+    });
+  }
+
+  /* ── BOOKING FORM ── */
+  const bookingForm = document.getElementById('bookingForm');
+  if (bookingForm) {
+    // Set min date to today
+    const dateInput = document.getElementById('f-date');
+    if (dateInput) {
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.min = today;
+    }
+
+    bookingForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = bookingForm.querySelector('.form-submit');
+      btn.textContent = 'Booking Confirmed!';
+      btn.style.background = '#16a34a';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = 'Confirm Booking \u2192';
+        btn.style.background = '';
+        btn.disabled = false;
+        bookingForm.reset();
+      }, 4000);
+    });
+  }
+</script>
+</body>
+</html>
