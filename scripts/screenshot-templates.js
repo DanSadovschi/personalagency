@@ -23,17 +23,26 @@ const OUT_DIR = path.join(__dirname, '../src/img/templates');
   const browser = await chromium.launch();
   const page = await browser.newPage();
 
-  // Match the iframe dimensions used in cards
   await page.setViewportSize({ width: 1280, height: 900 });
+
+  // Redirect Google Fonts to Bunny Fonts (same API, accessible in this environment)
+  await page.route('**://fonts.googleapis.com/**', async (route) => {
+    const url = route.request().url().replace('fonts.googleapis.com', 'fonts.bunny.net');
+    await route.continue({ url });
+  });
 
   for (const slug of templates) {
     const url = `${BASE_URL}/templates/${slug}/`;
     console.log(`Screenshotting ${slug}...`);
 
-    await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
+    // 'load' instead of 'networkidle' — avoids hanging on video streams
+    await page.goto(url, { waitUntil: 'load', timeout: 30000 });
 
-    // Let any CSS animations settle
-    await page.waitForTimeout(800);
+    // Wait for fonts to finish loading
+    await page.evaluate(() => document.fonts.ready);
+
+    // Give background images and CSS animations time to settle
+    await page.waitForTimeout(1500);
 
     const outPath = path.join(OUT_DIR, `${slug}.jpg`);
     await page.screenshot({
