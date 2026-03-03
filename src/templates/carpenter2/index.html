@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carpenter &amp; Joinery Website Template UK — Dark Workshop Studio | WebOrb — from £49</title>
+  <meta name="description" content="Premium dark website template for UK carpenters and bespoke furniture makers. Split-layout hero, horizontal scroll process, wood species selector, masonry portfolio and quote form. From £49." />
+  <link rel="canonical" href="https://web-orb.uk/templates/carpenter2/" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Carpenter &amp; Joinery Website Template UK — Dark Workshop Studio | WebOrb" />
+  <meta property="og:description" content="Premium dark website template for bespoke carpenters and furniture makers. Copper accents, horizontal scroll process, wood species selector. From £49." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://web-orb.uk/templates/carpenter2/" />
+  <meta property="og:site_name" content="WebOrb" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Workshop Co",
+    "description": "Bespoke carpentry and joinery for architects, interior designers and discerning homeowners.",
+    "url": "https://web-orb.uk/templates/carpenter2/",
+    "@id": "https://web-orb.uk/templates/carpenter2/"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── RESET ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    img  { display: block; max-width: 100%; }
+    a    { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    ul, ol { list-style: none; }
+
+    /* ─── TOKENS ─────────────────────────────────────────────── */
+    :root {
+      --bg:         #111009;
+      --surface:    #1c1a14;
+      --surface2:   #231f17;
+      --copper:     #c9923f;
+      --gold:       #e8b96a;
+      --copper-dim: rgba(201,146,63,.18);
+      --copper-glow:rgba(201,146,63,.10);
+      --text:       #f0ede4;
+      --muted:      #7a7265;
+      --border:     rgba(201,146,63,.15);
+      --border-mid: rgba(201,146,63,.28);
+      --font-d:     'Cormorant Garamond', Georgia, serif;
+      --font-b:     'DM Sans', system-ui, sans-serif;
+      --ease:       cubic-bezier(.16,1,.3,1);
+      --t:          .25s ease;
+      --radius:     4px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-b);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* subtle grain */
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: .025;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--copper); border-radius: 2px; }
+
+    /* ─── UTILS ─────────────────────────────────────────────── */
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 28px; }
+
+    .rv { opacity: 0; transform: translateY(28px);
+          transition: opacity .8s var(--ease), transform .8s var(--ease); }
+    .rv.in { opacity: 1; transform: none; }
+    .rv.d1 { transition-delay: .12s; }
+    .rv.d2 { transition-delay: .24s; }
+    .rv.d3 { transition-delay: .36s; }
+
+    .eyebrow {
+      font-size: .7rem; font-weight: 500;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: var(--copper); display: flex; align-items: center; gap: 14px;
+      margin-bottom: 20px;
+    }
+    .eyebrow::before { content:''; width: 32px; height: 1px; background: var(--copper); flex-shrink:0; }
+
+    .sec-h2 {
+      font-family: var(--font-d);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300; line-height: 1.1;
+      color: var(--text); margin-bottom: 16px;
+    }
+    .sec-h2 em { font-style: italic; color: var(--copper); }
+
+    /* ─── BUTTONS ───────────────────────────────────────────── */
+    .btn-copper {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--copper); color: var(--bg);
+      font-family: var(--font-b); font-size: .8rem;
+      font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+      padding: 13px 28px; border-radius: var(--radius);
+      text-decoration: none; border: none; cursor: pointer;
+      transition: background var(--t), transform var(--t), box-shadow var(--t);
+    }
+    .btn-copper:hover { background: var(--gold); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,146,63,.3); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--text);
+      font-family: var(--font-b); font-size: .8rem;
+      font-weight: 500; letter-spacing: .08em;
+      padding: 13px 24px;
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius);
+      text-decoration: none; cursor: pointer;
+      transition: border-color var(--t), color var(--t);
+    }
+    .btn-ghost:hover { border-color: var(--copper); color: var(--copper); }
+
+    /* ─── NAV ───────────────────────────────────────────────── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 1000; height: 68px;
+      display: grid; grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 0 40px;
+      border-bottom: 1px solid transparent;
+      transition: background .4s, border-color .4s, backdrop-filter .4s;
+    }
+    .nav.scrolled {
+      background: rgba(17,16,9,.92);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-color: var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-d);
+      font-size: 1.1rem; font-weight: 600;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--text); text-decoration: none;
+    }
+    .nav-logo span { color: var(--copper); }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 36px;
+    }
+    .nav-links a {
+      font-size: .78rem; font-weight: 400;
+      letter-spacing: .06em; color: var(--muted);
+      transition: color var(--t);
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-right { display: flex; justify-content: flex-end; }
+    .nav-cta {
+      font-size: .72rem; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: 9px 22px;
+      border: 1px solid var(--copper);
+      border-radius: var(--radius);
+      color: var(--copper);
+      text-decoration: none;
+      transition: background var(--t), color var(--t);
+    }
+    .nav-cta:hover { background: var(--copper); color: var(--bg); }
+
+    /* ─── HERO ──────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding-top: 68px;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      padding: 80px 60px 80px max(28px, calc((100vw - 1240px) / 2 + 28px));
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative;
+    }
+    .hero-left::before {
+      content: '';
+      position: absolute; left: 0; top: 15%; bottom: 15%; width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--copper), transparent);
+    }
+
+    .hero-h1 {
+      font-family: var(--font-d);
+      font-size: clamp(3rem, 5.5vw, 5.5rem);
+      font-weight: 300; line-height: 1.05; letter-spacing: -.01em;
+      color: var(--text); margin-bottom: 24px;
+    }
+    .hero-h1 em { font-style: italic; color: var(--copper); display: block; }
+
+    .hero-tagline {
+      font-size: 1rem; color: var(--muted);
+      line-height: 1.75; max-width: 420px;
+      margin-bottom: 40px;
+    }
+
+    .hero-stats { display: flex; gap: 48px; margin-bottom: 44px; }
+    .hero-stat-num {
+      font-family: var(--font-d);
+      font-size: 3rem; font-weight: 300; line-height: 1;
+      color: var(--copper);
+    }
+    .hero-stat-num sup { font-size: 1.1rem; vertical-align: super; }
+    .hero-stat-label {
+      font-size: .72rem; color: var(--muted);
+      letter-spacing: .12em; text-transform: uppercase; margin-top: 4px;
+    }
+
+    .hero-actions { display: flex; gap: 16px; align-items: center; }
+
+    .hero-right {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      padding: 80px 60px;
+      min-height: 100vh;
+    }
+
+    .hero-img-wrap { perspective: 1200px; }
+
+    #heroStack {
+      position: relative;
+      width: 380px; height: 480px;
+      transform-style: preserve-3d;
+    }
+
+    .stack-card {
+      position: absolute;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .stack-card::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        168deg,
+        transparent,
+        transparent 16px,
+        rgba(255,255,255,.04) 16px,
+        rgba(255,255,255,.04) 17px
+      );
+    }
+
+    .stack-card:nth-child(1) {
+      width: 260px; height: 340px;
+      top: 60px; left: 80px;
+      transform: rotate(7deg);
+      background: linear-gradient(145deg, #2a1a0a, #5a3018);
+      box-shadow: 0 20px 60px rgba(0,0,0,.55);
+      z-index: 1;
+    }
+    .stack-card:nth-child(2) {
+      width: 290px; height: 370px;
+      top: 30px; left: 40px;
+      transform: rotate(-3deg);
+      background: linear-gradient(145deg, #8b5e3c, #6b3a1f);
+      box-shadow: 0 24px 70px rgba(0,0,0,.55);
+      z-index: 2;
+    }
+    .stack-card:nth-child(3) {
+      width: 320px; height: 410px;
+      top: 0; left: 0;
+      transform: rotate(-1deg);
+      background: linear-gradient(145deg, #b8813a, #8a5f26);
+      box-shadow: 0 28px 80px rgba(0,0,0,.6), 0 0 0 1px var(--border-mid);
+      z-index: 3;
+    }
+    .stack-label {
+      position: absolute; bottom: 22px; left: 22px;
+      font-family: var(--font-d); font-size: 1.1rem;
+      font-style: italic; color: rgba(17,16,9,.75);
+      letter-spacing: .04em; z-index: 2;
+    }
+
+    /* hero badge floating */
+    .hero-badge {
+      position: absolute; top: 28px; right: 28px; z-index: 4;
+      background: var(--bg); border: 1px solid var(--border-mid);
+      border-radius: 6px; padding: 14px 18px; text-align: center;
+    }
+    .hero-badge-num {
+      font-family: var(--font-d);
+      font-size: 1.8rem; font-weight: 300; line-height: 1;
+      color: var(--copper); display: block;
+    }
+    .hero-badge-label {
+      font-size: .64rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted); margin-top: 4px;
+    }
+
+    /* ─── SERVICES ──────────────────────────────────────────── */
+    .services { padding: 120px 0 0; background: var(--surface); }
+
+    .services-top { padding-bottom: 40px; }
+
+    .svc-tabs {
+      display: flex; gap: 0;
+      border-bottom: 1px solid var(--border);
+      overflow-x: auto;
+    }
+    .svc-tab {
+      font-family: var(--font-d);
+      font-size: 1.1rem; font-weight: 400; font-style: italic;
+      color: var(--muted);
+      padding: 14px 36px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color var(--t), border-color var(--t);
+      white-space: nowrap; background: none; border-top: none; border-left: none; border-right: none;
+    }
+    .svc-tab:hover { color: var(--text); }
+    .svc-tab.active { color: var(--copper); border-bottom-color: var(--copper); }
+
+    .svc-panel {
+      position: relative; height: 300px; overflow: hidden;
+    }
+    .svc-bg {
+      position: absolute; inset: 0;
+      opacity: 0; transition: opacity .5s ease;
+    }
+    .svc-bg.active { opacity: 1; }
+    .svc-bg-0 { background: linear-gradient(135deg, #1a0f06 0%, #3d2210 40%, #6b3a1f 100%); }
+    .svc-bg-1 { background: linear-gradient(135deg, #0f0d08 0%, #2a2218 40%, #4a3c28 100%); }
+    .svc-bg-2 { background: linear-gradient(135deg, #100800 0%, #2e1a06 40%, #5a3520 100%); }
+
+    .svc-panel-text {
+      position: absolute; bottom: 32px; left: 48px; right: 48px;
+      z-index: 2; display: none;
+    }
+    .svc-panel-text.active { display: block; }
+
+    .svc-panel-heading {
+      font-family: var(--font-d);
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      font-weight: 300; font-style: italic;
+      color: var(--text); line-height: 1.1; margin-bottom: 8px;
+    }
+    .svc-panel-sub { font-size: .9rem; color: rgba(240,237,228,.55); }
+
+    .svc-features {
+      border-top: 1px solid var(--border);
+    }
+    .svc-feature-pane {
+      display: none;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+    .svc-feature-pane.active { display: grid; }
+
+    .svc-feat {
+      background: var(--surface);
+      padding: 36px 32px;
+      transition: background var(--t);
+    }
+    .svc-feat:hover { background: var(--surface2); }
+    .svc-feat-num {
+      font-family: var(--font-d);
+      font-size: 2.5rem; font-weight: 300;
+      color: var(--border-mid); line-height: 1; margin-bottom: 16px;
+    }
+    .svc-feat-title {
+      font-family: var(--font-d);
+      font-size: 1.1rem; font-weight: 600;
+      color: var(--text); margin-bottom: 10px;
+    }
+    .svc-feat-desc { font-size: .875rem; color: var(--muted); line-height: 1.7; }
+
+    /* ─── PROCESS (horizontal scroll) ───────────────────────── */
+    .process-outer {
+      height: calc(100vh * 5);
+      position: relative;
+    }
+    .process-sticky {
+      position: sticky;
+      top: 68px;
+      height: calc(100vh - 68px);
+      overflow: hidden;
+      background: var(--bg);
+      display: flex; align-items: center;
+      border-top: 1px solid var(--border);
+    }
+    .process-header {
+      position: absolute;
+      top: 40px;
+      left: max(28px, calc((100vw - 1240px) / 2 + 28px));
+      z-index: 2;
+    }
+    .process-header .eyebrow { margin-bottom: 10px; }
+    .process-header .sec-h2 { margin-bottom: 0; font-size: clamp(1.6rem, 2.5vw, 2.2rem); }
+
+    .process-track {
+      display: flex;
+      width: max-content;
+      will-change: transform;
+      padding-bottom: 60px;
+    }
+    .process-step {
+      width: 440px; padding: 0 60px;
+      flex-shrink: 0;
+      opacity: 0; transform: translateX(40px);
+      transition: opacity .6s var(--ease), transform .6s var(--ease);
+    }
+    .process-step.vis { opacity: 1; transform: none; }
+    .process-step:first-child {
+      padding-left: max(28px, calc((100vw - 1240px) / 2 + 28px));
+    }
+
+    .step-number {
+      font-family: var(--font-d);
+      font-size: 7rem; font-weight: 300; line-height: 1;
+      color: var(--border); margin-bottom: 20px;
+    }
+    .step-title {
+      font-family: var(--font-d);
+      font-size: 1.9rem; font-weight: 600;
+      color: var(--text); margin-bottom: 14px; line-height: 1.15;
+    }
+    .step-desc {
+      font-size: .9rem; color: var(--muted);
+      line-height: 1.75; max-width: 320px;
+    }
+
+    .process-dots {
+      position: absolute; bottom: 36px;
+      left: max(28px, calc((100vw - 1240px) / 2 + 28px));
+      display: flex; gap: 10px; align-items: center;
+    }
+    .process-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--border); cursor: pointer;
+      transition: background .3s, width .3s;
+      border: none;
+    }
+    .process-dot.active { background: var(--copper); width: 24px; border-radius: 3px; }
+
+    .process-progress {
+      position: absolute; bottom: 0; left: 0;
+      height: 2px; background: var(--copper); width: 0%;
+    }
+
+    /* ─── PORTFOLIO ─────────────────────────────────────────── */
+    .portfolio { padding: 120px 0; background: var(--bg); border-top: 1px solid var(--border); }
+
+    .port-grid {
+      columns: 3;
+      column-gap: 14px;
+      margin-top: 60px;
+    }
+    .port-card {
+      break-inside: avoid;
+      margin-bottom: 14px;
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .port-visual {
+      width: 100%; display: block;
+    }
+    .port-card:nth-child(3n+1) .port-visual { height: 280px; }
+    .port-card:nth-child(3n+2) .port-visual { height: 220px; }
+    .port-card:nth-child(3n)   .port-visual { height: 320px; }
+
+    .port-overlay {
+      position: absolute; inset: 0;
+      background: rgba(17,16,9,.8);
+      opacity: 0; display: flex; align-items: center; justify-content: center;
+      transition: opacity .35s var(--ease);
+    }
+    .port-card:hover .port-overlay { opacity: 1; }
+
+    .port-view-btn {
+      font-family: var(--font-d); font-style: italic;
+      font-size: 1.1rem; color: var(--text); letter-spacing: .06em;
+    }
+
+    .port-info {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 48px 20px 18px;
+      background: linear-gradient(to top, rgba(17,16,9,.9), transparent);
+    }
+    .port-name { font-size: .88rem; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+    .port-tag {
+      font-size: .66rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--copper);
+      background: rgba(201,146,63,.12);
+      border: 1px solid rgba(201,146,63,.2);
+      padding: 3px 10px; border-radius: 3px;
+      display: inline-block;
+    }
+
+    .pg-1 { background: linear-gradient(145deg, #2a1a0a, #5a3018); }
+    .pg-2 { background: linear-gradient(145deg, #c9923f, #9a6422); }
+    .pg-3 { background: linear-gradient(145deg, #1a120a, #3d2210); }
+    .pg-4 { background: linear-gradient(145deg, #8b5e3c, #6b3a1f); }
+    .pg-5 { background: linear-gradient(145deg, #3d2210, #7a4a22); }
+    .pg-6 { background: linear-gradient(145deg, #4a3020, #8c6440); }
+
+    /* ─── SPECIES SELECTOR ──────────────────────────────────── */
+    .species { padding: 120px 0; background: var(--surface); border-top: 1px solid var(--border); }
+
+    .species-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+
+    .species-preview {
+      aspect-ratio: 3/4;
+      border-radius: 8px;
+      position: relative; overflow: hidden;
+      background: linear-gradient(145deg, #d4a574, #a06828);
+      box-shadow: 0 40px 80px rgba(0,0,0,.5);
+      transition: opacity .25s ease;
+    }
+    .species-preview::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        168deg,
+        transparent,
+        transparent 18px,
+        rgba(255,255,255,.04) 18px,
+        rgba(255,255,255,.04) 19px
+      );
+    }
+    .species-preview-label {
+      position: absolute; bottom: 28px; left: 28px; z-index: 2;
+      font-family: var(--font-d); font-size: 1.3rem; font-style: italic;
+      color: rgba(240,237,228,.7); letter-spacing: .06em;
+    }
+
+    .species-right { }
+    .species-title {
+      font-family: var(--font-d);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 300; line-height: 1.15;
+      color: var(--text); margin-bottom: 20px;
+      margin-top: 20px;
+    }
+    .species-desc {
+      font-size: .95rem; color: var(--muted);
+      line-height: 1.75; max-width: 420px; margin-bottom: 40px;
+    }
+
+    .swatches { display: flex; gap: 16px; flex-wrap: wrap; }
+    .swatch-btn {
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      cursor: pointer; background: none; border: none;
+    }
+    .swatch-circle {
+      width: 56px; height: 56px; border-radius: 50%;
+      border: 2px solid transparent;
+      transition: border-color .3s, transform .2s;
+    }
+    .swatch-btn.active .swatch-circle { border-color: var(--copper); transform: scale(1.1); }
+    .swatch-btn:hover .swatch-circle { transform: scale(1.05); }
+    .swatch-name {
+      font-size: .66rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted); font-weight: 500;
+    }
+
+    .sw-oak    .swatch-circle { background: radial-gradient(circle at 40% 40%, #d4a574, #a06828); }
+    .sw-walnut .swatch-circle { background: radial-gradient(circle at 40% 40%, #5a3018, #2a1a0a); }
+    .sw-cherry .swatch-circle { background: radial-gradient(circle at 40% 40%, #9b4a34, #621f10); }
+    .sw-ash    .swatch-circle { background: radial-gradient(circle at 40% 40%, #d4c8b0, #a09278); }
+    .sw-pine   .swatch-circle { background: radial-gradient(circle at 40% 40%, #e8d4a0, #c4a060); }
+
+    /* ─── TESTIMONIALS ──────────────────────────────────────── */
+    .testimonials { padding: 120px 0; background: var(--bg); border-top: 1px solid var(--border); }
+
+    .testi-wrap { position: relative; min-height: 260px; }
+    .testi-slide {
+      position: absolute; inset: 0;
+      opacity: 0; transition: opacity .6s var(--ease);
+      pointer-events: none;
+    }
+    .testi-slide.active { opacity: 1; pointer-events: all; }
+
+    .testi-mark {
+      font-family: var(--font-d);
+      font-size: 6rem; line-height: .6;
+      color: var(--copper); opacity: .22;
+      display: block; margin-bottom: 20px;
+    }
+    .testi-quote {
+      font-family: var(--font-d);
+      font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+      font-style: italic; font-weight: 300;
+      line-height: 1.45; color: var(--text);
+      max-width: 860px; margin-bottom: 28px;
+    }
+    .testi-client { font-size: .82rem; color: var(--muted); letter-spacing: .06em; }
+    .testi-client strong { color: var(--copper); font-weight: 500; }
+
+    .testi-dots { display: flex; gap: 10px; margin-top: 52px; }
+    .testi-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--border); cursor: pointer;
+      transition: background .3s, width .3s; border: none;
+    }
+    .testi-dot.active { background: var(--copper); width: 24px; border-radius: 3px; }
+
+    /* ─── CONTACT ───────────────────────────────────────────── */
+    .contact { padding: 120px 0; background: var(--surface); border-top: 1px solid var(--border); }
+
+    .contact-box {
+      border: 1px solid var(--border-mid);
+      border-radius: 8px;
+      padding: 72px 64px;
+      background: var(--surface2);
+      position: relative; overflow: hidden;
+    }
+    .contact-box::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(to right, transparent, var(--copper), transparent);
+    }
+
+    .contact-layout {
+      display: grid; grid-template-columns: 1fr 1.4fr;
+      gap: 80px; align-items: start;
+    }
+
+    .contact-h2 {
+      font-family: var(--font-d);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 300; line-height: 1.15;
+      color: var(--text); margin: 20px 0 16px;
+    }
+    .contact-h2 em { font-style: italic; color: var(--copper); }
+    .contact-sub { font-size: .95rem; color: var(--muted); line-height: 1.75; max-width: 360px; margin-bottom: 36px; }
+
+    .c-info-item { margin-bottom: 18px; }
+    .c-info-label {
+      font-size: .62rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--muted); display: block; margin-bottom: 4px;
+    }
+    .c-info-item a, .c-info-item span { font-size: .9rem; color: var(--text); }
+    .c-info-item a:hover { color: var(--copper); }
+
+    .c-form { display: flex; flex-direction: column; gap: 20px; }
+    .c-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .c-grp { display: flex; flex-direction: column; }
+
+    .c-label {
+      font-size: .6rem; font-weight: 500;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 7px;
+    }
+    .c-input, .c-select, .c-textarea {
+      width: 100%;
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: var(--font-b); font-size: .88rem;
+      padding: 12px 16px; outline: none;
+      transition: border-color var(--t);
+      -webkit-appearance: none;
+    }
+    .c-input::placeholder { color: var(--muted); }
+    .c-input:focus, .c-select:focus, .c-textarea:focus { border-color: var(--copper); }
+    .c-textarea { resize: vertical; min-height: 100px; }
+    option { background: #1c1a14; color: var(--text); }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    .footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 32px 40px;
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 20px;
+    }
+    .footer-logo {
+      font-family: var(--font-d);
+      font-size: 1rem; font-style: italic;
+      letter-spacing: .12em; color: var(--muted);
+    }
+    .footer-logo span { color: var(--copper); }
+    .footer-nav { display: flex; gap: 28px; }
+    .footer-nav a {
+      font-size: .78rem; color: var(--muted);
+      transition: color var(--t);
+    }
+    .footer-nav a:hover { color: var(--text); }
+    .footer-copy { font-size: .72rem; color: var(--muted); }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-right { display: none; }
+      .hero-left { padding: 140px 28px 80px; }
+      .hero-left::before { display: none; }
+      .species-inner { grid-template-columns: 1fr; gap: 48px; }
+      .contact-layout { grid-template-columns: 1fr; gap: 48px; }
+      .svc-feature-pane { grid-template-columns: 1fr 1fr; }
+      .port-grid { columns: 2; }
+      .process-step { width: 360px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero-h1 { font-size: clamp(2.4rem, 9vw, 3.5rem); }
+      .port-grid { columns: 1; }
+      .svc-feature-pane { grid-template-columns: 1fr; }
+      .swatches { gap: 12px; }
+      .contact-box { padding: 40px 24px; }
+      .c-row { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; align-items: flex-start; padding: 28px 20px; }
+      .svc-tab { padding: 12px 20px; font-size: 1rem; }
+      .process-outer { height: auto; }
+      .process-sticky {
+        position: relative; top: auto;
+        height: auto; overflow: visible;
+        padding: 80px 0; display: block;
+      }
+      .process-track {
+        flex-direction: column; width: 100%;
+        transform: none !important;
+        padding: 60px 0 0;
+      }
+      .process-step {
+        width: 100%; padding: 0 28px;
+        margin-bottom: 48px;
+        opacity: 1 !important; transform: none !important;
+      }
+      .process-step:first-child { padding-left: 28px; }
+      .process-dots, .process-progress { display: none; }
+      .process-header { position: relative; top: auto; left: auto; padding: 0 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Preview Bar -->
+<script>
+  window.__previewBar = {
+    name: "Carpenter Template 2 — Dark Workshop Studio",
+    tiers: [
+      { label: "Lite",     price: "£49",  url: "#buy-lite" },
+      { label: "Standard", price: "£99",  url: "#buy-standard" },
+      { label: "Pro",      price: "£199", url: "#buy-pro" }
+    ]
+  };
+</script>
+<script src="/js/preview-bar.js"></script>
+
+<!-- NAV -->
+<nav class="nav" id="nav" aria-label="Main navigation">
+  <a class="nav-logo" href="#home">Workshop<span>·</span>Co</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="#contact" class="nav-cta">Get a Quote</a>
+  </div>
+</nav>
+
+<!-- ─────────────────────────────────────────────────────────── -->
+<!-- HERO -->
+<!-- ─────────────────────────────────────────────────────────── -->
+<section class="hero" id="home">
+
+  <div class="hero-left">
+    <span class="eyebrow rv">Bespoke Carpentry &amp; Joinery</span>
+    <h1 class="hero-h1 rv d1">
+      Handcrafted.
+      <em>Built to Last.</em>
+    </h1>
+    <p class="hero-tagline rv d2">
+      Precision-made furniture and joinery for architects, interior designers and discerning homeowners. Every piece built by hand in our Oxfordshire workshop.
+    </p>
+
+    <div class="hero-stats rv d2">
+      <div class="hero-stat">
+        <div class="hero-stat-num" data-target="18" data-suffix="+">0</div>
+        <div class="hero-stat-label">Years Experience</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num" data-target="640" data-suffix="+">0</div>
+        <div class="hero-stat-label">Pieces Crafted</div>
+      </div>
+    </div>
+
+    <div class="hero-actions rv d3">
+      <a href="#contact" class="btn-copper">Start Your Project &rarr;</a>
+      <a href="#portfolio" class="btn-ghost">See Our Work</a>
+    </div>
+  </div>
+
+  <div class="hero-right rv d1" aria-hidden="true">
+    <div class="hero-img-wrap">
+      <div id="heroStack">
+        <div class="stack-card"></div>
+        <div class="stack-card"></div>
+        <div class="stack-card">
+          <div class="stack-label">Walnut &amp; Oak, 2024</div>
+        </div>
+      </div>
+      <div class="hero-badge">
+        <span class="hero-badge-num">5yr</span>
+        <span class="hero-badge-label">Guarantee</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ─────────────────────────────────────────────────────────── -->
+<!-- SERVICES -->
+<!-- ─────────────────────────────────────────────────────────── -->
+<section class="services" id="services">
+
+  <div class="container services-top rv">
+    <span class="eyebrow">What We Make</span>
+    <h2 class="sec-h2">Three ways we can<br><em>work together.</em></h2>
+  </div>
+
+  <div class="svc-tabs-wrap">
+    <div class="container">
+      <div class="svc-tabs" role="tablist">
+        <button class="svc-tab active" data-tab="0" role="tab" aria-selected="true">Fitted Furniture</button>
+        <button class="svc-tab" data-tab="1" role="tab" aria-selected="false">Freestanding Pieces</button>
+        <button class="svc-tab" data-tab="2" role="tab" aria-selected="false">Restoration &amp; Repair</button>
+      </div>
+    </div>
+
+    <div class="svc-panel" aria-live="polite">
+      <div class="svc-bg svc-bg-0 active"></div>
+      <div class="svc-bg svc-bg-1"></div>
+      <div class="svc-bg svc-bg-2"></div>
+
+      <div class="svc-panel-text active" data-panel="0">
+        <h3 class="svc-panel-heading">Fitted Furniture</h3>
+        <p class="svc-panel-sub">Made-to-measure joinery that becomes part of the architecture.</p>
+      </div>
+      <div class="svc-panel-text" data-panel="1">
+        <h3 class="svc-panel-heading">Freestanding Pieces</h3>
+        <p class="svc-panel-sub">Statement furniture that moves with you from home to home.</p>
+      </div>
+      <div class="svc-panel-text" data-panel="2">
+        <h3 class="svc-panel-heading">Restoration &amp; Repair</h3>
+        <p class="svc-panel-sub">Breathing new life into antique and heritage pieces.</p>
+      </div>
+    </div>
+
+    <div class="svc-features">
+      <!-- Tab 0: Fitted -->
+      <div class="svc-feature-pane active" data-features="0">
+        <div class="svc-feat">
+          <div class="svc-feat-num">01</div>
+          <div class="svc-feat-title">Fitted Wardrobes</div>
+          <p class="svc-feat-desc">Floor-to-ceiling storage designed around your space. Soft-close drawers, internal lighting and bespoke handles included.</p>
+        </div>
+        <div class="svc-feat">
+          <div class="svc-feat-num">02</div>
+          <div class="svc-feat-title">Kitchen Joinery</div>
+          <p class="svc-feat-desc">Hand-painted shaker units, island worktops, larder cabinets and wine racks built to outlast any off-the-shelf kitchen.</p>
+        </div>
+        <div class="svc-feat">
+          <div class="svc-feat-num">03</div>
+          <div class="svc-feat-title">Home Libraries</div>
+          <p class="svc-feat-desc">Floor-to-ceiling bookcases with rolling ladders, reading nooks and integrated lighting for collectors and booklovers.</p>
+        </div>
+      </div>
+      <!-- Tab 1: Freestanding -->
+      <div class="svc-feature-pane" data-features="1">
+        <div class="svc-feat">
+          <div class="svc-feat-num">01</div>
+          <div class="svc-feat-title">Dining Tables</div>
+          <p class="svc-feat-desc">Solid hardwood dining tables from 6 to 14 seats. Live-edge, trestle and pedestal bases crafted to commission.</p>
+        </div>
+        <div class="svc-feat">
+          <div class="svc-feat-num">02</div>
+          <div class="svc-feat-title">Desks &amp; Home Offices</div>
+          <p class="svc-feat-desc">Standing desks, writing tables and study rooms built for focus — with discreet cable management and storage.</p>
+        </div>
+        <div class="svc-feat">
+          <div class="svc-feat-num">03</div>
+          <div class="svc-feat-title">Bedroom Furniture</div>
+          <p class="svc-feat-desc">Bed frames, ottomans, blanket boxes and bedside tables — all in matching timber and finish for a unified bedroom.</p>
+        </div>
+      </div>
+      <!-- Tab 2: Restoration -->
+      <div class="svc-feature-pane" data-features="2">
+        <div class="svc-feat">
+          <div class="svc-feat-num">01</div>
+          <div class="svc-feat-title">Antique Restoration</div>
+          <p class="svc-feat-desc">Sympathetic repair of Victorian, Edwardian and mid-century pieces using period-appropriate techniques and finishes.</p>
+        </div>
+        <div class="svc-feat">
+          <div class="svc-feat-num">02</div>
+          <div class="svc-feat-title">Structural Repairs</div>
+          <p class="svc-feat-desc">Loose joints, broken tenons, cracked panels and veneer lifting — repaired invisibly by experienced hands.</p>
+        </div>
+        <div class="svc-feat">
+          <div class="svc-feat-num">03</div>
+          <div class="svc-feat-title">Refinishing</div>
+          <p class="svc-feat-desc">French polishing, hand-oiling and beeswax finishing to revive tired timber to better than its original condition.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────────── -->
+<!-- PROCESS (horizontal scroll) -->
+<!-- ─────────────────────────────────────────────────────────── -->
+<section class="process-outer" id="processOuter">
+  <div class="process-sticky" id="processSticky">
+
+    <div class="process-header rv" id="process">
+      <span class="eyebrow">How We Work</span>
+      <h2 class="sec-h2">The <em>Process</em></h2>
+    </div>
+
+    <div class="process-track" id="processTrack">
+
+      <div class="process-step">
+        <div class="step-number">01</div>
+        <div class="step-title">The Brief</div>
+        <p class="step-desc">We meet on-site or over video. You describe the space and your vision. We ask the right questions and listen carefully.</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-number">02</div>
+        <div class="step-title">Design</div>
+        <p class="step-desc">Scaled drawings, mood boards and a fixed-price quote — delivered within one week. No surprises, no moving goalposts.</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-number">03</div>
+        <div class="step-title">Materials</div>
+        <p class="step-desc">You visit the workshop to select your timber, finish and hardware in person. Touch and smell the wood before it becomes yours.</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-number">04</div>
+        <div class="step-title">Build</div>
+        <p class="step-desc">Each piece is handbuilt by our craftsmen using traditional joinery techniques. No MDF. No shortcuts. No compromises.</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-number">05</div>
+        <div class="step-title">Install</div>
+        <p class="step-desc">Our team installs, finishes and cleans up. You sign off on quality before we leave, backed by a five-year guarantee.</p>
+      </div>
+
+    </div>
+
+    <div class="process-dots" role="tablist" aria-label="Process step indicator">
+      <button class="process-dot active" aria-label="Step 1"></button>
+      <button class="process-dot" aria-label="Step 2"></button>
+      <button class="process-dot" aria-label="Step 3"></button>
+      <button class="process-dot" aria-label="Step 4"></button>
+      <button class="process-dot" aria-label="Step 5"></button>
+    </div>
+
+    <div class="process-progress" id="processBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────────── -->
+<!-- PORTFOLIO -->
+<!-- ─────────────────────────────────────────────────────────── -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <span class="eyebrow rv">Our Work</span>
+    <h2 class="sec-h2 rv d1">Recent <em>projects.</em></h2>
+    <p class="rv d2" style="color:var(--muted);max-width:480px;margin-top:-4px;">A selection of bespoke pieces delivered over the last twelve months. Every project is unique — these are yours to inspire.</p>
+
+    <div class="port-grid rv d3">
+
+      <div class="port-card">
+        <div class="port-visual pg-2"></div>
+        <div class="port-overlay">
+          <span class="port-view-btn">View Project →</span>
+        </div>
+        <div class="port-info">
+          <div class="port-name">Walnut Kitchen Island</div>
+          <span class="port-tag">Kitchen</span>
+        </div>
+      </div>
+
+      <div class="port-card">
+        <div class="port-visual pg-1"></div>
+        <div class="port-overlay">
+          <span class="port-view-btn">View Project →</span>
+        </div>
+        <div class="port-info">
+          <div class="port-name">Oak Home Library</div>
+          <span class="port-tag">Library</span>
+        </div>
+      </div>
+
+      <div class="port-card">
+        <div class="port-visual pg-4"></div>
+        <div class="port-overlay">
+          <span class="port-view-btn">View Project →</span>
+        </div>
+        <div class="port-info">
+          <div class="port-name">Fitted Wardrobes, Chiswick</div>
+          <span class="port-tag">Bedroom</span>
+        </div>
+      </div>
+
+      <div class="port-card">
+        <div class="port-visual pg-3"></div>
+        <div class="port-overlay">
+          <span class="port-view-btn">View Project →</span>
+        </div>
+        <div class="port-info">
+          <div class="port-name">Live Edge Dining Table</div>
+          <span class="port-tag">Dining</span>
+        </div>
+      </div>
+
+      <div class="port-card">
+        <div class="port-visual pg-6"></div>
+        <div class="port-overlay">
+          <span class="port-view-btn">View Project →</span>
+        </div>
+        <div class="port-info">
+          <div class="port-name">Antique Desk, Restored</div>
+          <span class="port-tag">Restoration</span>
+        </div>
+      </div>
+
+      <div class="port-card">
+        <div class="port-visual pg-5"></div>
+        <div class="port-overlay">
+          <span class="port-view-btn">View Project →</span>
+        </div>
+        <div class="port-info">
+          <div class="port-name">Cherry Wood Bedside Tables</div>
+          <span class="port-tag">Bedroom</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────────── -->
+<!-- WOOD SPECIES SELECTOR -->
+<!-- ─────────────────────────────────────────────────────────── -->
+<section class="species" id="species">
+  <div class="container">
+    <div class="species-inner">
+
+      <div class="species-preview rv" id="speciesPreview">
+        <div class="species-preview-label" id="speciesLabel">Oak</div>
+      </div>
+
+      <div class="species-right">
+        <span class="eyebrow rv">Choose Your Timber</span>
+        <h2 class="species-title rv d1">Every piece begins<br>with the <em>wood.</em></h2>
+        <p class="species-desc rv d2">Select a timber to see how it transforms the piece. We'll advise on the best match for your space, lifestyle and budget during your free consultation.</p>
+
+        <div class="swatches rv d3">
+
+          <button class="swatch-btn sw-oak active"
+                  data-bg="linear-gradient(145deg, #d4a574, #a06828)"
+                  data-name="Oak">
+            <div class="swatch-circle"></div>
+            <span class="swatch-name">Oak</span>
+          </button>
+
+          <button class="swatch-btn sw-walnut"
+                  data-bg="linear-gradient(145deg, #5a3018, #2a1a0a)"
+                  data-name="Walnut">
+            <div class="swatch-circle"></div>
+            <span class="swatch-name">Walnut</span>
+          </button>
+
+          <button class="swatch-btn sw-cherry"
+                  data-bg="linear-gradient(145deg, #9b4a34, #621f10)"
+                  data-name="Cherry">
+            <div class="swatch-circle"></div>
+            <span class="swatch-name">Cherry</span>
+          </button>
+
+          <button class="swatch-btn sw-ash"
+                  data-bg="linear-gradient(145deg, #d4c8b0, #9a8c78)"
+                  data-name="Ash">
+            <div class="swatch-circle"></div>
+            <span class="swatch-name">Ash</span>
+          </button>
+
+          <button class="swatch-btn sw-pine"
+                  data-bg="linear-gradient(145deg, #e8d4a0, #c4a060)"
+                  data-name="Pine">
+            <div class="swatch-circle"></div>
+            <span class="swatch-name">Pine</span>
+          </button>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────────── -->
+<!-- TESTIMONIALS -->
+<!-- ─────────────────────────────────────────────────────────── -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <span class="eyebrow rv">What Clients Say</span>
+
+    <div class="testi-wrap rv d1">
+
+      <div class="testi-slide active">
+        <span class="testi-mark" aria-hidden="true">&ldquo;</span>
+        <p class="testi-quote">"The library they built for us is genuinely one of the most beautiful things in our home. The attention to detail — the dovetail joints, the way the ladder runs — it's furniture made with love."</p>
+        <div class="testi-client"><strong>Sarah &amp; James M.</strong> &mdash; Notting Hill, London</div>
+      </div>
+
+      <div class="testi-slide">
+        <span class="testi-mark" aria-hidden="true">&ldquo;</span>
+        <p class="testi-quote">"I've worked with many craftspeople over the years as an interior designer. Workshop Co are in a different league. They understand how light hits wood, how grain tells a story. Exceptional."</p>
+        <div class="testi-client"><strong>Clara Whitfield</strong> &mdash; Interior Designer, Chelsea</div>
+      </div>
+
+      <div class="testi-slide">
+        <span class="testi-mark" aria-hidden="true">&ldquo;</span>
+        <p class="testi-quote">"We wanted a kitchen that would still look beautiful in thirty years. They delivered it — and the process from brief to install was completely stress-free. Worth every penny."</p>
+        <div class="testi-client"><strong>David H.</strong> &mdash; Oxford</div>
+      </div>
+
+      <div class="testi-slide">
+        <span class="testi-mark" aria-hidden="true">&ldquo;</span>
+        <p class="testi-quote">"They restored my grandmother's writing desk to better than its original condition. You'd never know it had been touched, except that it's now perfect. I couldn't be more grateful."</p>
+        <div class="testi-client"><strong>Harriet B.</strong> &mdash; Bath</div>
+      </div>
+
+    </div>
+
+    <div class="testi-dots" role="tablist" aria-label="Testimonial navigation">
+      <button class="testi-dot active" aria-label="Testimonial 1" aria-selected="true"></button>
+      <button class="testi-dot" aria-label="Testimonial 2" aria-selected="false"></button>
+      <button class="testi-dot" aria-label="Testimonial 3" aria-selected="false"></button>
+      <button class="testi-dot" aria-label="Testimonial 4" aria-selected="false"></button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────────── -->
+<!-- CONTACT / QUOTE FORM -->
+<!-- ─────────────────────────────────────────────────────────── -->
+<section class="contact" id="contact">
+  <div class="container">
+
+    <div class="contact-box rv">
+      <div class="contact-layout">
+
+        <div>
+          <span class="eyebrow">Start Your Project</span>
+          <h2 class="contact-h2 rv d1">Let's make<br><em>something remarkable.</em></h2>
+          <p class="contact-sub rv d2">Tell us about your project. We'll respond within one working day and arrange a free site visit at your home or office.</p>
+
+          <div class="rv d3">
+            <div class="c-info-item">
+              <span class="c-info-label">Phone</span>
+              <a href="tel:01234567890">01234 567 890</a>
+            </div>
+            <div class="c-info-item">
+              <span class="c-info-label">Email</span>
+              <a href="mailto:hello@workshopco.co.uk">hello@workshopco.co.uk</a>
+            </div>
+            <div class="c-info-item">
+              <span class="c-info-label">Studio</span>
+              <span>Oxfordshire &mdash; serving UK-wide</span>
+            </div>
+            <div class="c-info-item">
+              <span class="c-info-label">Hours</span>
+              <span>Mon&ndash;Fri 8am&ndash;6pm</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="c-form rv d1" onsubmit="return false;" aria-label="Project enquiry form">
+          <div class="c-row">
+            <div class="c-grp">
+              <label class="c-label" for="cName">Your Name</label>
+              <input class="c-input" id="cName" type="text" placeholder="Alexandra Jones" required autocomplete="name">
+            </div>
+            <div class="c-grp">
+              <label class="c-label" for="cPhone">Phone Number</label>
+              <input class="c-input" id="cPhone" type="tel" placeholder="07700 900 000" autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="c-grp">
+            <label class="c-label" for="cEmail">Email Address</label>
+            <input class="c-input" id="cEmail" type="email" placeholder="alexandra@example.com" required autocomplete="email">
+          </div>
+
+          <div class="c-grp">
+            <label class="c-label" for="cType">Project Type</label>
+            <select class="c-select" id="cType">
+              <option value="">— Select —</option>
+              <option>Fitted Wardrobes</option>
+              <option>Kitchen Joinery</option>
+              <option>Home Library</option>
+              <option>Dining or Living Furniture</option>
+              <option>Home Office</option>
+              <option>Restoration &amp; Repair</option>
+              <option>Other / Not Sure</option>
+            </select>
+          </div>
+
+          <div class="c-grp">
+            <label class="c-label" for="cMsg">Tell Us More</label>
+            <textarea class="c-textarea" id="cMsg" placeholder="Describe your space, preferred timber, approximate dimensions and ideal timescale..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-copper" style="width:100%;justify-content:center;">
+            Send Enquiry &rarr;
+          </button>
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────────── -->
+<!-- FOOTER -->
+<!-- ─────────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <span class="footer-logo">Workshop<span>·</span>Co</span>
+  <nav class="footer-nav" aria-label="Footer navigation">
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#portfolio">Work</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <span class="footer-copy">&copy; 2025 Workshop Co &mdash; Oxfordshire, UK</span>
+</footer>
+
+<!-- ─────────────────────────────────────────────────────────── -->
+<!-- JAVASCRIPT -->
+<!-- ─────────────────────────────────────────────────────────── -->
+<script>
+(function () {
+  'use strict';
+
+  /* ── 1. NAV SCROLL ─────────────────────────────────────────── */
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function () {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+  // init on load
+  if (window.scrollY > 40) nav.classList.add('scrolled');
+
+  /* ── 2. SCROLL REVEAL ──────────────────────────────────────── */
+  if ('IntersectionObserver' in window) {
+    var revObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          revObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.rv').forEach(function (el) { revObs.observe(el); });
+  } else {
+    // fallback: show everything
+    document.querySelectorAll('.rv').forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* ── 3. COUNT-UP ON HERO STATS ─────────────────────────────── */
+  function animateCount(el) {
+    var target   = parseInt(el.getAttribute('data-target'), 10);
+    var suffix   = el.getAttribute('data-suffix') || '';
+    var duration = 1800;
+    var start    = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      var e = 1 - Math.pow(1 - p, 3); // ease-out cubic
+      el.textContent = Math.floor(e * target) + (p >= 1 ? suffix : '');
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  if ('IntersectionObserver' in window) {
+    var statObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          animateCount(e.target);
+          statObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.6 });
+    document.querySelectorAll('[data-target]').forEach(function (el) { statObs.observe(el); });
+  }
+
+  /* ── 4. HERO MOUSE PARALLAX ────────────────────────────────── */
+  var heroStack = document.getElementById('heroStack');
+  if (heroStack && window.matchMedia('(pointer: fine)').matches) {
+    var heroSection = document.querySelector('.hero');
+    var rafId = null;
+    var mx = 0, my = 0;
+
+    heroSection.addEventListener('mousemove', function (e) {
+      var rect = heroSection.getBoundingClientRect();
+      mx = (e.clientX - rect.left) / rect.width - 0.5;
+      my = (e.clientY - rect.top)  / rect.height - 0.5;
+      if (!rafId) rafId = requestAnimationFrame(applyTilt);
+    }, { passive: true });
+
+    heroSection.addEventListener('mouseleave', function () {
+      mx = 0; my = 0;
+      if (!rafId) rafId = requestAnimationFrame(applyTilt);
+    });
+
+    function applyTilt() {
+      rafId = null;
+      heroStack.style.transform =
+        'perspective(900px)' +
+        ' rotateX(' + (my * -10) + 'deg)' +
+        ' rotateY(' + (mx * 13) + 'deg)' +
+        ' translate(' + (mx * 16) + 'px,' + (my * 8) + 'px)';
+      heroStack.style.transition = 'transform .14s ease';
+    }
+  }
+
+  /* ── 5. SERVICES TAB SWITCHING ─────────────────────────────── */
+  var svcTabs   = document.querySelectorAll('.svc-tab');
+  var svcBgs    = document.querySelectorAll('.svc-bg');
+  var svcPanels = document.querySelectorAll('.svc-panel-text');
+  var svcFpanes = document.querySelectorAll('.svc-feature-pane');
+
+  svcTabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var idx = tab.getAttribute('data-tab');
+      svcTabs.forEach(function (t) {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      svcBgs.forEach(function (b, i)    { b.classList.toggle('active', String(i) === idx); });
+      svcPanels.forEach(function (p)    { p.classList.toggle('active', p.getAttribute('data-panel')    === idx); });
+      svcFpanes.forEach(function (f)    { f.classList.toggle('active', f.getAttribute('data-features') === idx); });
+    });
+  });
+
+  /* ── 6. HORIZONTAL SCROLL PROCESS ─────────────────────────── */
+  var processOuter = document.getElementById('processOuter');
+  var processTrack = document.getElementById('processTrack');
+
+  if (processOuter && processTrack) {
+    // Only activate if on desktop (sticky layout)
+    var isMobile = window.matchMedia('(max-width: 768px)');
+
+    var procSteps = document.querySelectorAll('.process-step');
+    var procDots  = document.querySelectorAll('.process-dot');
+    var procBar   = document.getElementById('processBar');
+    var procN     = procSteps.length;
+
+    function updateProcess() {
+      if (isMobile.matches) return;
+
+      var rect     = processOuter.getBoundingClientRect();
+      var scrolled = -rect.top;
+      var total    = processOuter.offsetHeight - window.innerHeight;
+      if (total <= 0) return;
+
+      var progress = Math.max(0, Math.min(1, scrolled / total));
+      var maxTx    = processTrack.scrollWidth - window.innerWidth;
+
+      if (maxTx > 0) {
+        processTrack.style.transform = 'translateX(' + (-progress * maxTx) + 'px)';
+      }
+
+      var activeIdx = Math.min(procN - 1, Math.floor(progress * procN));
+      procDots.forEach(function (d, i) { d.classList.toggle('active', i === activeIdx); });
+
+      if (procBar) {
+        procBar.style.width = (progress * 100) + '%';
+        procBar.setAttribute('aria-valuenow', Math.round(progress * 100));
+      }
+
+      procSteps.forEach(function (s, i) {
+        if (progress >= (i / procN) - 0.06) s.classList.add('vis');
+      });
+    }
+
+    window.addEventListener('scroll', updateProcess, { passive: true });
+    window.addEventListener('resize', updateProcess, { passive: true });
+    updateProcess();
+  }
+
+  /* ── 7. WOOD SWATCH SWITCHER ───────────────────────────────── */
+  var swatchBtns   = document.querySelectorAll('.swatch-btn');
+  var previewCard  = document.getElementById('speciesPreview');
+  var speciesLabel = document.getElementById('speciesLabel');
+
+  swatchBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      swatchBtns.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+
+      var bg   = btn.getAttribute('data-bg');
+      var name = btn.getAttribute('data-name');
+
+      // Fade out → swap → fade in (gradients can't CSS-transition directly)
+      previewCard.style.transition = 'opacity .22s ease';
+      previewCard.style.opacity = '0';
+      setTimeout(function () {
+        previewCard.style.background = bg;
+        previewCard.style.opacity = '1';
+        previewCard.style.transition = 'opacity .4s ease';
+      }, 230);
+
+      if (speciesLabel) speciesLabel.textContent = name;
+    });
+  });
+
+  /* ── 8. TESTIMONIALS CAROUSEL ──────────────────────────────── */
+  var testiSlides = document.querySelectorAll('.testi-slide');
+  var testiDots   = document.querySelectorAll('.testi-dot');
+  var testiIdx    = 0;
+  var testiTimer  = null;
+
+  function goTesti(n) {
+    testiSlides[testiIdx].classList.remove('active');
+    testiDots[testiIdx].classList.remove('active');
+    testiDots[testiIdx].setAttribute('aria-selected', 'false');
+    testiIdx = ((n % testiSlides.length) + testiSlides.length) % testiSlides.length;
+    testiSlides[testiIdx].classList.add('active');
+    testiDots[testiIdx].classList.add('active');
+    testiDots[testiIdx].setAttribute('aria-selected', 'true');
+  }
+
+  testiDots.forEach(function (d, i) {
+    d.addEventListener('click', function () {
+      clearInterval(testiTimer);
+      goTesti(i);
+      testiTimer = setInterval(function () { goTesti(testiIdx + 1); }, 5000);
+    });
+  });
+
+  testiTimer = setInterval(function () { goTesti(testiIdx + 1); }, 5000);
+
+  /* ── 9. SMOOTH SCROLL FOR ANCHOR LINKS ────────────────────── */
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var href = a.getAttribute('href');
+      if (href === '#') return;
+      var target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>
