@@ -299,7 +299,7 @@ async function handleFormSubmit(form) {
   startAuto();
 })();
 
-/* ── Template card iframe scale ──────────────────────────── */
+/* ── Template card iframe lazy-load + scale ──────────────── */
 (function () {
   const previews = document.querySelectorAll('.tpl-card-preview');
   if (!previews.length) return;
@@ -310,7 +310,19 @@ async function handleFormSubmit(form) {
     iframe.style.transform = 'scale(' + (wrap.offsetWidth / 1280) + ')';
   }
 
-  previews.forEach(scaleIframe);
+  function loadIframe(wrap) {
+    const iframe = wrap.querySelector('iframe');
+    if (!iframe || !iframe.dataset.src || iframe.dataset.loaded) return;
+    iframe.dataset.loaded = '1';
+    iframe.onload = function () { iframe.classList.add('tpl-iframe-loaded'); };
+    iframe.src = iframe.dataset.src;
+    scaleIframe(wrap);
+  }
+
+  previews.forEach(wrap => {
+    scaleIframe(wrap);
+    wrap.addEventListener('mouseenter', () => loadIframe(wrap), { passive: true });
+  });
 
   if (typeof ResizeObserver !== 'undefined') {
     const ro = new ResizeObserver(entries => {
