@@ -13,14 +13,28 @@
   <meta property="og:url" content="https://web-orb.uk/templates/carpenter2/" />
   <meta property="og:site_name" content="WebOrb" />
 
+  <!-- Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "Carpenter",
     "name": "Workshop Co",
-    "description": "Bespoke carpentry and joinery for architects, interior designers and discerning homeowners.",
-    "url": "https://web-orb.uk/templates/carpenter2/",
-    "@id": "https://web-orb.uk/templates/carpenter2/"
+    "url": "https://www.workshopco.co.uk",
+    "telephone": "+44-1234-567-890",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Oxford",
+      "addressRegion": "Oxfordshire",
+      "addressCountry": "GB"
+    },
+    "areaServed": { "@type": "Country", "name": "United Kingdom" },
+    "openingHours": "Mo-Fr 08:00-18:00",
+    "priceRange": "£££",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "127"
+    }
   }
   </script>
 
@@ -1478,7 +1492,18 @@
 
   testiTimer = setInterval(function () { goTesti(testiIdx + 1); }, 5000);
 
-  /* ── 9. SMOOTH SCROLL FOR ANCHOR LINKS ────────────────────── */
+  /* ── 9. PREVIEW BAR — push nav down so it doesn't hide behind bar ─ */
+  (function () {
+    var bar = document.getElementById('wb-preview-bar');
+    if (!bar) return;
+    var bh = bar.offsetHeight;
+    nav.style.top = bh + 'px';
+    // also update the process sticky top
+    var sticky = document.getElementById('processSticky');
+    if (sticky) sticky.style.top = (bh + 68) + 'px';
+  })();
+
+  /* ── 10. SMOOTH SCROLL FOR ANCHOR LINKS ────────────────────── */
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
       var href = a.getAttribute('href');
