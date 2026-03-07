@@ -80,7 +80,7 @@
     <div class="container footer-inner">
       <div class="footer-brand">
         <a href="/" class="logo">Web<span>Orb</span><span class="dot">·</span></a>
-        <p>Websites that win clients for growing UK companies.</p>
+        <p>Digital craft studio. UK-based.</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
@@ -128,5 +128,9 @@
   {% endif %}
 
   <script src="/js/main.js"></script>
+  {% if page.url === "/" %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="/js/sphere.js" defer></script>
+  {% endif %}
 </body>
 </html>
