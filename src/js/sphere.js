@@ -19,9 +19,9 @@
   renderer.setClearColor(0x000000, 0);
 
   /* ── Build particle sphere ─────────────────────────── */
-  const count = 2400;
+  const count = 3200;
   const positions = new Float32Array(count * 3);
-  const radius = 1.6;
+  const radius = 2.2;
 
   for (let i = 0; i < count; i++) {
     const phi = Math.acos(2 * Math.random() - 1);
@@ -46,7 +46,7 @@
   scene.add(points);
 
   /* ── Add wireframe sphere for structure ─────────────── */
-  const wireGeo = new THREE.IcosahedronGeometry(1.58, 3);
+  const wireGeo = new THREE.IcosahedronGeometry(2.18, 3);
   const wireMat = new THREE.MeshBasicMaterial({
     color: 0x4F8EF7,
     wireframe: true,
@@ -94,10 +94,10 @@
     target.x += (mouse.x - target.x) * 0.04;
     target.y += (mouse.y - target.y) * 0.04;
 
-    points.rotation.y += 0.002;
-    points.rotation.x += 0.001;
-    wireMesh.rotation.y += 0.002;
-    wireMesh.rotation.x += 0.001;
+    points.rotation.y += 0.0008;
+    points.rotation.x += 0.0004;
+    wireMesh.rotation.y += 0.0008;
+    wireMesh.rotation.x += 0.0004;
 
     // Mouse influence
     points.rotation.y += target.x * 0.008;
