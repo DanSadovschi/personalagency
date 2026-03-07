@@ -1,7 +1,8 @@
 ---
 layout: layouts/base.njk
-title: Projects — WebOrb
-description: A selection of websites and digital work built by WebOrb for companies across the UK.
+title: Our Web Design Projects & Portfolio | WebOrb
+description: A selection of websites and digital work built by WebOrb for companies across the UK — from local tradespeople to e-commerce stores and professional services firms.
+canonical: https://web-orb.uk/projects/
 activeNav: projects
 ---
 
@@ -9,7 +10,7 @@ activeNav: projects
   <div class="hero-bg-grid"></div>
   <div class="container">
     <p class="section-eyebrow reveal">Our work</p>
-    <h1 class="reveal">Projects we're<br /><span class="accent">proud of.</span></h1>
+    <h1 class="text-reveal">Projects we're <span class="accent">proud of.</span></h1>
     <p class="page-hero-sub reveal">A growing collection of websites and digital projects — from local service businesses to e-commerce stores and professional services firms.</p>
   </div>
 </section>
@@ -17,33 +18,70 @@ activeNav: projects
 <section class="section">
   <div class="container">
     {% if collections.projects and collections.projects.length > 0 %}
-    <div class="projects-grid">
+
+      {# Find first project with an image and render as hero card #}
+      {% set heroUrl = "" %}
       {% for project in collections.projects | reverse %}
-      {% set projectCover = project.data.cover or (project.data.gallery and project.data.gallery[0] and project.data.gallery[0].url) %}
-      {% if projectCover %}
-      <a href="{{ project.url }}" class="project-card reveal">
-        <div class="project-card-cover">
-          <img src="{{ projectCover }}" alt="{{ project.data.title }}" loading="lazy" />
-          {% if project.data.sector %}
-          <span class="project-sector-tag">{{ project.data.sector }}</span>
+        {% if not heroUrl %}
+          {% if project.data.cover or (project.data.gallery and project.data.gallery.length > 0) %}
+            {% set heroUrl = project.url %}
+            <a href="{{ project.url }}" class="project-hero-card reveal">
+              <div class="project-hero-card-img">
+                <img src="{% if project.data.cover %}{{ project.data.cover }}{% else %}{{ project.data.gallery[0].url }}{% endif %}" alt="{{ project.data.title }}" loading="lazy" />
+              </div>
+              <div class="project-hero-card-body">
+                {% if project.data.sector %}
+                <span class="project-sector-tag fp-sector">{{ project.data.sector }}</span>
+                {% endif %}
+                <h2>{{ project.data.title }}</h2>
+                {% if project.data.summary %}<p>{{ project.data.summary }}</p>{% endif %}
+                {% if project.data.services %}
+                <div class="project-card-tags">
+                  {% for svc in project.data.services %}
+                  <span class="project-tag">{{ svc }}</span>
+                  {% endfor %}
+                </div>
+                {% endif %}
+                <span class="project-card-link">View project →</span>
+              </div>
+            </a>
           {% endif %}
-        </div>
-        <div class="project-card-body">
-          <h3>{{ project.data.title }}</h3>
-          {% if project.data.summary %}<p>{{ project.data.summary }}</p>{% endif %}
-          {% if project.data.services %}
-          <div class="project-card-tags">
-            {% for svc in project.data.services %}
-            <span class="project-tag">{{ svc }}</span>
-            {% endfor %}
-          </div>
-          {% endif %}
-          <span class="project-card-link">View project →</span>
-        </div>
-      </a>
-      {% endif %}
+        {% endif %}
       {% endfor %}
-    </div>
+
+      {# Rest in grid — skip hero project and projects without images #}
+      <div class="projects-grid" style="margin-top:32px;">
+        {% for project in collections.projects | reverse %}
+          {% if project.url !== heroUrl %}
+            {% if project.data.cover or (project.data.gallery and project.data.gallery.length > 0) %}
+            <a href="{{ project.url }}" class="project-card reveal">
+              <div class="project-card-cover">
+                {% if project.data.cover %}
+                  <img src="{{ project.data.cover }}" alt="{{ project.data.title }}" loading="lazy" />
+                {% else %}
+                  <img src="{{ project.data.gallery[0].url }}" alt="{{ project.data.title }}" loading="lazy" />
+                {% endif %}
+                {% if project.data.sector %}
+                <span class="project-sector-tag">{{ project.data.sector }}</span>
+                {% endif %}
+              </div>
+              <div class="project-card-body">
+                <h3>{{ project.data.title }}</h3>
+                {% if project.data.summary %}<p>{{ project.data.summary }}</p>{% endif %}
+                {% if project.data.services %}
+                <div class="project-card-tags">
+                  {% for svc in project.data.services %}
+                  <span class="project-tag">{{ svc }}</span>
+                  {% endfor %}
+                </div>
+                {% endif %}
+                <span class="project-card-link">View project →</span>
+              </div>
+            </a>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </div>
     {% else %}
     <div class="projects-empty reveal">
       <p>Projects coming soon. <a href="/contact/">Get in touch</a> to discuss yours.</p>
@@ -51,3 +89,24 @@ activeNav: projects
     {% endif %}
   </div>
 </section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://web-orb.uk/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Projects",
+      "item": "https://web-orb.uk/projects/"
+    }
+  ]
+}
+</script>

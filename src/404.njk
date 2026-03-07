@@ -3,6 +3,7 @@ layout: layouts/base.njk
 title: 404 — Page Not Found | WebOrb
 description: The page you were looking for doesn't exist. Head back to WebOrb and find what you need.
 permalink: 404.html
+noindex: true
 ---
 
 <section class="e404-wrap">
@@ -47,7 +48,7 @@ permalink: 404.html
         <div class="e404-card-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
         </div>
-        <span class="e404-card-label">Get a Quote</span>
+        <span class="e404-card-label">Contact</span>
         <span class="e404-card-arrow">→</span>
       </a>
     </div>
@@ -134,7 +135,7 @@ permalink: 404.html
   transition: border-color .3s, transform .3s, background .3s;
 }
 .e404-card:hover {
-  border-color: var(--border-mid);
+  border-color: var(--border-light);
   transform: translateY(-4px);
   background: var(--bg-raised);
 }

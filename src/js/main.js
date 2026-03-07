@@ -22,6 +22,7 @@
 
   toggle.addEventListener('click', () => {
     const open = menu.classList.toggle('open');
+    toggle.classList.toggle('active', open);
     toggle.setAttribute('aria-expanded', open);
   });
 
@@ -29,6 +30,7 @@
   menu.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
       menu.classList.remove('open');
+      toggle.classList.remove('active');
       toggle.setAttribute('aria-expanded', 'false');
     });
   });
@@ -66,6 +68,124 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   els.forEach(el => observer.observe(el));
 })();
 
+/* ── Text Split Reveal Animation ──────────────────────────── */
+(function () {
+  const els = document.querySelectorAll('.text-reveal');
+  if (!els.length) return;
+
+  els.forEach(el => {
+    // Get the raw HTML and preserve <br> and <span> tags
+    const html = el.innerHTML;
+
+    // Split text nodes into word spans while keeping HTML tags
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = html;
+
+    function processNode(node) {
+      if (node.nodeType === 3) {
+        // Text node — split into words
+        const text = node.textContent;
+        const words = text.split(/(\s+)/);
+        const frag = document.createDocumentFragment();
+
+        words.forEach(word => {
+          if (word.match(/^\s+$/)) {
+            frag.appendChild(document.createTextNode(word));
+          } else if (word.length > 0) {
+            const span = document.createElement('span');
+            span.className = 'word';
+            span.textContent = word;
+            frag.appendChild(span);
+          }
+        });
+
+        node.parentNode.replaceChild(frag, node);
+      } else if (node.nodeType === 1) {
+        // Element node
+        if (node.tagName === 'BR') return;
+
+        if (node.tagName === 'SPAN' || node.tagName === 'EM' || node.tagName === 'STRONG') {
+          // Wrap the inline element's text content in words, preserve the wrapper
+          const childNodes = [...node.childNodes];
+          childNodes.forEach(child => processNode(child));
+
+          // Wrap the whole span in a word wrapper for animation
+          if (!node.classList.contains('word')) {
+            const outerWrap = document.createElement('span');
+            outerWrap.className = 'word';
+            node.parentNode.insertBefore(outerWrap, node);
+            outerWrap.appendChild(node);
+          }
+        } else {
+          const childNodes = [...node.childNodes];
+          childNodes.forEach(child => processNode(child));
+        }
+      }
+    }
+
+    // Process all child nodes
+    const childNodes = [...el.childNodes];
+    childNodes.forEach(child => processNode(child));
+
+    // Add stagger delay to each word
+    const wordSpans = el.querySelectorAll('.word');
+    wordSpans.forEach((word, i) => {
+      word.style.transitionDelay = `${i * 0.04}s`;
+    });
+  });
+
+  // Observe for visibility
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -30px 0px' }
+  );
+
+  els.forEach(el => observer.observe(el));
+})();
+
+/* ── Parallax Scroll Effect ───────────────────────────────── */
+(function () {
+  const els = document.querySelectorAll('[data-parallax]');
+  if (!els.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  let ticking = false;
+
+  function updateParallax() {
+    const scrollY = window.scrollY;
+    const viewH = window.innerHeight;
+
+    els.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const elTop = rect.top + scrollY;
+      const speed = parseFloat(el.dataset.parallax) || 0.1;
+
+      // Only apply when element is near viewport
+      if (scrollY + viewH > elTop - 200 && scrollY < elTop + rect.height + 200) {
+        const offset = (scrollY - elTop + viewH / 2) * speed;
+        el.style.transform = `translateY(${offset}px)`;
+      }
+    });
+
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  updateParallax();
+})();
+
 /* ── Counter Animation ────────────────────────────────────── */
 (function () {
   const counters = document.querySelectorAll('.stat-num[data-count]');
@@ -79,7 +199,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     function step(now) {
       const elapsed  = now - start;
       const progress = Math.min(elapsed / duration, 1);
-      // ease-out cubic
       const eased    = 1 - Math.pow(1 - progress, 3);
       el.textContent = Math.round(eased * target);
       if (progress < 1) requestAnimationFrame(step);
@@ -101,6 +220,57 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   );
 
   counters.forEach(c => observer.observe(c));
+})();
+
+/* ── Magnetic Buttons ─────────────────────────────────────── */
+(function () {
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+
+  document.querySelectorAll('.magnetic').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+    });
+  });
+})();
+
+/* ── Cursor Glow Effect ───────────────────────────────────── */
+(function () {
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+
+  const glow = document.createElement('div');
+  glow.className = 'cursor-glow';
+  glow.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(glow);
+
+  let mx = -300, my = -300;
+  let cx = -300, cy = -300;
+  let raf;
+
+  window.addEventListener('mousemove', e => {
+    mx = e.clientX;
+    my = e.clientY;
+  }, { passive: true });
+
+  function animate() {
+    cx += (mx - cx) * 0.1;
+    cy += (my - cy) * 0.1;
+    glow.style.transform = `translate(${cx - 250}px, ${cy - 250}px)`;
+    raf = requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) cancelAnimationFrame(raf);
+    else animate();
+  });
 })();
 
 /* ── Form helpers ─────────────────────────────────────────── */
@@ -157,7 +327,6 @@ async function handleFormSubmit(form) {
   const btnLoading = form.querySelector('.btn-loading');
   const successMsg = form.querySelector('.form-success');
 
-  // Show loading
   if (submitBtn)  submitBtn.disabled = true;
   if (btnText)    btnText.hidden     = true;
   if (btnLoading) btnLoading.hidden  = false;
@@ -178,7 +347,6 @@ async function handleFormSubmit(form) {
       throw new Error(result.message || 'Submission failed');
     }
   } catch {
-    // Re-enable button so user can try again
     if (submitBtn)  { submitBtn.disabled = false; }
     if (btnText)    { btnText.hidden     = false; }
     if (btnLoading) { btnLoading.hidden  = true; }
@@ -191,7 +359,6 @@ async function handleFormSubmit(form) {
   const form = document.getElementById(id);
   if (!form) return;
 
-  // Live clear errors
   form.querySelectorAll('input, select, textarea').forEach(el => {
     el.addEventListener('input',  () => clearFieldError(el));
     el.addEventListener('change', () => clearFieldError(el));
@@ -227,7 +394,7 @@ async function handleFormSubmit(form) {
 
   function cardStride() {
     if (!cards[0]) return 0;
-    return cards[0].offsetWidth + 24; // width + gap
+    return cards[0].offsetWidth + 24;
   }
 
   function buildDots() {
@@ -265,12 +432,10 @@ async function handleFormSubmit(form) {
   prevBtn.addEventListener('click', () => { stopAuto(); prev(); startAuto(); });
   nextBtn.addEventListener('click', () => { stopAuto(); next(); startAuto(); });
 
-  // Pause on hover
   const viewport = track.closest('.carousel-viewport');
   viewport.addEventListener('mouseenter', stopAuto);
   viewport.addEventListener('mouseleave', startAuto);
 
-  // Touch / swipe
   let tx = 0;
   track.addEventListener('touchstart', e => { tx = e.changedTouches[0].screenX; }, { passive: true });
   track.addEventListener('touchend', e => {
@@ -278,7 +443,6 @@ async function handleFormSubmit(form) {
     if (Math.abs(diff) > 48) { stopAuto(); diff > 0 ? next() : prev(); startAuto(); }
   }, { passive: true });
 
-  // Resize
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
@@ -293,7 +457,6 @@ async function handleFormSubmit(form) {
     }, 120);
   }, { passive: true });
 
-  // Init
   buildDots();
   goTo(0);
   startAuto();
@@ -338,11 +501,9 @@ async function handleFormSubmit(form) {
     btn.addEventListener('click', () => {
       const filter = btn.dataset.filter;
 
-      // Update active button
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
-      // Show / hide cards
       cards.forEach(card => {
         const match = filter === 'all' || card.dataset.trade === filter;
         card.classList.toggle('hidden', !match);
@@ -428,7 +589,6 @@ async function handleFormSubmit(form) {
 
   lbClose.addEventListener('click', closeLb);
 
-  // Click dark backdrop (not the image) to close
   lightbox.addEventListener('click', e => {
     if (e.target === lightbox) closeLb();
   });

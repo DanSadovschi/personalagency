@@ -3,25 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="{{ description }}" />
+  {%- set _desc = description or summary or '' %}
+  <meta name="description" content="{{ _desc }}" />
+  {%- if 'WebOrb' in title %}
   <title>{{ title }}</title>
-  {% if canonical %}<link rel="canonical" href="{{ canonical }}" />{% endif %}
+  {%- else %}
+  <title>{{ title }} | WebOrb</title>
+  {%- endif %}
+  {%- set _canonical = canonical or ('https://web-orb.uk' + page.url) %}
+  <link rel="canonical" href="{{ _canonical }}" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  {% set _ogTitle = ogTitle if ogTitle else title %}
-  {% if _ogTitle %}
+  <meta name="theme-color" content="#09090b" />
+  {%- if noindex %}
+  <meta name="robots" content="noindex, nofollow" />
+  {%- endif %}
+  {%- set _ogTitle = ogTitle if ogTitle else title %}
+  {%- if 'WebOrb' not in _ogTitle %}{%- set _ogTitle = _ogTitle + ' | WebOrb' %}{%- endif %}
   <meta property="og:type" content="{{ ogType if ogType else 'website' }}" />
-  {% if canonical %}<meta property="og:url" content="{{ canonical }}" />{% endif %}
+  <meta property="og:url" content="{{ _canonical }}" />
   <meta property="og:title" content="{{ _ogTitle }}" />
-  <meta property="og:description" content="{{ description }}" />
+  <meta property="og:description" content="{{ _desc }}" />
   <meta property="og:site_name" content="WebOrb" />
   <meta property="og:image" content="{{ ogImage if ogImage else 'https://web-orb.uk/img/og.png' }}" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="{{ _ogTitle }}" />
-  <meta name="twitter:description" content="{{ description }}" />
+  <meta name="twitter:description" content="{{ _desc }}" />
   <meta name="twitter:image" content="{{ ogImage if ogImage else 'https://web-orb.uk/img/og.png' }}" />
-  {% endif %}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -56,8 +65,8 @@
         <li><a href="/templates/"{% if activeNav === "templates" %} class="nav-active"{% endif %}>Templates</a></li>
         <li><a href="/contact/"{% if activeNav === "contact" %} class="nav-active"{% endif %}>Contact</a></li>
       </ul>
-      <a href="{{ navCtaHref if navCtaHref else '/contact/' }}" class="btn btn-sm">{{ navCtaText if navCtaText else 'Get a Quote' }}</a>
-      <button class="nav-toggle" aria-label="Toggle menu">
+      <a href="{{ navCtaHref if navCtaHref else '/contact/' }}" class="btn btn-sm">{{ navCtaText if navCtaText else 'Start a Project' }}</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -68,7 +77,7 @@
         <li><a href="/blog/">Blog</a></li>
         <li><a href="/templates/">Templates</a></li>
         <li><a href="/contact/">Contact</a></li>
-        <li><a href="{{ navCtaHref if navCtaHref else '/contact/' }}" class="btn">{{ navCtaText if navCtaText else 'Get a Quote' }}</a></li>
+        <li><a href="{{ navCtaHref if navCtaHref else '/contact/' }}" class="btn">{{ navCtaText if navCtaText else 'Start a Project' }}</a></li>
       </ul>
     </div>
   </nav>

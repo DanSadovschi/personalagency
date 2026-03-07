@@ -5,11 +5,14 @@ eleventyExcludeFromCollections: true
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {%- for item in collections.all %}
-{%- if item.url and ("/web-design-" not in item.url) %}
+{%- if item.url and ("/web-design-" not in item.url) and (item.url !== "/404.html") and (item.data.noindex !== true) %}
   <url>
     <loc>https://web-orb.uk{{ item.url }}</loc>
-    <changefreq>{% if item.url == "/" %}weekly{% else %}monthly{% endif %}</changefreq>
-    <priority>{% if item.url == "/" %}1.0{% else %}0.8{% endif %}</priority>
+    {%- if item.data.date %}
+    <lastmod>{{ item.data.date | toISODate }}</lastmod>
+    {%- endif %}
+    <changefreq>{% if item.url == "/" %}weekly{% elif "/blog/" in item.url %}monthly{% else %}monthly{% endif %}</changefreq>
+    <priority>{% if item.url == "/" %}1.0{% elif item.url == "/projects/" or item.url == "/blog/" or item.url == "/contact/" or item.url == "/templates/" %}0.9{% else %}0.8{% endif %}</priority>
   </url>
 {%- endif %}
 {%- endfor %}

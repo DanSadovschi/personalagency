@@ -1,9 +1,9 @@
 ---
 layout: layouts/base.njk
-title: Blog — WebOrb
+title: Web Design & SEO Blog for UK Businesses | WebOrb
 description: Tips, guides and honest advice on web design, local SEO, and growing your business online — from the WebOrb team.
 canonical: https://web-orb.uk/blog/
-ogTitle: Blog — WebOrb
+ogTitle: Web Design & SEO Blog | WebOrb
 activeNav: blog
 ---
 
@@ -22,15 +22,18 @@ activeNav: blog
     <div class="blog-grid">
       {% for post in collections.posts | reverse %}
       <a href="{{ post.url }}" class="blog-card reveal">
-        <div class="blog-card-meta">
-          {% if post.data.category %}<span class="post-category-tag">{{ post.data.category }}</span>{% endif %}
-          {% if post.data.readTime %}<span class="blog-card-readtime">{{ post.data.readTime }}</span>{% endif %}
-        </div>
-        <h3>{{ post.data.title }}</h3>
-        {% if post.data.description %}<p>{{ post.data.description }}</p>{% endif %}
-        <div class="blog-card-footer">
-          {% if post.data.date %}<span class="blog-card-date">{{ post.data.date | readableDate }}</span>{% endif %}
-          <span class="blog-card-link">Read article →</span>
+        <div class="blog-card-accent"></div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            {% if post.data.category %}<span class="post-category-tag">{{ post.data.category }}</span>{% endif %}
+            {% if post.data.readTime %}<span class="blog-card-readtime">{{ post.data.readTime }}</span>{% endif %}
+          </div>
+          <h3>{{ post.data.title }}</h3>
+          {% if post.data.description %}<p>{{ post.data.description }}</p>{% endif %}
+          <div class="blog-card-footer">
+            {% if post.data.date %}<span class="blog-card-date">{{ post.data.date | readableDate }}</span>{% endif %}
+            <span class="blog-card-link">Read article →</span>
+          </div>
         </div>
       </a>
       {% endfor %}
@@ -42,3 +45,24 @@ activeNav: blog
     {% endif %}
   </div>
 </section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://web-orb.uk/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://web-orb.uk/blog/"
+    }
+  ]
+}
+</script>

@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════
    Hero Sphere — Interactive Three.js particle sphere
-   Reacts to mouse/touch movement
+   Positioned as a centered background behind hero text
    ═══════════════════════════════════════════════════════════ */
 (function () {
   const canvas = document.getElementById('hero-sphere');
@@ -8,7 +8,7 @@
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
-  camera.position.z = 4.5;
+  camera.position.z = 5;
 
   const renderer = new THREE.WebGLRenderer({
     canvas,
@@ -18,10 +18,14 @@
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.setClearColor(0x000000, 0);
 
+  /* ── Container for the whole sphere ──────────────────── */
+  const group = new THREE.Group();
+  scene.add(group);
+
   /* ── Build particle sphere ─────────────────────────── */
   const count = 3200;
   const positions = new Float32Array(count * 3);
-  const radius = 2.2;
+  const radius = 1.8;
 
   for (let i = 0; i < count; i++) {
     const phi = Math.acos(2 * Math.random() - 1);
@@ -36,29 +40,28 @@
 
   const material = new THREE.PointsMaterial({
     color: 0x4F8EF7,
-    size: 0.02,
+    size: 0.016,
     sizeAttenuation: true,
     transparent: true,
-    opacity: 0.7,
+    opacity: 0.55,
   });
 
   const points = new THREE.Points(geometry, material);
-  scene.add(points);
+  group.add(points);
 
-  /* ── Add wireframe sphere for structure ─────────────── */
-  const wireGeo = new THREE.IcosahedronGeometry(2.18, 3);
+  /* ── Add wireframe sphere (smooth, high subdivision) ── */
+  const wireGeo = new THREE.SphereGeometry(1.78, 48, 48);
   const wireMat = new THREE.MeshBasicMaterial({
     color: 0x4F8EF7,
     wireframe: true,
     transparent: true,
-    opacity: 0.06,
+    opacity: 0.035,
   });
   const wireMesh = new THREE.Mesh(wireGeo, wireMat);
-  scene.add(wireMesh);
+  group.add(wireMesh);
 
   /* ── Mouse tracking ────────────────────────────────── */
   const mouse = { x: 0, y: 0 };
-  const target = { x: 0, y: 0 };
 
   function onPointerMove(e) {
     const x = e.clientX !== undefined ? e.clientX : (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
@@ -70,12 +73,13 @@
   window.addEventListener('mousemove', onPointerMove, { passive: true });
   window.addEventListener('touchmove', onPointerMove, { passive: true });
 
-  /* ── Resize ────────────────────────────────────────── */
+  /* ── Resize — fill the hero section ─────────────────── */
   function resize() {
     const wrap = canvas.parentElement;
     if (!wrap) return;
     const w = wrap.clientWidth;
     const h = wrap.clientHeight;
+    if (w === 0 || h === 0) return;
     canvas.width = w;
     canvas.height = h;
     renderer.setSize(w, h);
@@ -88,22 +92,22 @@
 
   /* ── Animate ───────────────────────────────────────── */
   let raf;
+  const baseSpeed = 0.0005;
+  const targetRotation = { x: 0, y: 0 };
+
   function animate() {
     raf = requestAnimationFrame(animate);
 
-    target.x += (mouse.x - target.x) * 0.04;
-    target.y += (mouse.y - target.y) * 0.04;
+    // Slow constant rotation
+    group.rotation.y += baseSpeed;
+    group.rotation.x += baseSpeed * 0.3;
 
-    points.rotation.y += 0.0008;
-    points.rotation.x += 0.0004;
-    wireMesh.rotation.y += 0.0008;
-    wireMesh.rotation.x += 0.0004;
+    // Mouse influence — lerp toward target tilt (not additive)
+    targetRotation.x += (mouse.y * 0.3 - targetRotation.x) * 0.02;
+    targetRotation.y += (mouse.x * 0.3 - targetRotation.y) * 0.02;
 
-    // Mouse influence
-    points.rotation.y += target.x * 0.008;
-    points.rotation.x += target.y * 0.008;
-    wireMesh.rotation.y += target.x * 0.008;
-    wireMesh.rotation.x += target.y * 0.008;
+    group.rotation.x += targetRotation.x * 0.01;
+    group.rotation.y += targetRotation.y * 0.01;
 
     renderer.render(scene, camera);
   }

@@ -10,6 +10,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("readableDate", (date) =>
     new Date(date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })
   );
+  eleventyConfig.addFilter("toISODate", (date) =>
+    new Date(date).toISOString().split("T")[0]
+  );
 
   return {
     dir: {
