@@ -85,7 +85,7 @@ A business that responds to reviews signals to Google that a real person is acti
 **Opening hours**: Check them. Then check them again for bank holidays. Google surfaces "likely closed" warnings based on your hours — incorrect hours create real friction with customers who show up when you're meant to be open.
 
 <div class="post-tip">
-  <p><strong>Google Business Profile optimisation is included in our Growth package</strong> — along with full local keyword targeting for your website and monthly ranking reports. If your profile needs an audit before then, <a href="/#contact">get in touch</a> and we'll take a look.</p>
+  <p><strong>Google Business Profile optimisation is part of what we do</strong> — along with full local keyword targeting for your website and monthly ranking reports. If your profile needs an audit, <a href="/contact/">get in touch</a> and we'll take a look.</p>
 </div>
 
 ## A quick 20-minute audit
