@@ -76,7 +76,7 @@ Any website that gets human visitors. Seriously. Even a low-traffic local busine
 If you're spending money on ads, Clarity is especially valuable — you can watch exactly what people do after clicking your ad and see whether your landing page is actually working.
 
 <div class="post-tip">
-  <p><strong>We add Microsoft Clarity to every client site we build</strong> — setup, integration with Google Analytics, and a walkthrough so you know what you're looking at. It takes about 10 minutes and the data it produces is genuinely useful. <a href="/#contact">Ask us about it.</a></p>
+  <p><strong>We add Microsoft Clarity to every client site we build</strong> — setup, integration with Google Analytics, and a walkthrough so you know what you're looking at. It takes about 10 minutes and the data it produces is genuinely useful. <a href="/contact/">Ask us about it.</a></p>
 </div>
 
 ---

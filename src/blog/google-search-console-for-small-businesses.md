@@ -78,7 +78,7 @@ You don't need to live inside Search Console. A monthly 20-minute check covers m
 - **Core Web Vitals** → confirm no regressions after any site changes
 
 <div class="post-tip">
-  <p><strong>We set up Google Search Console on every site we build</strong> — including sitemap submission and Google Analytics linking. If you already have a site that's never been connected, we can set this up as a standalone job. <a href="/#contact">Get in touch.</a></p>
+  <p><strong>We set up Google Search Console on every site we build</strong> — including sitemap submission and Google Analytics linking. If you already have a site that's never been connected, we can set this up as a standalone job. <a href="/contact/">Get in touch.</a></p>
 </div>
 
 ---

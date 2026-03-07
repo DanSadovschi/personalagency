@@ -54,11 +54,9 @@
         <li><a href="/projects/"{% if activeNav === "projects" %} class="nav-active"{% endif %}>Projects</a></li>
         <li><a href="/blog/"{% if activeNav === "blog" %} class="nav-active"{% endif %}>Blog</a></li>
         <li><a href="/templates/"{% if activeNav === "templates" %} class="nav-active"{% endif %}>Templates</a></li>
-        <li><a href="/work/"{% if activeNav === "work" %} class="nav-active"{% endif %}>Founding Clients</a></li>
-        <li><a href="{% if page.url === '/' %}#pricing{% else %}/#pricing{% endif %}">Pricing</a></li>
-        <li><a href="{% if page.url === '/' %}#contact{% else %}/#contact{% endif %}">Contact</a></li>
+        <li><a href="/contact/"{% if activeNav === "contact" %} class="nav-active"{% endif %}>Contact</a></li>
       </ul>
-      <a href="{{ navCtaHref if navCtaHref else ('/#contact' if page.url !== '/' else '#contact') }}" class="btn btn-sm">{{ navCtaText if navCtaText else 'Get a Quote' }}</a>
+      <a href="{{ navCtaHref if navCtaHref else '/contact/' }}" class="btn btn-sm">{{ navCtaText if navCtaText else 'Get a Quote' }}</a>
       <button class="nav-toggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -69,10 +67,8 @@
         <li><a href="/projects/">Projects</a></li>
         <li><a href="/blog/">Blog</a></li>
         <li><a href="/templates/">Templates</a></li>
-        <li><a href="/work/">Founding Clients</a></li>
-        <li><a href="{% if page.url === '/' %}#pricing{% else %}/#pricing{% endif %}">Pricing</a></li>
-        <li><a href="{% if page.url === '/' %}#contact{% else %}/#contact{% endif %}">Contact</a></li>
-        <li><a href="{{ navCtaHref if navCtaHref else ('/#contact' if page.url !== '/' else '#contact') }}" class="btn">{{ navCtaText if navCtaText else 'Get a Quote' }}</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="{{ navCtaHref if navCtaHref else '/contact/' }}" class="btn">{{ navCtaText if navCtaText else 'Get a Quote' }}</a></li>
       </ul>
     </div>
   </nav>
@@ -100,9 +96,9 @@
           <h4>Company</h4>
           <ul>
             <li><a href="/projects/">Projects</a></li>
-            <li><a href="/work/">Founding Clients</a></li>
-            <li><a href="/#pricing">Pricing</a></li>
-            <li><a href="/#contact">Contact</a></li>
+            <li><a href="/templates/">Templates</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/contact/">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
