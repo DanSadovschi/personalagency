@@ -2815,3 +2815,148 @@ footer {
   .post-cta-inner { padding: 32px 20px; }
   .post-hero { padding: 120px 0 60px; }
 }
+
+/* ════════════════════════════════════════════════════════════
+   HERO — Split layout with Three.js sphere
+   ════════════════════════════════════════════════════════════ */
+.hero-split {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 68px;
+  position: relative;
+}
+
+.hero-split .hero-content {
+  flex: 1;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-canvas-wrap {
+  flex: 0 0 420px;
+  height: 420px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-canvas-wrap canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .hero-split {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-split .hero-content {
+    padding-top: 80px;
+    padding-bottom: 20px;
+  }
+
+  .hero-canvas-wrap {
+    flex: none;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+  }
+
+  .hero-split .hero-ctas {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-canvas-wrap {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════
+   BELIEFS (replaces Pain Points)
+   ════════════════════════════════════════════════════════════ */
+.beliefs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.belief-card {
+  padding: 40px 36px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface);
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.belief-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+
+.belief-num {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  font-family: monospace;
+  margin-bottom: 20px;
+}
+
+.belief-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.belief-card p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* ════════════════════════════════════════════════════════════
+   SECTORS (replaces Who We Work With cards)
+   ════════════════════════════════════════════════════════════ */
+.sectors-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.sector-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 28px;
+  border: 1px solid var(--border-mid);
+  border-radius: 60px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: var(--transition);
+  cursor: default;
+}
+
+.sector-tag:hover {
+  border-color: var(--accent);
+  color: var(--text);
+  background: rgba(79, 142, 247, 0.06);
+}
+
+.sectors-note {
+  text-align: center;
+  font-size: 1rem;
+  max-width: 520px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
