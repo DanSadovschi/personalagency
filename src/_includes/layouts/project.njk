@@ -57,6 +57,9 @@ activeNav: projects
         </div>
         {% endif %}
       </div>
+      {% if link %}
+      <a href="{{ link }}" target="_blank" rel="noopener" class="btn btn-lg btn-outline project-sidebar-cta">View Live Site →</a>
+      {% endif %}
       <a href="/contact/" class="btn btn-lg project-sidebar-cta">Start Your Project</a>
     </aside>
 
