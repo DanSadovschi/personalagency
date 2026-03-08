@@ -5,6 +5,7 @@ client: Legacy Ventures Performance
 sector: Business & Leadership
 year: 2025
 cover: ""
+link: https://www.lvphq.com/
 summary: Premium website built from scratch for a leadership consultancy founded by a former military officer — design, development, and brand assets all created in-house.
 services:
   - Web Design

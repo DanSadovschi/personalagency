@@ -5,6 +5,7 @@ client: Blitz Pikado Bar
 sector: Food & Entertainment
 year: 2024
 cover: ""
+link: https://blitz-bar.webflow.io/
 summary: Retro comic book-inspired website for a darts bar — brand concept, custom illustration, design, development, and booking system all built from scratch.
 services:
   - Web Design

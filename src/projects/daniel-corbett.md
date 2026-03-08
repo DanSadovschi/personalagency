@@ -5,6 +5,7 @@ client: Daniel David Corbett III
 sector: Personal Branding
 year: 2024
 cover: ""
+link: https://www.danieldavidcorbettiii.com/
 summary: Personal brand website for an author — visual identity, design, development, and all assets built from scratch to showcase his book and his story.
 services:
   - Web Design

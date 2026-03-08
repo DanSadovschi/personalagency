@@ -5,6 +5,7 @@ client: Quantum Loops
 sector: Digital Agency
 year: 2025
 cover: ""
+link: https://www.quantum-loops.com/
 summary: Complete website for a digital agency — brand identity, custom graphics, design, and development all built from scratch in-house.
 services:
   - Web Design

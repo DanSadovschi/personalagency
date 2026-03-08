@@ -5,6 +5,7 @@ client: Cali Labz
 sector: E-Commerce
 year: 2024
 cover: ""
+link: https://www.calilabz.com/
 summary: Bold website for a cannabis franchise operation across Europe — brand identity, custom graphics, design, and development all created from scratch.
 services:
   - Web Design
