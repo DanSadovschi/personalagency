@@ -1,0 +1,113 @@
+---
+layout: layouts/base.njk
+title: Our 47-Point Web Design Standard | WebOrb
+description: Every website we build passes 47 checks across 5 layers — structure, SEO, performance, accessibility, and UK legal compliance. See the full standard.
+canonical: https://web-orb.uk/standards/
+ogTitle: 47 Checks. Zero Shortcuts. | WebOrb
+---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://web-orb.uk/" },
+    { "@type": "ListItem", "position": 2, "name": "Our Standards", "item": "https://web-orb.uk/standards/" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "WebOrb 47-Point Web Design Standard",
+  "description": "Quality checks applied to every website we build",
+  "numberOfItems": 5,
+  "itemListElement": [
+    {% for cat in standards %}
+    {
+      "@type": "ListItem",
+      "position": {{ loop.index }},
+      "name": "{{ cat.title }}",
+      "description": "{{ cat.checks.length }} checks covering {{ cat.title | lower }}"
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+
+<section class="page-hero">
+  <div class="hero-bg-grid"></div>
+  <div class="container">
+    <p class="section-eyebrow reveal">Our standard</p>
+    <h1 class="text-reveal">47 checks. Zero <span class="accent">shortcuts.</span></h1>
+    <p class="page-hero-sub reveal">Every website we build goes through a 47-point quality standard across five layers — from foundation to compliance. This is what rigour looks like.</p>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-inner">
+      <div class="stat reveal">
+        <span class="stat-num" data-count="47">0</span>
+        <span class="stat-label">Checks per site</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat reveal">
+        <span class="stat-num" data-count="5">0</span>
+        <span class="stat-label">Technical layers</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat reveal">
+        <span class="stat-num">0</span>
+        <span class="stat-label">Left to chance</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="standards-callout reveal">
+      <p class="section-eyebrow" style="margin-bottom: 12px">Why this matters</p>
+      <p>A website that <em>looks</em> nice but fails these checks won't rank on Google, won't load fast on a 4G phone, and could be blocked by browsers for being insecure. Most studios don't publish their process because they don't have one. We publish ours because accountability is the point.</p>
+    </div>
+  </div>
+</section>
+
+{% for cat in standards %}
+<section class="section{% if loop.index is even %} section-dark{% endif %} standards-section" style="--cat-color: {{ cat.color }}; --cat-glow: {{ cat.glow }}">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-eyebrow" style="color: var(--cat-color)">{{ cat.label }}</p>
+      <h2 class="text-reveal">{{ cat.title }}</h2>
+      <span class="standards-count">{{ cat.checks.length }} checks</span>
+    </div>
+    {% if cat.subtitle %}
+    <p class="standards-subtitle reveal">{{ cat.subtitle }}</p>
+    {% endif %}
+    <div class="standards-grid">
+      {% for check in cat.checks %}
+      <div class="standard-card reveal">
+        <div class="standard-dot" style="background: var(--cat-color)"></div>
+        <div>
+          <h3>{{ check.name }}</h3>
+          <p>{{ check.desc }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endfor %}
+
+<section class="cta-section section">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <p class="section-eyebrow">Ready?</p>
+      <h2>This is the standard.<br>Ready to <span class="accent">build to it?</span></h2>
+      <a href="/contact/" class="btn btn-lg">Start a conversation</a>
+    </div>
+  </div>
+</section>

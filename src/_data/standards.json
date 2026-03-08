@@ -1,0 +1,101 @@
+[
+  {
+    "id": "foundation",
+    "label": "01 — Foundation",
+    "title": "Foundation & Structure",
+    "color": "#22c55e",
+    "glow": "rgba(34, 197, 94, 0.08)",
+    "icon": "🏗️",
+    "checks": [
+      { "name": "Semantic HTML structure", "desc": "Google reads your site like a book — it needs proper chapters and headings, not a wall of text" },
+      { "name": "Single H1 per page", "desc": "One clear headline per page tells Google exactly what it's about — multiple H1s confuse it" },
+      { "name": "Unique page titles", "desc": "Each page has its own title in the browser tab and Google results — not all the same" },
+      { "name": "Meta descriptions", "desc": "The two lines under your link in Google — written to make people actually click" },
+      { "name": "Canonical URLs", "desc": "Tells Google which version of a page is the real one — prevents your own pages competing against each other" },
+      { "name": "Open Graph tags", "desc": "Controls how your site looks when shared on WhatsApp or Facebook — title, image, description" },
+      { "name": "Favicon & app icon", "desc": "The small icon in the browser tab and on phone home screens — looks amateur without it" },
+      { "name": "Character encoding", "desc": "Prevents text from showing as garbled symbols — especially with phone numbers and special characters" },
+      { "name": "Viewport meta tag", "desc": "The line of code that tells phones to show your site at the right size — without it, everything is tiny" },
+      { "name": "Language declaration", "desc": "Tells browsers and Google the site is in English — affects translation prompts and regional ranking" }
+    ]
+  },
+  {
+    "id": "seo",
+    "label": "02 — SEO",
+    "title": "Search Engine Optimisation",
+    "color": "#3b82f6",
+    "glow": "rgba(59, 130, 246, 0.08)",
+    "icon": "🔍",
+    "checks": [
+      { "name": "robots.txt file", "desc": "Tells Google which pages to index and which to ignore — a misconfigured one can hide your whole site" },
+      { "name": "XML sitemap", "desc": "A map of every page submitted to Google — helps new sites get found faster" },
+      { "name": "LocalBusiness schema", "desc": "Hidden code that tells Google your exact name, address, phone, and hours in a format it understands perfectly" },
+      { "name": "Service schema markup", "desc": "Labels your services so Google can show them directly in search results — before someone clicks" },
+      { "name": "Clean URL structure", "desc": "/web-design/corby instead of /?p=42 — readable URLs rank better and look more trustworthy" },
+      { "name": "Internal linking", "desc": "Pages linking to each other logically — helps Google understand which pages matter most" },
+      { "name": "No broken links", "desc": "Dead links lose you ranking points and look unprofessional — we check every single one" },
+      { "name": "HTTPS redirect", "desc": "Anyone typing your address without https gets automatically sent to the secure version — no gaps" },
+      { "name": "NAP consistency", "desc": "Your Name, Address, Phone must be identical everywhere online — even one mismatch can hurt local rankings" }
+    ]
+  },
+  {
+    "id": "speed",
+    "label": "03 — Speed",
+    "title": "Speed & Performance",
+    "color": "#f59e0b",
+    "glow": "rgba(245, 158, 11, 0.08)",
+    "icon": "⚡",
+    "subtitle": "Google measures three speed scores (Core Web Vitals) and uses them to rank you. A slow site ranks lower — no exceptions.",
+    "checks": [
+      { "name": "WebP image format", "desc": "Modern image format that's 30–50% smaller than JPEG with the same quality — pages load faster" },
+      { "name": "Image dimensions set", "desc": "Without this, the page jumps as images load — Google penalises this and users hate it" },
+      { "name": "Lazy loading images", "desc": "Images below the screen don't load until you scroll to them — makes the page feel instant" },
+      { "name": "Hero image priority", "desc": "The first big image loads before everything else — so the page looks full within 1 second" },
+      { "name": "Minified CSS & JS", "desc": "All code is compressed — like zipping a file before sending — so it arrives faster" },
+      { "name": "Font loading strategy", "desc": "Fonts show placeholder text while loading instead of blank space — no invisible text on slow connections" },
+      { "name": "Gzip compression", "desc": "The server sends compressed files — like a courier packing tighter boxes — cuts transfer size by 70%" },
+      { "name": "LCP under 2.5s", "desc": "Largest Contentful Paint — how long until the main content appears. Google wants under 2.5 seconds" },
+      { "name": "CLS under 0.1", "desc": "Cumulative Layout Shift — measures page jumping. If a button moves as you tap it, that's CLS" },
+      { "name": "CDN for static files", "desc": "Files served from a server closest to the visitor — someone in Glasgow loads as fast as someone in London" }
+    ]
+  },
+  {
+    "id": "access",
+    "label": "04 — Accessibility",
+    "title": "Accessibility",
+    "color": "#f43f5e",
+    "glow": "rgba(244, 63, 94, 0.08)",
+    "icon": "♿",
+    "subtitle": "Screen readers, keyboard users, people with poor vision — and Google crawls your site exactly like a screen reader.",
+    "checks": [
+      { "name": "Alt text on all images", "desc": "A description of every image — read aloud for visually impaired users, and indexed by Google for image search" },
+      { "name": "Form labels", "desc": "Every input field is properly labelled — screen readers announce what to type, not just silence" },
+      { "name": "Colour contrast ratio", "desc": "Text must be dark enough against background — light grey on white fails and is unreadable in sunlight" },
+      { "name": "Keyboard navigation", "desc": "The full site works using only Tab and Enter — required by law for public-facing UK websites" },
+      { "name": "Visible focus states", "desc": "When you tab through a page, the active element is highlighted — many sites break this accidentally" },
+      { "name": "Icon button labels", "desc": "A phone icon with no text still needs a hidden label — otherwise screen readers say nothing" },
+      { "name": "Touch target sizes", "desc": "Buttons and links are at least 44x44px — so fingers on phones don't tap the wrong thing" },
+      { "name": "Pinch-to-zoom enabled", "desc": "Some sites disable zooming — that's bad for accessibility and penalised by Google on mobile" },
+      { "name": "Skip navigation link", "desc": "Keyboard users can jump straight to the content — skipping the menu every single time" }
+    ]
+  },
+  {
+    "id": "security",
+    "label": "05 — Security",
+    "title": "Security & Legal (UK)",
+    "color": "#8b5cf6",
+    "glow": "rgba(139, 92, 246, 0.08)",
+    "icon": "🔒",
+    "checks": [
+      { "name": "SSL certificate", "desc": "The padlock in the browser bar — without it Chrome shows Not Secure and most visitors leave immediately" },
+      { "name": "Security headers", "desc": "Invisible rules that stop hackers injecting malicious code into your pages — most cheap sites skip these" },
+      { "name": "Clickjacking protection", "desc": "Prevents your site being secretly embedded inside another page to trick your visitors" },
+      { "name": "Spam protection on forms", "desc": "Honeypot fields and rate limiting — stops bots flooding your inbox with fake enquiries" },
+      { "name": "Cookie consent banner", "desc": "UK ICO law requires consent before setting tracking cookies — ignoring this can result in fines" },
+      { "name": "Privacy Policy page", "desc": "Legally required if you collect any data — even just a contact form email address counts" },
+      { "name": "GDPR-compliant forms", "desc": "No pre-ticked boxes, clear consent language — UK GDPR is still enforced post-Brexit" },
+      { "name": "Company details in footer", "desc": "If you're a Ltd company, Companies House number and registered address must appear on your website" },
+      { "name": "Click-to-call phone link", "desc": "Your phone number is a real tap-to-call link — not just text that people have to manually type" }
+    ]
+  }
+]
