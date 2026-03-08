@@ -1,4 +1,5 @@
 ---
+date: 2025-01-01
 title: Alchemis
 client: Alchemis
 sector: Technology

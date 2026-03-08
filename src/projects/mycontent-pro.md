@@ -1,4 +1,5 @@
 ---
+date: 2025-01-01
 title: MyContent Pro
 client: MyContent Pro
 sector: Social Media & Marketing

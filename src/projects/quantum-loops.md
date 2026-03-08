@@ -1,4 +1,5 @@
 ---
+date: 2026-01-02
 title: Quantum Loops
 client: Quantum Loops
 sector: Digital Agency

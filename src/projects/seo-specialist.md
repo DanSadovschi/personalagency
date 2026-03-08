@@ -1,4 +1,5 @@
 ---
+date: 2025-01-01
 title: SEO Specialist
 client: SEO Specialist
 sector: Digital Marketing

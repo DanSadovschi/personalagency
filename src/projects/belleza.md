@@ -1,4 +1,5 @@
 ---
+date: 2025-01-01
 title: Belleza
 client: Belleza
 sector: Beauty & Wellness

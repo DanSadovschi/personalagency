@@ -1,4 +1,5 @@
 ---
+date: 2026-01-01
 title: Blitz Bar
 client: Blitz Pikado Bar
 sector: Food & Entertainment

@@ -1,4 +1,5 @@
 ---
+date: 2025-01-01
 title: Monthly Fans
 client: Monthly Fans
 sector: Music & Entertainment

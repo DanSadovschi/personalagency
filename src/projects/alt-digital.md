@@ -1,4 +1,5 @@
 ---
+date: 2025-01-01
 title: ALT DIGITAL
 client: ALT DIGITAL
 sector: Digital Marketing

@@ -1,4 +1,5 @@
 ---
+date: 2026-01-03
 title: Legacy Ventures Performance
 client: Legacy Ventures Performance
 sector: Business & Leadership

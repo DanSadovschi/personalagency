@@ -1,4 +1,5 @@
 ---
+date: 2026-01-04
 title: Daniel Corbett
 client: Daniel David Corbett III
 sector: Personal Branding
