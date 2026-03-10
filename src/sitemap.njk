@@ -16,9 +16,15 @@ eleventyExcludeFromCollections: true
   </url>
 {%- endif %}
 {%- endfor %}
+  <url>
+    <loc>https://web-orb.uk/locations/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 {%- for city in cities %}
   <url>
     <loc>https://web-orb.uk/web-design-{{ city.slug }}/</loc>
+    <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
