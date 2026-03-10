@@ -4047,3 +4047,129 @@ blockquote {
   .standards-callout { padding: 24px 20px; }
   .standard-card { padding: 16px 18px; }
 }
+
+/* ================================================================
+   BREADCRUMBS
+   ================================================================ */
+.breadcrumbs {
+  padding-bottom: 0;
+}
+
+.breadcrumb-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  flex-wrap: wrap;
+}
+
+.breadcrumb-list li:not(:last-child)::after {
+  content: "/";
+  margin-left: 8px;
+  color: var(--text-dim);
+}
+
+.breadcrumb-list a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumb-list a:hover {
+  color: var(--accent);
+}
+
+.breadcrumb-list li[aria-current="page"] {
+  color: var(--text);
+}
+
+/* ================================================================
+   LOCATION CARDS (hub page + nearby areas)
+   ================================================================ */
+.locations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.location-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 28px 24px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.location-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.location-card h3 {
+  font-size: 1.15rem;
+  color: var(--text);
+}
+
+.location-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.location-card-link {
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+/* ================================================================
+   FOOTER AREAS
+   ================================================================ */
+.footer-areas {
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+}
+
+.footer-areas-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+}
+
+.footer-areas-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+}
+
+.footer-areas-list a {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-areas-list a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .locations-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .locations-grid {
+    grid-template-columns: 1fr;
+  }
+}

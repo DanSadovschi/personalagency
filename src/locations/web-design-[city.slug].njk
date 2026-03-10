@@ -76,6 +76,17 @@ permalink: "web-design-{{ city.slug }}/index.html"
     </div>
   </nav>
 
+  <!-- ═══════════════════ BREADCRUMBS ═══════════════════ -->
+  <div class="breadcrumbs" style="padding-top:100px;">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/locations/">Locations</a></li>
+        <li aria-current="page">Web Design {{ city.name }}</li>
+      </ol>
+    </div>
+  </div>
+
   <!-- ═══════════════════════════════ HERO ══════════════════════════════ -->
   <section id="hero">
     <div class="hero-bg-grid"></div>
@@ -179,8 +190,33 @@ permalink: "web-design-{{ city.slug }}/index.html"
     </div>
   </section>
 
+  <!-- ═══════════════ WHY THIS CITY ═══════════════ -->
+  {% if city.whyCity %}
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Why {{ city.name }}</p>
+        <h2 class="text-reveal">Why your {{ city.name }} business needs a professional website.</h2>
+      </div>
+      <div class="why-city-content reveal" style="max-width:720px;margin:0 auto;">
+        <p style="font-size:1.1rem;line-height:1.8;color:var(--text-muted);">{{ city.whyCity }}</p>
+        {% if city.keyIndustries %}
+        <div style="margin-top:2rem;">
+          <p style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:0.75rem;">Key industries in {{ city.name }}</p>
+          <div class="service-tags" style="display:flex;flex-wrap:wrap;gap:8px;">
+            {% for industry in city.keyIndustries.split(", ") %}
+            <span class="service-tag" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:6px 14px;border-radius:20px;font-size:0.85rem;color:var(--text-muted);">{{ industry }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
   <!-- ══════════════════════════════ SERVICES ═══════════════════════════ -->
-  <section id="services" class="section section-dark">
+  <section id="services" class="section">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-eyebrow">What we do</p>
@@ -237,7 +273,7 @@ permalink: "web-design-{{ city.slug }}/index.html"
 
   <!-- ══════════════════════════════ PROJECTS ═══════════════════════════ -->
   {% if collections.projects and collections.projects.length > 0 %}
-  <section id="projects" class="section">
+  <section id="projects" class="section section-dark">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-eyebrow">Our work</p>
@@ -278,7 +314,7 @@ permalink: "web-design-{{ city.slug }}/index.html"
   {% endif %}
 
   <!-- ══════════════════════════════ TEMPLATES ══════════════════════════ -->
-  <section id="templates" class="section section-dark">
+  <section id="templates" class="section">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-eyebrow">Ready-Made Templates</p>
@@ -353,6 +389,59 @@ permalink: "web-design-{{ city.slug }}/index.html"
     </div>
   </section>
 
+  <!-- ══════════════════════════════ FAQ ═══════════════════════════════ -->
+  {% if city.faq and city.faq.length > 0 %}
+  <section id="faq" class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Common questions</p>
+        <h2 class="text-reveal">Web design in {{ city.name }} — FAQ.</h2>
+      </div>
+      <div class="faq-list">
+        {% for item in city.faq %}
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            {{ item.q }}
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-answer">
+            <p>{{ item.a }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- ══════════════════════════════ NEARBY AREAS ═════════════════════ -->
+  {% if city.nearbyAreas and city.nearbyAreas.length > 0 %}
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Nearby areas</p>
+        <h2 class="text-reveal">We also serve these areas.</h2>
+      </div>
+      <div class="locations-grid">
+        {% for nearbySlug in city.nearbyAreas %}
+          {% for c in cities %}
+            {% if c.slug === nearbySlug %}
+            <a href="/web-design-{{ c.slug }}/" class="location-card reveal">
+              <h3>{{ c.name }}</h3>
+              <p>Web design &amp; SEO in {{ c.name }}, {{ c.county }}</p>
+              <span class="location-card-link">Web design {{ c.name }} →</span>
+            </a>
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </div>
+      <div class="trust-cta reveal" style="margin-top:32px;">
+        <a href="/locations/" class="btn btn-ghost magnetic">View all locations <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
   <!-- ══════════════════════════════ CTA ═══════════════════════════════ -->
   <section class="cta-section section">
     <div class="container">
@@ -375,18 +464,20 @@ permalink: "web-design-{{ city.slug }}/index.html"
         <div class="footer-col">
           <h4>Services</h4>
           <ul>
-            <li><a href="#services">Web Design</a></li>
-            <li><a href="#services">Local SEO</a></li>
-            <li><a href="#services">Google Business</a></li>
-            <li><a href="#services">Landing Pages</a></li>
+            <li><a href="/#services">Web Design</a></li>
+            <li><a href="/#services">Local SEO</a></li>
+            <li><a href="/#services">Google Business</a></li>
+            <li><a href="/#services">Landing Pages</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Company</h4>
           <ul>
             <li><a href="/projects/">Projects</a></li>
+            <li><a href="/standards/">Our Standards</a></li>
             <li><a href="/templates/">Templates</a></li>
             <li><a href="/blog/">Blog</a></li>
+            <li><a href="/locations/">Locations</a></li>
             <li><a href="/contact/">Contact</a></li>
           </ul>
         </div>
@@ -397,6 +488,16 @@ permalink: "web-design-{{ city.slug }}/index.html"
             <li><a href="tel:+447594517540">07594 517 540</a></li>
             <li><a href="https://wa.me/447594517540" target="_blank" rel="noopener">WhatsApp</a></li>
           </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-areas">
+      <div class="container">
+        <p class="footer-areas-title">Areas we serve</p>
+        <div class="footer-areas-list">
+          {% for c in cities %}
+            <a href="/web-design-{{ c.slug }}/">{{ c.name }}</a>
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -417,7 +518,7 @@ permalink: "web-design-{{ city.slug }}/index.html"
 
   <script src="/js/main.js"></script>
 
-  <!-- Structured Data: LocalBusiness -->
+  <!-- Structured Data: ProfessionalService -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -443,6 +544,44 @@ permalink: "web-design-{{ city.slug }}/index.html"
       "addressRegion": "{{ city.county }}",
       "addressCountry": "GB"
     },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Web Design Services in {{ city.name }}",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Custom Web Design",
+            "description": "Bespoke website design and development for {{ city.name }} businesses"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Local SEO {{ city.name }}",
+            "description": "Search engine optimisation targeting {{ city.name }} and {{ city.county }}"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Google Business Profile",
+            "description": "Google Business Profile setup and optimisation for {{ city.name }} businesses"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Landing Pages & Google Ads",
+            "description": "High-converting landing pages and Google Ads management for {{ city.name }}"
+          }
+        }
+      ]
+    },
     "sameAs": [
       "https://wa.me/447594517540"
     ]
@@ -464,11 +603,39 @@ permalink: "web-design-{{ city.slug }}/index.html"
       {
         "@type": "ListItem",
         "position": 2,
+        "name": "Locations",
+        "item": "https://web-orb.uk/locations/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
         "name": "Web Design {{ city.name }}",
         "item": "https://web-orb.uk/web-design-{{ city.slug }}/"
       }
     ]
   }
   </script>
+
+  <!-- Structured Data: FAQPage -->
+  {% if city.faq and city.faq.length > 0 %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {% for item in city.faq %}
+      {
+        "@type": "Question",
+        "name": "{{ item.q }}",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "{{ item.a }}"
+        }
+      }{% if not loop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+  {% endif %}
 </body>
 </html>
