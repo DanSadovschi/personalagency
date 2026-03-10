@@ -4,12 +4,12 @@
     "name": "Northampton",
     "county": "Northamptonshire",
     "population": "220,000",
-    "region": "east-midlands",
+    "region": "northamptonshire",
     "description": "Northampton is the county town of Northamptonshire and one of the fastest-growing cities in the UK. With a thriving mix of independent shops, trade businesses, and service providers, standing out online is more important than ever. The town's ongoing expansion — from new housing estates to regenerated commercial zones — means competition for local customers is intensifying across every sector.",
     "localDetails": "Whether you're based in Abington, Kingsthorpe, Delapre, or the town centre — WebOrb builds websites designed to make your business the obvious choice in Northampton. We also serve businesses in Moulton, Weston Favell, Duston, and the surrounding villages across Northamptonshire.",
     "whyCity": "Northampton sits at the crossroads of the M1 and A45, making it a logistics and services hub for the Midlands. With over 220,000 residents and thousands of new homes being built each year, local businesses face growing competition. A professionally built website with local SEO helps you capture customers who are actively searching for services in Northampton — before your competitors do.",
     "keyIndustries": "Trades and construction, logistics, retail, professional services, hospitality",
-    "nearbyAreas": ["kettering", "wellingborough", "rushden", "daventry", "corby"],
+    "nearbyAreas": ["kettering", "wellingborough", "daventry", "towcester", "milton-keynes"],
     "faq": [
       {
         "q": "How much does web design cost in Northampton?",
@@ -30,12 +30,12 @@
     "name": "Kettering",
     "county": "Northamptonshire",
     "population": "100,000",
-    "region": "east-midlands",
+    "region": "northamptonshire",
     "description": "Kettering is one of Northamptonshire's largest towns, with a strong base of trades businesses — from electricians and plumbers to builders and decorators. The town has seen significant investment in recent years, with new housing developments and the growth of the retail and leisure sector around the town centre and Kettering Business Park.",
     "localDetails": "Serving businesses across Kettering, Burton Latimer, Desborough, and Rothwell — WebOrb builds websites that put your business in front of the right people. We understand the Kettering market and create sites that reflect the quality of your work.",
     "whyCity": "Kettering's population has grown rapidly thanks to new housing developments in areas like Hanwood Park and Barton Seagrave. This means more homeowners looking for local tradespeople and services — but also more businesses competing for their attention. A strong website with targeted local SEO positions your business ahead of competitors who rely on word of mouth alone.",
     "keyIndustries": "Construction trades, property maintenance, retail, food and hospitality",
-    "nearbyAreas": ["northampton", "corby", "wellingborough", "rushden"],
+    "nearbyAreas": ["northampton", "corby", "wellingborough", "market-harborough", "rushden"],
     "faq": [
       {
         "q": "How quickly can I get a website for my Kettering business?",
@@ -56,12 +56,12 @@
     "name": "Corby",
     "county": "Northamptonshire",
     "population": "70,000",
-    "region": "east-midlands",
+    "region": "northamptonshire",
     "description": "Corby is a fast-growing town in north Northamptonshire with a booming construction and trades sector. Once known for steelworks, Corby has reinvented itself as one of the UK's fastest-growing towns, with major housing developments attracting young families and professionals. Local businesses need a strong online presence to keep up with this rapid growth.",
     "localDetails": "From Corby town centre to Oakley Vale, Great Oakley, Stanion, and the surrounding villages — we build fast, professional websites that help your business stand out on Google and win more local customers.",
     "whyCity": "Corby's population has doubled in recent decades and continues to grow. The Priors Hall and Weldon Park developments have brought thousands of new residents — all of whom need local services. If you're a tradesperson or service provider in Corby, having a professional website means you're visible to these new customers from day one.",
     "keyIndustries": "Construction, trades, property services, logistics, warehousing",
-    "nearbyAreas": ["kettering", "northampton", "wellingborough"],
+    "nearbyAreas": ["kettering", "market-harborough", "peterborough", "rushden"],
     "faq": [
       {
         "q": "Is it worth investing in a website for a Corby-based business?",
@@ -82,12 +82,12 @@
     "name": "Wellingborough",
     "county": "Northamptonshire",
     "population": "50,000",
-    "region": "east-midlands",
+    "region": "northamptonshire",
     "description": "Wellingborough is a market town at the heart of Northamptonshire, home to many independent trades and service businesses looking to grow their local reach. With the Stanton Cross development bringing thousands of new homes and a new commercial quarter, Wellingborough is entering a period of significant growth — and local businesses need to be ready to capture that demand online.",
     "localDetails": "Covering Wellingborough, Earls Barton, Wollaston, Finedon, and the surrounding villages — WebOrb builds websites that bring in more enquiries from the right customers in the Wellingborough area.",
     "whyCity": "The Stanton Cross development is set to add over 3,000 new homes to Wellingborough, along with schools, shops, and leisure facilities. This influx of new residents creates massive opportunity for local tradespeople and services. Being visible online when these new homeowners search for local services is critical to capturing this growth.",
     "keyIndustries": "Trades, home improvement, retail, professional services, education",
-    "nearbyAreas": ["northampton", "kettering", "rushden"],
+    "nearbyAreas": ["northampton", "kettering", "rushden", "bedford"],
     "faq": [
       {
         "q": "How do I get my Wellingborough business found on Google?",
@@ -108,12 +108,12 @@
     "name": "Rushden",
     "county": "Northamptonshire",
     "population": "30,000",
-    "region": "east-midlands",
+    "region": "northamptonshire",
     "description": "Rushden is a growing town on the Northamptonshire–Bedfordshire border, with a mix of established trades businesses and new local services. The Rushden Lakes development has transformed the area into a regional retail destination, bringing increased footfall and new business opportunities to the wider Rushden area.",
     "localDetails": "Serving Rushden, Higham Ferrers, Irthlingborough, Raunds, and nearby villages — we create websites that establish your business as the go-to in your area and drive consistent local enquiries.",
     "whyCity": "Rushden Lakes has put this town on the map as a retail and leisure destination, attracting visitors from across Northamptonshire and Bedfordshire. For local businesses, this increased profile means more people searching online for services in the Rushden area. A well-optimised website ensures you benefit from this growing visibility.",
     "keyIndustries": "Retail, trades, hospitality, property services, automotive",
-    "nearbyAreas": ["wellingborough", "kettering", "northampton"],
+    "nearbyAreas": ["wellingborough", "kettering", "bedford", "northampton"],
     "faq": [
       {
         "q": "Can you build a website for a small business in Rushden?",
@@ -134,12 +134,12 @@
     "name": "Daventry",
     "county": "Northamptonshire",
     "population": "25,000",
-    "region": "east-midlands",
+    "region": "northamptonshire",
     "description": "Daventry is a market town in west Northamptonshire, surrounded by villages and rural businesses that often struggle to get noticed online. Despite its smaller size, Daventry serves a wide rural catchment area — and businesses here can dominate local search results with the right website and SEO strategy.",
     "localDetails": "From Daventry town centre to the villages of Long Buckby, Weedon Bec, Kilsby, Braunston, and the surrounding countryside — WebOrb builds websites that work for local trades, rural businesses, and service providers across west Northamptonshire.",
     "whyCity": "Daventry's location between Northampton, Rugby, and Banbury means local businesses serve a wide geographic area. But rural businesses often have weak online presence, which means there's less competition in search results. A well-built website with local SEO can help a Daventry business dominate searches across the entire west Northamptonshire region.",
     "keyIndustries": "Rural trades, agriculture services, logistics, property maintenance, hospitality",
-    "nearbyAreas": ["northampton", "kettering", "wellingborough"],
+    "nearbyAreas": ["northampton", "rugby", "towcester", "banbury"],
     "faq": [
       {
         "q": "Is SEO effective for rural businesses near Daventry?",
@@ -156,288 +156,210 @@
     ]
   },
   {
-    "slug": "london",
-    "name": "London",
-    "county": "Greater London",
-    "population": "9,000,000",
-    "region": "london",
-    "description": "London is the most competitive market in the UK. With millions of residents and thousands of businesses all fighting for the same customers, having a fast, professional website is no longer optional — it's essential. In a city where consumers expect quality at every touchpoint, your website is often the first impression that determines whether someone contacts you or scrolls past.",
-    "localDetails": "Whether you operate in East London, South London, the suburbs, or the City — WebOrb builds websites that cut through the noise and position your business where it belongs. We serve businesses across all London boroughs, from Camden and Islington to Greenwich, Croydon, and Bromley.",
-    "whyCity": "London has over 9 million residents and hundreds of thousands of businesses. Standing out requires more than just having a website — it requires a website that loads fast, looks professional, and is optimised for the specific searches your customers make. Generic template sites don't cut it here. Our custom builds are designed to compete in London's demanding market.",
-    "keyIndustries": "Professional services, trades and construction, hospitality, tech startups, creative agencies, retail",
-    "nearbyAreas": ["cambridge", "oxford", "southampton", "bristol"],
+    "slug": "milton-keynes",
+    "name": "Milton Keynes",
+    "county": "Buckinghamshire",
+    "population": "250,000",
+    "region": "nearby",
+    "description": "Milton Keynes is one of the UK's fastest-growing cities, just 20 minutes south of Northampton on the M1. With a population that's grown by over 20% in the last decade, MK has a massive demand for trades and services — from new-build snagging and kitchen fitting to plumbing, electrical work, and landscaping. The city's modern estates and commercial parks create constant demand for businesses that can deliver quality work.",
+    "localDetails": "Covering Milton Keynes city centre, Bletchley, Wolverton, Newport Pagnell, Stony Stratford, and the surrounding villages — WebOrb builds websites that help MK businesses stand out in one of the most competitive local markets in the South East Midlands.",
+    "whyCity": "Milton Keynes' rapid growth means thousands of new homeowners arrive each year, all needing local services — and they search Google first. The city's population of over 250,000, combined with a strong commercial sector, makes it a lucrative market for any trades or service business. But competition is fierce. A professional website with local SEO is the most reliable way to consistently win new customers in MK.",
+    "keyIndustries": "Construction and trades, logistics, tech, professional services, retail, property management",
+    "nearbyAreas": ["northampton", "towcester", "bedford", "buckingham"],
     "faq": [
       {
-        "q": "How do you help London businesses stand out online?",
-        "a": "We build custom websites that are fast, clean, and optimised for London-specific searches. Unlike generic website builders, every element is crafted to convert London visitors into enquiries — from the copy to the page structure to the SEO targeting."
+        "q": "How competitive is the Milton Keynes market for tradespeople?",
+        "a": "MK is one of the fastest-growing cities in the UK, which means high demand — but also growing competition. Most MK tradespeople still rely on Facebook or listing sites. A custom website with local SEO immediately puts you ahead of the majority and gives you a professional online presence you own."
       },
       {
-        "q": "Is local SEO still relevant in a city as large as London?",
-        "a": "More than ever. Google increasingly serves hyperlocal results — 'plumber in Brixton' returns different results to 'plumber in Hammersmith'. We optimise for the specific boroughs and neighbourhoods where your customers are, so you're visible where it matters most."
+        "q": "Can you target specific areas within Milton Keynes?",
+        "a": "Yes. MK is made up of dozens of distinct estates and districts. We can optimise your site for specific areas — Bletchley, Wolverton, Newport Pagnell, Stony Stratford — so you rank for the searches your actual customers make."
       },
       {
-        "q": "What types of London businesses do you work with?",
-        "a": "Everything from sole-trader tradespeople to growing agencies and local service providers. If you serve customers in London and want more of them to find you online, we can help — regardless of your industry or business size."
+        "q": "Do you work with new-build contractors in MK?",
+        "a": "Yes. Milton Keynes has huge volumes of new-build development, and we work with contractors, snagging specialists, kitchen fitters, and other businesses that serve the new-build market. Your website will be built to attract both residential and commercial clients."
       }
     ]
   },
   {
-    "slug": "manchester",
-    "name": "Manchester",
-    "county": "Greater Manchester",
-    "population": "2,800,000",
-    "region": "north-west",
-    "description": "Manchester is one of the UK's fastest-growing cities, with a booming construction, renovation, and trades sector fuelled by continuous development and a large residential population. The city's regeneration projects — from the Northern Quarter to Salford Quays — have created sustained demand for quality services, and businesses that are visible online are the ones capturing that demand.",
-    "localDetails": "Covering Manchester city centre, Salford, Stockport, Trafford, Oldham, Rochdale, and the wider Greater Manchester area — WebOrb builds websites that help local businesses stand out in one of the UK's most competitive markets.",
-    "whyCity": "Greater Manchester has a population of nearly 3 million, making it the largest metropolitan area outside London. The region's ongoing regeneration, strong rental market, and growing population mean constant demand for tradespeople, professional services, and local businesses. A professional website with targeted SEO means you capture customers who are actively searching — not just hoping for referrals.",
-    "keyIndustries": "Construction and trades, digital and creative, hospitality, professional services, property",
-    "nearbyAreas": ["liverpool", "leeds", "sheffield"],
+    "slug": "bedford",
+    "name": "Bedford",
+    "county": "Bedfordshire",
+    "population": "180,000",
+    "region": "nearby",
+    "description": "Bedford is a riverside town just 40 minutes east of Northampton, with a growing population and a diverse mix of businesses. The town's housing market is active, with new developments and period properties creating consistent demand for tradespeople across all sectors. Bedford's strong community identity means local businesses thrive here — especially those with a professional online presence.",
+    "localDetails": "Serving Bedford town centre, Kempston, Elstow, Clapham, Bromham, and the wider Bedfordshire area — WebOrb builds websites that rank on Google and bring in real enquiries from Bedford customers.",
+    "whyCity": "Bedford's central location on the A6 and Midland Main Line makes it a commuter hub with a growing population. Homeowners here invest in their properties, creating sustained demand for trades services. But many Bedford businesses still lack a proper website. This is an opportunity — a well-built, SEO-optimised site can help you dominate local search before your competitors catch up.",
+    "keyIndustries": "Trades and construction, education, logistics, retail, professional services",
+    "nearbyAreas": ["milton-keynes", "wellingborough", "rushden", "northampton"],
     "faq": [
       {
-        "q": "How competitive is web design in Manchester?",
-        "a": "Manchester is one of the most competitive markets in the UK — which is exactly why having a professional website matters. We build sites that are designed to rank, not just look good. Every page is optimised for Manchester-specific searches so you compete effectively."
+        "q": "Can you help my Bedford business compete online?",
+        "a": "Absolutely. Many Bedford businesses still don't have a proper website, which means the competition for local search rankings is lower than in larger cities. A professional website with targeted SEO can quickly put you at the top of Bedford search results."
       },
       {
-        "q": "Can you target specific areas within Greater Manchester?",
-        "a": "Yes. We can optimise your site for specific boroughs and towns — Salford, Stockport, Trafford, Bury, Bolton, and more. This hyperlocal approach ensures you're visible to customers in the areas you actually serve."
+        "q": "How do I get more enquiries from customers in Bedford?",
+        "a": "We build your website with Bedford-focused SEO — targeting the exact searches your customers make, like 'plumber in Bedford' or 'electrician Kempston'. Combined with a clean, professional design and clear calls to action, your site becomes your best source of new business."
       },
       {
-        "q": "Do Manchester businesses really need local SEO?",
-        "a": "If you serve local customers, absolutely. 46% of all Google searches have local intent. When someone in Didsbury searches 'electrician near me', you want to be in those results — not buried on page three behind businesses with better-optimised websites."
+        "q": "What areas around Bedford do you cover?",
+        "a": "We serve the entire Bedfordshire area — Bedford, Kempston, Sandy, Biggleswade, Ampthill, and surrounding villages. We can optimise your site for as broad or narrow a service area as you need."
       }
     ]
   },
   {
-    "slug": "birmingham",
-    "name": "Birmingham",
-    "county": "West Midlands",
-    "population": "2,600,000",
-    "region": "west-midlands",
-    "description": "Birmingham is the UK's second-largest city and one of the most active markets for trades businesses. With strong demand for home improvements, construction, and essential services, a professional website gives you the edge. The city's post-Commonwealth Games regeneration and HS2 development have accelerated growth, bringing new residents and businesses to the region.",
-    "localDetails": "From Edgbaston and Moseley to Solihull, Sutton Coldfield, and the Black Country — we build websites that rank on Google and bring in real enquiries from Birmingham customers across the entire West Midlands conurbation.",
-    "whyCity": "Birmingham and the wider West Midlands conurbation serve over 2.6 million people. The city has undergone massive investment in infrastructure, housing, and commercial development. For local businesses, this means more potential customers — but also more competition. A high-performance website with local SEO is the most cost-effective way to stand out and generate consistent enquiries.",
-    "keyIndustries": "Manufacturing, construction trades, professional services, automotive, hospitality, retail",
-    "nearbyAreas": ["coventry", "leicester", "nottingham"],
+    "slug": "rugby",
+    "name": "Rugby",
+    "county": "Warwickshire",
+    "population": "80,000",
+    "region": "nearby",
+    "description": "Rugby is a thriving market town in Warwickshire, just 30 minutes west of Northampton. Known for its strong community and growing housing market, Rugby has seen significant development in recent years with major new housing estates on the outskirts of town. Local trades and service businesses are in high demand — but increasingly, customers find them through Google rather than word of mouth.",
+    "localDetails": "Covering Rugby town centre, Hillmorton, Bilton, Cawston, Dunchurch, and the surrounding Warwickshire villages — WebOrb builds websites that help Rugby businesses attract more local customers and grow their online presence.",
+    "whyCity": "Rugby's population has grown significantly with developments like Houlton and South West Rugby bringing thousands of new homes. These new residents all need local services, and they search online to find them. A professional website positions your business as the trusted local choice — ahead of competitors who rely solely on social media or listing sites.",
+    "keyIndustries": "Construction and trades, engineering, logistics, retail, professional services",
+    "nearbyAreas": ["daventry", "northampton", "banbury", "coventry"],
     "faq": [
       {
-        "q": "How do I get my Birmingham business to rank higher on Google?",
-        "a": "We build every website with on-page SEO targeting Birmingham-specific searches. Combined with Google Business Profile optimisation, local structured data, and content written for your Birmingham audience, your site is built to climb the rankings from day one."
+        "q": "Is a website important for a small business in Rugby?",
+        "a": "Yes — even in a close-knit community like Rugby, most customers search online before choosing a tradesperson or service provider. A professional website gives you credibility, makes referrals easier, and ensures you're visible to new residents who don't yet have local contacts."
       },
       {
-        "q": "What areas around Birmingham do you cover?",
-        "a": "We work with businesses across the entire West Midlands — Birmingham city centre, Solihull, Sutton Coldfield, Wolverhampton, Walsall, Dudley, and beyond. Each site is optimised for the specific areas where your customers are located."
+        "q": "Can you target both Rugby and the surrounding villages?",
+        "a": "Yes. We optimise for Rugby town itself plus surrounding areas like Dunchurch, Cawston, Long Lawford, and Hillmorton. This gives you coverage across the whole Rugby area without needing multiple websites."
       },
       {
-        "q": "How quickly will I see results from a new website?",
-        "a": "Your website will be live and generating impressions within 2 weeks. For SEO results, most Birmingham clients start seeing meaningful improvement in rankings and enquiries within 4–8 weeks as Google indexes and ranks your optimised pages."
+        "q": "How long does it take to see results from SEO in Rugby?",
+        "a": "Rugby is a mid-sized market with moderate competition online. Most clients start seeing improved rankings within 4–6 weeks and consistent enquiries within 2–3 months. The results compound over time as your site builds authority."
       }
     ]
   },
   {
-    "slug": "leeds",
-    "name": "Leeds",
-    "county": "West Yorkshire",
-    "population": "800,000",
-    "region": "yorkshire",
-    "description": "Leeds is a thriving northern city with a large and growing housing market, making it a hotspot for trades businesses of all kinds — from plumbers and electricians to roofers and landscapers. The city's strong economy, anchored by financial services and digital industries, has created a prosperous residential market where homeowners invest in their properties and expect quality from their service providers.",
-    "localDetails": "Serving Leeds city centre, Headingley, Roundhay, Morley, Horsforth, and the wider West Yorkshire area including Wakefield, Harrogate, and Bradford — WebOrb creates websites that position your business at the top of local search.",
-    "whyCity": "Leeds has one of the strongest regional economies in the UK, with a diverse mix of industries and a population that continues to grow. The city's housing market is active year-round, creating constant demand for property services. Businesses that invest in a professional online presence consistently outperform those relying on word of mouth alone.",
-    "keyIndustries": "Financial services, construction trades, property management, digital, healthcare, education",
-    "nearbyAreas": ["sheffield", "manchester", "newcastle"],
+    "slug": "market-harborough",
+    "name": "Market Harborough",
+    "county": "Leicestershire",
+    "population": "25,000",
+    "region": "nearby",
+    "description": "Market Harborough is an affluent market town on the Northamptonshire–Leicestershire border, known for its independent spirit and high-quality housing stock. The town's prosperous residential areas and surrounding villages create consistent demand for quality tradespeople — and homeowners here expect a professional standard, starting with your website.",
+    "localDetails": "Serving Market Harborough, Great Bowden, Lubenham, Kibworth, Fleckney, and the surrounding Leicestershire and Northamptonshire villages — WebOrb builds websites that attract the premium clients Market Harborough businesses deserve.",
+    "whyCity": "Market Harborough's affluent population is willing to pay for quality work — but they research thoroughly before hiring. A professional website signals credibility and expertise. In a town where reputation matters, your website is often the first thing a potential client checks after receiving a recommendation. Make sure it reflects the standard of your work.",
+    "keyIndustries": "Property services, heritage trades, professional services, hospitality, agriculture",
+    "nearbyAreas": ["kettering", "corby", "northampton", "leicester"],
     "faq": [
       {
-        "q": "What's the best way to get more customers for my Leeds business?",
-        "a": "A professional website combined with local SEO is the most reliable long-term strategy. We build sites that rank for searches like 'builder in Leeds' or 'electrician Headingley', bringing in enquiries from people who are actively looking to hire — not just browsing."
+        "q": "Do I need a premium website for the Market Harborough market?",
+        "a": "Market Harborough customers expect quality. A clean, professional website communicates that you take your business seriously — which is exactly what affluent homeowners look for when choosing a tradesperson. Our custom builds deliver this level of professionalism from £499."
       },
       {
-        "q": "Can you build a website that covers Leeds and the wider Yorkshire area?",
-        "a": "Yes. We can optimise your site to target multiple areas — Leeds, Harrogate, Wakefield, Bradford, Huddersfield, and beyond. This gives you a wider reach while maintaining strong local relevance in each area."
+        "q": "Can you help me target customers in the surrounding villages?",
+        "a": "Yes — we specialise in targeting rural and village-based searches. Market Harborough serves a wide catchment of surrounding villages, and we optimise your site so you're visible across the entire area, not just the town itself."
       },
       {
-        "q": "Do you offer e-commerce websites for Leeds businesses?",
-        "a": "Yes — we build Shopify stores for Leeds businesses that want to sell online. Whether you're a local retailer launching an online shop or a tradesperson selling products alongside services, we can build a store that works."
+        "q": "What kind of businesses do you work with in Market Harborough?",
+        "a": "We work with trades businesses, property services, professional services, and hospitality businesses across the Market Harborough area. If you serve local customers and want more of them to find you online, we can help."
       }
     ]
   },
   {
-    "slug": "bristol",
-    "name": "Bristol",
-    "county": "Avon",
-    "population": "470,000",
-    "region": "south-west",
-    "description": "Bristol is one of the UK's most dynamic cities, with a strong culture of supporting independent businesses. Trades businesses here face plenty of competition, and a well-optimised website makes all the difference. Bristol's thriving creative scene and environmentally conscious population mean customers here expect quality, professionalism, and authenticity — your website needs to reflect that.",
-    "localDetails": "Whether you work in Clifton, Bedminster, Fishponds, Southville, or across the greater Bristol area including Bath, Keynsham, and Portishead — WebOrb builds websites that get you noticed and generate consistent enquiries.",
-    "whyCity": "Bristol consistently ranks as one of the best places to live in the UK, attracting young professionals and families. The city's booming property market drives demand for trades and home improvement services. Bristol customers are digitally savvy — they research online before hiring. A website that looks professional and ranks well on Google is your strongest competitive advantage.",
-    "keyIndustries": "Creative and digital, aerospace, trades and construction, food and hospitality, environmental services",
-    "nearbyAreas": ["southampton", "cardiff", "oxford"],
+    "slug": "towcester",
+    "name": "Towcester",
+    "county": "Northamptonshire",
+    "population": "12,000",
+    "region": "northamptonshire",
+    "description": "Towcester is one of the oldest towns in England, nestled in south Northamptonshire between Northampton and Milton Keynes. The town has experienced rapid growth with the Towcester Vale development adding thousands of new homes. For local tradespeople and service providers, this growth represents a significant opportunity — but only if potential customers can find you online.",
+    "localDetails": "Covering Towcester, Silverstone, Paulerspury, Greens Norton, Roade, and the surrounding south Northamptonshire villages — WebOrb builds websites that connect local businesses with the customers who need them.",
+    "whyCity": "Towcester Vale is one of the largest housing developments in south Northamptonshire, bringing thousands of new residents to the area. These new homeowners search Google for every service — from plumbers and electricians to landscapers and decorators. With limited online competition in the Towcester area, a well-optimised website can quickly establish your business as the go-to choice.",
+    "keyIndustries": "Construction trades, motorsport services, hospitality, property maintenance, rural services",
+    "nearbyAreas": ["northampton", "milton-keynes", "brackley", "daventry"],
     "faq": [
       {
-        "q": "Why do Bristol businesses choose WebOrb?",
-        "a": "Bristol businesses appreciate quality and authenticity. We don't use page builders or generic templates — every site is custom-built, fast, and designed to convert. Our local SEO expertise means your site actually gets found by Bristol customers."
+        "q": "Is it worth having a website for a small business in Towcester?",
+        "a": "Absolutely — especially now. Towcester is growing fast, and new residents search online for everything. The competition for local search rankings in Towcester is still low, which means a professional website can quickly put you at the top of Google results for your services."
       },
       {
-        "q": "Can you create a sustainable or eco-focused website for my Bristol business?",
-        "a": "Yes. We build lightweight, fast-loading sites with minimal resource consumption — which is both good for SEO and aligned with Bristol's sustainability values. We can also highlight your environmental credentials and certifications prominently."
+        "q": "Can you cover both Towcester and nearby Silverstone?",
+        "a": "Yes. We optimise your site for Towcester, Silverstone, and all the surrounding villages. The south Northamptonshire area is underserved online, so there's a real opportunity to dominate local search with the right website."
       },
       {
-        "q": "How does your pricing compare to Bristol web design agencies?",
-        "a": "We're significantly more affordable than most Bristol agencies because we focus on efficiency, not overhead. You get a custom-built, SEO-optimised website at a fraction of agency prices — without compromising on quality or results."
+        "q": "How does Towcester's growth affect my business online?",
+        "a": "More new homes mean more people searching for local services on Google. If your business doesn't show up in those searches, your competitors will get the work instead. A website with local SEO ensures you capture this growing demand."
       }
     ]
   },
   {
-    "slug": "sheffield",
-    "name": "Sheffield",
-    "county": "South Yorkshire",
-    "population": "570,000",
-    "region": "yorkshire",
-    "description": "Sheffield has a proud trades heritage and a busy residential market. From home renovations to emergency call-outs, Sheffield customers are searching online for reliable local tradespeople. The city's strong university presence also creates a large rental market, meaning landlords and property managers regularly need trades services — and they search online to find them.",
-    "localDetails": "Covering Sheffield city centre, Hillsborough, Ecclesall, Chapeltown, Dore, and the surrounding South Yorkshire towns including Rotherham and Barnsley — we build websites that make your business the obvious choice in Sheffield.",
-    "whyCity": "Sheffield is a city of contrasts — from bustling student areas to affluent suburbs like Dore and Ecclesall. Each area has different service needs, and customers across all of them search Google before hiring. Our websites are built to capture these varied searches, positioning your business across multiple Sheffield neighbourhoods and surrounding areas.",
-    "keyIndustries": "Steel and manufacturing, construction trades, education, healthcare, digital and creative",
-    "nearbyAreas": ["leeds", "manchester", "nottingham"],
+    "slug": "brackley",
+    "name": "Brackley",
+    "county": "Northamptonshire",
+    "population": "15,000",
+    "region": "northamptonshire",
+    "description": "Brackley is a historic market town in south Northamptonshire, well known for its proximity to Silverstone Circuit and the motorsport industry. The town has a strong local economy with a mix of trades businesses, professional services, and hospitality. Brackley's growing residential areas mean increasing demand for local services — and an opportunity for businesses with a strong online presence.",
+    "localDetails": "Serving Brackley, Hinton-in-the-Hedges, Turweston, Syresham, and the surrounding south Northamptonshire and north Oxfordshire villages — WebOrb builds websites that help Brackley businesses reach more customers across the region.",
+    "whyCity": "Brackley benefits from its association with the F1 industry and Silverstone, bringing skilled professionals and their families to the area. These residents expect quality services and research online before hiring. A professional website positions your business as the credible local choice — not just another listing on a directory site.",
+    "keyIndustries": "Motorsport and engineering, construction trades, hospitality, property services, agriculture",
+    "nearbyAreas": ["towcester", "banbury", "daventry", "buckingham"],
     "faq": [
       {
-        "q": "How can I get more plumbing/electrical/building work in Sheffield?",
-        "a": "The most reliable way is a professional website optimised for Sheffield searches. We target keywords like 'emergency plumber Sheffield' or 'electrician Ecclesall' — the searches real customers make when they need someone now. Combined with Google Business Profile optimisation, this drives consistent enquiries."
+        "q": "How can I get more customers in the Brackley area?",
+        "a": "A professional website with local SEO is the most effective way. We optimise for searches like 'builder in Brackley' or 'plumber near Silverstone', targeting the exact queries your potential customers use. Combined with Google Business Profile optimisation, this drives consistent enquiries."
       },
       {
-        "q": "Do you understand the Sheffield market?",
-        "a": "Yes. We know that Sheffield's market spans everything from student lets in Broomhill to high-end properties in Dore. We tailor your website content and SEO strategy to match the customers you want to attract in the areas you serve."
+        "q": "Do you work with motorsport-related businesses near Brackley?",
+        "a": "Yes. Brackley's proximity to Silverstone creates a unique market. Whether you're a specialist engineering firm or a hospitality business serving the motorsport industry, we can build a website that speaks to your specific audience."
       },
       {
-        "q": "Can I see examples of websites you've built for businesses like mine?",
-        "a": "Yes — visit our Projects page to see recent work across multiple industries. Each project includes details about the design approach, features, and results delivered."
+        "q": "Is there enough demand for SEO in a town as small as Brackley?",
+        "a": "Small towns often have the best SEO opportunities because competition is low. While a London business might struggle to rank, a Brackley business can often reach the top of Google within weeks. And because you serve the surrounding villages too, your actual market is much larger than Brackley alone."
       }
     ]
   },
   {
-    "slug": "liverpool",
-    "name": "Liverpool",
-    "county": "Merseyside",
-    "population": "500,000",
-    "region": "north-west",
-    "description": "Liverpool has a large and loyal local customer base with strong demand for trades services across home improvements, maintenance, and construction. A great website helps you stand out in a busy market. Liverpool's ongoing waterfront development and neighbourhood regeneration projects continue to drive demand for quality trades and services across the city.",
-    "localDetails": "From Liverpool city centre and Toxteth to Crosby, Aigburth, West Derby, and the Wirral — WebOrb builds websites that rank locally and convert searches into real business across the wider Merseyside area.",
-    "whyCity": "Liverpool's regeneration has been one of the UK's great success stories. The city's population is growing, property values are rising, and demand for home improvement services is at an all-time high. Liverpool customers are fiercely loyal to local businesses — but they still search online to find them. A professional website with local SEO ensures you're the business they choose.",
-    "keyIndustries": "Construction and trades, maritime, hospitality and tourism, creative industries, healthcare",
-    "nearbyAreas": ["manchester", "leeds", "sheffield"],
+    "slug": "banbury",
+    "name": "Banbury",
+    "county": "Oxfordshire",
+    "population": "50,000",
+    "region": "nearby",
+    "description": "Banbury is a market town in north Oxfordshire, just 30 minutes south-west of Northampton. With a strong local economy driven by retail, logistics, and a busy housing market, Banbury has a consistent demand for trades and services. The town serves as a commercial hub for a wide rural area, meaning businesses here can capture customers from across north Oxfordshire and south Northamptonshire.",
+    "localDetails": "Covering Banbury town centre, Grimsbury, Easington, Bodicote, Bloxham, and the surrounding north Oxfordshire villages — WebOrb builds websites that help Banbury businesses stand out and attract customers across the region.",
+    "whyCity": "Banbury's position at the junction of the M40 and A422 makes it a key regional hub. The town serves not just its 50,000 residents but a wide rural catchment area. Businesses with a professional website can capture searches from across north Oxfordshire and south Warwickshire — a market that many competitors overlook because they focus only on the town centre.",
+    "keyIndustries": "Logistics, construction trades, retail, food production, professional services",
+    "nearbyAreas": ["brackley", "daventry", "rugby", "towcester"],
     "faq": [
       {
-        "q": "How competitive is it to rank on Google in Liverpool?",
-        "a": "It's competitive — but not impossible. Most Liverpool tradespeople and small businesses either have no website or use a generic template. A custom-built, SEO-optimised site immediately puts you ahead of the majority. We use targeted, location-specific strategies to help you rank for the searches that matter."
+        "q": "Can you help a Banbury business reach customers in the surrounding villages?",
+        "a": "Yes — that's one of our strengths. Banbury serves a huge rural catchment, and we optimise your site for village names, surrounding towns, and postcode areas so you're visible to customers across the entire north Oxfordshire region."
       },
       {
-        "q": "Can you help with my Google reviews and online reputation?",
-        "a": "Yes. We set up and optimise your Google Business Profile as part of our service, and we can advise on review strategy — how to ask for reviews, how to respond to them, and how to use them to build trust with potential customers."
+        "q": "How does a website compare to using Checkatrade or MyBuilder?",
+        "a": "Listing sites charge monthly fees and you compete directly with every other tradesperson on the platform. Your own website gives you an independent presence that you own and control. With local SEO, it also ranks in Google searches — where over 60% of customers look first."
       },
       {
-        "q": "What if I already have a website but it's not getting any enquiries?",
-        "a": "That's common. Most websites are built to look nice but aren't optimised to actually generate leads. We can audit your existing site and either rebuild it or recommend targeted improvements to start driving enquiries from Liverpool customers."
+        "q": "What if I already have a Facebook page — do I still need a website?",
+        "a": "A Facebook page is a great social tool, but it doesn't rank well in Google search. When someone searches 'plumber in Banbury', Facebook pages rarely appear in the top results. A professional website combined with SEO ensures you're visible where customers actually search."
       }
     ]
   },
   {
-    "slug": "newcastle",
-    "name": "Newcastle",
-    "county": "Tyne and Wear",
-    "population": "300,000",
-    "region": "north-east",
-    "description": "Newcastle upon Tyne is a vibrant northern city with a strong sense of community and a growing demand for quality trades services. Local customers trust local businesses — and they find them online. Newcastle's thriving tech scene and growing population of young professionals create a digitally savvy customer base that researches businesses online before making contact.",
-    "localDetails": "Covering Newcastle city centre, Gateshead, Jesmond, Gosforth, Heaton, and the wider Tyne and Wear area including Sunderland, North Shields, and Tynemouth — WebOrb builds websites that establish trust and bring in the right clients.",
-    "whyCity": "Newcastle and the wider North East have a strong identity and a population that supports local businesses. But even in a community-driven market, online visibility is essential. Young homeowners and professionals in areas like Jesmond and Gosforth expect to find service providers online. A professional website signals credibility and makes it easy for customers to choose you over competitors.",
-    "keyIndustries": "Tech and digital, construction trades, education, healthcare, energy, professional services",
-    "nearbyAreas": ["edinburgh", "leeds", "sheffield"],
+    "slug": "peterborough",
+    "name": "Peterborough",
+    "county": "Cambridgeshire",
+    "population": "215,000",
+    "region": "nearby",
+    "description": "Peterborough is a major city just north-east of Northamptonshire, with a population of over 215,000. The city has experienced rapid growth, with new housing developments expanding the urban area significantly. Peterborough's large and diverse population creates strong demand across all trades and service sectors — from home improvements and property maintenance to professional services and hospitality.",
+    "localDetails": "Serving Peterborough city centre, Werrington, Bretton, Hampton, Yaxley, Whittlesey, and the wider Cambridgeshire area — WebOrb builds websites that help Peterborough businesses generate consistent enquiries from local customers.",
+    "whyCity": "Peterborough is one of the UK's fastest-growing cities, with new developments like Hampton and Great Haddon bringing thousands of new residents. The city's growth rate means demand for local services is outpacing supply. Businesses that are visible online — through a professional website and strong local SEO — are the ones capturing this growing demand.",
+    "keyIndustries": "Construction and trades, logistics, agriculture, retail, public sector, manufacturing",
+    "nearbyAreas": ["corby", "kettering", "market-harborough"],
     "faq": [
       {
-        "q": "Do Newcastle businesses really need a professional website?",
-        "a": "Yes. Even in a community-driven city like Newcastle, 87% of consumers search online before choosing a local service provider. Without a professional website, you're invisible to the majority of potential customers — even if your work is excellent."
+        "q": "How competitive is web design for Peterborough businesses?",
+        "a": "Peterborough has a large market with growing demand. While there is competition, many local businesses still have outdated or poorly optimised websites. A modern, SEO-focused website immediately sets you apart and positions you ahead of the majority."
       },
       {
-        "q": "Can you optimise my site for both Newcastle and the wider North East?",
-        "a": "Absolutely. We target your site for Newcastle-specific searches while also building visibility across Gateshead, Sunderland, North Tyneside, and the wider region. This gives you maximum reach without diluting your local relevance."
+        "q": "Can you target specific Peterborough postcodes with SEO?",
+        "a": "Yes. We can optimise for specific areas — Hampton, Bretton, Werrington, Fletton — so you rank for the searches your ideal customers make. This targeted approach is more effective than trying to rank for generic city-wide terms alone."
       },
       {
-        "q": "What's included in the price for a Newcastle web design project?",
-        "a": "Everything — custom design, responsive development, copywriting, on-page SEO for Newcastle and surrounding areas, contact forms, Google Analytics setup, and hosting configuration. No surprise add-ons."
-      }
-    ]
-  },
-  {
-    "slug": "edinburgh",
-    "name": "Edinburgh",
-    "county": "City of Edinburgh",
-    "population": "530,000",
-    "region": "scotland",
-    "description": "Edinburgh is Scotland's capital and one of the UK's most affluent cities. Homeowners and businesses in Edinburgh demand quality — and a professional website signals that you can deliver it. The city's unique mix of historic properties, thriving tourism industry, and affluent residential areas creates diverse opportunities for businesses that present themselves professionally online.",
-    "localDetails": "Serving Morningside, Leith, Stockbridge, Portobello, Corstorphine, and the wider Edinburgh area including Musselburgh, Livingston, and the Lothians — we build websites that establish credibility and generate consistent enquiries.",
-    "whyCity": "Edinburgh residents have high expectations. They research thoroughly before hiring, and they value professionalism and quality. In a city where the average property value is among the highest in the UK outside London, homeowners invest in quality services — and they expect quality from every touchpoint, starting with your website.",
-    "keyIndustries": "Tourism and hospitality, financial services, construction trades, tech startups, creative industries, education",
-    "nearbyAreas": ["glasgow", "newcastle"],
-    "faq": [
-      {
-        "q": "How do Edinburgh customers typically find local service providers?",
-        "a": "Primarily through Google search and Google Maps. Edinburgh residents are digitally sophisticated — they search, compare reviews, check websites, and make decisions quickly. A fast, professional website with strong local SEO is the most effective way to win their business."
-      },
-      {
-        "q": "Can you build a website that appeals to Edinburgh's premium market?",
-        "a": "That's exactly what we do. We build clean, modern websites that communicate professionalism and quality — the kind of site that Edinburgh customers expect. No generic templates, no cluttered layouts — just sharp design that reflects the standard of your work."
-      },
-      {
-        "q": "Do you work with tourism and hospitality businesses in Edinburgh?",
-        "a": "Yes — Edinburgh's tourism sector is one of the largest in the UK. We build websites for B&Bs, tour operators, restaurants, and hospitality businesses that need to attract both locals and visitors through search."
-      }
-    ]
-  },
-  {
-    "slug": "glasgow",
-    "name": "Glasgow",
-    "county": "City of Glasgow",
-    "population": "630,000",
-    "region": "scotland",
-    "description": "Glasgow is Scotland's largest city with a booming trades and construction sector. The city's ongoing regeneration and high population density create constant demand for tradespeople. Glasgow's mix of Victorian tenements, new-build developments, and commercial properties means there's always work for skilled trades — but you need to be visible online to capture it.",
-    "localDetails": "From the West End and Southside to the East End and suburbs like Rutherglen, Bearsden, Newton Mearns, and Paisley — WebOrb builds websites that position Glasgow businesses where they deserve to be.",
-    "whyCity": "Glasgow's construction and renovation sector is one of the most active in Scotland. The city's diverse property stock — from period conversions to new-build estates — creates year-round demand for every type of trade. With over 630,000 residents (and 1.8 million in the greater area), a well-optimised website gives you access to a massive customer base.",
-    "keyIndustries": "Construction and trades, engineering, creative industries, healthcare, hospitality, retail",
-    "nearbyAreas": ["edinburgh", "newcastle"],
-    "faq": [
-      {
-        "q": "How is web design for Glasgow businesses different?",
-        "a": "Glasgow customers value directness and authenticity. We build websites with clear messaging, honest pricing where appropriate, and prominent contact options. No fluff — just a professional site that makes it easy for Glasgow customers to get in touch."
-      },
-      {
-        "q": "Can you target specific Glasgow neighbourhoods with SEO?",
-        "a": "Yes. We can optimise for specific areas like the West End, Southside, Shawlands, Maryhill, or any other Glasgow neighbourhood. This hyperlocal approach helps you rank for the searches that your actual customers make."
-      },
-      {
-        "q": "What's the return on investment for a professional website in Glasgow?",
-        "a": "Most Glasgow clients see their website investment pay for itself within the first few months through new enquiries. A single customer gained through your website often covers the entire cost of the build. Combined with ongoing SEO, the ROI compounds over time."
-      }
-    ]
-  },
-  {
-    "slug": "cardiff",
-    "name": "Cardiff",
-    "county": "South Glamorgan",
-    "population": "360,000",
-    "region": "wales",
-    "description": "Cardiff is Wales' capital city and its fastest-growing economy. With a large residential population and strong housing market, trades businesses in Cardiff need a strong online presence to keep up with demand. The city's development boom — from Cardiff Bay to the new Central Square — has created sustained demand for construction, renovation, and maintenance services.",
-    "localDetails": "Covering Cardiff city centre, Pontprennau, Roath, Canton, Penarth, Barry, and surrounding areas including the Vale of Glamorgan — WebOrb builds websites that help local businesses stand out and attract better clients.",
-    "whyCity": "Cardiff is the economic engine of Wales, with a population that's growing faster than any other Welsh city. The city's strong rental market, new housing developments, and ongoing commercial regeneration create consistent demand for local services. Being visible online in Cardiff isn't just an advantage — it's essential for sustained growth.",
-    "keyIndustries": "Professional services, construction trades, media and creative, hospitality, public sector, education",
-    "nearbyAreas": ["bristol", "southampton"],
-    "faq": [
-      {
-        "q": "Do you build bilingual Welsh/English websites?",
-        "a": "We can accommodate bilingual content if your business requires it. While most Cardiff businesses operate primarily in English, we understand the importance of Welsh language for certain sectors and can build your site to support both languages."
-      },
-      {
-        "q": "How do I stand out from other trades businesses in Cardiff?",
-        "a": "A professional website is the single biggest differentiator. Most Cardiff tradespeople rely on Facebook or Checkatrade alone. Having your own website with local SEO gives you an independent online presence that you own and control — and it ranks in Google where your competitors don't."
-      },
-      {
-        "q": "Can you help with Google Ads for my Cardiff business?",
-        "a": "Yes. We build high-converting landing pages designed to work with Google Ads campaigns. This means your ad spend drives real enquiries, not just website visits. We can target specific Cardiff postcodes and service areas for maximum efficiency."
+        "q": "Do I need SEO if I'm already busy through word of mouth in Peterborough?",
+        "a": "Word of mouth is valuable but unpredictable. SEO provides a steady stream of new enquiries from customers who are actively searching for your services. It also future-proofs your business — if referrals slow down, your website keeps generating leads."
       }
     ]
   },
@@ -446,12 +368,12 @@
     "name": "Leicester",
     "county": "Leicestershire",
     "population": "370,000",
-    "region": "east-midlands",
-    "description": "Leicester is a diverse and growing city with a busy housing market and strong demand for home improvement and maintenance services across all trades. The city's cultural diversity and strong community identity create a unique market where local trust and visibility are key to winning new customers.",
+    "region": "nearby",
+    "description": "Leicester is a major city just 40 minutes north of Northampton, with a diverse and growing population of over 370,000. The city has a busy housing market and strong demand for home improvement and maintenance services across all trades. Leicester's cultural diversity and strong community identity create a market where local trust and online visibility are key to winning new customers.",
     "localDetails": "Whether you work in the city centre, Oadby, Wigston, Hinckley, Loughborough, or the surrounding Leicestershire villages — WebOrb creates websites that bring in enquiries from the right customers across the Leicester area.",
-    "whyCity": "Leicester's diverse population of over 370,000 creates demand across every service sector. The city's strong student population, growing professional community, and active property market mean there's always demand for quality tradespeople and services. A well-optimised website helps you tap into this demand consistently, rather than relying on seasonal word-of-mouth.",
+    "whyCity": "Leicester's diverse population creates demand across every service sector. The city's strong student population, growing professional community, and active property market mean there's always demand for quality tradespeople and services. A well-optimised website helps you tap into this demand consistently, rather than relying on seasonal word-of-mouth.",
     "keyIndustries": "Textiles and manufacturing, construction trades, food and hospitality, education, professional services",
-    "nearbyAreas": ["northampton", "nottingham", "coventry", "birmingham"],
+    "nearbyAreas": ["market-harborough", "northampton", "corby", "kettering"],
     "faq": [
       {
         "q": "How do I reach more customers in Leicester through my website?",
@@ -468,42 +390,16 @@
     ]
   },
   {
-    "slug": "nottingham",
-    "name": "Nottingham",
-    "county": "Nottinghamshire",
-    "population": "330,000",
-    "description": "Nottingham has a large student and residential population with strong demand for trades services — especially property maintenance, plumbing, and electrical work. The city's two universities bring over 60,000 students, creating a massive rental market where landlords and letting agents constantly need reliable tradespeople.",
-    "localDetails": "Serving Nottingham city centre, West Bridgford, Arnold, Beeston, Carlton, and the wider Nottinghamshire area including Mansfield, Newark, and Hucknall — WebOrb builds websites that rank on Google and generate real enquiries.",
-    "region": "east-midlands",
-    "whyCity": "Nottingham's combination of a large student population, active property market, and growing professional community creates sustained demand for local services. The city's landlords manage thousands of rental properties, and they search online for reliable trades. A professional website positions you as the credible, trustworthy choice — not just another name on a listings site.",
-    "keyIndustries": "Education, construction trades, property management, creative and digital, healthcare, retail",
-    "nearbyAreas": ["leicester", "sheffield", "birmingham"],
-    "faq": [
-      {
-        "q": "Can you build a website that targets both Nottingham landlords and homeowners?",
-        "a": "Yes. We can structure your site to speak to different audiences — a services page for landlords needing property maintenance, and separate content for homeowners looking for renovations or repairs. This approach captures both segments of the Nottingham market."
-      },
-      {
-        "q": "How do I compete with bigger companies in Nottingham?",
-        "a": "A professional website levels the playing field. Large companies often have outdated, slow websites. A fast, modern site with strong local SEO can outrank much larger competitors in local search results — because Google rewards relevance and quality, not company size."
-      },
-      {
-        "q": "Do you offer website maintenance for Nottingham businesses?",
-        "a": "Yes. Every build includes ongoing support, and we offer monthly maintenance plans that cover updates, security, and content changes. For SEO clients, we provide monthly ranking reports and ongoing optimisation."
-      }
-    ]
-  },
-  {
     "slug": "coventry",
     "name": "Coventry",
     "county": "West Midlands",
     "population": "370,000",
-    "region": "west-midlands",
-    "description": "Coventry is a growing Midlands city with a diverse housing stock and steady demand for all trades services. With the right online presence, local businesses can capture customers across the entire city. Coventry's City of Culture legacy and ongoing investment in infrastructure have boosted the city's profile and attracted new residents and businesses.",
-    "localDetails": "Covering Coventry city centre, Earlsdon, Binley, Coundon, Tile Hill, Canley, and the wider West Midlands area including Warwick, Kenilworth, and Nuneaton — WebOrb builds websites designed to make your business the first call.",
+    "region": "nearby",
+    "description": "Coventry is a growing Midlands city about 45 minutes west of Northampton, with a diverse housing stock and steady demand for all trades services. Coventry's City of Culture legacy and ongoing investment in infrastructure have boosted the city's profile and attracted new residents and businesses. For local service providers, this means both opportunity and increasing competition.",
+    "localDetails": "Covering Coventry city centre, Earlsdon, Binley, Coundon, Tile Hill, Canley, and the wider area including Warwick, Kenilworth, and Nuneaton — WebOrb builds websites designed to make your business the first call.",
     "whyCity": "Coventry's renaissance as a modern, growing city has brought investment and new residents. The city's strategic location between Birmingham and Leicester, combined with strong transport links, means local businesses serve a wide catchment area. A website optimised for Coventry and surrounding areas captures customers across this entire region.",
     "keyIndustries": "Automotive, construction trades, education, professional services, logistics, retail",
-    "nearbyAreas": ["birmingham", "leicester", "northampton"],
+    "nearbyAreas": ["rugby", "northampton", "leicester", "daventry"],
     "faq": [
       {
         "q": "How do I get started with a website for my Coventry business?",
@@ -520,80 +416,54 @@
     ]
   },
   {
-    "slug": "oxford",
-    "name": "Oxford",
-    "county": "Oxfordshire",
-    "population": "160,000",
-    "region": "south-east",
-    "description": "Oxford's mix of historic properties, student lets, and affluent homeowners creates consistent demand for quality tradespeople. A professional website positions you as the trusted local expert. Oxford's unique character — from medieval colleges to modern suburbs — means businesses here need to communicate quality and reliability to a discerning customer base.",
-    "localDetails": "Whether you work across Oxford city, Cowley, Headington, Witney, Abingdon, Didcot, or the surrounding Oxfordshire villages — WebOrb builds websites that attract the clients you want and reflect the quality of your work.",
-    "whyCity": "Oxford has one of the highest average incomes in the UK, and residents are willing to pay for quality services. But they're also thorough researchers — they check websites, read reviews, and compare before hiring. A professional, fast-loading website with clear information and strong local SEO is essential for winning Oxford customers.",
-    "keyIndustries": "Education, heritage property services, professional services, biotech, hospitality, trades",
-    "nearbyAreas": ["london", "cambridge", "bristol"],
+    "slug": "buckingham",
+    "name": "Buckingham",
+    "county": "Buckinghamshire",
+    "population": "13,000",
+    "region": "nearby",
+    "description": "Buckingham is a historic market town in north Buckinghamshire, close to Milton Keynes and the Northamptonshire border. The town's proximity to the University of Buckingham and growing residential areas creates demand for local trades and services. Buckingham's compact size and strong community mean a well-optimised website can quickly establish your business as the trusted local choice.",
+    "localDetails": "Serving Buckingham, Winslow, Maids Moreton, Padbury, Steeple Claydon, and the surrounding north Buckinghamshire villages — WebOrb builds websites that connect Buckingham businesses with local customers searching online.",
+    "whyCity": "Buckingham's mix of historic properties, new-build estates, and a growing university population creates diverse demand for trades and services. The town's small size means less online competition — making it easier to rank on Google and establish your business as the go-to choice for the entire north Buckinghamshire area.",
+    "keyIndustries": "Heritage trades, construction, education, hospitality, property services, agriculture",
+    "nearbyAreas": ["milton-keynes", "brackley", "towcester", "banbury"],
     "faq": [
       {
-        "q": "Do you have experience with heritage or period property businesses?",
-        "a": "Yes. We've worked with businesses that specialise in period properties, listed buildings, and heritage restoration. We understand that these businesses need to communicate expertise and trust — and we design websites that do exactly that."
+        "q": "Is there enough demand for local SEO in Buckingham?",
+        "a": "Yes — Buckingham serves a wider catchment than the town itself. When we optimise for Buckingham, we also target surrounding villages and the north Buckinghamshire area. With low online competition, your site can rank quickly and generate enquiries from across the region."
       },
       {
-        "q": "How do I stand out in Oxford's competitive market?",
-        "a": "With a website that looks professional, loads fast, and ranks on Google for Oxford-specific searches. Most Oxford competitors use generic listing sites or outdated websites. A custom-built, SEO-optimised site immediately sets you apart."
+        "q": "How does a website help a business in a small town like Buckingham?",
+        "a": "In small towns, many businesses still don't have a proper website. This means there's a real opportunity to stand out. A professional website makes your business look established, builds trust with potential customers, and ensures you're found by anyone searching Google for services in the area."
       },
       {
-        "q": "Can you help me reach customers in the Oxfordshire villages?",
-        "a": "Absolutely. Rural Oxfordshire is underserved online — which means less competition. We can target village names, surrounding towns, and postcode areas so you're visible to customers across the entire county."
+        "q": "Can you target both Buckingham and Milton Keynes customers?",
+        "a": "Absolutely. We can optimise your site for both markets — Buckingham's local community and the much larger Milton Keynes audience. This dual approach gives you the best of both worlds: local trust in Buckingham and access to MK's larger customer base."
       }
     ]
   },
   {
-    "slug": "cambridge",
-    "name": "Cambridge",
-    "county": "Cambridgeshire",
-    "population": "130,000",
-    "region": "east",
-    "description": "Cambridge is one of the UK's most affluent and fast-growing cities. With a high density of homeowners, landlords, and property investors, demand for quality tradespeople is consistently strong. The city's booming tech sector — often called 'Silicon Fen' — has created a wealthy, digitally native population that expects premium service at every touchpoint.",
-    "localDetails": "Serving Cambridge city centre, Chesterton, Cherry Hinton, Trumpington, Ely, Newmarket, and the wider Cambridgeshire area — WebOrb builds websites that help local businesses attract better clients and command premium pricing.",
-    "whyCity": "Cambridge's unique economy — driven by world-class universities and a thriving tech sector — has created one of the wealthiest populations outside London. These customers value quality, professionalism, and attention to detail. Your website is their first impression of your business, and in Cambridge, first impressions matter more than anywhere.",
-    "keyIndustries": "Technology, biotech, education, property services, trades, professional services",
-    "nearbyAreas": ["london", "oxford", "leicester"],
+    "slug": "luton",
+    "name": "Luton",
+    "county": "Bedfordshire",
+    "population": "225,000",
+    "region": "nearby",
+    "description": "Luton is a major town in Bedfordshire with a population of over 225,000, located about 50 minutes south-east of Northampton. The town's large and diverse population, combined with a busy airport and strong commercial sector, creates high demand for trades and services of all kinds. Luton businesses that invest in their online presence can tap into a massive local market.",
+    "localDetails": "Covering Luton town centre, Dunstable, Houghton Regis, Leagrave, Stopsley, and the surrounding Bedfordshire area — WebOrb builds websites that help Luton businesses stand out and generate consistent enquiries.",
+    "whyCity": "Luton's large population and proximity to London make it a high-demand market for local services. The town's ongoing regeneration, airport expansion, and new housing developments create constant opportunity. Many Luton businesses still rely on outdated websites or social media alone — meaning there's significant room for those who invest in a professional online presence.",
+    "keyIndustries": "Aviation and logistics, construction trades, manufacturing, retail, professional services, hospitality",
+    "nearbyAreas": ["bedford", "milton-keynes", "northampton"],
     "faq": [
       {
-        "q": "How do I attract premium clients in Cambridge?",
-        "a": "Your website needs to match the expectations of Cambridge customers — clean design, fast loading, professional copy, and a clear demonstration of your expertise. We build sites that communicate quality from the first click, helping you attract clients who value good work and are willing to pay for it."
+        "q": "How can a website help my Luton business grow?",
+        "a": "A professional website with local SEO puts you in front of Luton's 225,000+ residents when they search for your services on Google. Combined with clear calls to action and a mobile-optimised design, your website becomes your most consistent source of new customers."
       },
       {
-        "q": "Is there enough demand for local services in Cambridge?",
-        "a": "Absolutely. Cambridge's property market is one of the most active in the UK, with high home values driving investment in maintenance and improvements. The university and tech sectors also create constant demand for office fit-outs, maintenance, and property services."
+        "q": "What's the ROI of a website for a Luton business?",
+        "a": "For most local businesses, a single new customer covers the cost of the website. With ongoing local SEO, you can expect a steady stream of enquiries that grows over time. It's the most cost-effective marketing investment for a local business."
       },
       {
-        "q": "Can you help me target the tech companies around Cambridge?",
-        "a": "Yes. If you serve commercial clients — office fit-outs, IT services, maintenance — we can build content and SEO targeting Cambridge's business parks and tech clusters. This B2B angle is underexploited by most local businesses and offers strong growth potential."
-      }
-    ]
-  },
-  {
-    "slug": "southampton",
-    "name": "Southampton",
-    "county": "Hampshire",
-    "population": "260,000",
-    "region": "south-east",
-    "description": "Southampton is a major port city with a large and diverse residential market. Homeowners and landlords here rely on local tradespeople — and they search for them online first. The city's growing population, strong university presence, and proximity to the New Forest create a varied market with consistent demand for quality services.",
-    "localDetails": "Covering Southampton city centre, Shirley, Bitterne, Hedge End, Eastleigh, Totton, and the wider Hampshire area — WebOrb builds websites that rank on Google and turn searches into real business across the Solent region.",
-    "whyCity": "Southampton's position as a major port city and regional centre serves a population of over 260,000, with the wider Hampshire area adding significantly more. The city's strong rental market, driven by two universities, creates year-round demand for property services. A professional website with local SEO helps you capture this demand consistently.",
-    "keyIndustries": "Maritime and logistics, construction trades, education, hospitality, healthcare, retail",
-    "nearbyAreas": ["london", "bristol", "oxford"],
-    "faq": [
-      {
-        "q": "How do I get more leads from my Southampton website?",
-        "a": "We build every website with lead generation in mind — clear calls to action, prominent contact information, fast loading speed, and SEO targeting Southampton-specific searches. The result is a site that doesn't just exist, but actively brings in new enquiries."
-      },
-      {
-        "q": "Can you target both Southampton and the wider Hampshire area?",
-        "a": "Yes. We can optimise your site for Southampton, Eastleigh, Fareham, Winchester, and the surrounding Hampshire area. This broader targeting is especially effective for trades businesses that are willing to travel within the region."
-      },
-      {
-        "q": "What type of hosting do you recommend for a Southampton business website?",
-        "a": "We set up hosting on fast, reliable infrastructure with automatic HTTPS, CDN delivery, and 99.9% uptime. You don't need to worry about the technical details — we handle everything and ensure your site is fast and secure at all times."
+        "q": "Can you help my Luton business compete with bigger companies?",
+        "a": "Yes. Google rewards relevance and quality, not company size. A well-optimised local website can outrank much larger companies in Luton search results. We focus on the searches that real customers make, helping you compete where it counts."
       }
     ]
   }

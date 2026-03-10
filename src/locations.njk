@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
-title: Web Design Across the UK — Areas We Serve | WebOrb
-description: WebOrb builds custom websites and provides local SEO for businesses across the UK. Find professional web design services in your city — from London and Manchester to Northampton and beyond.
+title: Web Design Northamptonshire & Surrounding Areas | WebOrb
+description: WebOrb builds custom websites and provides local SEO for businesses across Northamptonshire and surrounding counties. Professional web design in Northampton, Kettering, Milton Keynes, Bedford, and more.
 canonical: https://web-orb.uk/locations/
 permalink: locations/index.html
 ---
@@ -10,8 +10,8 @@ permalink: locations/index.html
   <div class="container">
     <div class="section-header reveal">
       <p class="section-eyebrow">Areas we serve</p>
-      <h1 class="text-reveal" style="font-size:clamp(2rem,5vw,3.5rem);">Web design across the UK.</h1>
-      <p class="hero-sub reveal" style="max-width:640px;margin:0 auto;">Custom websites and local SEO for businesses in every major UK city. Find your area below and see how we can help your business grow online.</p>
+      <h1 class="text-reveal" style="font-size:clamp(2rem,5vw,3.5rem);">Web design across Northamptonshire &amp; beyond.</h1>
+      <p class="hero-sub reveal" style="max-width:640px;margin:0 auto;">Custom websites and local SEO for businesses across Northamptonshire and neighbouring counties. Find your area below.</p>
     </div>
   </div>
 </section>
@@ -24,7 +24,7 @@ permalink: locations/index.html
     </div>
     <div class="locations-grid">
       {%- for city in cities %}
-        {%- if city.county === "Northamptonshire" %}
+        {%- if city.region === "northamptonshire" %}
         <a href="/web-design-{{ city.slug }}/" class="location-card reveal">
           <h3>{{ city.name }}</h3>
           <p>Web design &amp; SEO in {{ city.name }}, {{ city.county }}</p>
@@ -35,12 +35,12 @@ permalink: locations/index.html
     </div>
 
     <div class="section-header reveal" style="margin-top:80px;">
-      <p class="section-eyebrow">Major Cities</p>
-      <h2 class="text-reveal" style="font-size:1.5rem;">Nationwide coverage</h2>
+      <p class="section-eyebrow">Surrounding areas</p>
+      <h2 class="text-reveal" style="font-size:1.5rem;">Neighbouring counties we serve</h2>
     </div>
     <div class="locations-grid">
       {%- for city in cities %}
-        {%- if city.county !== "Northamptonshire" %}
+        {%- if city.region === "nearby" %}
         <a href="/web-design-{{ city.slug }}/" class="location-card reveal">
           <h3>{{ city.name }}</h3>
           <p>Web design &amp; SEO in {{ city.name }}, {{ city.county }}</p>
@@ -56,7 +56,7 @@ permalink: locations/index.html
   <div class="container">
     <div class="cta-inner reveal">
       <h2 class="text-reveal">Don't see your area? <span class="gradient-text">We still cover it.</span></h2>
-      <p class="cta-sub">We work with businesses across the entire UK. Get in touch and we'll discuss how we can help your business grow online — wherever you're based.</p>
+      <p class="cta-sub">We work with businesses across the Midlands and beyond. Get in touch and we'll discuss how we can help your business grow online — wherever you're based.</p>
       <a href="/contact/" class="btn btn-lg magnetic">Start a conversation</a>
     </div>
   </div>
