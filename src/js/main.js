@@ -340,9 +340,8 @@ async function handleFormSubmit(form) {
     const result = await response.json();
 
     if (result.success) {
-      form.reset();
-      if (submitBtn)  submitBtn.hidden  = true;
-      if (successMsg) successMsg.hidden = false;
+      window.location.href = '/thank-you/';
+      return;
     } else {
       throw new Error(result.message || 'Submission failed');
     }
