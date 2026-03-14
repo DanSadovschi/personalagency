@@ -1,7 +1,7 @@
 ---
 title: AI Can Build You a Website in 60 Seconds — Here's Why That's Not the Flex You Think It Is
 description: AI website builders promise a full site in under a minute. They deliver on that promise — and that's exactly the problem. Here's what they get wrong and why it still takes a human to build something that actually works.
-date: 2026-03-21
+date: 2026-03-14
 category: Web Design
 readTime: 7 min read
 canonical: https://web-orb.uk/blog/ai-website-builders-not-enough/
