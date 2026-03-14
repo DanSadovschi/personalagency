@@ -12,15 +12,10 @@ eleventyExcludeFromCollections: true
     <lastmod>{{ item.data.date | toISODate }}</lastmod>
     {%- endif %}
     <changefreq>{% if item.url == "/" %}weekly{% elif "/blog/" in item.url %}monthly{% else %}monthly{% endif %}</changefreq>
-    <priority>{% if item.url == "/" %}1.0{% elif item.url == "/projects/" or item.url == "/blog/" or item.url == "/contact/" or item.url == "/templates/" %}0.9{% else %}0.8{% endif %}</priority>
+    <priority>{% if item.url == "/" %}1.0{% elif item.url == "/projects/" or item.url == "/blog/" or item.url == "/contact/" or item.url == "/templates/" %}0.9{% elif item.url == "/privacy-policy/" or item.url == "/terms/" %}0.3{% else %}0.8{% endif %}</priority>
   </url>
 {%- endif %}
 {%- endfor %}
-  <url>
-    <loc>https://web-orb.uk/locations/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
 {%- for city in cities %}
   <url>
     <loc>https://web-orb.uk/web-design-{{ city.slug }}/</loc>
