@@ -709,8 +709,8 @@ navCtaText: "Get Started"
     .then(function (res) { return res.json(); })
     .then(function (data) {
       if (data.success) {
-        form.querySelector('.form-success').hidden = false;
-        form.reset();
+        window.location.href = '/thank-you/';
+        return;
       }
     })
     .catch(function () {})
