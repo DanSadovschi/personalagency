@@ -105,17 +105,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
         if (node.tagName === 'BR') return;
 
         if (node.tagName === 'SPAN' || node.tagName === 'EM' || node.tagName === 'STRONG') {
-          // Wrap the inline element's text content in words, preserve the wrapper
-          const childNodes = [...node.childNodes];
-          childNodes.forEach(child => processNode(child));
-
-          // Wrap the whole span in a word wrapper for animation
-          if (!node.classList.contains('word')) {
-            const outerWrap = document.createElement('span');
-            outerWrap.className = 'word';
-            node.parentNode.insertBefore(outerWrap, node);
-            outerWrap.appendChild(node);
-          }
+          // Animate the inline element as ONE unit. Do not split its text into
+          // separate animated words: nesting transformed inline-blocks inside an
+          // element that uses background-clip:text makes the browser paint the
+          // gradient against the wrong box, which leaves ghost copies of the
+          // words stacked on top of each other.
+          node.classList.add('word');
         } else {
           const childNodes = [...node.childNodes];
           childNodes.forEach(child => processNode(child));
@@ -133,6 +128,16 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
       word.style.transitionDelay = `${i * 0.04}s`;
     });
   });
+
+  // Fallback: if the browser has no IntersectionObserver, or the user prefers
+  // reduced motion, show everything immediately instead of leaving it hidden.
+  if (
+    !('IntersectionObserver' in window) ||
+    (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+  ) {
+    els.forEach(el => el.classList.add('revealed'));
+    return;
+  }
 
   // Observe for visibility
   const observer = new IntersectionObserver(

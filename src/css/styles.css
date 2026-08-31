@@ -996,6 +996,10 @@ em { font-style: normal; color: var(--text); }
   opacity: 0;
   transform: translateY(18px);
   transition: opacity 0.5s ease, transform 0.5s ease;
+  /* Give every animated word its own compositing layer so the gradient
+     headline repaints cleanly while it moves (prevents ghosted text). */
+  will-change: opacity, transform;
+  backface-visibility: hidden;
 }
 
 .text-reveal.revealed .word {
@@ -1003,12 +1007,16 @@ em { font-style: normal; color: var(--text); }
   transform: translateY(0);
 }
 
-/* Gradient text inside word wrappers — re-apply gradient per word */
-.gradient-text .word {
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* A .gradient-text span is animated as a single word unit, so it keeps the
+   gradient from the .gradient-text rule itself — no per-word re-clipping. */
+
+@media (prefers-reduced-motion: reduce) {
+  .text-reveal .word {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
 }
 
 /* ================================================================
